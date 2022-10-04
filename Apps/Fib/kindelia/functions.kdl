@@ -370,11 +370,11 @@ ctr {U120_sr_psor a b c}
 // U120.shift_right.shl_less_equal (a: (U120)) (b: (U120)) : (Equal (Bool) (U120.less_equal (U120.shift_right (U120.shift_left a b) b) a) (Bool.true))
 ctr {U120_sr_slle a b}
 
-// Apps.Fit.Interaction.get (id: (U120)) (data: (U120)) : (Apps.Fit.Interaction (Unit))
-fun (Apps_Fit_qgm id data) {
-  (Apps_Fit_qgm #256 ~) = let spawn_points = {List_cons (Fit_pos_new #26 #154) {List_cons (Fit_pos_new #26 #155) {List_cons (Fit_pos_new #25 #153) {List_nil}}}}; let hp = #100; let bat_id = #512; (Apps_Fit_5eL hp spawn_points bat_id)
-  (Apps_Fit_qgm #257 ~) = let spawn_points = {List_cons (Fit_pos_new #36 #132) {List_cons (Fit_pos_new #36 #133) {List_cons (Fit_pos_new #37 #131) {List_nil}}}}; let hp = #100; let bat_id = #513; (Apps_Fit_5eL hp spawn_points bat_id)
-  (Apps_Fit_qgm #258 ~) = let spawn_points = {List_cons (Fit_pos_new #49 #136) {List_cons (Fit_pos_new #50 #137) {List_cons (Fit_pos_new #51 #138) {List_nil}}}}; let hp = #100; let bat_id = #514; (Apps_Fit_5eL hp spawn_points bat_id)
+// Apps.Fib.Interaction.get_npc (id: (U120)) (data: (U120)) : (Apps.Fib.Interaction (Unit))
+fun (Apps_Fib_qgm id data) {
+  (Apps_Fib_qgm #256 ~) = let spawn_points = {List_cons (Fib_pos_new #26 #154) {List_cons (Fib_pos_new #26 #155) {List_cons (Fib_pos_new #25 #153) {List_nil}}}}; let hp = #100; let bat_id = #512; (Apps_Fib_5eL hp spawn_points bat_id)
+  (Apps_Fib_qgm #257 ~) = let spawn_points = {List_cons (Fib_pos_new #36 #132) {List_cons (Fib_pos_new #36 #133) {List_cons (Fib_pos_new #37 #131) {List_nil}}}}; let hp = #100; let bat_id = #513; (Apps_Fib_5eL hp spawn_points bat_id)
+  (Apps_Fib_qgm #258 ~) = let spawn_points = {List_cons (Fib_pos_new #49 #136) {List_cons (Fib_pos_new #50 #137) {List_cons (Fib_pos_new #51 #138) {List_nil}}}}; let hp = #100; let bat_id = #514; (Apps_Fib_5eL hp spawn_points bat_id)
 }
 
 // Apps.Fit.Npc.bat_cave (hp: (U120)) (spawn_points: (List (Apps.Fit.Pos))) (bat_id: (Apps.Fit.Id)) : (Apps.Fit.Interaction (Unit))
@@ -382,10 +382,10 @@ fun (Apps_Fit_5eL hp spawn_points bat_id) {
   (Apps_Fit_5eL hp spawn_points bat_id) = (Apps_Fit_cyA (Apps_Fit_AdD) @entity (Apps_Fit_cyA (Apps_Fit_OZI) @~ (Apps_Fit_cyA (Apps_Fit_fuR) @map (Apps_Fit_cyA (Apps_Fit_Q52 entity) @~ let pos = (Apps_Fit__ql spawn_points map); (Maybe_match pos (Apps_Fit_0Uh) @pos.value dup _0 _1 = pos.value; let bat = (+ (Sigma_fst _0) (<< hp #16)); let func = @state (Fit_st_crtu state bat _1 bat_id); (Apps_Fit_cyA (Apps_Fit_lXM func) @~ (Apps_Fit_cyA (Apps_Fit_75P #4095) @~ (Apps_Fit_fxk {T0}))))))))
 }
 
-// Apps.Fit.Npc.bat_cave.available_pos (list: (List (Apps.Fit.Pos))) (map: (Apps.Fit.Map)) : (Maybe (Apps.Fit.Pos))
-fun (Apps_Fit__ql list map) {
-  (Apps_Fit__ql {List_nil} ~) = {Maybe_none}
-  (Apps_Fit__ql {List_cons h t} map) = dup _2 _3 = h; dup _0 _1 = map; let val = (Fit_map_get _0 _2); (Bool_if (U120_is0 val) {Maybe_some _3} (Apps_Fit__ql t _1))
+// Apps.Fib.Npc.bat_cave.find_pos (list: (List (Apps.Fib.Pos))) (map: (Apps.Fib.Map)) : (Maybe (Apps.Fib.Pos))
+fun (Apps_Fib__ql list map) {
+  (Apps_Fib__ql {List_nil} ~) = {Maybe_none}
+  (Apps_Fib__ql {List_cons h t} map) = dup _2 _3 = h; dup _0 _1 = map; let val = (Fib_map_get _0 _2); (Bool_if (U120_is0 val) {Maybe_some _3} (Apps_Fib__ql t _1))
 }
 
 // Apps.Fit.Interaction.map.get : (Apps.Fit.Interaction (Apps.Fit.Map))
