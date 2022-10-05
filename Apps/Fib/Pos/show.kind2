@@ -1,0 +1,6 @@
+Apps.Fib.Pos.show (pos: Apps.Fib.Pos) : String {
+  let j = U120.low (Sigma.fst pos)
+  let x = U60.show (% j 256)
+  let y = U60.show (>> j 8)
+  x (String.cons ',' (String.cons ' ' (y String.nil)))
+}
