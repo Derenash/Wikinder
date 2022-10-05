@@ -2,7 +2,7 @@
 Apps.Fib.State.Update.skill (state: Apps.Fib.State) (skill_id: U120) (data: U120) (entity: Apps.Fib.Entity) : Apps.Fib.State {
   let skill  = Apps.Fib.Player.skills.get entity skill_id
   let pos    = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x entity) (Apps.Fib.Player.pos.get_y entity)
-  let delta  = Apps.Fib.Pos.get_xy_delta data
+  let delta  = Apps.Fib.Pos.Delta.get_from_data data
   match Maybe target = (Apps.Fib.Pos.modify pos delta) {
     none => state
     some => Apps.Fib.State.apply_skill state skill entity target.value
