@@ -1,0 +1,18 @@
+Apps.Fib.Pos.Delta.filled_square (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.filled_square (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.filled_square range = 
+  let r_neg = U120.sub (U120.new 0 0) range
+  let top_right    = Pair.new U120 U120 range range
+  let top_left     = Pair.new U120 U120 r_neg range
+  let bottom_right = Pair.new U120 U120 range r_neg 
+  let bottom_left  = Pair.new U120 U120 r_neg r_neg
+  let edges        = [top_right, top_left, bottom_right, bottom_left]
+  let hor_ver      = Apps.Fib.Pos.Delta.filled_square.aux (U120.dec range) range
+  List.concat edges hor_ver
+        
+// Auxiliar Function 
+Apps.Fib.Pos.Delta.filled_square.aux (variation: U120) (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.filled_square.aux variation range =
+  let horizontal = Apps.Fib.Pos.Delta.horizontal variation range
+  let vertical   = Apps.Fib.Pos.Delta.vertical   variation range
+  List.concat (Apps.Fib.Pos.Delta.filled_square (U120.dec range)) (List.concat vertical horizontal)

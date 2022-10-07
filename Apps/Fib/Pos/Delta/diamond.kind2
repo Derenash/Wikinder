@@ -1,0 +1,22 @@
+Apps.Fib.Pos.Delta.diamond (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.diamond (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.diamond range = 
+  Apps.Fib.Pos.Delta.diamond.aux (U120.new 0 1) (U120.dec range)
+
+Apps.Fib.Pos.Delta.diamond.aux (x: U120) (y: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.diamond.aux limit (U120.new 0 0)  =
+  let m_x = U120.sub (U120.new 0 0) limit
+  let top = Pair.new U120 U120 (U120.new 0 0) limit
+  let bot = Pair.new U120 U120 (U120.new 0 0) m_x
+  let rgt = Pair.new U120 U120 limit          (U120.new 0 0)
+  let lft = Pair.new U120 U120 m_x            (U120.new 0 0)
+  List.cons top (List.cons bot (List.cons rgt (List.cons lft List.nil)))
+Apps.Fib.Pos.Delta.diamond.aux x y =
+  let minus_x = U120.sub (U120.new 0 0) x
+  let minus_y = U120.sub (U120.new 0 0) y
+  let pos_pos = Pair.new U120 U120 x       y
+  let pos_neg = Pair.new U120 U120 x       minus_y
+  let neg_pos = Pair.new U120 U120 minus_x y
+  let neg_neg = Pair.new U120 U120 minus_x minus_y
+  let recursn = Apps.Fib.Pos.Delta.diamond.aux (U120.inc x) (U120.dec y)
+  List.cons pos_pos (List.cons pos_neg (List.cons neg_pos (List.cons neg_neg recursn)))

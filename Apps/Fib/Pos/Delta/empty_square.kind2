@@ -1,0 +1,13 @@
+Apps.Fib.Pos.Delta.empty_square (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.empty_square (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.empty_square range = 
+  let r_neg = U120.sub (U120.new 0 0) range
+  let top_right    = Pair.new U120 U120 range range
+  let top_left     = Pair.new U120 U120 r_neg range
+  let bottom_right = Pair.new U120 U120 range r_neg 
+  let bottom_left  = Pair.new U120 U120 r_neg r_neg
+  let edges        = [top_right, top_left, bottom_right, bottom_left]
+  let horizontal   = Apps.Fib.Pos.Delta.horizontal (U120.dec range) range
+  let vertical     = Apps.Fib.Pos.Delta.vertical   (U120.dec range) range
+  let sides        = List.concat horizontal vertical
+  List.concat sides edges

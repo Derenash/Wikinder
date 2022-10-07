@@ -1,0 +1,69 @@
+Main { 
+  let range = U120.new 0 2
+  let coord = U120.new 0 4
+  let coord = Apps.Fib.Pos.new coord coord
+  let horizontal = Apps.Fib.Pos.Delta.horizontal (U120.dec range) range
+  let vertical   = Apps.Fib.Pos.Delta.vertical   (U120.dec range) range
+  let empty_square = Apps.Fib.Pos.Delta.empty_square range
+  let points = Apps.Fib.Pos.Delta.cross range
+  let diamond = Apps.Fib.Pos.Delta.diamond range
+  //let delta = List.concat horizontal vertical
+  //let list = Apps.Fib.Pos.range coord empty_square
+  //let list = Apps.Fib.Pos.range coord points
+  let list = Apps.Fib.Pos.range coord diamond
+  List.map list (x => Apps.Fib.Pos.show x)
+}
+
+
+      //0 1 2 3 4 5 6 7 8 9 0
+      //. . . . . . . . . . . 0
+      //. . . . . . . . . . . 9
+      //. . . . . . . . . . . 8
+      //. . . . . . . . . . . 7
+      //. . . . . . . . . . . 6
+      //. . . . . . . . . . . 5
+      //. . . . . . . . . . . 4
+      //. . . . . . . . . . . 3
+      //. . . . . . . . . . . 2
+      //. . . . . . . . . . . 1
+      //. . . . . . . . . . . 0
+      
+
+
+      //0 1 2 3 4 5 6
+      //. . x x x x x 6
+      //. . x . . . x 5 
+      //. . x . . . x 4
+      //. . x . . . x 3
+      //. . x x x x x 2
+      //. . . . . . . 1
+      //. . . . . . . 0
+
+
+
+
+      //0 1 2 3 4 5 6
+      //. . . . l . . 6
+      //. . . . l . . 5 
+      //. . l l . l l 4
+      //. . . . l . . 3
+      //. . . . l . . 2
+      //. . . . . . . 1
+      //. . . . . . . 0
+
+
+       //(Neg)        (Pos)
+
+      //6 4 3 2 1 0 1 2 3 4 5
+      //. . . . . . . . . . . +5
+      //. . . . . o . . . . . +4
+      //. . . . o . o . . . . +3
+      //. . . o . . . o . . . +2
+      //. . o . . . . . o . . +1
+      //. o . . . . . . . o . +0
+      //. . o . . . . . o . . -1
+      //. . . o . . . o . . . -2
+      //. . . . o . o . . . . -3
+      //. . . . . o . . . . . -4
+      //. . . . . . . . . . . -5
+
