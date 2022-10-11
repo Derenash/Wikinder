@@ -1,0 +1,4 @@
+Apps.Fib.Interaction.pass : Apps.Fib.Interaction Unit {
+  (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
+    Apps.Fib.Interaction.Result.new Unit.new state player target frame List.nil
+}

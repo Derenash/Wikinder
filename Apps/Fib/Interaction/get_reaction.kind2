@@ -1,0 +1,5 @@
+Apps.Fib.Interaction.get_reaction (id: Apps.Fib.Id) : U120 -> (Pair (Apps.Fib.Interaction Unit) (Apps.Fib.Interaction Unit))
+Apps.Fib.Interaction.get_reaction (U120.new 0 512) = Apps.Fib.Monster.bat (U120.new 0 512)
+Apps.Fib.Interaction.get_reaction (U120.new 0 513) = Apps.Fib.Monster.bat (U120.new 0 513)
+Apps.Fib.Interaction.get_reaction (U120.new 0 514) = Apps.Fib.Monster.bat (U120.new 0 514)
+Apps.Fib.Interaction.get_reaction id               = (n: U120) => (Pair.new Apps.Fib.Interaction.pass Apps.Fib.Interaction.pass)

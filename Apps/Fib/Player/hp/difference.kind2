@@ -1,0 +1,6 @@
+#kdl_name = Fib_plr_hp_d
+Apps.Fib.Player.hp.difference (a: Apps.Fib.Player) (b: Apps.Fib.Player) : U120 {
+  let a = Apps.Fib.Player.hp.get a
+  let b = Apps.Fib.Player.hp.get b 
+  U120.sub_saturated a b
+}

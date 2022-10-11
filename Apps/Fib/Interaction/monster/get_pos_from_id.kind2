@@ -1,0 +1,7 @@
+Apps.Fib.Interaction.monster.get_pos_from_id (id: Apps.Fib.Id) : Apps.Fib.Interaction Apps.Fib.Pos {
+  do Apps.Fib.Interaction {
+    ask monster = Apps.Fib.Interaction.entity.get_from_id id
+    let pos = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x monster) (Apps.Fib.Player.pos.get_y monster)
+    return pos
+  }
+}

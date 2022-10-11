@@ -1,7 +1,11 @@
-// Apps.Fib.Monster.bat.reaction (bat_pos: Apps.Fib.Pos): Apps.Fib.Interaction Unit {
-//   do Apps.Fib.Interaction {
-//     let repel        = (U120.new 0 3)
-//     ask attacker_pos = Apps.Fib.Interaction.player.get_pos
-//     let destination  = Apps.Fib.Pos.move_away attacker_pos bat_pos repel
-//   }
-// }
+Apps.Fib.Monster.bat.reaction (id: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask pos          = Apps.Fib.Interaction.monster.get_pos_from_id id
+    let repel        = (U120.new 0 3)
+    ask map          = Apps.Fib.Interaction.map.get
+    ask attacker_pos = Apps.Fib.Interaction.player.get_pos
+    let destination  = Apps.Fib.Pos.move_away map attacker_pos pos repel
+    // move 
+    Apps.Fib.Interaction.pass
+  }
+}
