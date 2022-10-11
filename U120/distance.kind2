@@ -1,15 +1,27 @@
 U120.distance (n: U120) (m: U120) : U120 {
-  if (U120.greater_than n m) {
-    U120.sub n m
+  let nn = (U120.is_neg n)
+  let nm = (U120.is_neg m)
+  let xor = Bool.xor nn nm 
+
+  if xor {
+    U120.add (U120.abs n) (U120.abs m)
   }
   else {
-    U120.sub_saturated m n
+
+    if (U120.greater_than n m) {
+      U120.sub n m
+    }
+    else {
+     U120.sub_saturated m n
+    }
   }
 }
 
 // Main {
-//   let m5 = (U120.sub (U120.new 0 0) (U120.new 0 5))
-//   let x = U120.distance (U120.new 0 2) m5
+//   let m54164 = (U120.sub (U120.new 0 0) (U120.new 0 54164))
+//   let m3 = (U120.sub (U120.new 0 0) (U120.new 0 3))
+//   let x = U120.distance m3 (U120.new 0 3)
+//   x
 
-//   U120.add x (U120.new 0 7)
+//   //U120.add x (U120.new 0 7)
 // }

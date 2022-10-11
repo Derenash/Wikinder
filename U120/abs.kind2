@@ -1,0 +1,7 @@
+U120.abs (n: U120) : U120 {
+  if (U120.is_neg n) { 
+    U120.inc(U120.bitwise_complement n)
+  } else { 
+    n
+  }
+}
