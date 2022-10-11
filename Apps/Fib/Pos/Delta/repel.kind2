@@ -1,0 +1,30 @@
+Apps.Fib.Pos.Delta.repel (delta: Pair U120 U120) (str: U120) : Pair U120 U120 
+Apps.Fib.Pos.Delta.repel delta (U120.new 0 0) = Pair.new (U120.new 0 0) (U120.new 0 0)
+Apps.Fib.Pos.Delta.repel delta str =
+  let dx = U120.distance (U120.new 0 0) (Pair.fst delta)
+  let dy = U120.distance (U120.new 0 0) (Pair.snd delta) 
+  
+  let dist = (U120.add dx dy)
+  
+  let x_div = U120.div_mod (U120.mul dx str) dist
+  let y_div = U120.div_mod (U120.mul dy str) dist
+
+  let new_x = Pair.fst x_div
+  let new_y = Pair.fst y_div
+
+  let x_mod = Pair.snd x_div
+  let y_mod = Pair.snd y_div
+
+  if (U120.equal x_mod y_mod) {
+    Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) new_y)
+  }
+  else {
+
+    if (U120.greater_than x_mod y_mod) {
+      Pair.new (U120.neg (Pair.fst delta) (U120.inc new_x)) (U120.neg (Pair.snd delta) new_y)
+    }
+    else {
+      Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) (U120.inc new_y))
+    }
+  }
+
