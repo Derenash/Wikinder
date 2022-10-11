@@ -1,4 +1,0 @@
-Apps.Fib.Interaction.monster.reaction (id: Apps.Fib.Id) (damage: U120) : Pair (Apps.Fib.Interaction Unit) (Apps.Fib.Interaction Unit) {
-  let reaction = Apps.Fib.Interaction.get_reaction id
-  reaction damage
-}
