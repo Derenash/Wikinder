@@ -1,0 +1,15 @@
+U120.distance (n: U120) (m: U120) : U120 {
+  if (U120.greater_than n m) {
+    U120.sub n m
+  }
+  else {
+    U120.sub_saturated m n
+  }
+}
+
+// Main {
+//   let m5 = (U120.sub (U120.new 0 0) (U120.new 0 5))
+//   let x = U120.distance (U120.new 0 2) m5
+
+//   U120.add x (U120.new 0 7)
+// }
