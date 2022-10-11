@@ -1,0 +1,4 @@
+Apps.Fib.Monster.bat (id: Apps.Fib.Id) : U120 -> Pair (Apps.Fib.Interaction Unit) (Apps.Fib.Interaction Unit) {
+  (damage: U120) =>
+    Pair.new (Apps.Fib.Monster.bat.reaction id) (Apps.Fib.Monster.bat.death damage)
+}

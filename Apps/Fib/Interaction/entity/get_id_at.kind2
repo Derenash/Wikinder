@@ -1,0 +1,7 @@
+Apps.Fib.Interaction.entity.get_id_at (pos: Apps.Fib.Pos ) : Apps.Fib.Interaction Apps.Fib.Player {
+  do Apps.Fib.Interaction {
+    ask map = Apps.Fib.Interaction.map.get
+    let id  = Apps.Fib.Map.get map pos
+    return id
+  }
+}

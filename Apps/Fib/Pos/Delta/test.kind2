@@ -2,14 +2,14 @@ Main {
   let range = U120.new 0 2
   let coord = U120.new 0 4
   let coord = Apps.Fib.Pos.new coord coord
-  let horizontal = Apps.Fib.Pos.Delta.horizontal (U120.dec range) range
-  let vertical   = Apps.Fib.Pos.Delta.vertical   (U120.dec range) range
+  let horizontal   = Apps.Fib.Pos.Delta.horizontal (U120.dec range) range
+  let vertical     = Apps.Fib.Pos.Delta.vertical   (U120.dec range) range
   let empty_square = Apps.Fib.Pos.Delta.empty_square range
-  let points = Apps.Fib.Pos.Delta.cross range
+  let points  = Apps.Fib.Pos.Delta.cross range
   let diamond = Apps.Fib.Pos.Delta.diamond range
   //let delta = List.concat horizontal vertical
-  //let list = Apps.Fib.Pos.range coord empty_square
-  //let list = Apps.Fib.Pos.range coord points
+  //let list  = Apps.Fib.Pos.range coord empty_square
+  //let list  = Apps.Fib.Pos.range coord points
   let list = Apps.Fib.Pos.range coord diamond
   List.map list (x => Apps.Fib.Pos.show x)
 }

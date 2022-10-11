@@ -1,5 +1,31 @@
-Apps.Fib.Interaction.damage (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
+// Damage should
+//   Reduce hp
+//   Return difference between old hp and new hp
+//   Trigger reaction effects
+//   Trigger death effects when killed
+
+Apps.Fib.Interaction.damage (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
   do Apps.Fib.Interaction {
-    
+    let func     = (player: Apps.Fib.Player) => Apps.Fib.Player.damage player value
+    ask before   = Apps.Fib.Interaction.entity.get_at pos
+    ask            Apps.Fib.Interaction.entity.mut_at func pos
+    ask after    = Apps.Fib.Interaction.entity.get_at pos
+    let real_dmg = Apps.Fib.Player.hp.difference before after
+    let health   = Apps.Fib.Player.hp.get after
+    ask            Apps.Fib.Interaction.damage.if real_dmg health pos 
+    return real_dmg
   }
 }
+
+Apps.Fib.Interaction.damage.if (real_dmg: U120) (health: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit
+Apps.Fib.Interaction.damage.if (U120.new 0 0) health pos = do Apps.Fib.Interaction {return (U120.new 0 0)}
+Apps.Fib.Interaction.damage.if real_dmg       health pos = 
+  do Apps.Fib.Interaction {
+    let event   = Apps.Fib.Event.damage (Sigma.fst pos) real_dmg
+    ask           Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage (Sigma.fst pos) real_dmg)
+    ask id      = Apps.Fib.Interaction.entity.get_id_at pos
+    let react   = (Apps.Fib.Interaction.get_reaction id) real_dmg
+    let result  = Bool.if (U120.is_zero health) (Pair.snd react) (Pair.fst react) 
+    ask result
+    return Unit.new 
+  }

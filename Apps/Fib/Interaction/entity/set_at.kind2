@@ -1,0 +1,8 @@
+Apps.Fib.Interaction.entity.set_at (new_entity: Apps.Fib.Entity) (pos: Apps.Fib.Pos): Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask entity_id = Apps.Fib.Interaction.entity.get_id_at pos
+    let func = (table: Apps.Fib.Table) => Apps.Fib.Table.set table new_entity entity_id
+    ask Apps.Fib.Interaction.table.mut func
+    return Unit.new
+  }
+}

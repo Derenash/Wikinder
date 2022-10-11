@@ -2,14 +2,10 @@ Apps.Fib.Player : Type {
   Apps.Fib.Entity
 }
 
-//         2174634716 000000000000000000000000000010000001100111100100101011011100
-// 113313552593458289 000110010010100100100001001101100010100100100001010001110001
-// |000000|000000|000000|000000|000010|000001|100111100100|101011011100|00|01|1001001010010010|000100110110|001010010010|00010100|01110001
-
 // Char:
 // xy: u16 - Position
-// xp: u12 - Experience
 // hp: u10 - Current HP
+// xp: u12 - Experience
 // of: u16 - Sell offer
 // rt: u3  - Root counter
 // sl: u3  - Silence counter
@@ -25,8 +21,8 @@ Apps.Fib.Player : Type {
 
 // 0   - 7  :  Pos x 
 // 8   - 15 :  Pos y
-// 16  - 27 :  Experience 
-// 28  - 37 :  Current HP 
+// 16  - 25 :  Current HP 
+// 26  - 37 :  Experience 
 // 38  - 53 :  Sell offer 
 // 54  - 56 :  Root counter 
 // 57  - 59 :  Silence counter 
