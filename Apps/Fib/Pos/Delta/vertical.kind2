@@ -1,0 +1,13 @@
+Apps.Fib.Pos.Delta.vertical (variation: U120) (range: U120): List (Pair U120 U120)
+Apps.Fib.Pos.Delta.vertical (U120.new 0 0) range = 
+  let top = Pair.new range (U120.new 0 0)
+  let bot = Pair.new(U120.sub (U120.new 0 0) range) (U120.new 0 0)
+  [top bot]
+Apps.Fib.Pos.Delta.vertical variation range = 
+  let v_neg = U120.sub (U120.new 0 0) variation
+  let r_neg = U120.sub (U120.new 0 0) range
+  let t_rgt = Pair.new range variation
+  let b_rgt = Pair.new range v_neg
+  let t_lft = Pair.new r_neg variation
+  let b_lft = Pair.new r_neg v_neg
+  List.concat (Apps.Fib.Pos.Delta.vertical (U120.dec variation) range) ([t_rgt, b_rgt, t_lft, b_lft])

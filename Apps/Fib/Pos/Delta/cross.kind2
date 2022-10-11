@@ -1,0 +1,11 @@
+Apps.Fib.Pos.Delta.cross (range: U120) : List (Pair U120 U120) 
+Apps.Fib.Pos.Delta.cross (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.cross range = 
+  let edges = (
+    let top = Pair.new U120.0 range
+    let bot = Pair.new range U120.0
+    let lft = Pair.new U120.0 (U120.sub U120.0 range)
+    let rgt = Pair.new (U120.sub U120.0 range) U120.0
+    [top bot lft rgt]
+  )
+List.concat (Apps.Fib.Pos.Delta.cross (U120.dec range)) edges

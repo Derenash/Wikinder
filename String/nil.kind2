@@ -1,2 +1,3 @@
 // Automatically derived from String/_.type
-String.nil #String_nil : (String)
+#kdl_name = String_nil
+String.nil  : (String)
