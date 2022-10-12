@@ -1,0 +1,6 @@
+// TODO: Add skill to first slot available
+Apps.Fib.Interaction.skill.add (skill_id: U120) : Apps.Fib.Interaction Bool {
+  do Apps.Fib.Interaction {
+    return Bool.false
+  }
+}

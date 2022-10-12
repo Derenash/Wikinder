@@ -1,8 +1,10 @@
 // Damage should
-//   Reduce hp
-//   Return difference between old hp and new hp
-//   Trigger reaction effects
-//   Trigger death effects when killed
+//  x  Reduce hp
+//  x  Return difference between old hp and new hp
+//  x  Trigger reaction effects
+//  x  Trigger death effects when killed
+//     Delete Character from the map and table
+
 
 Apps.Fib.Interaction.damage (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
   do Apps.Fib.Interaction {
@@ -24,8 +26,18 @@ Apps.Fib.Interaction.damage.if real_dmg       health pos =
     let event   = Apps.Fib.Event.damage (Sigma.fst pos) real_dmg
     ask           Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage (Sigma.fst pos) real_dmg)
     ask id      = Apps.Fib.Interaction.entity.get_id_at pos
-    let react   = (Apps.Fib.Interaction.get_reaction id) real_dmg
-    let result  = Bool.if (U120.is_zero health) (Pair.snd react) (Pair.fst react) 
-    ask result
+    let results = (Apps.Fib.Interaction.get_reaction id) real_dmg
+    ask Apps.Fib.Interaction.damage.result (U120.is_zero health) (Pair.fst results) (Pair.snd results) id pos
+//  ask Apps.Fib.Interaction.delete (U120.greater_equal id (U120.new 0 1024)) pos
     return Unit.new 
   }
+
+Apps.Fib.Interaction.damage.result (died: Bool) (react: Apps.Fib.Interaction Unit) (death: Apps.Fib.Interaction Unit) (id: Apps.Fib.Id) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit
+Apps.Fib.Interaction.damage.result Bool.false react death id pos = react
+Apps.Fib.Interaction.damage.result Bool.true  react death id pos =
+  do Apps.Fib.Interaction {
+    ask death
+    return Unit.new
+    // ask Apps.Fib.Interaction.delete (U120.greater_equal id (U120.new 0 1024)) pos
+  }
+

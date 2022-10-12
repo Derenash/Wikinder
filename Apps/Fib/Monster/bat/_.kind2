@@ -1,4 +1,15 @@
 Apps.Fib.Monster.bat (id: Apps.Fib.Id) : U120 -> Pair (Apps.Fib.Interaction Unit) (Apps.Fib.Interaction Unit) {
   (damage: U120) =>
-    Pair.new (Apps.Fib.Monster.bat.reaction id) (Apps.Fib.Monster.bat.death damage)
+    let run_distance = U120.new 0 4
+    
+    let cave = Apps.Fib.Monster.bat.get_cave id
+    (Pair.new
+      (Apps.Fib.Monster.bat.reaction run_distance id)
+      (Apps.Fib.Monster.bat.death cave damage))
 }
+
+Apps.Fib.Monster.bat.get_cave (id: Apps.Fib.Id): Apps.Fib.Id 
+Apps.Fib.Monster.bat.get_cave (U120.new 0 512) = (U120.new 0 128) 
+Apps.Fib.Monster.bat.get_cave (U120.new 0 513) = (U120.new 0 129) 
+Apps.Fib.Monster.bat.get_cave (U120.new 0 514) = (U120.new 0 130) 
+Apps.Fib.Monster.bat.get_cave n = n

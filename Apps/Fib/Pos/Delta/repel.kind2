@@ -1,13 +1,13 @@
-Apps.Fib.Pos.Delta.repel (delta: Pair U120 U120) (str: U120) : Pair U120 U120 
+Apps.Fib.Pos.Delta.repel (delta: Pair U120 U120) (strength: U120) : Pair U120 U120 
 Apps.Fib.Pos.Delta.repel delta (U120.new 0 0) = Pair.new (U120.new 0 0) (U120.new 0 0)
-Apps.Fib.Pos.Delta.repel delta str =
+Apps.Fib.Pos.Delta.repel delta strength =
   let dx = U120.distance (U120.new 0 0) (Pair.fst delta)
   let dy = U120.distance (U120.new 0 0) (Pair.snd delta) 
   
   let dist = (U120.add dx dy)
   
-  let x_div = U120.div_mod (U120.mul dx str) dist
-  let y_div = U120.div_mod (U120.mul dy str) dist
+  let x_div = U120.div_mod (U120.mul dx strength) dist
+  let y_div = U120.div_mod (U120.mul dy strength) dist
 
   let new_x = Pair.fst x_div
   let new_y = Pair.fst y_div

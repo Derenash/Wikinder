@@ -1,3 +1,21 @@
-Apps.Fib.Monster.bat.death (damage: U120) : Apps.Fib.Interaction Unit {
-  Apps.Fib.Interaction.pass
+// x Set Cave Cooldown to 0
+// x Give item to player (TODO: CREATE ADD SKILL)
+//   Give Experience to player
+//   Save Events
+//     Exp_get
+//     Add_item
+  
+Apps.Fib.Monster.bat.death (cave_id: Apps.Fib.Id) (damage: U120) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    // Sets the Cave Cooldown to 0
+    ask Apps.Fib.Interaction.entity.mut_at_id ((x : U120) => (U120.new 0 0)) cave_id
+    // Adds bat_wings to player
+    ask Apps.Fib.Interaction.skill.add (U120.new 0 32)
+    // 
+
+    return Unit.new
+  }
 }
+
+// Delete Bat from Map   
+// Delete Bat from Table

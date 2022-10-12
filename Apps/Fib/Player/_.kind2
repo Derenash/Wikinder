@@ -9,7 +9,7 @@ Apps.Fib.Player : Type {
 // of: u16 - Sell offer
 // rt: u3  - Root counter
 // sl: u3  - Silence counter
-// gd: u12 - Gold, kgt amount stored in a character 
+// gd: u12 - Gold, money stored in a character 
 // cd: u12 - Cooldown, when is the next turn that player can move
 // skills:
 // - skill_0: u6
@@ -43,3 +43,12 @@ Apps.Fib.Player : Type {
 // - 8 bits exponent (e)
 // - value = (1/m) * 2 ^ (1 + e)
 // - https://gist.githubusercontent.com/VictorTaelin/81c3f6fffaaf14573728b3100d3d3535/raw/67b5389ffec79edd97fef1203dbce8501cf23649/12-bit-unsigned-floating-point-values.txt
+
+// Game Ids
+// 0    - 1    - Passável
+// 1    - 2    - Não passável 
+// 2    - 128  - Coisas que não guardam informações
+// 128  - 256  - Estado de coisas fixas que guardam informações mas n se mexem
+// 256  - 512  - Npcs      - Guardam sua posição 16 bits pos
+// 512  - 1024 - Monstros  - Guardam sua posição 16 bits pos 10 bits vida
+// 1024 - 4096 - Jogadores - Guardam sua posicão 16 bits pos 10 bits vida 12 bits xp
