@@ -2,7 +2,7 @@ type Apps.Fib.Event {
   damage    (pos: U120) (value: U120)
   heal      (pos: U120) (value: U120)
   movement  (ori: U120) (des  : U120)
-  skill     (pos: U120) (skill: U120) (target: U120)
+  skill     (ori: U120) (skill: U120) (target: U120)
   exp_add   (pos: U120) (value: U120)
   cc_add    (pos: U120) (type : U120) (value : U120)
   gold_add  (pos: U120) (value: U120)
