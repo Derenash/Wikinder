@@ -1,9 +1,3 @@
-Apps.Fib.Interaction.damage.area (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120
-Apps.Fib.Interaction.damage.area value (List.cons r pos tail) = 
-  do Apps.Fib.Interaction {
-    ask dmg1 = Apps.Fib.Interaction.damage value pos
-    if (U120.is_zero dmg1) { Apps.Fib.Interaction.pass }
-    else { Apps.Fib.Interaction.event (Apps.Fib.Event.damage (Sigma.fst pos) dmg1) }
-    ask dmg2 = Apps.Fib.Interaction.damage.area value tail
-    return (U120.add dmg1 dmg2)
-  }
+Apps.Fib.Interaction.damage.area (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
+  Apps.Fib.Interaction.area U120 ((dmg: U120) => (pos: Apps.Fib.Pos) => (Apps.Fib.Interaction.damage dmg pos)) (U120.new 0 0) coords
+}
