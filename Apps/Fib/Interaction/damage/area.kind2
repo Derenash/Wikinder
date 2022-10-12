@@ -1,3 +1,10 @@
 Apps.Fib.Interaction.damage.area (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
-  Apps.Fib.Interaction.area U120 ((dmg: U120) => (pos: Apps.Fib.Pos) => (Apps.Fib.Interaction.damage dmg pos)) (U120.new 0 0) coords
+  let func = 
+    (prev_dmg: U120) =>
+    (pos: Apps.Fib.Pos) => 
+      do Apps.Fib.Interaction {
+        ask dmg = Apps.Fib.Interaction.damage value pos
+        return (U120.add prev_dmg dmg)
+      }
+  Apps.Fib.Interaction.area U120 (func) (U120.new 0 0) coords
 }
