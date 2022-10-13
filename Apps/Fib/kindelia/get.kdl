@@ -1,4 +1,0 @@
-run {
-  ask x = (Call 'Fit' {Fit_Act_next #0});
-  (Done x)
-}

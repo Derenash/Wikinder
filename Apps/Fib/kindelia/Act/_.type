@@ -1,3 +1,4 @@
 type Apps.Fib.kindelia.Act {
   next (code: U120)
+  parse
 }

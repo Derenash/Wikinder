@@ -1,0 +1,3 @@
+Apps.Fib.Thing : Type {
+  List (Pair String String)
+}

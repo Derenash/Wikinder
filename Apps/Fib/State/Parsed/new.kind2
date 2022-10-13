@@ -1,0 +1,3 @@
+// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/State/Parsed/_.type
+#kdl_name = Fib_st_parsd
+Apps.Fib.State.Parsed.new (npcs: (List Apps.Fib.Thing)) (mons: (List Apps.Fib.Thing)) (play: (List Apps.Fib.Thing)) : (Apps.Fib.State.Parsed)

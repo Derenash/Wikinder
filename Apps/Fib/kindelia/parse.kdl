@@ -1,0 +1,4 @@
+run {
+  ask x = (Call 'Fib' {Fib_kdl_a_p});
+  (Done x)
+}

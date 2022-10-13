@@ -1,0 +1,9 @@
+Main {
+  let state  = Apps.Fib.State.init_with_players
+  let map    = Apps.Fib.State.get_map state
+  let table  = Apps.Fib.State.get_table state
+  let map_s  = Apps.Fib.Map.show (U120.new 0 0) (U120.new 0 0) (U120.new 0 140) (U120.new 0 140) map
+  let tbl_s  = Apps.Fib.State.parse state
+  tbl_s
+}
+

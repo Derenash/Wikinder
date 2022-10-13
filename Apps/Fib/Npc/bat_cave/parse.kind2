@@ -1,0 +1,7 @@
+Apps.Fib.Npc.bat_cave.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List (Pair String String) {
+  [
+    (Pair.new "type" "bat cave")
+    (Pair.new "id" ((U120.show (U120.sub id (U120.new 0 128))) ""))
+    (Pair.new "cd" ((U120.show entity) "")) 
+  ]
+}

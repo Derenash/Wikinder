@@ -1,0 +1,7 @@
+U120.log2 (n: U120) : U120 {
+  U120.log2.go (U120.new 0 0) (U120.shift_right n (U120.new 0 1))
+}
+
+U120.log2.go (count: U120) (n: U120) : U120
+U120.log2.go count (U120.new 0 0) = count
+U120.log2.go count n              = U120.log2.go (U120.inc count) (U120.shift_right n (U120.new 0 1))

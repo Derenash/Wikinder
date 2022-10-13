@@ -1,0 +1,9 @@
+Apps.Fib.Monster.bat.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List (Pair String String) {
+  [
+    (Pair.new "type" "bat")
+    (Pair.new "id" ((U120.show (U120.sub id (U120.new 0 512))) ""))
+    (Pair.new "x"  ((U120.show (Apps.Fib.Player.pos.get_x entity)) ""))
+    (Pair.new "y"  ((U120.show (Apps.Fib.Player.pos.get_y entity)) ""))
+    (Pair.new "hp" ((U120.show (Apps.Fib.Player.hp.get entity)) ""))
+  ]
+}

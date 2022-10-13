@@ -4,9 +4,8 @@ Apps.Fib.Player : Type {
 
 // Char:
 // xy: u16 - Position
-// hp: u10 - Current HP
+// hp: u14 - Current HP
 // xp: u12 - Experience
-// of: u16 - Sell offer
 // rt: u3  - Root counter
 // sl: u3  - Silence counter
 // gd: u12 - Gold, money stored in a character 
@@ -18,31 +17,25 @@ Apps.Fib.Player : Type {
 // - skill_3: u6
 // - skill_4: u6
 // - skill_5: u6
+// - skill_6: u6
+// - skill_7: u6
 
 // 0   - 7  :  Pos x 
 // 8   - 15 :  Pos y
-// 16  - 25 :  Current HP 
-// 26  - 37 :  Experience 
-// 38  - 53 :  Sell offer 
-// 54  - 56 :  Root counter 
-// 57  - 59 :  Silence counter 
-// 60  - 71 :  Gold 
-// 72  - 83 :  Cooldown 
-// 84  - 89 :  Skill 0 
-// 90  - 95 :  Skill 1 
-// 96  - 101 : Skill 2 
-// 102 - 107 : Skill 3 
-// 108 - 113 : Skill 4 
-// 114 - 119 : Skill 5 
-
-// type sell: 16 bits
-// -  4 bits : skill_id
-// - 12 bits : float_12
-// type float_12: 12 bits
-// - 4 bits mantissa (m)
-// - 8 bits exponent (e)
-// - value = (1/m) * 2 ^ (1 + e)
-// - https://gist.githubusercontent.com/VictorTaelin/81c3f6fffaaf14573728b3100d3d3535/raw/67b5389ffec79edd97fef1203dbce8501cf23649/12-bit-unsigned-floating-point-values.txt
+// 16  - 29 :  HP
+// 30  - 41 :  XP
+// 42  - 44 :  Root counter
+// 45  - 47 :  Silence counter
+// 48  - 59 :  Gold
+// 60  - 71 :  Cooldown
+// 72  - 77 :  Skill 0
+// 78  - 83 :  Skill 1
+// 84  - 89 :  Skill 2
+// 90  - 95 :  Skill 3
+// 96  - 101:  Skill 4
+// 102 - 107:  Skill 5
+// 108 - 113:  Skill 6
+// 114 - 119:  Skill 7
 
 // Game Ids
 // 0    - 1    - Passável

@@ -1,35 +1,23 @@
 // TODO: update to new Player format
 #kdl_name = Fib_plr_show
-Apps.Fib.Player.show (player: Apps.Fib.Player) : String {
-  let list = 
+Apps.Fib.Player.show (player: Apps.Fib.Player) : List (Pair String String) {
     [
-      (Pair.new "Pos x:    " (U120.new 0 8 )) // (Pair.new (U120.new 0 8 ) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Pos y:    " (U120.new 0 8 )) // (Pair.new (U120.new 0 8 ) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Exp:      " (U120.new 0 12)) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Health:   " (U120.new 0 12)) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Offer:    " (U120.new 0 16)) // (Pair.new (U120.new 0 16) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Root:     " (U120.new 0 2 )) // (Pair.new (U120.new 0 2 ) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Silence:  " (U120.new 0 2 )) // (Pair.new (U120.new 0 2 ) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Gold:     " (U120.new 0 12)) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Cooldown: " (U120.new 0 12)) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill a:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill b:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill c:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill d:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill e:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
-      (Pair.new "Skill f:  " (U120.new 0 6 )) // (Pair.new (U120.new 0 12) ((v : U120) => (Show.to_string (U120.show v)))))
+      (Pair.new "x"  ((U120.show (Apps.Fib.Player.pos.get_x player) ) ""))  
+      (Pair.new "y"  ((U120.show (Apps.Fib.Player.pos.get_y player) ) ""))  
+      (Pair.new "hp" ((U120.show (Apps.Fib.Player.hp.get    player) ) "")) 
+      (Pair.new "xp" ((U120.show (Apps.Fib.Player.xp.get    player) ) "")) 
+      (Pair.new "rt" ((U120.show (Apps.Fib.Player.rt.get    player) ) ""))  
+      (Pair.new "sl" ((U120.show (Apps.Fib.Player.sl.get    player) ) ""))  
+      (Pair.new "gd" ((U120.show (Apps.Fib.Player.gd.get    player) ) "")) 
+      (Pair.new "cd" ((U120.show (Apps.Fib.Player.cd.get    player) ) "")) 
+      (Pair.new "s0" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 0)) ) ""))  
+      (Pair.new "s1" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 1)) ) ""))  
+      (Pair.new "s2" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 2)) ) ""))  
+      (Pair.new "s3" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 3)) ) ""))  
+      (Pair.new "s4" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 4)) ) ""))  
+      (Pair.new "s5" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 5)) ) ""))  
+      (Pair.new "s6" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 6)) ) ""))  
+      (Pair.new "s7" ((U120.show (Apps.Fib.Player.skills.get player (U120.new 0 7)) ) ""))  
     ]
-  let func =
-    (cur: Pair String U120) =>
-    (acc: Pair String U120) =>
-      let bit = Pair.snd acc
-      let len = Pair.snd cur
-      let str = Show.to_string (U120.show (U120.bitwise_and bit (U120.sub (U120.shift_left (U120.new 0 1) len) (U120.new 0 1))))
-      let str = String.concat (String.concat (Pair.fst acc) (String.cons 10 (Pair.fst cur))) str
-      let acc = Pair.new str (U120.shift_right bit len)
-      acc
-  let acc  = Pair.new String.nil player
-  let fold = List.foldl (Pair String U120) (Pair String U120) acc func list
-  Pair.fst fold
 }
 

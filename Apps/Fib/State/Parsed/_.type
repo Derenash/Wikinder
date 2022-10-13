@@ -1,0 +1,6 @@
+type Apps.Fib.State.Parsed {
+  new
+    (npcs : List Apps.Fib.Thing) 
+    (mons : List Apps.Fib.Thing) 
+    (play : List Apps.Fib.Thing)
+}

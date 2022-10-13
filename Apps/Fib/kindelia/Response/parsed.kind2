@@ -1,0 +1,3 @@
+// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
+#kdl_name = Fib_kdl_r_p
+Apps.Fib.kindelia.Response.parsed (data: Apps.Fib.State.Parsed) : (Apps.Fib.kindelia.Response)

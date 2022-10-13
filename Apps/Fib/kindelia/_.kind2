@@ -1,13 +1,21 @@
+#kdl_state = Apps.Fib.State.init_with_players
 #kdl_name = Fib
-Apps.Fib.kindelia (action: Apps.Fib.kindelia.Act) : Kindelia.IO Apps.Fib.State 
+Apps.Fib.kindelia (action: Apps.Fib.kindelia.Act) : Kindelia.IO Apps.Fib.kindelia.Response 
 Apps.Fib.kindelia (Apps.Fib.kindelia.Act.next code) = 
   (Kindelia.IO.do_take (state: Apps.Fib.State) =>
     let y = Apps.Fib.State.Update state code (U120.new 0 0)
     (Kindelia.IO.do_save y (_: Unit) =>
-      Kindelia.IO.done y
+      Kindelia.IO.done (Apps.Fib.kindelia.Response.state y)
     )
   )
-
+Apps.Fib.kindelia (Apps.Fib.kindelia.Act.parse) = 
+  (Kindelia.IO.do_take (state: Apps.Fib.State) =>
+    let y = Apps.Fib.State.parse state 
+    (Kindelia.IO.do_save state (_: Unit) =>
+      Kindelia.IO.done (Apps.Fib.kindelia.Response.parsed y)
+    )
+  )
+  
 Fib.init {
-  Apps.Fib.State.init
+  Apps.Fib.State.init_with_players
 }

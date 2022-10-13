@@ -1,0 +1,5 @@
+type Apps.Fib.kindelia.Response {
+  none 
+  parsed (data: Apps.Fib.State.Parsed)
+  state (data: Apps.Fib.State)
+}

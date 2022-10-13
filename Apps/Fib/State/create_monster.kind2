@@ -1,0 +1,6 @@
+#kdl_name = Fib_st_crtm
+Apps.Fib.State.create_monster (state: Apps.Fib.State) (init: Apps.Fib.Entity) (id: Apps.Fib.Id) : Apps.Fib.State {
+  let x = Apps.Fib.Player.pos.get_x init
+  let y = Apps.Fib.Player.pos.get_y init
+  Apps.Fib.State.create_unit state init (Apps.Fib.Pos.new x y) id
+}

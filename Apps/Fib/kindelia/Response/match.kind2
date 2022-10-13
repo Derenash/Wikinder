@@ -1,0 +1,5 @@
+// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
+Apps.Fib.kindelia.Response.match (x: (Apps.Fib.kindelia.Response)) -(p: (x: (Apps.Fib.kindelia.Response)) Type) (none: (p (Apps.Fib.kindelia.Response.none))) (parsed: (data: Apps.Fib.State.Parsed) (p (Apps.Fib.kindelia.Response.parsed data))) (state: (data: Apps.Fib.State) (p (Apps.Fib.kindelia.Response.state data))) : (p x)
+Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.none) p none parsed state = (none)
+Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.parsed data_) p none parsed state = (parsed data_)
+Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.state data_) p none parsed state = (state data_)
