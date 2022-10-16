@@ -1,0 +1,15 @@
+Apps.Fib.Player.skills.has_slot (player: Apps.Fib.Player) : Maybe U120 {
+  Apps.Fib.Player.skills.has_slot.go player (U120.new 0 0)
+}
+
+
+Apps.Fib.Player.skills.has_slot.go (play: Apps.Fib.Player) (slot: U120) : Maybe U120
+Apps.Fib.Player.skills.has_slot.go play (U120.new 0 8) = Maybe.none
+Apps.Fib.Player.skills.has_slot.go play slot           =
+  let skill = Apps.Fib.Player.skills.get play slot
+  if (U120.is_zero skill) {
+    Maybe.some slot
+  }
+  else {
+    Apps.Fib.Player.skills.has_slot.go play (U120.inc slot)
+  }

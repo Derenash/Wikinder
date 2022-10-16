@@ -1,0 +1,16 @@
+//Returns true if the player has the ID in the inventory
+Apps.Fib.Player.skills.has_skill (player: Apps.Fib.Player) (skill_id: U120) : Bool {
+  Apps.Fib.Player.skills.has_skill.go player skill_id (U120.new 0 0)
+}
+
+
+Apps.Fib.Player.skills.has_skill.go (player: Apps.Fib.Player) (skill_id: U120) (counter: U120) : Bool
+Apps.Fib.Player.skills.has_skill.go player skill_id (U120.new 0 8) = Bool.false
+Apps.Fib.Player.skills.has_skill.go player skill_id counter = 
+  let skill = Apps.Fib.Player.skills.get player counter
+  let comp  = U120.equal skill skill_id
+  match Bool comp {
+    true => Bool.true
+    false => Apps.Fib.Player.skills.has_skill.go player skill_id (U120.inc counter)
+  }
+

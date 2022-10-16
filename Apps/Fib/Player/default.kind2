@@ -1,11 +1,11 @@
 #kdl_name = Fib_plr_dflt
 Apps.Fib.Player.default (x: U120) (y: U120) : Apps.Fib.Player {
-  let xp = U120.new 0 0
   let hp = U120.new 0 100
+  let xp = U120.new 0 0
   let gd = U120.new 0 50
   let cd = U120.new 0 0
   let rt = U120.new 0 0
   let sl = U120.new 0 0
   let skills = List.cons (U120.new 0 1) List.nil
-  Apps.Fib.Player.new x y xp hp rt sl gd cd skills
+  Apps.Fib.Player.new x y hp xp rt sl gd cd skills
 }

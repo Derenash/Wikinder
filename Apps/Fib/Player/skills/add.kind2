@@ -1,17 +1,8 @@
-// Apps.Fib.Player.skills.has_slot (player: Apps.Fib.Player) : Maybe U120 {
-//   ?
-// }
-
-// Apps.Fib.Player.skills.add (player: Apps.Fib.Player) (skill: U120) : Apps.Fib.Player {
-//   ?
-// }
-
-// Apps.Fib.Player.skills.add_at (player: Apps.Fib.Player) (skill: U120) (pos: U120): Apps.Fib.Player {
-//   ?
-// }
-
-// Apps.Fib.Interaction.add_skill (skill: U120) : Apps.Fib.Interaction Bool {
-//   do Apps.Fib.Interaction {
-//     ?
-//   }
-// }
+Apps.Fib.Player.skills.add (player: Apps.Fib.Player) (skill: U120) : Apps.Fib.Player {
+  let slot = Apps.Fib.Player.skills.has_slot player
+  match Maybe slot {
+    none => player
+    some => 
+      Apps.Fib.Player.skills.add_at player skill slot.value
+  }
+}

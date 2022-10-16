@@ -89,7 +89,7 @@ fun (Fib_tbl_bses) {
 // Apps.Fib.State.new (map: (Apps.Fib.Map)) (tab: (Apps.Fib.Table)) : (Apps.Fib.State)
 ctr {Fib_st_new map tab}
 
-// Apps.Fib.Player.new (x: (U120)) (y: (U120)) (xp: (U120)) (hp: (U120)) (rt: (U120)) (sl: (U120)) (gd: (U120)) (cd: (U120)) (skills: (List (U120))) : (Apps.Fib.Player)
+// Apps.Fib.Player.new (x: (U120)) (y: (U120)) (hp: (U120)) (xp: (U120)) (rt: (U120)) (sl: (U120)) (gd: (U120)) (cd: (U120)) (skills: (List (U120))) : (Apps.Fib.Player)
 fun (Fib_plr_new x y xp hp rt sl gd cd skills) {
   (Fib_plr_new x y xp hp rt sl gd cd skills) =
     let player = #0;

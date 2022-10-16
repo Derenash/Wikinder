@@ -1,0 +1,7 @@
+Apps.Fib.Player.skills.add_at (player: Apps.Fib.Player) (skill: U120) (slot: U120): Apps.Fib.Player {
+  //position the skill_id at the desired slot in a U120
+  let skill_at = U120.shift_left skill (U120.add (U120.new 0 72) (U120.mul (U120.new 0 6) slot))
+  //merges the player bit with the already positioned skill_id
+  let new_player = U120.bitwise_or player skill_at
+  new_player
+}

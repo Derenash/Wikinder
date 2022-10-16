@@ -1,0 +1,3 @@
+Apps.Fib.Player.gd.sub (player: Apps.Fib.Player) (amount: U120) : Apps.Fib.Player {
+  Apps.Fib.Player.gd.change player (x => U120.sub_saturated x amount)
+}

@@ -1,0 +1,4 @@
+Apps.Fib.Player.gd.has_enough (player: Apps.Fib.Player) (cost: U120) : Bool {
+  let gd    = Apps.Fib.Player.gd.get player
+  U120.greater_equal gd cost
+}

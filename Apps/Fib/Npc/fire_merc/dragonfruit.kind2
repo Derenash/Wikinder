@@ -1,0 +1,23 @@
+Apps.Fib.Npc.fire_merc.dragonfruit : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask player = Apps.Fib.Interaction.player.get
+    let slot        = Apps.Fib.Player.skills.has_slot player
+    let dragonfruit = (U120.new 0 2)
+    let gd          = Apps.Fib.Player.gd.get player
+    let price       = (U120.new 0 5)
+    let has_gd      = U120.greater_equal gd price
+    match Maybe slot {
+      none => Apps.Fib.Interaction.fail
+      some =>
+        match Bool has_gd {
+          true =>  do Apps.Fib.Interaction { 
+            let func = (x: Apps.Fib.Player) => Apps.Fib.Player.gd.sub x price
+            ask Apps.Fib.Interaction.player.mut func
+            ask Apps.Fib.Interaction.skill.add dragonfruit
+            return Unit
+          }
+          false => Apps.Fib.Interaction.fail
+        }
+      }
+    }
+  }
