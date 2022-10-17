@@ -258,7 +258,7 @@ Apps.Fib.State.init_with_players : Apps.Fib.State {
   let player = (x: U120) => (y: U120) => Apps.Fib.Player.new x y (U120.new 0 1024) (U120.new 0 100) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) [(U120.new 0 1)]
   let p0     = player (U120.new 0 141) (U120.new 0 15 )
   let p0_id  = (U120.new 0 1024)
-  let p1     = player (U120.new 0 100) (U120.new 0 10 )
+  let p1     = player (U120.new 0 140) (U120.new 0 13 )
   let p1_id  = (U120.new 0 1025)
   let p2     = player (U120.new 0 57 ) (U120.new 0 117)
   let p2_id  = (U120.new 0 1026)

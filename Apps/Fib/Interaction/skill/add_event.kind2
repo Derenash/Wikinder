@@ -1,0 +1,10 @@
+Apps.Fib.Interaction.skill.add_event (skill_id: U120) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask ori = Apps.Fib.Interaction.player.get_pos
+    ask target = Apps.Fib.Interaction.target.get
+    let target = (Sigma.fst target)
+    let ori    = (Sigma.fst ori)
+    let event  = Apps.Fib.Event.skill ori skill_id target
+    Apps.Fib.Interaction.event.add event
+  }
+}

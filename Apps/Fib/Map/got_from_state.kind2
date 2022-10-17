@@ -1,0 +1,6 @@
+Apps.Fib.Map.got_from_state (state: Apps.Fib.State) (pos: Apps.Fib.Pos) : Pair Apps.Fib.State Apps.Fib.Player
+Apps.Fib.Map.got_from_state (Apps.Fib.State.new m t) pos =
+  let pair = Apps.Fib.Map.got m pos
+  match Pair pair {
+    new => Pair.new (Apps.Fib.State.new pair.fst t) pair.snd 
+  }

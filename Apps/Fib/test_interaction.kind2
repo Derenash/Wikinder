@@ -1,0 +1,41 @@
+// Player 1 = (141, 15) #1024
+// Player 2 = (140, 13) #1025
+
+Main {
+  let init  = Apps.Fib.State.init_with_players
+  let map   = Apps.Fib.State.get_map init
+  let table = Apps.Fib.State.get_table init 
+  let p1    = Apps.Fib.Table.get table (U120.new 0 1024)
+  let p2    = Apps.Fib.Table.get table (U120.new 0 1025)
+
+  let eff   = (interaction: Apps.Fib.Interaction Unit) =>
+    interaction init (U120.new 0 1024) (Apps.Fib.Pos.new (U120.new 0 140) (U120.new 0 13)) (U120.new 0 1000)
+
+  let result = eff Apps.Fib.Skill.fireball
+  let pair = match Apps.Fib.Interaction.Result result {
+      err => Pair.new init []
+      new => Pair.new result.state result.events
+    }
+  let state  = Pair.fst pair
+  let events = Pair.snd pair
+  let table2 = Apps.Fib.State.get_table state
+  let p1_2   = Apps.Fib.Table.get table2 (U120.new 0 1024)
+  let p2_2   = Apps.Fib.Table.get table2 (U120.new 0 1025)
+ 
+  Super_show events
+  // Apps.Fib.Player.show p1
+  // List.concat (Apps.Fib.Player.show p1) (Apps.Fib.Player.show p2)
+  // Apps.Fib.Player.show p2
+  // Apps.Fib.Player.show p2_2
+  // Apps.Fib.State.parse init
+  // Apps.Fib.Table.show_players table
+  // Apps.Fib.Map.show U120.0 U120.0 (U120.new 0 100) (U120.new 0 100) map
+}
+
+Super_show (events: List Apps.Fib.Event) : String
+Super_show (List.nil r) = String.nil
+Super_show (List.cons r h t) = String.cons 10 (String.concat (Apps.Fib.Event.show h) (Super_show t))
+
+// Tela inicial
+// Loading
+// Interagir

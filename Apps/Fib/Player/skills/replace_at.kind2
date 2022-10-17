@@ -1,8 +1,8 @@
-//Replaces the skill id with a new id in the skill slot
+// Replaces the skill id with a new id in the skill slot
 Apps.Fib.Player.skills.replace_at (player: Apps.Fib.Player) (skill: U120) (slot: U120) : Apps.Fib.Player {
-  //deletes the skill in the slot
+  // deletes the skill in the slot
   let del = Apps.Fib.Player.skills.del_at player slot
-  //adds the skill in the slot
+  // adds the skill in the slot
   let add = Apps.Fib.Player.skills.add_at del skill slot
   add
 }
