@@ -1,0 +1,15 @@
+Kindelia.Convert.num_to_kstring (num: U120) : U120 {
+  let text = (U120.show num) ""
+  Kindelia.Convert.num_to_kstring.aux text (U120.new 0 0)
+}
+
+Kindelia.Convert.num_to_kstring.aux (num: String) (kdl_str: U120) : U120
+Kindelia.Convert.num_to_kstring.aux (String.nil) kdl_str = kdl_str
+Kindelia.Convert.num_to_kstring.aux (String.cons h t) kdl_str =
+  let n = Kindelia.Convert.num_to_kstring.char h
+  let kdl_str = U120.bitwise_or n (U120.shift_left kdl_str (U120.new 0 6)) 
+  Kindelia.Convert.num_to_kstring.aux t kdl_str
+
+Kindelia.Convert.num_to_kstring.char (char: Char) : U120 {
+  U120.new 0 (- char 47)
+}

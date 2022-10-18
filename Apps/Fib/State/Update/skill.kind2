@@ -1,10 +1,17 @@
 #kdl_name = Fib_st_updsk
-Apps.Fib.State.Update.skill (state: Apps.Fib.State) (skill_id: U120) (data: U120) (entity: Apps.Fib.Entity) : Apps.Fib.State {
+Apps.Fib.State.Update.skill (state: Apps.Fib.State) (player_id: Apps.Fib.Id) (skill_id: U120) (data: U120) (entity: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
   let skill  = Apps.Fib.Player.skills.get entity skill_id
   let pos    = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x entity) (Apps.Fib.Player.pos.get_y entity)
   let delta  = Apps.Fib.Pos.Delta.get_from_data data
-  match Maybe target = (Apps.Fib.Pos.modify pos delta) {
-    none => state
-    some => Apps.Fib.State.apply_skill state skill entity target.value
+  let target = Apps.Fib.Pos.modify pos delta
+  match Maybe target {
+    none => Pair.new state List.nil
+    some => 
+      let skill = Apps.Fib.Skill.get skill
+      let result = skill state player_id target.value frame
+      match Apps.Fib.Interaction.Result result {
+        err => Pair.new state List.nil
+        new => Pair.new result.state result.events
+      }
   }
 }

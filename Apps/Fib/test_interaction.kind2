@@ -22,7 +22,7 @@ Main {
   let p1_2   = Apps.Fib.Table.get table2 (U120.new 0 1024)
   let p2_2   = Apps.Fib.Table.get table2 (U120.new 0 1025)
  
-  Super_show events
+  Apps.Fib.Event.Super_show events
   // Apps.Fib.Player.show p1
   // List.concat (Apps.Fib.Player.show p1) (Apps.Fib.Player.show p2)
   // Apps.Fib.Player.show p2
@@ -31,11 +31,3 @@ Main {
   // Apps.Fib.Table.show_players table
   // Apps.Fib.Map.show U120.0 U120.0 (U120.new 0 100) (U120.new 0 100) map
 }
-
-Super_show (events: List Apps.Fib.Event) : String
-Super_show (List.nil r) = String.nil
-Super_show (List.cons r h t) = String.cons 10 (String.concat (Apps.Fib.Event.show h) (Super_show t))
-
-// Tela inicial
-// Loading
-// Interagir

@@ -1,4 +1,4 @@
-type Apps.Fib.kindelia.Act {
+type Apps.Fib.Kindelia.Act {
   next (code: U120)
-  parse
+  get
 }

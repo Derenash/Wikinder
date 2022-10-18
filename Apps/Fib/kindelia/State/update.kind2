@@ -1,0 +1,5 @@
+Apps.Fib.Kindelia.State.update (kdl_state: Apps.Fib.Kindelia.State) (code: U120) (current_block: U120) : Pair Apps.Fib.Kindelia.State Apps.Fib.Events
+Apps.Fib.Kindelia.State.update (Apps.Fib.Kindelia.State.new starting_block state) code current_block =
+  let pair = Apps.Fib.State.Update state code (U120.sub_saturated current_block starting_block)
+  let state = Pair.new (Apps.Fib.Kindelia.State.new starting_block (Pair.fst pair)) (Pair.snd pair)
+  state

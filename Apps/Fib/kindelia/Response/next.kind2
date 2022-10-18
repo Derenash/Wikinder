@@ -1,0 +1,2 @@
+// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
+Apps.Fib.Kindelia.Response.next (data: (Pair Apps.Fib.Kindelia.State Apps.Fib.Events)) : (Apps.Fib.Kindelia.Response)

@@ -1,3 +1,2 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
-#kdl_name = Fib_kdl_r_n
-Apps.Fib.kindelia.Response.none : (Apps.Fib.kindelia.Response)
+Apps.Fib.Kindelia.Response.none : (Apps.Fib.Kindelia.Response)

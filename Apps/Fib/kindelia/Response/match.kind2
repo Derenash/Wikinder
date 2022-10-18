@@ -1,5 +1,5 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
-Apps.Fib.kindelia.Response.match (x: (Apps.Fib.kindelia.Response)) -(p: (x: (Apps.Fib.kindelia.Response)) Type) (none: (p (Apps.Fib.kindelia.Response.none))) (parsed: (data: Apps.Fib.State.Parsed) (p (Apps.Fib.kindelia.Response.parsed data))) (state: (data: Apps.Fib.State) (p (Apps.Fib.kindelia.Response.state data))) : (p x)
-Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.none) p none parsed state = (none)
-Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.parsed data_) p none parsed state = (parsed data_)
-Apps.Fib.kindelia.Response.match (Apps.Fib.kindelia.Response.state data_) p none parsed state = (state data_)
+Apps.Fib.Kindelia.Response.match (x: (Apps.Fib.Kindelia.Response)) -(p: (x: (Apps.Fib.Kindelia.Response)) Type) (none: (p (Apps.Fib.Kindelia.Response.none))) (state: (state: Apps.Fib.Kindelia.State) (p (Apps.Fib.Kindelia.Response.state state))) (next: (data: (Pair Apps.Fib.Kindelia.State Apps.Fib.Events)) (p (Apps.Fib.Kindelia.Response.next data))) : (p x)
+Apps.Fib.Kindelia.Response.match (Apps.Fib.Kindelia.Response.none) p none state next = (none)
+Apps.Fib.Kindelia.Response.match (Apps.Fib.Kindelia.Response.state state_) p none state next = (state state_)
+Apps.Fib.Kindelia.Response.match (Apps.Fib.Kindelia.Response.next data_) p none state next = (next data_)

@@ -1,6 +1,6 @@
 #kdl_name = Fib_st_walk
-Apps.Fib.State.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fib.Entity) (id: Apps.Fib.Id) : Apps.Fib.State
-Apps.Fib.State.walk (Apps.Fib.State.new map table) data entity id = 
+Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fib.Entity) (id: Apps.Fib.Id) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events
+Apps.Fib.State.Update.walk (Apps.Fib.State.new map table) data entity id frame = 
 
   let max_move = (U120.new 0 2)
 
@@ -15,8 +15,11 @@ Apps.Fib.State.walk (Apps.Fib.State.new map table) data entity id =
   let dx        = Pair.fst delta_xy
   let dy        = Pair.snd delta_xy
 
-  if gtn {
-    Apps.Fib.State.move id dx dy (Apps.Fib.State.new map table)
-  } else { 
-    Apps.Fib.State.new map table
-  }
+  let st        =
+    if gtn {
+      Apps.Fib.State.move id dx dy (Apps.Fib.State.new map table)
+    } else { 
+      Apps.Fib.State.new map table
+    }
+
+  Pair.new st []
