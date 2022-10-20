@@ -1,14 +1,9 @@
 Apps.Fib.Interaction.npc.collect (item: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player = Apps.Fib.Interaction.player.get
-    let slot = Apps.Fib.Player.skills.has_slot player
-    let ignis_stone = item
-    match Maybe slot {
-      none => Apps.Fib.Interaction.fail
-      some => do Apps.Fib.Interaction {
-        ask Apps.Fib.Interaction.skill.add ignis_stone
-        return Unit 
-      }
-    }
+    let slot   = Apps.Fib.Player.skills.has_slot player
+    ask slot   = Apps.Fib.Interaction.check_and_next slot
+    ask          Apps.Fib.Interaction.skill.add item
+    return Unit.new
   }
 }
