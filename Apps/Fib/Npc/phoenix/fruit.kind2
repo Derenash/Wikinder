@@ -1,17 +1,13 @@
 Apps.Fib.Npc.phoenix.fruit : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
+    let fruit_id  = (U120.new 0 27)
+    let feather   = (U120.new 0 28)
     ask player = Apps.Fib.Interaction.player.get
-    let fruit_id    = (U120.new 0 27)
     let has_fruit        = Apps.Fib.Player.skills.find player fruit_id
-    match Maybe has_fruit {
-      none => Apps.Fib.Interaction.fail
-      some  => do Apps.Fib.Interaction {
-        let feather = (U120.new 0 28)
-        let slot = has_fruit.value
-        let func = (x: Apps.Fib.Player) => Apps.Fib.Player.skills.replace_at x feather slot 
-        ask Apps.Fib.Interaction.player.mut func
-        return Unit
-        }
-      }
-    }
+    let none = Apps.Fib.Interaction.fail
+    let some = (slot: U120) => 
+      let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.replace_at player feather slot
+      Apps.Fib.Interaction.player.mut func
+    Apps.Fib.Interaction.default has_fruit some none
   }
+}

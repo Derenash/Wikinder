@@ -1,0 +1,24 @@
+Apps.Fib.Items.horn : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask player  = Apps.Fib.Interaction.player.get
+    let slot    = Apps.Fib.Player.skills.find player (U120.new 0 29)
+    let is_some = Maybe.is_some slot 
+    ask Apps.Fib.Interaction.check is_some
+    ask Apps.Fib.Interaction.Items.horn.spawn_phoenix (U120.new 0 128)
+    let val  = Maybe.default slot (U120.new 0 0)
+    let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.del_at player val
+    ask Apps.Fib.Interaction.player.mut func
+    return Unit
+  }
+}
+
+Apps.Fib.Interaction.Items.horn.spawn_phoenix (pho: Apps.Fib.Entity) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask entity = Apps.Fib.Interaction.entity.get_from_id pho
+    ask pho_id = Apps.Fib.Interaction.frame.check_not_cd entity
+    let duration = (U120.new 0 100)
+    let func  = (phoenix: Apps.Fib.Entity) => Apps.Fib.mut_in_u120 phoenix U120.0 (U120.new 0 12) (x => U120.add x duration)
+    ask Apps.Fib.Interaction.entity.mut_at_id func pho
+    return Unit
+  }
+}
