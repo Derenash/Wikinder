@@ -1,4 +1,4 @@
-Apps.Fib.Interaction.skill.add_event (skill_id: U120) : Apps.Fib.Interaction Unit {
+Apps.Fib.Interaction.skill.event_use (skill_id: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask ori = Apps.Fib.Interaction.player.get_pos
     ask target = Apps.Fib.Interaction.target.get

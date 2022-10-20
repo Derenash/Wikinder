@@ -21,7 +21,7 @@ Apps.Fib.Skill.frostshard : Apps.Fib.Interaction Unit {
 
     // Adds Fatigue to the caster
     ask Apps.Fib.Interaction.player.add_cd cooldown
-    ask Apps.Fib.Interaction.skill.add_event skill_id
+    ask Apps.Fib.Interaction.skill.event_use skill_id
 
     return Unit.new
   }

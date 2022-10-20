@@ -4,10 +4,10 @@ type Apps.Fib.Event {
   movement  (ori: U120) (des  : U120)
   skill     (ori: U120) (skill: U120) (target: U120)
   exp_add   (pos: U120) (value: U120)
-  rt_add    (pos: U120) (value : U120)
-  sl_add    (pos: U120) (value : U120)
+  rt_add    (pos: U120) (value: U120)
+  sl_add    (pos: U120) (value: U120)
   gold_add  (pos: U120) (value: U120)
   gold_sub  (pos: U120) (value: U120)
   item_add  (pos: U120) (item : U120) (slot  : U120)
-  item_del  (pos: U120) (item : U120)
+  item_del  (pos: U120) (item : U120) (slot  : U120)
 }

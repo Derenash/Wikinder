@@ -1,0 +1,8 @@
+Apps.Fib.Interaction.skill.del (slot: U120) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask player = Apps.Fib.Interaction.player.get
+    let item   = Apps.Fib.Player.skills.get player slot
+    ask Apps.Fib.Interaction.player.mut (x => Apps.Fib.Player.skills.del_at x slot)
+    Apps.Fib.Interaction.item.event_del item slot
+  }
+}

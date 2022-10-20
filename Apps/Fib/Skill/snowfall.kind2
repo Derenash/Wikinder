@@ -20,7 +20,7 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
 
     // Damages the units in the area
     ask Apps.Fib.Interaction.damage.area damage area
-    ask Apps.Fib.Interaction.skill.add_event skill_id
+    ask Apps.Fib.Interaction.skill.event_use skill_id
 
     // Adds Fatigue to the caster
     ask Apps.Fib.Interaction.player.add_cd cooldown

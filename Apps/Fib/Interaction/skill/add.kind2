@@ -12,3 +12,6 @@ Apps.Fib.Interaction.skill.add (skill: U120) : Apps.Fib.Interaction Bool {
     Maybe.default rx none
   }
 }
+
+// TODO: add Apps.Fib.Interaction.item.event_add Item Slot
+// TODO: Change default to Apps.Fib.Interaction.Extract

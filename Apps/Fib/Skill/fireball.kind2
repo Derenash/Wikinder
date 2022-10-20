@@ -18,7 +18,7 @@ Apps.Fib.Skill.fireball : Apps.Fib.Interaction Unit {
     // Adds the center coord to the coords around it
     let coords   = List.cons target around
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.add_event skill_id
+    ask Apps.Fib.Interaction.skill.event_use skill_id
     // Damages the unities in the area
     ask Apps.Fib.Interaction.damage.area damage coords
     // Adds Fatigue to the caster
