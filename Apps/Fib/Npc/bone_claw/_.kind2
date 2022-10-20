@@ -1,0 +1,4 @@
+Apps.Fib.Npc.bone_claw : Apps.Fib.Interaction Unit {
+  let id = U120.new 0 26
+  Apps.Fib.Interaction.npc.collect id
+}

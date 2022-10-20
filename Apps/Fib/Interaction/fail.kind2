@@ -1,4 +1,4 @@
-Apps.Fib.Interaction.fail : Apps.Fib.Interaction Unit {
+Apps.Fib.Interaction.fail <a> : Apps.Fib.Interaction a {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
-    Apps.Fib.Interaction.Result.err
+    Apps.Fib.Interaction.Result.err a
 }

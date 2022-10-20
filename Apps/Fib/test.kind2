@@ -37,7 +37,9 @@ Main : _ {
   let table  = Apps.Fib.State.get_table state
   let events = Pair.snd update
   // Apps.Fib.Event.Super_show events
-  Apps.Fib.State.parse state
+  let parsed = Apps.Fib.State.parse state
+  parsed
+  // ?
   // Player 2 Id
   // let p2_id  = U120.new 0 1350
   // Action code to create a new character in a town

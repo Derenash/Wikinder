@@ -1,0 +1,4 @@
+// Automatically derived from /home/derenash/Wikinder/Tree/_.type
+Tree.match <a: Type> (x: (Tree a)) -(p: (x: (Tree a)) Type) (empty: (p (Tree.empty a))) (triple: (value: a) (lft: (Tree a)) (rgt: (Tree a)) (p (Tree.triple a value lft rgt))) : (p x)
+Tree.match a (Tree.empty a_) p empty triple = (empty)
+Tree.match a (Tree.triple a_ value_ lft_ rgt_) p empty triple = (triple value_ lft_ rgt_)

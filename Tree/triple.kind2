@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Tree/_.type
+Tree.triple <a: Type> (value: a) (lft: (Tree a)) (rgt: (Tree a)) : (Tree a)

@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Tree/_.type
+Tree.empty <a: Type> : (Tree a)

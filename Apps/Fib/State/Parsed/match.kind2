@@ -1,3 +1,0 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/State/Parsed/_.type
-Apps.Fib.State.Parsed.match (x: (Apps.Fib.State.Parsed)) -(p: (x: (Apps.Fib.State.Parsed)) Type) (new: (npcs: (List Apps.Fib.Thing)) (mons: (List Apps.Fib.Thing)) (play: (List Apps.Fib.Thing)) (p (Apps.Fib.State.Parsed.new npcs mons play))) : (p x)
-Apps.Fib.State.Parsed.match (Apps.Fib.State.Parsed.new npcs_ mons_ play_) p new = (new npcs_ mons_ play_)

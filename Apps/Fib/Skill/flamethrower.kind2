@@ -10,12 +10,15 @@ Apps.Fib.Skill.flamethrower : Apps.Fib.Interaction Unit {
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
     ask target   = Apps.Fib.Interaction.target.get
     ask origin   = Apps.Fib.Interaction.player.get_pos
+    // TODO: I think flamethrower shouldn't have a check_range, but should instead have something that gets the direction of a skill cast
+    // in example, if target is (4, 2) it should put delta as 1,0
     ask check    = Apps.Fib.Interaction.skill.check_range range
 
-    // Get the delta of all coordinates within 2 tiles of a point
+    // Get the delta to determine direction
     let delta    = Apps.Fib.Pos.Delta.get origin target
+    // Creates a line at that direction, until a certain range
     let deltas   = Apps.Fib.Pos.Delta.line range delta
-    // Get the coords in line within range
+    // Get the valid coords
     let line     = Apps.Fib.Pos.range target deltas
 
     // Damages the units in the area

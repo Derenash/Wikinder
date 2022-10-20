@@ -1,0 +1,6 @@
+List.zip_with_3 <a> <b> <c> <d> (f: a -> b -> c -> d) (as: List a) (bs: List b) (cs: List c) : List d
+
+List.zip_with_3 a b c d f (List.cons a_ ah at) (List.cons b_ bh bt) (List.cons c_ ch ct) =
+  List.cons (f ah bh ch) (List.zip_with_3 f at bt ct)
+
+List.zip_with_3 a b c d f as bs cs = List.nil

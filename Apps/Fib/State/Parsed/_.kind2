@@ -1,2 +1,3 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/State/Parsed/_.type
-Apps.Fib.State.Parsed : Type
+Apps.Fib.State.Parsed : Type {
+  Triple (List Apps.Fib.Thing) (List Apps.Fib.Thing) (List Apps.Fib.Thing) 
+}

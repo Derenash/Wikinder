@@ -12,4 +12,3 @@ Kindelia.Convert.to_kstring.aux (String.cons h t) kdl_str =
       let kdl_str = U120.bitwise_or char.value (U120.shift_left kdl_str (U120.new 0 6)) 
       Kindelia.Convert.to_kstring.aux t kdl_str
   }
-

@@ -1,3 +1,5 @@
+// TODO: add skills to this list
+// 00 should be unused so far
 #kdl_name = Fib_st_appsk
 Apps.Fib.Skill.get (skill : U120) : Apps.Fib.Interaction Unit
 Apps.Fib.Skill.get (U120.new 0 0) = Apps.Fib.Interaction.pass

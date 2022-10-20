@@ -1,23 +1,5 @@
 Apps.Fib.Npc.fire_merc.horn : Apps.Fib.Interaction Unit {
-    do Apps.Fib.Interaction {
-    ask player = Apps.Fib.Interaction.player.get
-    let slot        = Apps.Fib.Player.skills.has_slot player
-    let horn        = (U120.new 0 29)
-    let gd          = Apps.Fib.Player.gd.get player
-    let price       = (U120.new 0 23)
-    let has_gd      = U120.greater_equal gd price
-    match Maybe slot {
-      none => Apps.Fib.Interaction.fail
-      some =>
-        match Bool has_gd {
-          true =>  do Apps.Fib.Interaction { 
-            let func = (x: Apps.Fib.Player) => Apps.Fib.Player.gd.sub x price
-            ask Apps.Fib.Interaction.player.mut func
-            ask Apps.Fib.Interaction.skill.add horn
-            return Unit
-            }
-          false => Apps.Fib.Interaction.fail
-         }
-      }
-   }
+  let id    = U120.new 0 29
+  let price = U120.new 0 23
+  Apps.Fib.Interaction.npc.buy id price
 }

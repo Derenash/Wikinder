@@ -17,8 +17,9 @@ Apps.Fib.Map.init.set map x y (List.cons r0 (Pair.new Bool r2 Bool.true (List.co
   let map = Apps.Fib.Map.set map (U120.new 0 43) pos
   Apps.Fib.Map.init.set map (U120.add (U120.new 0 1) x) y (List.cons (Pair.new Bool.true (List.cons (U120.sub amount (U120.new 0 1)) t1)) t0)
 
-// Main {
-// let map = Apps.Fib.Map.init 
+Main {
+let map = Apps.Fib.Map.init 
 // let m_show = Apps.Fib.Map.show (U120.new 0 0) (U120.new 0 0) (U120.new 0 160) (U120.new 0 160) map
 // m_show
-// }
+map
+}

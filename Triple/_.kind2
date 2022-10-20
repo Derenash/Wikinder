@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Triple/_.type
+Triple (a: Type) (b: Type) (c: Type) : Type

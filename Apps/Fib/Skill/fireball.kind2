@@ -8,6 +8,7 @@ Apps.Fib.Skill.fireball : Apps.Fib.Interaction Unit {
     let area     = U120.new 0 2
     let speed    = U120.new 0 35
 
+    ask Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
     ask target   = Apps.Fib.Interaction.target.get
     // Get the delta of all coordinates within 2 tiles of a point

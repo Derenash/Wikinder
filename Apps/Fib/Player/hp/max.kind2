@@ -1,5 +1,0 @@
-// Max hp based on EXP
-Apps.Fib.Player.hp.max (exp: U120) : U120 {
-  U120.add (U120.mul (U120.div exp (U120.new 0 128)) (U120.new 0 64)) (U120.new 0 100)
-}
-

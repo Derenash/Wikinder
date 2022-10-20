@@ -1,13 +1,9 @@
 #kdl_name = Fib_plr_heal
 Apps.Fib.Player.heal (player: Apps.Fib.Player) (heal: U120) : Apps.Fib.Player {
-  let overflow = ((x: U120) => 
-    let result = U120.add heal x
-    if (U120.greater_than x result) {
-      let xp = Apps.Fib.Player.xp.get player
-      Apps.Fib.Player.hp.max xp
-      } else {
-      result
-    }
+  let apply = ((old_hp: U120) => 
+    let result = U120.add heal old_hp
+    let max_hp = Apps.Fib.Player.hp.get_max player
+    U120.min result max_hp
   )
-  Apps.Fib.Player.hp.change player ((x : U120) => overflow x)
+  Apps.Fib.Player.hp.change player ((x : U120) => apply x)
 }

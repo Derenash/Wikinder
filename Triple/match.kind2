@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Triple/_.type
+Triple.match <a: Type> <b: Type> <c: Type> (x: (Triple a b c)) -(p: (x: (Triple a b c)) Type) (new: (fst: a) (snd: b) (trd: c) (p (Triple.new a b c fst snd trd))) : (p x)
+Triple.match a b c (Triple.new a_ b_ c_ fst_ snd_ trd_) p new = (new fst_ snd_ trd_)

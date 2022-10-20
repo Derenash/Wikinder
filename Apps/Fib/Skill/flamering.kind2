@@ -11,7 +11,7 @@ Apps.Fib.Skill.flamering : Apps.Fib.Interaction Unit {
     ask origin   = Apps.Fib.Interaction.player.get_pos
     ask check    = Apps.Fib.Interaction.skill.check_range range
 
-    // Get the delta of all coordinates within 2 tiles of a point
+    // Get the delta of all coordinates in a ring around the character at a certain range
     let deltas   = Apps.Fib.Pos.Delta.ring range
     // Get the coords in a ring within range
     let ring     = Apps.Fib.Pos.range target deltas

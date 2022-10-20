@@ -8,6 +8,6 @@ Apps.Fib.Npc.phoenix.fruit : Apps.Fib.Interaction Unit {
     let some = (slot: U120) => 
       let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.replace_at player feather slot
       Apps.Fib.Interaction.player.mut func
-    Apps.Fib.Interaction.default has_fruit some none
+    Apps.Fib.Interaction.extract has_fruit some none
   }
 }

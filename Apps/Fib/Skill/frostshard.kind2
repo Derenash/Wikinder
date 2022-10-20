@@ -14,9 +14,7 @@ Apps.Fib.Skill.frostshard : Apps.Fib.Interaction Unit {
     ask target   = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
-    let distance = Apps.Fib.Pos.distance origin target
-    let check    = U120.equal range distance
-    ask Apps.Fib.Interaction.check check
+    ask Apps.Fib.Interaction.skill.check_range range
 
     // Damages the unit if it is in range
     ask Apps.Fib.Interaction.damage damage target

@@ -1,3 +1,0 @@
-Apps.Fib.Interaction.default <a> (m: Maybe a) (some: a -> Apps.Fib.Interaction Unit) (none: Apps.Fib.Interaction Unit) : Apps.Fib.Interaction Unit 
-Apps.Fib.Interaction.default a (Maybe.none b) some none = none
-Apps.Fib.Interaction.default a (Maybe.some b val) some none = some val

@@ -5,6 +5,6 @@ Apps.Fib.Interaction.entity.phoenix (pho: Apps.Fib.Entity) : Apps.Fib.Interactio
     let duration = (U120.new 0 100)
     let func  = (phoenix: Apps.Fib.Entity) => Apps.Fib.mut_in_u120 phoenix U120.0 (U120.new 0 12) (x => U120.add x duration)
     ask Apps.Fib.Interaction.entity.mut_at_id func pho
-    return Unit
+    return Unit.new
   }
 }

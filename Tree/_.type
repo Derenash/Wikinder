@@ -1,0 +1,4 @@
+type Tree <a> {
+  empty
+  triple (value: a) (lft: Tree a) (rgt: Tree a)
+}

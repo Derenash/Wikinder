@@ -1,7 +1,10 @@
+
+
 #kdl_name = Fib_st_parse
-Apps.Fib.State.parse (state: Apps.Fib.State) : Apps.Fib.State.Parsed {
+Apps.Fib.State.parse (state: Apps.Fib.State) : Triple (Tree (Tree (Pair U120 U120))) (Tree (Tree (Pair U120 U120))) (Tree (Tree (Pair U120 U120))){
   let func = Apps.Fib.State.parse.table (U120.new 0 0) (U120.new 0 0) (Apps.Fib.Table.Bases) (Apps.Fib.State.get_table state)
-  func (Apps.Fib.State.Parsed.new [] [] [])
+  let parsed = func (Triple.new [] [] [])
+  Apps.Fib.State.Parsed.to_tree parsed
 }
 
 Apps.Fib.State.parse.table (depth: U120) (id: U120) (bases: List Data.BaseTree.Base) (map: Data.BaseTree bases U120) : Apps.Fib.State.Parsed -> Apps.Fib.State.Parsed
@@ -43,13 +46,13 @@ Apps.Fib.State.parse.id (U120.new 0 11) id entity = (x: Apps.Fib.State.Parsed) =
 Apps.Fib.State.parse.id n i e = (x: Apps.Fib.State.Parsed) => x
 
 Apps.Fib.State.parse.join_npc (npc: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
-Apps.Fib.State.parse.join_npc npc (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new (List.cons npc n) m p
+Apps.Fib.State.parse.join_npc npc (Triple.new a b c n m p) = Triple.new (List.cons npc n) m p
 
 Apps.Fib.State.parse.join_monster (monster: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
-Apps.Fib.State.parse.join_monster monster (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new n (List.cons monster m) p
+Apps.Fib.State.parse.join_monster monster (Triple.new a b c n m p) = Triple.new a b c n (List.cons monster m) p
 
 Apps.Fib.State.parse.join_player (player: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
-Apps.Fib.State.parse.join_player player (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new n m (List.cons player p)
+Apps.Fib.State.parse.join_player player (Triple.new a b c n m p) = Triple.new a b c n m (List.cons player p)
 
 Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing
 Apps.Fib.State.parse.id_07 (U120.new 0 128) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity

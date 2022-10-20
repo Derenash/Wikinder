@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Triple/_.type
+Triple.new <a: Type> <b: Type> <c: Type> (fst: a) (snd: b) (trd: c) : (Triple a b c)

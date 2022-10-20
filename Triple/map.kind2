@@ -1,0 +1,2 @@
+Triple.map <a> <b> (triple: Triple a a a) (f: a -> b)  : Triple b b b
+Triple.map a b (Triple.new fst snd trd) f = Triple.new (f fst) (f snd) (f trd)

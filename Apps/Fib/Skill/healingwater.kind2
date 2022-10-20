@@ -1,4 +1,5 @@
 // TODO : Root
+// TODO : add Self Heal =/= Ally heal
 Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 

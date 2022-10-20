@@ -1,0 +1,18 @@
+splice :: 0a list ) 0a list ) 0a list
+splice [] ys = ys
+splice (x # xs) ys = x # splice ys x
+
+// Splice
+List.splice <a> (xs: List a) (ys: List a) : List a 
+List.splice a (List.nil  r0) ys = ys
+List.splice a (List.cons r0 head tail) ys = List.cons head (List.splice ys tail)
+
+
+type Tree <a> {
+  leaf
+  node (lft: Tree a) (value: a) (rgt: Tree a)
+}
+
+// From list
+Tree.from_list a (list: List a) : Tree a
+Tree.from_list a 
