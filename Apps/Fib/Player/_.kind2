@@ -45,3 +45,238 @@ Apps.Fib.Player : Type {
 // 256  - 512  - Npcs      - Guardam sua posição 16 bits pos
 // 512  - 1024 - Monstros  - Guardam sua posição 16 bits pos 10 bits vida
 // 1024 - 4096 - Jogadores - Guardam sua posicão 16 bits pos 10 bits vida 12 bits xp
+
+// Duração do jogo
+// 60 min -> 3600 segundos 
+//           3600 blocos
+//           0 - 4095
+
+// Cooldown guarda o bloco em que o player conseguirá fazer ações
+//   AKA
+// Fatigue
+//   AKA 
+// Stun
+
+// 1500 -> fireball 5 cd
+// Player cd -> 1505
+// Ação no frame < cooldown não é permitida
+
+// Root    0 - 7 
+// Silence 0 - 7
+
+
+// frame  95 ->  Usei fireball
+
+// frame  97 ->  Cooldown 100
+//               Tentei andar
+
+// frame 103 ->  Cooldown 100
+//               tomei root de 4 turnos
+//               Cooldown vai para 103
+
+// frame 104 ->  Cooldown 103
+//               Root      04
+//               Tento me mover
+//               Não consigo, pois só poderei me mover no frame 108
+
+// Frame 105 ->  Cooldown 103
+//               Root      04
+//               Uso Fireball + 5 cd
+//               Cooldown 110
+//               Root      00
+
+
+// frame 113 ->  Cooldown 103
+//               Root     04
+
+// frame 104 ->  Cooldown 103
+//               Root      07
+//               FlameArrow -> Cd 2
+//               110 < Frame para poder mover
+
+//               Cooldown 106
+//               Root      04
+
+//               Cd + Root = New_cd + new_root
+//               new_root = (Cd + Root) - New_cd
+
+// Cooldown 103
+// Root      02
+
+// Frame    05 ->  Flame arrow -> cd 5
+//                 Cooldown 10
+
+// Frame    10 ->  Cooldown 10
+//                 Recebi Root de 6 turnos
+//                 Cooldown 10
+//                 Root     06
+
+//                 Quick_Attack + 1 cd
+//                 Cooldown 11
+//                 Root     05
+
+// Frame    12 ->  Cooldown 11
+//                 Root     05
+//                 Pacify   silence 3 turnos
+//                 Cooldown 12 
+//                 Root     04
+//                 Silence  03                
+
+
+// Cooldown: 0 -> 4095
+// Root    : 0 -> 7
+// Silence : 0 -> 7
+
+// Can move = 
+//   Frame >= Old_Cooldown + Root
+
+// Can act  =
+//   Frame >= Old_Cooldown + Silence
+
+// After action =
+//   New_Cooldown = Frame + Ability Cd
+//   New_Root     = (Old_Cooldown + Root) - New_Cooldown
+//   New_Silence  = (Old_Cooldown + Root) - New_Cooldown
+
+// Cidade do Fogo
+//   Npcs
+//     Lugar de Combinar magias
+//       Caldeirao?
+//       Fonte termica de Fogo
+//       ????
+
+//     Spawnador de Monstro
+//       Toca de coelho 
+//       Caverna
+//       Ninho de passaroo
+
+//     Coletador de Item 1
+//       Garra do dragao
+
+//     Coletador de Item 2 
+//       Pedra/Gemas na Lava
+//       Pedra para Minerar 
+//       Cinzas vulcanicas 
+
+//     Vendedor 
+//       Criatura/Humano que vende
+//         Frutinha
+//         Chifre do Sipher
+//         Consumíveis
+
+//     Monstro Benevolente
+//       É invocado quando usa o Chifre ( Qualquer item para invocar algo ) do vendedor
+//       Aparece um ponto especifico do mapa, e Jogadores podem levar frutinhas para receber um item de volta
+//       Phoenix?
+//       Behemoth?
+//       Dragão?
+//       Salamandra?
+
+//   Monstros
+//     Monstro Spawnado ao interagir com caverna/toca/ninho
+//       Morcego
+//       Coelho
+//       Pássaro 
+
+
+// Cidade De Terra
+//   Npcs
+//     Coletador Especifico 01, objeto normal que um é escolhido aleatoriamente para ser enegerizado (?)
+//       Árvore que pode brilhar com o fruto sagrado
+
+//     Coletador Especifico 02
+//       Objeto que tenha um padrao de todos, porém em certo tempo do jogo, a imagem muda para uma escolhida
+//       vagalume?
+
+//     Coletador 01
+//       Ouro
+//       Rubi? 
+//       Ferro
+
+//     Coletador 02
+//       Ametista
+//       Esmeralda
+//       Diamante
+
+//     Vendedor - Artimanhas de uso unico: como armadilhas ou dardos
+
+//   Monstros 
+//     Monstro Forte, devolve dano e dá item ao matar
+//       Golem
+//       Animal Selvagem
+//       Ent (Arvore Monstro)
+
+// Cidade Da Agua
+//   Npcs
+//     3 Coletadores diferentes (comida)
+//       Coco nas palmeiras
+//       Peixe
+//       Ostra
+//       Lula
+//       Carangueijo
+
+//     Lugar para abençoar item obtido do monstro
+//       Lago abençoado
+//       Npc religoso
+//       Mago
+
+//     Minigame - 3 Lugares para pisar/interagir até que os 3 estejam ligados na mesma posição
+//     Quando concluído, um item pode ser obtido em algum baú ou orb perto, e reinicia a sequencia
+//       Estátuas que brilham, ao interagir muda a cor entre 3 cores
+//       Pedras   que brilham, ao interagir muda a cor entre 3 cores
+
+//     Vendedor de Limão, Comida, Decorativo
+//       Comidas:
+//         Raspadinha
+//         Agua de Coco
+//         Canapé
+//         ???
+//       Decorativo: 
+//         Coroa de Flores
+//         Miçanga
+//         Colar de Conchas
+//         Artesanato local
+//         ???
+
+//     Cozinheiro, pode fazer diversos itens diferentes, com as combinações de Limão e dos coletadores
+
+//     Homem que quer uma Limonada GELADA
+
+//   Monstros
+//     Monstro que só corre e apanha, dá um item
+//       Poro
+//       Ursinho
+//       Felino
+//       Coelho
+
+// Cidade do Ar
+//   Npcs
+//     Objetos espalhados pelo mapa, aparecem periodicamente, somem ao pegar
+//       Cataventos 
+//       Mel
+//       ???
+      
+//     Ovo de criatura, interagível 
+//       Ovo de avestruz 
+//       Ovo de coelho ?
+//       ???
+  
+//     Coletáveis
+//       Pinheiros - pega pinha
+//       Fontes termicas - Agua curandeira
+//       ??
+    
+//     Moinho - Dá um item depois de um tempo moendo
+
+//     Vendedor de Scrolls - Magias de uso único
+
+//   Monstros
+//     Defensor do ovo
+//       Avestruz
+//       Chocobo
+//       ???
+
+//     Criatura fragil
+//       Coelho 
+//       Poro
+//       ??

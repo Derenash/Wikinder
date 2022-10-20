@@ -1,2 +1,2 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/Event/_.type
+// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
 Apps.Fib.Event.gold_sub (pos: U120) (value: U120) : (Apps.Fib.Event)

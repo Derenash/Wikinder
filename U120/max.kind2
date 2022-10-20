@@ -1,0 +1,7 @@
+U120.max (n: U120) (m: U120) : U120 {
+  let gtn = U120.greater_than n m 
+  match Bool gtn {
+    true  =>  n 
+    false =>  m
+  }
+}
