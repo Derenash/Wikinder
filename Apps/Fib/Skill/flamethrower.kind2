@@ -1,0 +1,30 @@
+Apps.Fib.Skill.flamethrower : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    let skill_id = U120.new 0 2
+    let damage   = U120.new 0 40
+    let range    = U120.new 0 1 
+    let area     = U120.new 0 6
+    let speed    = U120.new 0 50
+
+    ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask target   = Apps.Fib.Interaction.target.get
+    ask origin   = Apps.Fib.Interaction.player.get_pos
+    ask check    = Apps.Fib.Interaction.skill.check_range range
+
+    // Get the delta of all coordinates within 2 tiles of a point
+    let delta    = Apps.Fib.Pos.Delta.get origin target
+    let deltas   = Apps.Fib.Pos.Delta.line range delta
+    // Get the coords in line within range
+    let line     = Apps.Fib.Pos.range target deltas
+
+    // Damages the units in the area
+    ask Apps.Fib.Interaction.damage.area damage line
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.add_cd cooldown
+    ask Apps.Fib.Interaction.skill.add_event skill_id
+
+    return Unit.new
+  }
+}

@@ -1,0 +1,13 @@
+Apps.Fib.Pos.distance (origin: Apps.Fib.Pos) (target: Apps.Fib.Pos) : U120 {
+  let ox = Apps.Fib.Pos.get_x origin
+  let tx = Apps.Fib.Pos.get_x target
+  let dx = U120.distance ox tx
+
+
+  let oy = Apps.Fib.Pos.get_y origin
+  let ty = Apps.Fib.Pos.get_y target
+  let dy = U120.distance oy ty
+
+  U120.add dx dy
+}
+

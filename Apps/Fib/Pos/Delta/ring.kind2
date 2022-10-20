@@ -1,0 +1,89 @@
+Apps.Fib.Pos.Delta.ring (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.ring (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.ring (U120.new 0 2) =
+  let top_bot = Apps.Fib.Pos.Delta.horizontal U120.1 U120.2
+  let lft_rgt = Apps.Fib.Pos.Delta.vertical   U120.1 U120.2
+  List.concat top_bot lft_rgt
+Apps.Fib.Pos.Delta.ring range = 
+  // Gets the variation for how many times it will "stretch" on the horizontal
+  // or vertical
+  let variation = U120.div range U120.2
+  let neg = (x: U120) => U120.inc (U120.bitwise_xor x U120.max_val)
+
+  // How many times i have to rotate the four coords in order to conect the
+  // vertical/horizontal lines
+  let quantity = Apps.Fib.Delta.ring.aux_diagonal_variation range
+
+  // Gets the four edges of the circle, so i can "rotate" these coords
+  let top_r = Pair.new variation range
+  let bot_r = Pair.new range (neg variation)
+  let bot_r = Pair.new range (U120.sub U120.0 variation)
+  let bot_l = Pair.new (neg variation) (neg range)
+  let top_l = Pair.new (neg range) variation
+
+  // Returns the Conection lines between the horizontal/vertical lines
+  let diagols = Apps.Fib.Delta.ring.aux_diagonal quantity top_r bot_r bot_l top_l
+
+  // Returns the four horizontal/vertical lines
+  let top_bot = Apps.Fib.Delta.ring.aux_flat range variation
+  List.concat diagols top_bot
+
+
+// Auxiliar function to create the Conection lines
+Apps.Fib.Delta.ring.aux_diagonal
+  (quantity: U120)
+  (top_r: Pair U120 U120)
+  (bot_r: Pair U120 U120)
+  (bot_l: Pair U120 U120)
+  (top_l: Pair U120 U120)
+: List (Pair U120 U120)
+
+Apps.Fib.Delta.ring.aux_diagonal (U120.new 0 0) top_r bot_r bot_l top_l = List.nil
+Apps.Fib.Delta.ring.aux_diagonal quantity top_r bot_r bot_l top_l =
+  // "Pair Map"
+  let f = 
+    ((a: U120 -> U120) => (b: U120 -> U120) => (x: Pair U120 U120) => 
+    match Pair x {
+      new => Pair.new (a x.fst) (b x.snd)
+    }
+    )
+  // Plus One
+  let po = (x: U120) => U120.add (U120.new 0 1) x
+  // Minus one
+  let mo = (x: U120) => U120.sub x (U120.new 0 1)
+
+  // The four Coordinates rotated 
+  // x+1 y-1
+  let new_topr = f po mo top_r
+  // x-1 y-1
+  let new_botr = f mo mo bot_r
+  // x-1 y+1
+  let new_botl = f mo po bot_l
+  // x+1 y+1
+  let new_topl = f po po top_l
+
+  let new_group = [new_topr, new_botr, new_botl, new_topl]
+  List.concat (Apps.Fib.Delta.ring.aux_diagonal (U120.dec quantity) new_topr new_botr new_botl new_topl) new_group
+  
+// The four Vertical/Horizontal lines
+Apps.Fib.Delta.ring.aux_flat
+  (range : U120) 
+  (variation: U120)
+: List (Pair U120 U120)
+Apps.Fib.Delta.ring.aux_flat range variation = 
+  let top_bot = Apps.Fib.Pos.Delta.horizontal variation range
+  let lft_rgt = Apps.Fib.Pos.Delta.vertical variation range
+  List.concat top_bot lft_rgt
+
+
+// How many times it will "rotate" the edges
+// Every 2 numbers past 3 it adds one
+Apps.Fib.Delta.ring.aux_diagonal_variation
+  (range: U120)
+: U120
+Apps.Fib.Delta.ring.aux_diagonal_variation (U120.new 0 0) = (U120.new 0 0)
+Apps.Fib.Delta.ring.aux_diagonal_variation (U120.new 0 1) = (U120.new 0 0)
+Apps.Fib.Delta.ring.aux_diagonal_variation (U120.new 0 2) = (U120.new 0 0)
+Apps.Fib.Delta.ring.aux_diagonal_variation (U120.new 0 3) = (U120.new 0 1)
+Apps.Fib.Delta.ring.aux_diagonal_variation (U120.new 0 4) = (U120.new 0 1)
+Apps.Fib.Delta.ring.aux_diagonal_variation range = U120.add (U120.new 0 1) (Apps.Fib.Delta.ring.aux_diagonal_variation (U120.sub range (U120.new 0 2)))

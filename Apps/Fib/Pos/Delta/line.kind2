@@ -1,0 +1,11 @@
+Apps.Fib.Pos.Delta.line (range: U120) (delta: Pair U120 U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.line (U120.new 0 0) delta = List.nil
+Apps.Fib.Pos.Delta.line range delta = 
+  let f = 
+    ((range: U120) => (x: Pair U120 U120) => 
+    match Pair x {
+      new => Pair.new (U120.mul range x.fst) (U120.mul range x.snd)
+    }
+    )
+  let new_delta = f range delta
+  List.cons new_delta (Apps.Fib.Pos.Delta.line (U120.dec range) delta)
