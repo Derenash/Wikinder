@@ -4,7 +4,7 @@ Apps.Fib.Interaction.item.combine (items: List U120) (skill: U120) : Apps.Fib.In
     let f  = (item: U120) =>
       let slot     = Apps.Fib.Player.skills.find player item
       let del_item = (slot: U120) => Apps.Fib.Interaction.skill.del slot
-      Apps.Fib.Interaction.extract slot del_item Apps.Fib.Interaction.fail
+      Maybe.extract slot Apps.Fib.Interaction.fail del_item
 
     let func = (item: U120) => (itr: Apps.Fib.Interaction) => (Apps.Fib.Interaction.bind itr (x => (f item))) 
     ask Apps.Fib.Interaction.skill.add skill 

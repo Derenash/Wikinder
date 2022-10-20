@@ -1,3 +1,0 @@
-Apps.Fib.Interaction.extract <a> <b> (m: Maybe a) (some: a -> Apps.Fib.Interaction b) (none: Apps.Fib.Interaction b) : Apps.Fib.Interaction b 
-Apps.Fib.Interaction.extract a b (Maybe.none r)     some none = none
-Apps.Fib.Interaction.extract a b (Maybe.some r val) some none = some val
