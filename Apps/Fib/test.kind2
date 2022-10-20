@@ -5,10 +5,12 @@
 Main : _ {
   // Initial State
   let state  = Apps.Fib.State.init
-
+  let player = (x: U120) => (y: U120) => Apps.Fib.Player.new x y (U120.new 0 1024) (U120.new 0 100) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) [(U120.new 0 1)]
   let p0     = player (U120.new 0 141) (U120.new 0 15)
+  let p0_pos = Apps.Fib.Pos.new (U120.new 0 141) (U120.new 0 15)
   let p0_id  = (U120.new 0 1024)
-  let p1     = player (U120.new 0 144) (U120.new 0 10)
+  let p1     = player (U120.new 0 142) (U120.new 0 14)
+  let p1_pos = Apps.Fib.Pos.new (U120.new 0 142) (U120.new 0 14)
   let p1_id  = (U120.new 0 1025)
   // Id for player 0
 
@@ -29,18 +31,25 @@ Main : _ {
   // let code_0 = Apps.Fib.Action.skill_code state (U120.new 0 0) p0_id p1_pos
   // let code_0 = Apps.Fib.Interact.skill p0_id (U120.new 0 0) (U120.new 0 3) (U120.new 0 13)
   let code_0 = Apps.Fib.Interact.pos.skill p0_id (U120.new 0 0) (Apps.Fib.Pos.get_x p0_pos) (Apps.Fib.Pos.get_y p0_pos) (Apps.Fib.Pos.get_x p1_pos) (Apps.Fib.Pos.get_y p1_pos)
+  let update = Apps.Fib.State.Update state code_0 (U120.new 0 1024)
+  let state  = Pair.fst update
+  let events = Pair.snd update
+  let table  = Apps.Fib.State.get_table state
+  let events = Pair.snd update
+  // Apps.Fib.Event.Super_show events
+  Apps.Fib.State.parse state
   // Player 2 Id
-  let p2_id  = U120.new 0 1350
+  // let p2_id  = U120.new 0 1350
   // Action code to create a new character in a town
   // 0 = top left
   // 1 = top right
   // 2 = bot right
   // 3 = bot left
-  let code_1 = Apps.Fib.Interact.spawn p2_id (U120.new 0 1)
+  // let code_1 = Apps.Fib.Interact.spawn p2_id (U120.new 0 1)
   // Action code to walk to a point (max range = 2)
   // let code_2 = Apps.Fib.Action.walk_code state p0_id (Apps.Fib.Pos.new (U120.new 0 141) (U120.new 0 17))
   // Action code to walk a direction 
-  let code_2 = Apps.Fib.Interact.walk p0_id (U120.new 0 9) (U120.new 0 9)
+  // let code_2 = Apps.Fib.Interact.walk p0_id (U120.new 0 9) (U120.new 0 9)
   // let 
   // Runs Fireball action code in the state
   // Runs Spawn action code in the state
@@ -51,7 +60,7 @@ Main : _ {
   // Starting y = 0
   // Width      = 20
   // Height     = 20
-  let m_show = Apps.Fib.Map.show (U120.new 0 130) (U120.new 0 0) (U120.new 0 30) (U120.new 0 20) (Apps.Fib.State.get_map state)
+  // let m_show = Apps.Fib.Map.show (U120.new 0 130) (U120.new 0 0) (U120.new 0 30) (U120.new 0 20) (Apps.Fib.State.get_map state)
   // Shows all players in the Table
   // let t_shw1 = Apps.Fib.Table.show_players (Apps.Fib.State.get_table state)
   // let j = Apps.Fib.Table.got (Apps.Fib.test.Table state) p0_id
@@ -60,6 +69,6 @@ Main : _ {
   // state
   // m_show
   // Apps.Fib.State.get_table state
-  Apps.Fib.State.parse state 
+  // Apps.Fib.State.parse state 
 }
 

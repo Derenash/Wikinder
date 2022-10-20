@@ -1,6 +1,6 @@
 action includes:
-- EntityID (12 bits)
-- Command  (4 bits)
+- EntityID (12 bits) - 1234
+- Command  (4 bits)  -  
 - Data     (8 bits)
 
 Direction - 02 bits 

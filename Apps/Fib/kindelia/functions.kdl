@@ -4,10 +4,10 @@ fun (Fib_init) {
     (Apps_Fib_lhN)
 }
 
-// Apps.Fib.kindelia.Response.parsed (data: (Apps.Fib.State.Parsed)) : (Apps.Fib.kindelia.Response)
+// Apps.Fib.Kindelia.Response.parsed (data: (Apps.Fib.State.Parsed)) : (Apps.Fib.Kindelia.Response)
 ctr {Apps_Fib_JmH data}
 
-// Apps.Fib.kindelia.Response.none : (Apps.Fib.kindelia.Response)
+// Apps.Fib.Kindelia.Response.none : (Apps.Fib.Kindelia.Response)
 ctr {Apps_Fib_ock}
 
 // U120.new (hi: U60) (lo: U60) : (U120)
@@ -16,7 +16,7 @@ fun (U120_new hi lo) {
     (+ (<< hi #60) (>> (<< lo #60) #60))
 }
 
-// Apps.Fib.kindelia.Act.parse : (Apps.Fib.kindelia.Act)
+// Apps.Fib.Kindelia.Act.parse : (Apps.Fib.Kindelia.Act)
 ctr {Fib_kdl_a_p}
 
 // Apps.Fib.State.init : (Apps.Fib.State)
@@ -922,7 +922,7 @@ fun (Fib_tbl_mut table func id) {
     (Bt_mut (Fib_tbl_bses) table (Fib_tbl_fid id) func)
 }
 
-// Apps.Fib.kindelia.Act.next (code: (U120)) : (Apps.Fib.kindelia.Act)
+// Apps.Fib.Kindelia.Act.next (code: (U120)) : (Apps.Fib.Kindelia.Act)
 ctr {Fib_kdl_a_n code}
 
 // Apps.Fib.State.parse (state: (Apps.Fib.State)) : (Apps.Fib.State.Parsed)

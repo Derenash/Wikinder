@@ -32,31 +32,31 @@ Apps.Fib.State.parse.id (U120.new 0 9) id entity = (x: Apps.Fib.State.Parsed) =>
 // Players
 // 1024 - 2047
 Apps.Fib.State.parse.id (U120.new 0 10) id entity = (x: Apps.Fib.State.Parsed) =>
-  let player = Apps.Fib.Player.show entity
+  let player = Apps.Fib.Player.parse entity
   Apps.Fib.State.parse.join_player player x
 // Players
 // 2048 - 4095
 Apps.Fib.State.parse.id (U120.new 0 11) id entity = (x: Apps.Fib.State.Parsed) => 
-  let player = Apps.Fib.Player.show entity
+  let player = Apps.Fib.Player.parse entity
   Apps.Fib.State.parse.join_player player x
   
 Apps.Fib.State.parse.id n i e = (x: Apps.Fib.State.Parsed) => x
 
-Apps.Fib.State.parse.join_npc (npc: List (Pair String String)) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
+Apps.Fib.State.parse.join_npc (npc: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
 Apps.Fib.State.parse.join_npc npc (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new (List.cons npc n) m p
 
-Apps.Fib.State.parse.join_monster (monster: List (Pair String String)) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
+Apps.Fib.State.parse.join_monster (monster: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
 Apps.Fib.State.parse.join_monster monster (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new n (List.cons monster m) p
 
-Apps.Fib.State.parse.join_player (player: List (Pair String String)) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
+Apps.Fib.State.parse.join_player (player: Apps.Fib.Thing) (b: Apps.Fib.State.Parsed) : Apps.Fib.State.Parsed
 Apps.Fib.State.parse.join_player player (Apps.Fib.State.Parsed.new n m p) = Apps.Fib.State.Parsed.new n m (List.cons player p)
 
-Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List (Pair String String)
+Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing
 Apps.Fib.State.parse.id_07 (U120.new 0 128) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity
 Apps.Fib.State.parse.id_07 (U120.new 0 129) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 129) entity
 Apps.Fib.State.parse.id_07 (U120.new 0 130) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 130) entity
 
-Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List (Pair String String)
+Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing
 Apps.Fib.State.parse.id_09 (U120.new 0 512) entity = Apps.Fib.Monster.bat.parse (U120.new 0 512) entity
 Apps.Fib.State.parse.id_09 (U120.new 0 513) entity = Apps.Fib.Monster.bat.parse (U120.new 0 513) entity
 Apps.Fib.State.parse.id_09 (U120.new 0 514) entity = Apps.Fib.Monster.bat.parse (U120.new 0 514) entity

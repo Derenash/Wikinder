@@ -1,5 +1,5 @@
-type Apps.Fib.kindelia.Response {
-  none 
-  parsed (data: Apps.Fib.State.Parsed)
-  state (data: Apps.Fib.State)
+type Apps.Fib.Kindelia.Response {
+  none
+  state (state: Apps.Fib.Kindelia.State) 
+  next  (data: Pair Apps.Fib.Kindelia.State Apps.Fib.Events)
 }

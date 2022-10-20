@@ -1,4 +1,4 @@
-// Apps.Fib.kindelia (action: (Apps.Fib.kindelia.Act)) : (Kindelia.IO (Apps.Fib.kindelia.Response))
+// Apps.Fib.Kindelia (action: (Apps.Fib.Kindelia.Act)) : (Kindelia.IO (Apps.Fib.Kindelia.Response))
 fun (Fib action) {
   (Fib {Fib_kdl_a_n code}) =
     {TAKE @state let y = (Fib_st_upd state code #0);

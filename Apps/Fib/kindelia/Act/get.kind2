@@ -1,3 +1,2 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Act/_.type
-#kdl_name = Fib_kdl_a_p
-Apps.Fib.kindelia.Act.parse : (Apps.Fib.kindelia.Act)
+Apps.Fib.Kindelia.Act.get : (Apps.Fib.Kindelia.Act)

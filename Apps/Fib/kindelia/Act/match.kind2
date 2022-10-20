@@ -1,4 +1,4 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Act/_.type
-Apps.Fib.kindelia.Act.match (x: (Apps.Fib.kindelia.Act)) -(p: (x: (Apps.Fib.kindelia.Act)) Type) (next: (code: U120) (p (Apps.Fib.kindelia.Act.next code))) (parse: (p (Apps.Fib.kindelia.Act.parse))) : (p x)
-Apps.Fib.kindelia.Act.match (Apps.Fib.kindelia.Act.next code_) p next parse = (next code_)
-Apps.Fib.kindelia.Act.match (Apps.Fib.kindelia.Act.parse) p next parse = (parse)
+Apps.Fib.Kindelia.Act.match (x: (Apps.Fib.Kindelia.Act)) -(p: (x: (Apps.Fib.Kindelia.Act)) Type) (next: (code: U120) (p (Apps.Fib.Kindelia.Act.next code))) (get: (p (Apps.Fib.Kindelia.Act.get))) : (p x)
+Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.next code_) p next get = (next code_)
+Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.get) p next get = (get)

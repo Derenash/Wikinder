@@ -1,0 +1,7 @@
+#kdl_name = Fib_st_appsk
+Apps.Fib.Skill.get (skill : U120) : Apps.Fib.Interaction Unit
+Apps.Fib.Skill.get (U120.new 0 0) = Apps.Fib.Interaction.pass
+Apps.Fib.Skill.get (U120.new 0 1) = Apps.Fib.Skill.fireball //Apps.Fib.Skill.fireball entity target // TODO)
+Apps.Fib.Skill.get (U120.new 0 2) = Apps.Fib.Interaction.pass // TODO
+Apps.Fib.Skill.get (U120.new 0 3) = Apps.Fib.Interaction.pass // TODO
+Apps.Fib.Skill.get (U120.new 0 4) = Apps.Fib.Interaction.pass // TODO

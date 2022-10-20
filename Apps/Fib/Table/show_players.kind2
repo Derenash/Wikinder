@@ -1,19 +1,7 @@
 #kdl_name = Fib_tbl_spl
-Apps.Fib.Table.show_players (table: Apps.Fib.Table) : List (List (Pair String String)) {
-  Apps.Fib.Table.show_players.aux table (U120.new 0 1024)
-}
-
-#kdl_name = Fib_tbl_spl0
-Apps.Fib.Table.show_players.aux (table: Apps.Fib.Table) (id: U120) : List (List (Pair String String))
-Apps.Fib.Table.show_players.aux table (U120.new 0 4096) = List.nil
-Apps.Fib.Table.show_players.aux table id = 
-  let tab_ent = Apps.Fib.Table.got table id
-  match Pair tab_ent {
-    new => 
-      if (Bool.not (U120.is_zero tab_ent.snd)) {
-        List.cons (Apps.Fib.Player.show tab_ent.snd) (Apps.Fib.Table.show_players.aux table (U120.inc id))
-      }
-      else  {
-        Apps.Fib.Table.show_players.aux table (U120.inc id)
-      }
+Apps.Fib.Table.show_players (state: Apps.Fib.State) : List Apps.Fib.Thing {
+  let parsed = Apps.Fib.State.parse state
+  match Apps.Fib.State.Parsed parsed {
+    new => parsed.play 
   }
+} 

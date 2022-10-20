@@ -1,9 +1,9 @@
-Apps.Fib.Monster.bat.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List (Pair String String) {
+Apps.Fib.Monster.bat.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing {
   [
-    (Pair.new "type" "bat")
-    (Pair.new "id" ((U120.show (U120.sub id (U120.new 0 512))) ""))
-    (Pair.new "x"  ((U120.show (Apps.Fib.Player.pos.get_x entity)) ""))
-    (Pair.new "y"  ((U120.show (Apps.Fib.Player.pos.get_y entity)) ""))
-    (Pair.new "hp" ((U120.show (Apps.Fib.Player.hp.get entity)) ""))
+    (Pair.new (Kindelia.Convert.to_kstring "type") (Kindelia.Convert.to_kstring "bat"))
+    (Pair.new (Kindelia.Convert.to_kstring "id"  ) (Kindelia.Convert.num_to_kstring (U120.sub id (U120.new 0 512))) )
+    (Pair.new (Kindelia.Convert.to_kstring "x"   ) (Kindelia.Convert.num_to_kstring (Apps.Fib.Player.pos.get_x entity)) )
+    (Pair.new (Kindelia.Convert.to_kstring "y"   ) (Kindelia.Convert.num_to_kstring (Apps.Fib.Player.pos.get_y entity)) )
+    (Pair.new (Kindelia.Convert.to_kstring "hp"  ) (Kindelia.Convert.num_to_kstring (Apps.Fib.Player.hp.get entity)) )
   ]
 }

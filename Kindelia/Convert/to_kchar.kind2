@@ -1,0 +1,28 @@
+Kindelia.Convert.to_kchar (char: Char) : Maybe U120 {
+  if (Char.is_decimal char) {
+    Maybe.some (U120.new 0 (- char 47))
+  } 
+  else {
+    if (Char.between 65 char 91) {
+      Maybe.some (U120.new 0 (- char 54))
+    }
+    else {
+      if (Char.between 97 char 123) {
+        Maybe.some (U120.new 0 (- char 60))
+      }
+      else {
+        if (Char.equal char '.') {
+          Maybe.some (U120.new 0 0)
+        }
+        else {
+          if (Char.equal char '_') {
+            Maybe.some (U120.new 0 63)
+          }
+          else { 
+            Maybe.none
+          }
+        }
+      }
+    }
+  }
+}

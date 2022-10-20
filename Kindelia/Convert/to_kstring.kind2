@@ -1,0 +1,15 @@
+Kindelia.Convert.to_kstring (string: String) : U120 {
+  Kindelia.Convert.to_kstring.aux string (U120.new 0 0)
+}
+
+Kindelia.Convert.to_kstring.aux (string: String) (kdl_str: U120): U120
+Kindelia.Convert.to_kstring.aux (String.nil)      kdl_str = kdl_str
+Kindelia.Convert.to_kstring.aux (String.cons h t) kdl_str = 
+  let char    = Kindelia.Convert.to_kchar h
+  match Maybe char {
+    none => Kindelia.Convert.to_kstring.aux t kdl_str
+    some =>
+      let kdl_str = U120.bitwise_or char.value (U120.shift_left kdl_str (U120.new 0 6)) 
+      Kindelia.Convert.to_kstring.aux t kdl_str
+  }
+

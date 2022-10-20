@@ -1,0 +1,3 @@
+Apps.Fib.Event.Super_show (events: List Apps.Fib.Event) : String
+Apps.Fib.Event.Super_show (List.nil r) = String.nil
+Apps.Fib.Event.Super_show (List.cons r h t) = String.cons 10 (String.concat (Apps.Fib.Event.show h) (Apps.Fib.Event.Super_show t))
