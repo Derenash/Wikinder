@@ -1,0 +1,32 @@
+Apps.Fib.Interaction.player.cast_skill (cooldown: U120) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask player      = Apps.Fib.Interaction.player.get
+    let old_cd      = Apps.Fib.Player.cd.get player
+    let silence     = Apps.Fib.Player.sl.get player
+    let root        = Apps.Fib.Player.rt.get player
+    ask frame       = Apps.Fib.Interaction.frame.get
+    let can_cast    = U120.greater_equal frame (U120.add old_cd silence)
+    let new_cd      = U120.add frame cooldown
+    let new_silence = U120.sub_saturated (U120.add old_cd silence) new_cd
+    let new_root    = U120.sub_saturated (U120.add old_cd root) new_cd
+    let func        = (player: Apps.Fib.Player) =>
+      let player    = Apps.Fib.Player.cd.set player new_cd
+      let player    = Apps.Fib.Player.sl.set player new_silence
+      let player    = Apps.Fib.Player.rt.set player new_root
+      player
+    ask Apps.Fib.Interaction.check can_cast
+    Apps.Fib.Interaction.player.mut func
+  }
+}
+
+
+// Can move = 
+//   Frame >= Old_Cooldown + Root
+
+// Can act  =
+//   Frame >= Old_Cooldown + Silence
+
+// After action =
+//   New_Cooldown = Frame + Ability Cd
+//   New_Root     = (Old_Cooldown + Root) - New_Cooldown
+//   New_Silence  = (Old_Cooldown + Silence) - New_Cooldown
