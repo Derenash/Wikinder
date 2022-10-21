@@ -11,10 +11,10 @@ Main {
   let eff   = (interaction: Apps.Fib.Interaction Unit) =>
     interaction init (U120.new 0 1024) (Apps.Fib.Pos.new (U120.new 0 140) (U120.new 0 13)) (U120.new 0 1000)
 
-  let result = eff Apps.Fib.Skill.fireball
-  let pair = match Apps.Fib.Interaction.Result result {
+  let res = eff Apps.Fib.Skill.fireball
+  let pair = match Apps.Fib.Interaction.Result res {
       err => Pair.new init []
-      new => Pair.new result.state result.events
+      new => Pair.new res.state res.events
     }
   let state  = Pair.fst pair
   let events = Pair.snd pair
