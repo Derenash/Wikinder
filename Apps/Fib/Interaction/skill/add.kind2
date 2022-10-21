@@ -2,16 +2,14 @@ Apps.Fib.Interaction.skill.add (skill: U120) : Apps.Fib.Interaction Bool {
   do Apps.Fib.Interaction {
     ask player = Apps.Fib.Interaction.player.get
     let result = Apps.Fib.Player.skills.has_slot player
-    let none   = do Apps.Fib.Interaction { return Bool.false }
+    let none   = do Apps.Fib.Interaction { return Bool.false}
     let some   = (x: U120) => do Apps.Fib.Interaction { 
       let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.add_at player skill x
       ask Apps.Fib.Interaction.player.mut func
+      ask Apps.Fib.Interaction.item.event_add skill x
       return Bool.true
     } 
-    let rx = Maybe.map (x => some x) result
-    Maybe.default rx none
+    Maybe.extract result none some
+
   }
 }
-
-// TODO: add Apps.Fib.Interaction.item.event_add Item Slot
-// TODO: Change default to Apps.Fib.Interaction.Extract
