@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_fget
 Apps.Fib.Interaction.frame.get : Apps.Fib.Interaction U120 {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     Apps.Fib.Interaction.Result.new frame state player target frame List.nil

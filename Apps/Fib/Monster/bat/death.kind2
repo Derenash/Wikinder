@@ -4,7 +4,7 @@
 //   Save Events
 //     Exp_get
 //     Add_item
-  
+#kdl_name = Fib_mon_bdth
 Apps.Fib.Monster.bat.death (cave_id: Apps.Fib.Id) (damage: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     // Sets the Cave Cooldown to 0

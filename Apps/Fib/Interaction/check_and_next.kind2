@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_chan
 Apps.Fib.Interaction.check_and_next <a> (mbe: Maybe a) : Apps.Fib.Interaction a
 Apps.Fib.Interaction.check_and_next a (Maybe.none r)     = Apps.Fib.Interaction.fail
 Apps.Fib.Interaction.check_and_next a (Maybe.some r val) = do Apps.Fib.Interaction { return val }

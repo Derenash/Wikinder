@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_part
 Apps.Fib.Interaction.player.add_root (amount: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.rt.change player ((x : U120) => U120.max x amount)

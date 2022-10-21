@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_egia
 Apps.Fib.Interaction.entity.get_id_at (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Apps.Fib.Player {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     let pair = Apps.Fib.Map.got_from_state state pos

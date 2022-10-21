@@ -1,4 +1,5 @@
 // Max hp based on EXP
+#kdl_name = Fib_plr_hpgm
 Apps.Fib.Player.hp.get_max (player: Apps.Fib.Player) : U120 {
   let exp = Apps.Fib.Player.xp.get player
   U120.add (U120.mul (U120.div exp (U120.new 0 100)) (U120.new 0 50)) (U120.new 0 100)

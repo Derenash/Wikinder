@@ -1,4 +1,5 @@
 //This interaction fails if the cd is greater than or equal the current frame
+#kdl_name = Fib_itr_fcnc
 Apps.Fib.Interaction.frame.check_not_cd (entity: Apps.Fib.Entity) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask frame = Apps.Fib.Interaction.frame.get

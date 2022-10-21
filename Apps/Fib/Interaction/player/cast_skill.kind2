@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_pcsk
 Apps.Fib.Interaction.player.cast_skill (cooldown: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player      = Apps.Fib.Interaction.player.get

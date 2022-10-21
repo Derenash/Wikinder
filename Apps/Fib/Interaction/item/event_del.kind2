@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_iedl
 Apps.Fib.Interaction.item.event_del (item: U120) (slot: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask pos = Apps.Fib.Interaction.player.get_pos

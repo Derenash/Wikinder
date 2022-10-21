@@ -1,5 +1,6 @@
 // TODO : Add Slow Effect
 // TODO : Edit Damage
+#kdl_name = Fib_skl_snwf
 Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 

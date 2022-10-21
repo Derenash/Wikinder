@@ -1,4 +1,5 @@
 // TODO: create Apps.Fib.Interaction.can_buy (value: U120)
+#kdl_name = Fib_itr_nbuy
 Apps.Fib.Interaction.npc.buy (item: U120) (price: U120): Apps.Fib.Interaction Unit {
     do Apps.Fib.Interaction {
     ask player  = Apps.Fib.Interaction.player.get

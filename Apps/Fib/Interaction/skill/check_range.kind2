@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_skcr
 Apps.Fib.Interaction.skill.check_range (range: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask origin   = Apps.Fib.Interaction.player.get_pos

@@ -1,3 +1,4 @@
+#kdl_name = Fib_plr_sksl
 Apps.Fib.Player.skills.has_slot (player: Apps.Fib.Player) : Maybe U120 {
   Apps.Fib.Player.skills.has_slot.go player (U120.new 0 0)
 }

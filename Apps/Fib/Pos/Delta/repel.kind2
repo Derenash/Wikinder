@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_drpl
 Apps.Fib.Pos.Delta.repel (delta: Pair U120 U120) (strength: U120) : Pair U120 U120 
 Apps.Fib.Pos.Delta.repel delta (U120.new 0 0) = Pair.new (U120.new 0 0) (U120.new 0 0)
 Apps.Fib.Pos.Delta.repel delta strength =

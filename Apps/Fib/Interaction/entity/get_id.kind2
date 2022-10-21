@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_egid
 Apps.Fib.Interaction.entity.get_id : Apps.Fib.Interaction Apps.Fib.Id {
   do Apps.Fib.Interaction {
     ask map = Apps.Fib.Interaction.map.get
