@@ -1,4 +1,5 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Act/_.type
+#kdl_name = Fib_kdl_amat
 Apps.Fib.Kindelia.Act.match (x: (Apps.Fib.Kindelia.Act)) -(p: (x: (Apps.Fib.Kindelia.Act)) Type) (next: (code: U120) (p (Apps.Fib.Kindelia.Act.next code))) (get: (p (Apps.Fib.Kindelia.Act.get))) : (p x)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.next code_) p next get = (next code_)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.get) p next get = (get)

@@ -10,7 +10,7 @@
 //   item_add  (pos: U120) (item : U120) (slot  : U120)
 //   item_del  (pos: U120) (item : U120)
 // }
-
+#kdl_name = Fib_evt_shw
 Apps.Fib.Event.show (event: Apps.Fib.Event) : String
 Apps.Fib.Event.show (Apps.Fib.Event.damage pos value) =
   String.flatten [ "Damage: "  "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]

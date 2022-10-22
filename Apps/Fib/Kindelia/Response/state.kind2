@@ -1,2 +1,3 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
+#kdl_name = Fib_kdl_rst
 Apps.Fib.Kindelia.Response.state (state: Apps.Fib.Kindelia.State) : (Apps.Fib.Kindelia.Response)
