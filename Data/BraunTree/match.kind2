@@ -1,0 +1,5 @@
+// Automatically derived from /home/derenash/Wikinder/Data/BraunTree/_.type
+#kdl_name = BrTree_match
+Data.BraunTree.match <a: Type> (x: (Data.BraunTree a)) -(p: (x: (Data.BraunTree a)) Type) (leaf: (p (Data.BraunTree.leaf a))) (node: (val: a) (lft: (Data.BraunTree a)) (rgt: (Data.BraunTree a)) (p (Data.BraunTree.node a val lft rgt))) : (p x)
+Data.BraunTree.match a (Data.BraunTree.leaf a_) p leaf node = (leaf)
+Data.BraunTree.match a (Data.BraunTree.node a_ val_ lft_ rgt_) p leaf node = (node val_ lft_ rgt_)

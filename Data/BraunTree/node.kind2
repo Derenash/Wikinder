@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Data/BraunTree/_.type
+#kdl_name = BrTree_node
+Data.BraunTree.node <a: Type> (val: a) (lft: (Data.BraunTree a)) (rgt: (Data.BraunTree a)) : (Data.BraunTree a)

@@ -1,0 +1,4 @@
+type Data.BraunTree <a> {
+  leaf
+  node (val: a) (lft: Data.BraunTree a) (rgt: Data.BraunTree a)
+}
