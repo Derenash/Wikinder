@@ -19,7 +19,6 @@ Main : _ {
   // Pos for player 0 
   
   // Pos for player 1
-  // TODO: change this to create a character from an action
   // Places player 0 on the state
   let state  = Apps.Fib.State.player.place state p0 p0_id
   // Places player 1 on the state

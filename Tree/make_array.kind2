@@ -1,9 +1,0 @@
-Tree.make_array <a> (xs: List a) : Tree a { 
-  let rows  = Tree.create_rows (U120.new 0 1) xs
-  let func  = (elem: Pair U120 (List a)) => (acc: List (Tree a)) => Tree.build elem acc
-  let trees = List.foldr [Tree.empty] func rows
-  match List trees {
-    nil => Tree.empty
-    cons => trees.head
-  }
-}

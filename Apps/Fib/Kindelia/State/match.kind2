@@ -1,3 +1,3 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/Kindelia/State/_.type
-Apps.Fib.Kindelia.State.match (x: (Apps.Fib.Kindelia.State)) -(p: (x: (Apps.Fib.Kindelia.State)) Type) (new: (starting_block: U120) (state: Apps.Fib.State) (p (Apps.Fib.Kindelia.State.new starting_block state))) : (p x)
-Apps.Fib.Kindelia.State.match (Apps.Fib.Kindelia.State.new starting_block_ state_) p new = (new starting_block_ state_)
+// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/_.type
+Apps.Fib.Kindelia.State.match (x: (Apps.Fib.Kindelia.State)) -(p: (x: (Apps.Fib.Kindelia.State)) Type) (new: (start_blk: U120) (state: Apps.Fib.State) (p (Apps.Fib.Kindelia.State.new start_blk state))) : (p x)
+Apps.Fib.Kindelia.State.match (Apps.Fib.Kindelia.State.new start_blk_ state_) p new = (new start_blk_ state_)

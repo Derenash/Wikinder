@@ -1,11 +1,9 @@
-// TODO: create Apps.Fib.Interaction.can_buy (value: U120)
 #kdl_name = Fib_itr_nbuy
 Apps.Fib.Interaction.npc.buy (item: U120) (price: U120): Apps.Fib.Interaction Unit {
     do Apps.Fib.Interaction {
     ask player  = Apps.Fib.Interaction.player.get
     let slot    = Apps.Fib.Player.skills.has_slot player
-    let gd      = Apps.Fib.Player.gd.get player 
-    let can_buy = U120.greater_equal gd price
+    ask can_buy = Apps.Fib.Interaction.player.can_buy price
     ask slot    = Apps.Fib.Interaction.check_and_next slot
     ask           Apps.Fib.Interaction.check can_buy 
     let func    = (x: Apps.Fib.Player) => Apps.Fib.Player.gd.sub x price

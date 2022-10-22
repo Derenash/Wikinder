@@ -1,2 +1,2 @@
 Apps.Fib.Kindelia.State.get_state (state: Apps.Fib.Kindelia.State) : Apps.Fib.State
-Apps.Fib.Kindelia.State.get_state (Apps.Fib.Kindelia.State.new starting_block state) = state
+Apps.Fib.Kindelia.State.get_state (Apps.Fib.Kindelia.State.new start_blk state) = state

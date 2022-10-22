@@ -8,10 +8,10 @@ Apps.Fib.State.Update.skill (state: Apps.Fib.State) (player_id: Apps.Fib.Id) (sk
     none => Pair.new state List.nil
     some => 
       let skill = Apps.Fib.Skill.get skill
-      let result = skill state player_id target.value frame
-      match Apps.Fib.Interaction.Result result {
+      let res = skill state player_id target.value frame
+      match Apps.Fib.Interaction.Result res {
         err => Pair.new state List.nil
-        new => Pair.new result.state result.events
+        new => Pair.new res.state res.events
       }
   }
 }

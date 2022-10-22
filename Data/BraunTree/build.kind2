@@ -1,0 +1,11 @@
+#kdl_name = BrTree_build
+Data.BraunTree.build <a> (rows: Pair U120 (List a)) (ts: List (Data.BraunTree a)) : List (Data.BraunTree a) {
+  let k    = U120.to_nat (Pair.fst rows)
+  let xs   = Pair.snd rows
+  let pair = List.split_at (List.concat ts (List.repeat (Nat.double k) Data.BraunTree.leaf)) k
+  let ts0  = Pair.fst pair
+  let ts1  = Pair.snd pair
+  List.zip_with_3 (a => b => c => Data.BraunTree.make_node a b c) xs ts0 ts1 
+}
+
+// List.zip_with_3

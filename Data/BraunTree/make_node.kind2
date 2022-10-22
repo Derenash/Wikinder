@@ -1,0 +1,4 @@
+#kdl_name = BrTree_mknde
+Data.BraunTree.make_node <a> (val: a) (lft: Data.BraunTree a) (rgt: Data.BraunTree a) : Data.BraunTree a {
+  Data.BraunTree.node val lft rgt
+}
