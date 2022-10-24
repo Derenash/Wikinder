@@ -1,4 +1,5 @@
-Apps.Fib.main #Fib_main : U120 {
+#kdl_name = Fib_main
+Apps.Fib.main : U120 {
   let init  = Apps.Fib.State.init
   let next  = Apps.Fib.State.Update init (U120.new 0 0) (U120.new 0 0)
   U120.new 0 0

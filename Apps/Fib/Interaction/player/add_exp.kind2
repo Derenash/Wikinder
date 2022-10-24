@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_paxp
 Apps.Fib.Interaction.player.add_exp (amount: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.xp.change player ((x : U120) => U120.add x amount)

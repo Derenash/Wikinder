@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_show
 Apps.Fib.Pos.show (pos: Apps.Fib.Pos) : String {
   let j = U120.low (Sigma.fst pos)
   let x = U60.show (% j 256)

@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_smut
 Apps.Fib.Interaction.state.mut (func: Apps.Fib.State -> Apps.Fib.State) : Apps.Fib.Interaction Unit {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     Apps.Fib.Interaction.Result.new Unit.new (func state) player target frame List.nil

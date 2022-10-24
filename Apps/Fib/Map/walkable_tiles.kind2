@@ -1,3 +1,4 @@
+#kdl_name = Fib_map_wtil
 Apps.Fib.Map.walkable_tiles : List (Pair Bool (List U120)) {
   [
   (Pair.new Bool.true [(U120.new 0 6) (U120.new 0 4) (U120.new 0 8) (U120.new 0 9) (U120.new 0 10) (U120.new 0 22) (U120.new 0 15) (U120.new 0 42) (U120.new 0 21) (U120.new 0 4) (U120.new 0 19)])

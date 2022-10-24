@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_pgxy
 Apps.Fib.Interaction.player.get_pos : Apps.Fib.Interaction Apps.Fib.Pos {
   do Apps.Fib.Interaction {
     ask id     = Apps.Fib.Interaction.player.get_id

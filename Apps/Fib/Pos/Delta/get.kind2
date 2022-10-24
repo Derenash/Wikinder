@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_dget
 Apps.Fib.Pos.Delta.get (a: Apps.Fib.Pos) (b: Apps.Fib.Pos) : Pair U120 U120 {
   let x = (U120.sub (Apps.Fib.Pos.get_x b) (Apps.Fib.Pos.get_x a))
   let y = (U120.sub (Apps.Fib.Pos.get_y b) (Apps.Fib.Pos.get_y a))

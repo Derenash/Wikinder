@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_egat
 Apps.Fib.Interaction.entity.get_at (pos: Apps.Fib.Pos ) : Apps.Fib.Interaction Apps.Fib.Player {
   do Apps.Fib.Interaction {
     ask id = Apps.Fib.Interaction.entity.get_id_at pos

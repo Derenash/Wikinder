@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_fcca
 Apps.Fib.Interaction.frame.check_cd_at (entity: Apps.Fib.Entity) (at: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask frame = Apps.Fib.Interaction.frame.get

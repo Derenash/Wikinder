@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_tblm
 Apps.Fib.Interaction.table.mut (func: Apps.Fib.Table -> Apps.Fib.Table) : Apps.Fib.Interaction Unit {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     let table = Apps.Fib.State.get_table state

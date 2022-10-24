@@ -1,3 +1,4 @@
+#kdl_name = Fib_skl_fthr
 Apps.Fib.Skill.flamethrower : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 

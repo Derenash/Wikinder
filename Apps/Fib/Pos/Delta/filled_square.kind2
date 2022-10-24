@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_dfsq
 Apps.Fib.Pos.Delta.filled_square (range: U120) : List (Pair U120 U120)
 Apps.Fib.Pos.Delta.filled_square (U120.new 0 0) = List.nil
 Apps.Fib.Pos.Delta.filled_square range = 
@@ -11,6 +12,7 @@ Apps.Fib.Pos.Delta.filled_square range =
   List.concat edges hor_ver
         
 // Auxiliar Function 
+#kdl_name = Fib_pos_dfsa
 Apps.Fib.Pos.Delta.filled_square.aux (variation: U120) (range: U120) : List (Pair U120 U120)
 Apps.Fib.Pos.Delta.filled_square.aux variation range =
   let horizontal = Apps.Fib.Pos.Delta.horizontal variation range

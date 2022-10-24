@@ -1,3 +1,4 @@
+#kdl_name = Fib_plr_skad
 Apps.Fib.Player.skills.add (player: Apps.Fib.Player) (skill: U120) : Apps.Fib.Player {
   let slot = Apps.Fib.Player.skills.has_slot player
   match Maybe slot {

@@ -1,4 +1,4 @@
-#kdl_name = Fib_plr_sl_s
+#kdl_name = Fib_plr_sls
 Apps.Fib.Player.sl.set (player: Apps.Fib.Player) (sl: U120) : Apps.Fib.Player {
   Apps.Fib.Player.sl.change player (x => sl)
 }

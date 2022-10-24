@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_emai
 Apps.Fib.Interaction.entity.mut_at_id (func: Apps.Fib.Entity -> Apps.Fib.Entity) (id: Apps.Fib.Id): Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     let func = (table: Apps.Fib.Table) => Apps.Fib.Table.mut table func id

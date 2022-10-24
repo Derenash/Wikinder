@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_psgd
 Apps.Fib.Interaction.player.sub_gd (amount: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player = Apps.Fib.Interaction.player.get

@@ -1,4 +1,5 @@
 // Max hp based on EXP
+#kdl_name = Fib_plr_hpgm
 Apps.Fib.Player.hp.get_max (player: Apps.Fib.Player) : U120 {
   let level = Apps.Fib.Player.xp.get_level player
   Apps.Fib.Player.hp.get_max.aux level

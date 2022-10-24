@@ -1,2 +1,3 @@
 // Automatically derived from /home/derenash/Wikind/Apps/Fib/Interaction/Result/_.type
+#kdl_name = Fib_itr_rerr
 Apps.Fib.Interaction.Result.err <a: Type> : (Apps.Fib.Interaction.Result a)

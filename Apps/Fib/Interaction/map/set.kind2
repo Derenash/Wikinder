@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_mset
 Apps.Fib.Interaction.map.set (map: Apps.Fib.Map): Apps.Fib.Interaction Unit {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     let table     = Apps.Fib.State.get_table state

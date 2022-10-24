@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_pset
 Apps.Fib.Interaction.player.set (new_player: Apps.Fib.Player) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player_id = Apps.Fib.Interaction.player.get_id

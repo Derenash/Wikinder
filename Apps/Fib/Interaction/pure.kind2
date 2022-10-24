@@ -1,6 +1,6 @@
 // Maybe.pure <a: Type> (x: a) : Maybe a
 // Maybe.pure a x = Maybe.some x
-
+#kdl_name = Fib_itr_pure
 Apps.Fib.Interaction.pure <a> (x: a) : Apps.Fib.Interaction {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     Apps.Fib.Interaction.Result.new x state player target frame List.nil

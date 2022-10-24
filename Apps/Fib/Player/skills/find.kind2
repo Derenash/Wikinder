@@ -1,5 +1,5 @@
 //This function returns in which slot the player has a certain skill_id
-
+#kdl_name = Fib_plr_skfd
 Apps.Fib.Player.skills.find (player: Apps.Fib.Player) (skill_id: U120) : Maybe U120 {
   Apps.Fib.Player.skills.find.go player skill_id (U120.new 0 0)
 }

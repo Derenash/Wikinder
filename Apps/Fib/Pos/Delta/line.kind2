@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_dlin
 Apps.Fib.Pos.Delta.line (range: U120) (delta: Pair U120 U120) : List (Pair U120 U120)
 Apps.Fib.Pos.Delta.line (U120.new 0 0) delta = List.nil
 Apps.Fib.Pos.Delta.line range delta = 

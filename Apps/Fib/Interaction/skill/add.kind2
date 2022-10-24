@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_skad
 Apps.Fib.Interaction.skill.add (skill: U120) : Apps.Fib.Interaction Bool {
   do Apps.Fib.Interaction {
     ask player = Apps.Fib.Interaction.player.get

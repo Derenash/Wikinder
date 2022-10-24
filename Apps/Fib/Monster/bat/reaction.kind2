@@ -1,3 +1,4 @@
+#kdl_name = Fib_mon_brct
 Apps.Fib.Monster.bat.reaction (run_distance: U120) (id: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask monster_pos  = Apps.Fib.Interaction.monster.get_pos_from_id id

@@ -1,4 +1,5 @@
 // is_zero should be changed to is_neg
+#kdl_name = Fib_pos_dshw
 Apps.Fib.Pos.Delta.show (delta: Pair U120 U120) : String {
   let func = (x: U120) =>
     if (U120.is_zero x ) {
