@@ -20,7 +20,7 @@ Apps.Fib.Skill.flamering : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.damage.area damage ring
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.add_cd cooldown
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
     ask Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }

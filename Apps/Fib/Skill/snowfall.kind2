@@ -1,14 +1,13 @@
-// TODO : Add Slow Effect
-// TODO : Edit Damage
 Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 
     // Skill Constants
     let skill_id = U120.new 0 6
-    let damage   = U120.new 0 20
+    let damage   = U120.new 0 25
     let range    = U120.new 0 4 
     let area     = U120.new 0 1
     let speed    = U120.new 0 30
+    let slow     = U120.new 0 20
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
     ask target   = Apps.Fib.Interaction.target.get
@@ -18,12 +17,22 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     let tttne  = Apps.Fib.Pos.range target deltas
     let area   = List.cons target tttne
 
-    // Damages the units in the area
-    ask Apps.Fib.Interaction.damage.area damage area
+    // Damages and applies slow the units in the area
+    let func = (
+      (pos: Apps.Fib.Pos) =>
+        do Apps.Fib.Interaction {
+        ask Apps.Fib.Interaction.damage damage pos
+        ask Apps.Fib.Interaction.player.add_slow_at slow pos
+        return Unit.new
+        }
+      )
+    ask Apps.Fib.Interaction.area.generic func area
+
+    // Registers which skill has been used
     ask Apps.Fib.Interaction.skill.event_use skill_id
 
-    // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.add_cd cooldown
+    //Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
     return Unit.new
   }
 }

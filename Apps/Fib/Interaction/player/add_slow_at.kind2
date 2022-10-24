@@ -1,0 +1,19 @@
+Apps.Fib.Interaction.player.add_slow_at (amount: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    ask frame   = Apps.Fib.Interaction.frame.get
+    ask player  = Apps.Fib.Interaction.entity.get_at pos
+    let coold   = Apps.Fib.Player.cd.get player
+    let real_cd = U120.sub_saturated frame coold
+    let has_cd  = U120.greater_than real_cd (U120.new 0 0)
+    Apps.Fib.Interaction.player.add_slow_at.if has_cd frame real_cd amount
+  }
+}
+
+Apps.Fib.Interaction.player.add_slow_at.if (b: Bool) (frame: U120) (real_cd: U120) (amount: U120) : Apps.Fib.Interaction Unit 
+Apps.Fib.Interaction.player.add_slow_at.if Bool.true frame real_cd amount = 
+  // Slow Percentage
+  let slow_perc = (U120.div (U120.mul real_cd amount) (U120.new 0 100))
+  let slow_perc = U120.min (U120.inc real_cd) slow_perc
+  Apps.Fib.Interaction.player.add_cd slow_perc
+
+Apps.Fib.Interaction.player.add_slow_at.if Bool.false frame real_cd amount = Apps.Fib.Interaction.pass

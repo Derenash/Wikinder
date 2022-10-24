@@ -18,12 +18,14 @@ Apps.Fib.Skill.flamearrow : Apps.Fib.Interaction Unit {
     let check    = U120.equal range distance
     ask Apps.Fib.Interaction.check check
 
+    // Adds event for the skill cast
+    ask Apps.Fib.Interaction.skill.event_use skill_id
+
     // Damages the unit if it is in range
     ask Apps.Fib.Interaction.damage damage target
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.add_cd cooldown
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
 
     return Unit.new
   }
