@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_evad
 Apps.Fib.Interaction.event.add (event: Apps.Fib.Event) : Apps.Fib.Interaction Unit {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
     Apps.Fib.Interaction.Result.new Unit.new state player target frame [event]

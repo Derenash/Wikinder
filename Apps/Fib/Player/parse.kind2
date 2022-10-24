@@ -1,4 +1,3 @@
-// TODO: update to new Player format
 #kdl_name = Fib_plr_prse
 Apps.Fib.Player.parse (player: Apps.Fib.Player) : Apps.Fib.Thing {
     [

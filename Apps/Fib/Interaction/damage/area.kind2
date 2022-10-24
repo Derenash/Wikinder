@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_dmga
 Apps.Fib.Interaction.damage.area (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
   let func = 
     (prev_dmg: U120) =>

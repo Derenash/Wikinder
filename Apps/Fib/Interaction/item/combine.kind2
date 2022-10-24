@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_icom
 Apps.Fib.Interaction.item.combine (items: List U120) (skill: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player   = Apps.Fib.Interaction.player.get

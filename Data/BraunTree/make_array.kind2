@@ -1,0 +1,10 @@
+#kdl_name = BrTree_mkary
+Data.BraunTree.make_array <a> (xs: List a) : Data.BraunTree a { 
+  let rows  = Data.BraunTree.create_rows (U120.new 0 1) xs
+  let func  = (elem: Pair U120 (List a)) => (acc: List (Data.BraunTree a)) => Data.BraunTree.build elem acc
+  let trees = List.foldr [Data.BraunTree.leaf] func rows
+  match List trees {
+    nil => Data.BraunTree.leaf
+    cons => trees.head
+  }
+}

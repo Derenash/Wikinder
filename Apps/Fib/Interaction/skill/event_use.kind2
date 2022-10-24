@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_skev
 Apps.Fib.Interaction.skill.event_use (skill_id: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask ori = Apps.Fib.Interaction.player.get_pos

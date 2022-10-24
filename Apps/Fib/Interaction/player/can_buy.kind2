@@ -1,0 +1,8 @@
+Apps.Fib.Interaction.player.can_buy (price: U120) : Apps.Fib.Interaction Bool {
+  do Apps.Fib.Interaction {
+    ask player  = Apps.Fib.Interaction.player.get
+    let gold    = Apps.Fib.Player.gd.get player
+    let can_buy = U120.greater_equal gold price
+    return can_buy
+  }
+}

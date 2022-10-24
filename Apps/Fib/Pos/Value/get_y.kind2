@@ -1,5 +1,5 @@
 // Gets the y component of a U120 position value.
-#kdl_name = Fib_pos_v_gy
+#kdl_name = Fib_pos_vgy
 Apps.Fib.Pos.Value.get_y (val: U120) : U120 {
   U120.shift_right val (U120.new 0 8)
 }

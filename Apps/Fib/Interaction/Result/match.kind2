@@ -1,4 +1,5 @@
 // Automatically derived from /home/derenash/Wikind/Apps/Fib/Interaction/Result/_.type
+#kdl_name = Fib_itr_rmat
 Apps.Fib.Interaction.Result.match <a: Type> (x: (Apps.Fib.Interaction.Result a)) -(p: (x: (Apps.Fib.Interaction.Result a)) Type) (new: (val: a) (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) (events: Apps.Fib.Events) (p (Apps.Fib.Interaction.Result.new a val state player target frame events))) (err: (p (Apps.Fib.Interaction.Result.err a))) : (p x)
 Apps.Fib.Interaction.Result.match a (Apps.Fib.Interaction.Result.new a_ val_ state_ player_ target_ frame_ events_) p new err = (new val_ state_ player_ target_ frame_ events_)
 Apps.Fib.Interaction.Result.match a (Apps.Fib.Interaction.Result.err a_) p new err = (err)

@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_agen
 Apps.Fib.Interaction.area.generic (func: Apps.Fib.Pos -> (Apps.Fib.Interaction Unit)) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit {
   let func = (unit: Unit) => (pos:  Apps.Fib.Pos) => func pos
   Apps.Fib.Interaction.area func Unit.new coords

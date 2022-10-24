@@ -1,3 +1,4 @@
+#kdl_name = Fib_it_horn
 Apps.Fib.Items.horn : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player   = Apps.Fib.Interaction.player.get

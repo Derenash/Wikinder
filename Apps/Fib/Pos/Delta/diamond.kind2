@@ -1,8 +1,10 @@
+#kdl_name = Fib_pos_ddia
 Apps.Fib.Pos.Delta.diamond (range: U120) : List (Pair U120 U120)
 Apps.Fib.Pos.Delta.diamond (U120.new 0 0) = List.nil
 Apps.Fib.Pos.Delta.diamond range = 
   Apps.Fib.Pos.Delta.diamond.aux (U120.new 0 1) (U120.dec range)
 
+#kdl_name = Fib_pos_diaa
 Apps.Fib.Pos.Delta.diamond.aux (x: U120) (y: U120) : List (Pair U120 U120)
 Apps.Fib.Pos.Delta.diamond.aux limit (U120.new 0 0)  =
   let m_x = U120.sub (U120.new 0 0) limit

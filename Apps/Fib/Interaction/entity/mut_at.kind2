@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_emat
 Apps.Fib.Interaction.entity.mut_at (func: Apps.Fib.Entity -> Apps.Fib.Entity) (pos: Apps.Fib.Pos): Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask entity_id = Apps.Fib.Interaction.entity.get_id_at pos

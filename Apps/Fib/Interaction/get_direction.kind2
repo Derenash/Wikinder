@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_gdir
 Apps.Fib.Interaction.get_direction (data: U120) : Pair U120 U120 {
   Apps.Fib.Interaction.get_direction.aux (U120.bitwise_and data (U120.new 0 3))
 }

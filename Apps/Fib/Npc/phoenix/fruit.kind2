@@ -1,3 +1,4 @@
+#kdl_name = Fib_npc_phfr
 Apps.Fib.Npc.phoenix.fruit : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     let fruit_id  = (U120.new 0 27)

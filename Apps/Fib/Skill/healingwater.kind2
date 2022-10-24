@@ -1,3 +1,4 @@
+#kdl_name = Fib_skl_hwtr
 Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 

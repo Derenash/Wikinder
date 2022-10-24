@@ -1,4 +1,5 @@
 // Replaces the skill id with a new id in the skill slot
+#kdl_name = Fib_plr_skra
 Apps.Fib.Player.skills.replace_at (player: Apps.Fib.Player) (skill: U120) (slot: U120) : Apps.Fib.Player {
   // deletes the skill in the slot
   let del = Apps.Fib.Player.skills.del_at player slot

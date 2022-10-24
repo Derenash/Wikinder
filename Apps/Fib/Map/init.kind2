@@ -1,3 +1,4 @@
+#kdl_name = Fib_map_init
 Apps.Fib.Map.init : Apps.Fib.Map {
   let map     = Apps.Fib.Map.alloc
   let map     = Apps.Fib.Map.init.set map (U120.new 0 0) (U120.new 0 0) Apps.Fib.Map.walkable_tiles

@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_gnpc
 Apps.Fib.Interaction.get_npc (id: U120) (data: U120) : Apps.Fib.Interaction Unit
 // Bat Caves:
 //  (25, 154)

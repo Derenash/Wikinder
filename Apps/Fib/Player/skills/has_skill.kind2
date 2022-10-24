@@ -1,4 +1,5 @@
 //Returns true if the player has the ID in the inventory
+#kdl_name = Fib_plr_skhs
 Apps.Fib.Player.skills.has_skill (player: Apps.Fib.Player) (skill_id: U120) : Bool {
   Apps.Fib.Player.skills.has_skill.go player skill_id (U120.new 0 0)
 }

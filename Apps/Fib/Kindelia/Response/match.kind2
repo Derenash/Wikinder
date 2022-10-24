@@ -1,4 +1,5 @@
 // Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/kindelia/Response/_.type
+#kdl_name = Fib_kdl_rmat
 Apps.Fib.Kindelia.Response.match (x: (Apps.Fib.Kindelia.Response)) -(p: (x: (Apps.Fib.Kindelia.Response)) Type) (none: (p (Apps.Fib.Kindelia.Response.none))) (state: (state: Apps.Fib.Kindelia.State) (p (Apps.Fib.Kindelia.Response.state state))) (next: (data: (Pair Apps.Fib.Kindelia.State Apps.Fib.Events)) (p (Apps.Fib.Kindelia.Response.next data))) : (p x)
 Apps.Fib.Kindelia.Response.match (Apps.Fib.Kindelia.Response.none) p none state next = (none)
 Apps.Fib.Kindelia.Response.match (Apps.Fib.Kindelia.Response.state state_) p none state next = (state state_)

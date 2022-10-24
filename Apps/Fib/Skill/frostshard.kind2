@@ -1,3 +1,4 @@
+#kdl_name = Fib_skl_fshr
 Apps.Fib.Skill.frostshard : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
 

@@ -1,3 +1,4 @@
+#kdl_name = Fib_pos_dist
 Apps.Fib.Pos.distance (origin: Apps.Fib.Pos) (target: Apps.Fib.Pos) : U120 {
   let ox = Apps.Fib.Pos.get_x origin
   let tx = Apps.Fib.Pos.get_x target
