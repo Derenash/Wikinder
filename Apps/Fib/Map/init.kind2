@@ -14,7 +14,7 @@ Apps.Fib.Map.init.set map x y (List.cons r0 (Pair.new Bool r2 Bool.true (List.co
   Apps.Fib.Map.init.set map x y (List.cons (Pair.new Bool.false t1) t0)
 Apps.Fib.Map.init.set map x y (List.cons r0 (Pair.new Bool r2 Bool.true (List.cons U120 amount t1)) t0) = 
   let pos = Apps.Fib.Pos.new x y
-  let map = Apps.Fib.Map.set map (U120.new 0 43) pos
+  let map = Apps.Fib.Map.set map (U120.new 0 1) pos // change to 43 to see the walls in map show
   Apps.Fib.Map.init.set map (U120.add (U120.new 0 1) x) y (List.cons (Pair.new Bool.true (List.cons (U120.sub amount (U120.new 0 1)) t1)) t0)
 
 Main {
