@@ -1,0 +1,5 @@
+run {
+  ask x = (Call 'Fic' {Fic_kdl_actg});
+  let r = (Fic_kdl_stpr x);
+  (Done r)
+}

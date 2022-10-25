@@ -1,7 +1,0 @@
-#kdl_name = Fib_tbl_spl
-Apps.Fib.Table.show_players (state: Apps.Fib.State) : List Apps.Fib.Thing {
-  let parsed = Apps.Fib.State.parse state
-  match Apps.Fib.State.Parsed parsed {
-    new => parsed.play 
-  }
-} 

@@ -1,3 +1,0 @@
-Apps.Fib.Kindelia.State.init_with_players: Apps.Fib.Kindelia.State {
-  Apps.Fib.Kindelia.State.new (U120.new 0 0) Apps.Fib.State.init_with_players
-}

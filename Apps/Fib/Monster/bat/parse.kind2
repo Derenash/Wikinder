@@ -1,5 +1,5 @@
 #kdl_name = Fib_mon_bprs
-Apps.Fib.Monster.bat.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing {
+Apps.Fib.Monster.bat.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Attributes {
   [
     (Pair.new (Kindelia.Convert.to_kstring "type") (Kindelia.Convert.to_kstring "bat"))
     (Pair.new (Kindelia.Convert.to_kstring "id"  ) (Kindelia.Convert.num_to_kstring (U120.sub id (U120.new 0 512))) )

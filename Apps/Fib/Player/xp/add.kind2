@@ -1,0 +1,15 @@
+#kdl_name = Fib_plr_xpa
+Apps.Fib.Player.xp.add (player: Apps.Fib.Player) (amount: U120) : Apps.Fib.Player {
+  let level  = Apps.Fib.Player.xp.get_level player
+  let xp     = Apps.Fib.Player.xp.get player
+  let new_xp = U120.min (U120.add amount xp) (U120.new 0 4095)
+  let total  = Apps.Fib.Player.xp.total (U120.inc level)
+  let player = 
+    if (U120.greater_equal new_xp total) {
+      Apps.Fib.Player.hp.change player (x => U120.add (U120.mul (U120.inc level) (U120.new 0 15)) x) 
+    }
+    else {
+      player
+    }
+  Apps.Fib.Player.xp.change player (x => new_xp)
+}

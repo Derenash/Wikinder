@@ -1,32 +1,14 @@
-// Apps.Fib.Kindelia (action: (Apps.Fib.Kindelia.Act)) : (Kindelia.IO (Apps.Fib.Kindelia.Response))
-fun (Fib action) {
-  (Fib {Fib_kdl_a_n code}) =
-    {TAKE @state let y = (Fib_st_upd state code #0);
-    {SAVE y @~ {DONE {Apps_Fib_ock}}}}
-  (Fib {Fib_kdl_a_p}) =
-    {TAKE @state dup _0 _1 = state; let y = (Fib_st_parse _0);
-    {SAVE _1 @~ {DONE {Apps_Fib_JmH y}}}}
+// Apps.Fic.Kindelia (action: (Apps.Fic.Kindelia.Act)) : (Kindelia.IO (Apps.Fic.Kindelia.Response))
+fun (Fic action) {
+  (Fic {Fic_kdl_anxt code}) =
+    {TAKE @state let blk = #0;
+    let result = (Fic_kdl_supd state code blk);
+    dup _0 _1 = result;
+    let state = (Pair_fst _0);
+    {SAVE state @~ {DONE {Fic_kdl_rnxt _1}}}}
+  (Fic {Fic_kdl_actg}) =
+    {TAKE @state dup _0 _1 = state;
+    {SAVE _0 @~ {DONE {Fic_kdl_rst _1}}}}
 } with {
-    let state = (Fib_st_init);
-    let player = @x @y (Fib_plr_new x y #1024 #100 #0 #0 #0 #0 {List_cons #1 {List_nil}});
-    dup _4 _5 = player; dup _6 _7 = _4; let p0 = (!(!_5 #141) #15);
-    let p0_id = #1024;
-    let p1 = (!(!_6 #100) #10);
-    let p1_id = #1025;
-    let p2 = (!(!_7 #57) #117);
-    let p2_id = #1026;
-    let state = (Fib_st_pplc state p0 p0_id);
-    let state = (Fib_st_pplc state p1 p1_id);
-    let state = (Fib_st_pplc state p2 p2_id);
-    let bat = @x @y @hp (| (<< hp #16) (| x (<< y #8)));
-    dup _0 _1 = bat; dup _2 _3 = _0; let b0 = (!(!(!_1 #15) #23) #140);
-    let b0_id = #512;
-    let b1 = (!(!(!_2 #27) #40) #233);
-    let b1_id = #513;
-    let b2 = (!(!(!_3 #70) #70) #43);
-    let b2_id = #514;
-    let state = (Fib_st_crtm state b0 b0_id);
-    let state = (Fib_st_crtm state b1 b1_id);
-    let state = (Fib_st_crtm state b2 b2_id);
-    state
+    {Fic_kdl #0 (Fic_st_buld)}
 }
