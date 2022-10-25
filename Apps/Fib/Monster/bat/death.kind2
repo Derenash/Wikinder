@@ -1,5 +1,5 @@
 // x Set Cave Cooldown to 0
-// x Give item to player (TODO: CREATE ADD SKILL)
+// x Give item to player
 //   Give Experience to player
 //   Save Events
 //     Exp_get
