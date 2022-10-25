@@ -11,4 +11,4 @@ Apps.Fib.State.create_player.city (U120.new 0 0) = Pair.new (U120.new 0 12 ) (U1
 Apps.Fib.State.create_player.city (U120.new 0 1) = Pair.new (U120.new 0 147) (U120.new 0 12)
 Apps.Fib.State.create_player.city (U120.new 0 2) = Pair.new (U120.new 0 147) (U120.new 0 147)
 Apps.Fib.State.create_player.city (U120.new 0 3) = Pair.new (U120.new 0 12 ) (U120.new 0 147)
-
+Apps.Fib.State.create_player.city data = Pair.new (U120.new 0 0) (U120.new 0 0)

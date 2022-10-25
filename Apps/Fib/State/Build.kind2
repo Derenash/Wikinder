@@ -1,0 +1,4 @@
+#kdl_name = Fib_st_buld
+Apps.Fib.State.Build : Apps.Fib.State {
+  Apps.Fib.State.new Apps.Fib.Map.Build Apps.Fib.Table.Build
+}

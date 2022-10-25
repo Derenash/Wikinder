@@ -1,4 +1,0 @@
-run {
-  ask x = (Call 'Fib' {Fib_kdl_a_n #69365});
-  (Done x)
-}

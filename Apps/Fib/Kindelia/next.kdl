@@ -1,4 +1,5 @@
 run {
-  ask x = (Call 'Fib' {Fib_kdl_a_n #0});
+  ask tick = (Tick);
+  ask x = (Call 'Fic' {Fic_kdl_anxt tick});
   (Done x)
 }

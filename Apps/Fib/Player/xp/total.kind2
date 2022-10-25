@@ -1,0 +1,17 @@
+Apps.Fib.Player.xp.total (level: U120) : U120 
+Apps.Fib.Player.xp.total (U120.new 0 1)   =	(U120.new 0 0)
+Apps.Fib.Player.xp.total (U120.new 0 2)   =	(U120.new 0 65)
+Apps.Fib.Player.xp.total (U120.new 0 3)   =	(U120.new 0 165)
+Apps.Fib.Player.xp.total (U120.new 0 4)   =	(U120.new 0 300)
+Apps.Fib.Player.xp.total (U120.new 0 5)   =	(U120.new 0 470)
+Apps.Fib.Player.xp.total (U120.new 0 6)   =	(U120.new 0 675)
+Apps.Fib.Player.xp.total (U120.new 0 7)   =	(U120.new 0 915)
+Apps.Fib.Player.xp.total (U120.new 0 8)   =	(U120.new 0 1190)
+Apps.Fib.Player.xp.total (U120.new 0 9)   =	(U120.new 0 1500)
+Apps.Fib.Player.xp.total (U120.new 0 10)  =	(U120.new 0 1845)
+Apps.Fib.Player.xp.total (U120.new 0 11)  =	(U120.new 0 2225)
+Apps.Fib.Player.xp.total (U120.new 0 12)  =	(U120.new 0 2640)
+Apps.Fib.Player.xp.total (U120.new 0 13)  =	(U120.new 0 3090)
+Apps.Fib.Player.xp.total (U120.new 0 14)  =	(U120.new 0 3575)
+Apps.Fib.Player.xp.total (U120.new 0 15)  =	(U120.new 0 4095)
+Apps.Fib.Player.xp.total n                = U120.max_val

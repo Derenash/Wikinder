@@ -1,7 +1,17 @@
 #kdl_name = Fib_pos_show
 Apps.Fib.Pos.show (pos: Apps.Fib.Pos) : String {
-  let j = U120.low (Sigma.fst pos)
-  let x = U60.show (% j 256)
-  let y = U60.show (>> j 8)
-  x (String.cons ',' (String.cons ' ' (y String.nil)))
+  let pos  = Sigma.fst pos
+  let func = (func: U120 -> U120) =>
+    let coord = func pos
+    if (U120.greater_equal coord (U120.new 1 0)) {
+      String.cons '-' ((U60.show (U120.low (U120.sub (U120.new 0 0) coord))) "")
+    }
+    else {
+      ((U60.show (U120.low coord)) "")
+    }
+
+  let x = func (b => (U120.mod b (U120.new 0 256)))
+  let y = func (b => (U120.shift_right b (U120.new 0 8)))
+  String.flatten ["(" x ", " y ") "]
+  // x (String.cons ',' (String.cons ' ' (y String.nil)))
 }

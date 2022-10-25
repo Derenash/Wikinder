@@ -1,3 +1,4 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/_.type
+#kdl_name = Fib_kdl_smat
 Apps.Fib.Kindelia.State.match (x: (Apps.Fib.Kindelia.State)) -(p: (x: (Apps.Fib.Kindelia.State)) Type) (new: (start_blk: U120) (state: Apps.Fib.State) (p (Apps.Fib.Kindelia.State.new start_blk state))) : (p x)
 Apps.Fib.Kindelia.State.match (Apps.Fib.Kindelia.State.new start_blk_ state_) p new = (new start_blk_ state_)

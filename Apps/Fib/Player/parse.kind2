@@ -1,22 +1,25 @@
 #kdl_name = Fib_plr_prse
-Apps.Fib.Player.parse (player: Apps.Fib.Player) : Apps.Fib.Thing {
+Apps.Fib.Player.parse (player: Apps.Fib.Player) (id: Apps.Fib.Id) : Apps.Fib.Attributes {
+  let player_num = (U120.sub_saturated id (U120.new 0 1024))
     [
-      (Pair.new (Kindelia.Convert.to_kstring "x" ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_x  player))))
-      (Pair.new (Kindelia.Convert.to_kstring "y" ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_y  player))))
-      (Pair.new (Kindelia.Convert.to_kstring "hp") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.hp.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "xp") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.xp.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "rt") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.rt.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "sl") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.sl.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "gd") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.gd.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "cd") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.cd.get     player))))
-      (Pair.new (Kindelia.Convert.to_kstring "s0") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 0)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s1") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 1)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s2") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 2)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s3") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 3)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s4") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 4)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s5") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 5)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s6") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 6)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s7") (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 7)))))
+      (Pair.new (Kindelia.Convert.to_kstring "type"   ) (Kindelia.Convert.to_kstring     (("player"))))
+      (Pair.new (Kindelia.Convert.to_kstring "num"    ) (Kindelia.Convert.num_to_kstring ((player_num))))
+      (Pair.new (Kindelia.Convert.to_kstring "x"      ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_x  player))))
+      (Pair.new (Kindelia.Convert.to_kstring "y"      ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_y  player))))
+      (Pair.new (Kindelia.Convert.to_kstring "hp"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.hp.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "xp_tot" ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.xp.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "rt"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.rt.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "sl"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.sl.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "gd"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.gd.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "cd"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.cd.get     player))))
+      (Pair.new (Kindelia.Convert.to_kstring "s0"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 0)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s1"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 1)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s2"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 2)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s3"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 3)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s4"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 4)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s5"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 5)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s6"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 6)))))
+      (Pair.new (Kindelia.Convert.to_kstring "s7"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 7)))))
     ]
 }
 

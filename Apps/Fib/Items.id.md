@@ -26,7 +26,7 @@ Items (26 - 63):
 
 ID - Name 
 
---------------------fiire--------------------
+--------------------fire--------------------
 26 = Bone Claw (Decayed Dragon Bone Piece)
 27 = Dragonfruit
 28 = Phoenix's feather (Phoenix Down)
@@ -66,3 +66,14 @@ Game Ids
  256  - 512  - Npcs      - Guardam sua posição - 16 bits pos
  512  - 1024 - Monstros  - Guardam sua posição - 16 bits pos 10 bits vida
  1024 - 4096 - Jogadores - Guardam sua posicão - 16 bits pos 10 bits vida 12 bits xp
+
+
+Npcs without position 
+  128 -> Bat_cave 01 - (25, 154) & (25, 155)
+  129 -> Bat_cave 02 - (37, 132) & (37, 133)
+  130 -> Bat_cave 03 - (50, 136) & (51, 136)
+
+Monsters
+  512 -> Bat from Batcave 01
+  513 -> Bat from Batcave 02
+  514 -> Bat from Batcave 03

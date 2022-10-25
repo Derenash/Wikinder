@@ -14,10 +14,10 @@ Apps.Fib.State.player.place (Apps.Fib.State.new map tab) player id =
             if (U120.equal (U120.new 0 0) tab_ent.snd) {
               let tab = Apps.Fib.Table.set tab_ent.fst player id 
               let map = Apps.Fib.Map.set map_id.fst id pos 
-              Apps.Fib.State.new map tab
+              HVM.log (Pair.new id map_id.snd) (Apps.Fib.State.new map tab)
             }
-            else { Apps.Fib.State.new map tab }
+            else {  Apps.Fib.State.new map tab }
         }
       }
-      else { Apps.Fib.State.new map tab }
+      else {(Apps.Fib.State.new map tab )}
   }

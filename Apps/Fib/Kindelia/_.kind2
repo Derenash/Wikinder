@@ -1,4 +1,4 @@
-#kdl_state = Apps.Fib.Kindelia.State.init_with_players
+#kdl_state = Apps.Fib.Kindelia.State.Build
 #kdl_name = Fib
 Apps.Fib.Kindelia (action: Apps.Fib.Kindelia.Act) : Kindelia.IO Apps.Fib.Kindelia.Response 
 Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.next code) = 
@@ -18,5 +18,5 @@ Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.get) =
   )
   
 Fib.init {
-  Apps.Fib.Kindelia.State.init_with_players
+  Apps.Fib.Kindelia.State.Build
 }

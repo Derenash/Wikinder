@@ -1,5 +1,5 @@
 #kdl_name = Fib_npc_bcpr
-Apps.Fib.Npc.bat_cave.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Thing {
+Apps.Fib.Npc.bat_cave.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Attributes {
   [
     (Pair.new (Kindelia.Convert.to_kstring "type")  (Kindelia.Convert.to_kstring "bat cave"))
     (Pair.new (Kindelia.Convert.to_kstring "id")    (Kindelia.Convert.num_to_kstring (U120.sub id (U120.new 0 128))))
