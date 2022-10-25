@@ -1,0 +1,4 @@
+#kdl_name = Fib_itr_edai
+Apps.Fib.Interaction.entity.del_at_id (id: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
+  Apps.Fib.Interaction.table.mut (table => Apps.Fib.Table.del table id) 
+}

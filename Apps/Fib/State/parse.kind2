@@ -1,3 +1,4 @@
+// TODO: receive frame and propagate it to Npc and Monster Parses
 #kdl_name = Fib_st_pttr
 Apps.Fib.State.parse.to_tree (parsed: Apps.Fib.State.parse.Triple) : Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) {
   let f = (list: List (Pair U120 U120)) => Data.BraunTree.make_array list
@@ -19,7 +20,7 @@ Apps.Fib.State.parse (state: Apps.Fib.State) : Triple (Data.BraunTree (Data.Brau
 Apps.Fib.State.parse.table (depth: U120) (id: U120) (bases: List Data.BaseTree.Base) (map: Data.BaseTree bases U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.table depth id (List.nil r0) (U120.new 0 0) = (x: Apps.Fib.State.parse.Triple) => x
 Apps.Fib.State.parse.table depth id (List.nil r0) entity =
-  HVM.log (U120.log2 id) (Apps.Fib.State.parse.id (U120.log2 id) id entity)
+  Apps.Fib.State.parse.id (U120.log2 id) id entity
 Apps.Fib.State.parse.table depth id (List.cons r0 Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie lft rgt) =
   (x : Apps.Fib.State.parse.Triple) =>
     let new_depth = (U120.inc depth)

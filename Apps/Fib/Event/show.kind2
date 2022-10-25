@@ -1,37 +1,30 @@
-// type Apps.Fib.Event {
-//   damage    (pos: U120) (value: U120)
-//   heal      (pos: U120) (value: U120)
-//   movement  (ori: U120) (des  : U120)
-//   skill     (ori: U120) (skill: U120) (target: U120)
-//   exp_add   (pos: U120) (value: U120)
-//   cc_add    (pos: U120) (type : U120) (value : U120)
-//   gold_add  (pos: U120) (value: U120)
-//   gold_sub  (pos: U120) (value: U120)
-//   item_add  (pos: U120) (item : U120) (slot  : U120)
-//   item_del  (pos: U120) (item : U120)
-// }
+// TODO: Add Monster Spawn
 #kdl_name = Fib_evt_shw
 Apps.Fib.Event.show (event: Apps.Fib.Event) : String
+Apps.Fib.Event.show (Apps.Fib.Event.death pos id) =
+  String.flatten [ "Death: "  "at " (Apps.Fib.Event.show.pos_show pos) ", id " ((U120.show id) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.damage pos value) =
   String.flatten [ "Damage: "  "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.heal pos value) =
   String.flatten [ "Heal: "    "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.movement ori des) =
-  String.flatten [ "Movement: " "from " (Apps.Fib.Event.show.pos_show ori) " to " (Apps.Fib.Event.show.pos_show des)]
+  String.flatten [ "Movement: " "walked from " (Apps.Fib.Event.show.pos_show ori) " to " (Apps.Fib.Event.show.pos_show des)]
 Apps.Fib.Event.show (Apps.Fib.Event.skill ori skill target) =
-  String.flatten [ "Skill: "   "from " (Apps.Fib.Event.show.pos_show ori) " to " (Apps.Fib.Event.show.pos_show target) ", skill " ((U120.show skill) "")]
+  String.flatten [ "Skill: "   "used from " (Apps.Fib.Event.show.pos_show ori) " to " (Apps.Fib.Event.show.pos_show target) ", skill " ((U120.show skill) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.exp_add pos value) =
-  String.flatten [ "Exp: "     "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
-Apps.Fib.Event.show (Apps.Fib.Event.cc_add pos type value) =
-  String.flatten [ "CC: "      "at " (Apps.Fib.Event.show.pos_show pos) ", type " ((U120.show type) "") ", value " ((U120.show value) "")]
+  String.flatten [ "Exp: "     "add at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
+Apps.Fib.Event.show (Apps.Fib.Event.rt_add pos value) =
+  String.flatten [ "Root: "      "add at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
+Apps.Fib.Event.show (Apps.Fib.Event.sl_add pos value) =
+  String.flatten [ "Silence: "      "add at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.gold_add pos value) =
-  String.flatten [ "Gold: "    "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
+  String.flatten [ "Gold: "    "add at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.gold_sub pos value) =
-  String.flatten [ "Gold: "    "at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
+  String.flatten [ "Gold: "    "sub at " (Apps.Fib.Event.show.pos_show pos) ", value " ((U120.show value) "")]
 Apps.Fib.Event.show (Apps.Fib.Event.item_add pos item slot) =
-  String.flatten [ "Item: "    "at " (Apps.Fib.Event.show.pos_show pos) ", item " ((U120.show item) "") ", slot " ((U120.show slot) "")]
-Apps.Fib.Event.show (Apps.Fib.Event.item_del pos item) =
-  String.flatten [ "Item: "    "at " (Apps.Fib.Event.show.pos_show pos) ", item " ((U120.show item) "")]
+  String.flatten [ "Item: "    "add at " (Apps.Fib.Event.show.pos_show pos) ", item " ((U120.show item) "") ", slot " ((U120.show slot) "")]
+Apps.Fib.Event.show (Apps.Fib.Event.item_del pos item slot ) =
+  String.flatten [ "Item: "    "del at " (Apps.Fib.Event.show.pos_show pos) ", item " ((U120.show item) "") ", slot " ((U120.show slot) "")]
 
 Apps.Fib.Event.show.pos_show (pos: U120) : String {
   let pos = U120.low pos

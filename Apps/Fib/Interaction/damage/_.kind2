@@ -37,7 +37,7 @@ Apps.Fib.Interaction.damage.result Bool.false react death id pos = react
 Apps.Fib.Interaction.damage.result Bool.true  react death id pos =
   do Apps.Fib.Interaction {
     ask death
-    return Unit.new
+    Apps.Fib.Interaction.damage.death pos 
     // ask Apps.Fib.Interaction.delete (U120.greater_equal id (U120.new 0 1024)) pos
   }
 

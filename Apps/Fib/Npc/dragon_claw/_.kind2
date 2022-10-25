@@ -1,0 +1,6 @@
+// TODO: Add Cooldown/Fatigue to player that collects
+#kdl_name = Fib_npc_dclw
+Apps.Fib.Npc.dragon_claw : Apps.Fib.Interaction Unit {
+  let id = U120.new 0 26
+  Apps.Fib.Interaction.npc.collect id
+}

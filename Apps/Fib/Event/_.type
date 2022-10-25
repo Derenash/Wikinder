@@ -1,4 +1,5 @@
-type Apps.Fib.Event {
+type Apps.Fib.Event.kek {
+  death     (pos: U120) (id:    U120)
   damage    (pos: U120) (value: U120)
   heal      (pos: U120) (value: U120)
   movement  (ori: U120) (des  : U120)

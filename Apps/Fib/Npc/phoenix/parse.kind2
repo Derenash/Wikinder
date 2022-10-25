@@ -1,0 +1,4 @@
+// TODO: Create parse
+// type = phoenix
+// active = Bool ?
+// active until = 0 if not active, else frame - cd
