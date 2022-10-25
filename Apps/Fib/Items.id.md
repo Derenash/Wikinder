@@ -237,9 +237,9 @@ Monsters
     Should return a Function, that receives the interact data and returns the interaction to buy chosen item
       (data: U120) -> (interaction: Apps.Fib.Interaction Unit)
 
-  Generic Collect function
+  Generic Collect Item function
     Collects if out of cd and places on cd
-    Should receive an interaction <a> and the cooldown as args
+    Should receive the cooldown and a item as args
 
   Generic reaction function
     Creature that attacks back at x range
