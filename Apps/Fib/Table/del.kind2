@@ -1,0 +1,4 @@
+#kdl_name = Fib_tbl_del
+Apps.Fib.Table.del (map: Apps.Fib.Table)  (id: Apps.Fib.Id) : Apps.Fib.Table {
+  Apps.Fib.Table.set map (U120.new 0 0) id 
+}

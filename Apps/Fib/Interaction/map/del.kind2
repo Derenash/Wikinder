@@ -1,0 +1,9 @@
+#kdl_name = Fib_itr_mdel
+Apps.Fib.Interaction.map.del (pos: Apps.Fib.Pos): Apps.Fib.Interaction Unit {
+  (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
+    let table     = Apps.Fib.State.get_table state
+    let map       = Apps.Fib.State.get_map state
+    let new_map   = Apps.Fib.Map.del map pos
+    let new_state = Apps.Fib.State.new new_map table
+    Apps.Fib.Interaction.Result.new Unit.new new_state player target frame List.nil
+}
