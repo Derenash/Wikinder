@@ -1,0 +1,41 @@
+#kdl_name = Fib_skl_stsh
+Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    let skill_id  = U120.new 0 9
+    let main_dmg  = U120.new 0 25
+    let coll_dmg  = U120.new 0 10
+    let range     = U120.new 0 3
+    let area      = U120.new 0 3
+    let speed     = U120.new 0 50
+
+    // Verifies if the enemy is in range
+    ask Apps.Fib.Interaction.skill.check_range range
+    ask cooldown  = Apps.Fib.Interaction.player.cooldown speed
+
+    ask target   = Apps.Fib.Interaction.target.get
+
+    // Damages for more in the center and less on the corners
+    let func = (
+      (target: Apps.Fib.Pos) => (pos: Apps.Fib.Pos) =>
+        do Apps.Fib.Interaction {
+        ask Apps.Fib.Interaction.damage main_dmg target
+        ask Apps.Fib.Interaction.damage coll_dmg pos
+        return Unit.new
+        }
+      )
+
+    // Get the delta of all coordinates within 2 tiles of a point
+    let delta = Apps.Fib.Pos.Delta.filled_square range
+
+    // Get the coords for a filled square 
+    let area  = Apps.Fib.Pos.range target delta
+
+    ask Apps.Fib.Interaction.area.generic (func target) area
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
+    ask Apps.Fib.Interaction.skill.event_use skill_id
+    return Unit.new
+  }
+}

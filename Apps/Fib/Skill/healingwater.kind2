@@ -16,11 +16,10 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
     ask target    = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
-    let distance  = Apps.Fib.Pos.distance origin target
-    let check     = U120.equal range distance
-    ask Apps.Fib.Interaction.check check
+    ask Apps.Fib.Interaction.skill.check_range range
 
     // Decides the heal ammount
+    let distance  = Apps.Fib.Pos.distance origin target
     let quantity  = if (U120.equal distance (U120.new 0 0)) { self_heal } else { ally_heal }
 
     // Heals the unit if it is in range

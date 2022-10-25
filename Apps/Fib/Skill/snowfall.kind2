@@ -13,6 +13,9 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
     ask target   = Apps.Fib.Interaction.target.get
 
+    // Verifies if the enemy is in range
+    ask Apps.Fib.Interaction.skill.check_range range
+
     // Get the delta of all coordinates "3x3 no Edges" besides Center
     let deltas = Apps.Fib.Pos.Delta.cross area
     let tttne  = Apps.Fib.Pos.range target deltas

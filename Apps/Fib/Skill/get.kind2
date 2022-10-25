@@ -1,5 +1,11 @@
 // TODO: add skills to this list
 // 00 should be unused so far
+
+//Id List: 
+// 01 - 04 : Fire Skills
+// 05 - 08 : Water Skills Skills
+// 09 - 12 : Stone Skills Skills
+// 13 - 16 : Air Skills
 #kdl_name = Fib_st_appsk
 Apps.Fib.Skill.get (skill : U120) : Apps.Fib.Interaction Unit
 Apps.Fib.Skill.get (U120.new 0 0) = Apps.Fib.Interaction.pass
@@ -10,3 +16,7 @@ Apps.Fib.Skill.get (U120.new 0 4) = Apps.Fib.Skill.flamearrow
 Apps.Fib.Skill.get (U120.new 0 5) = Apps.Fib.Skill.frostshard
 Apps.Fib.Skill.get (U120.new 0 6) = Apps.Fib.Skill.snowfall
 Apps.Fib.Skill.get (U120.new 0 7) = Apps.Fib.Skill.healingwater
+Apps.Fib.Skill.get (U120.new 0 8) = Apps.Fib.Skill.pacify
+Apps.Fib.Skill.get (U120.new 0 9) = Apps.Fib.Skill.stoneshot
+Apps.Fib.Skill.get (U120.new 0 10) = Apps.Fib.Skill.quicksand
+Apps.Fib.Skill.get (U120.new 0 11) = Apps.Fib.Skill.tremor

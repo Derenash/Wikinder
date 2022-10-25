@@ -10,14 +10,44 @@ Apps.Fib.Pos.kekw (pos: Apps.Fib.Pos) : Pair U60 U60 {
   Pair.new x y
 }
 
-Apps.Fib.Pos.divide_lists (list: List (Pair U60 U60)) : List (List (Pair U60 U60)) {
-  let greatest 
-  Apps.Fib.Pos.divide_lists_aux list [] 
+Greatest (list: List (Pair U60 U60)) (greater: U60) : U60 {
+  let fst = List.head list 
+  let snd = List.head (List.tail list)
+  match Maybe fst { 
+    none => greater
+    some => match Maybe snd {
+      none => greater
+      some => 
+        let f_v = Pair.fst fst.value
+        let s_v = Pair.fst snd.value
+        if (U60.greater_than f_v s_v) {
+          Greatest (List.cons (Pair.new f_v 0) (List.tail (List.tail list))) f_v
+        } else {
+          Greatest (List.tail list) s_v
+        }
+    }
+  }
 }
 
-Apps.Fib.Pos.divide_lists_aux (list: List (Pair U60 U60)) (acum: List (List (Pair U60 U60))) (greatest: U60) : List (List (Pair U60 U60))
-//Apps.Fib.Pos.divide_lists List.nil acum greatest = acum
-//Apps.Fib.Pos.divide_lists list acum greatest = 
+Apps.Fib.Pos.divide_lists (list: List (Pair U60 U60)) : List (List (Pair U60 U60)) {
+  let greatest = Greatest list 0
+  List.reverse (Apps.Fib.Pos.divide_lists_aux list [] [] greatest)
+}
+
+Head <a> (list: List a) : a
+Head a (List.cons t head tail) = head
+
+Apps.Fib.Pos.divide_lists_aux (list: List (Pair U60 U60)) (acum: List (List (Pair U60 U60))) (acum2: List (Pair U60 U60)) (greatest: U60) : List (List (Pair U60 U60))
+Apps.Fib.Pos.divide_lists_aux List.nil acum acum2 greatest = acum
+Apps.Fib.Pos.divide_lists_aux list acum acum2 greatest = 
+  let fst = Head list
+  let val = Pair.fst fst
+  if (U60.equal val greatest) {
+    let acum2 = List.cons fst acum2
+    Apps.Fib.Pos.divide_lists_aux (List.tail list) acum acum2 greatest
+  } else { 
+    Apps.Fib.Pos.divide_lists_aux list (List.cons acum2 acum) [] (- greatest 1)
+  }
   
 
 
@@ -36,7 +66,7 @@ Apps.Fib.Pos.Delta.test_aux2 x y line = String.concat ". "  (Apps.Fib.Pos.Delta.
 
 
 Main { 
-  let range = U120.new 0 6
+  let range = U120.new 0 2
   let coord = U120.new 0 5
   let delta = Pair.new (U120.new 0 1) (U120.new 0 0)
   let coord = Apps.Fib.Pos.new coord coord
@@ -48,10 +78,11 @@ Main {
   let cross   = List.cons (Pair.new U120.0 U120.0) (Apps.Fib.Pos.Delta.cross range)
   let around  = Apps.Fib.Pos.Delta.around range
   let line    = Apps.Fib.Pos.Delta.line range delta
+  let ring    = Apps.Fib.Pos.Delta.ring range
   //let delta = List.concat horizontal vertical
   //let list  = Apps.Fib.Pos.range coord empty_square
   //let list  = Apps.Fib.Pos.range coord points
-  let list = Apps.Fib.Pos.range coord around
+  let list = Apps.Fib.Pos.range coord ring
   //Apps.Fib.Pos.Delta.test 12 12 
   let to_sort = List.map list (x => Apps.Fib.Pos.kekw x)
   let comp    = (x: Pair U60 U60) => (y: Pair U60 U60) => (
@@ -67,11 +98,9 @@ Main {
       eql => U60.greater_than y1 y0
       gtn => Bool.false
     }
-
-    //if greax { Bool.true } else { greay }
   )
   let sort    = List.sort comp to_sort
-  sort
+  Apps.Fib.Pos.divide_lists sort
   //List.map list (x => Apps.Fib.Pos.show x)
 }
 
@@ -104,6 +133,10 @@ Main {
       //. . . . . . . . . . . 1
       //. . . . . . . . . . . 0
 
+//[(Pair.new 7 4), (Pair.new 7 5), (Pair.new 7 6)], 
+//[(Pair.new 6 3), (Pair.new 6 7)],
+//[(Pair.new 5 3), (Pair.new 5 7)],
+//[(Pair.new 4 3), (Pair.new 4 7)]]
 
       //0 1 2 3 4 5 6 7 8 9 0
       //. . . . . . . . . . . 0

@@ -1,0 +1,31 @@
+#kdl_name = Fib_skl_trmr
+Apps.Fib.Skill.tremor : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    // Skill Constants
+    let skill_id = U120.new 0 11
+    let damage   = U120.new 0 25
+    let range    = U120.new 0 0 
+    let area     = U120.new 0 5
+    let speed    = U120.new 0 35
+
+    ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask target   = Apps.Fib.Interaction.target.get
+
+    // Get the delta of all coordinates within 5 tiles of a point
+    let deltas   = Apps.Fib.Pos.Delta.around area
+
+    // Get the coords within 2 tiles of a point
+    let around   = Apps.Fib.Pos.range target deltas
+
+    // Adds event for the skill cast
+    ask Apps.Fib.Interaction.skill.event_use skill_id
+
+    // Damages the unities in the area
+    ask Apps.Fib.Interaction.damage.area damage around
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
+    return Unit.new
+  }
+}
