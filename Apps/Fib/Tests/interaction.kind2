@@ -2,32 +2,48 @@
 // Player 2 = (140, 13) #1025
 
 Main {
-  let init  = Apps.Fib.State.init_with_players
-  let map   = Apps.Fib.State.get_map init
-  let table = Apps.Fib.State.get_table init 
+  let state  = Apps.Fib.State.init
+  // Define players and places then on the map
+  let player = (x: U120) => (y: U120) => Apps.Fib.Player.new x y (U120.new 0 100) (U120.new 0 1024) (U120.new 0 50) (U120.new 0 50) (U120.new 0 50) (U120.new 0 50) [(U120.new 0 1)]
+  let p0     = player (U120.new 0 141) (U120.new 0 15 )
+  let p0_id  = (U120.new 0 1024)
+  let p1     = player (U120.new 0 140) (U120.new 0 13 )
+  let p1_id  = (U120.new 0 1025)
+  let state  = Apps.Fib.State.player.place state p0  p0_id
+  let state  = Apps.Fib.State.player.place state p1  p1_id
+  
+  let map   = Apps.Fib.State.get_map state
+  let table = Apps.Fib.State.get_table state 
   let p1    = Apps.Fib.Table.get table (U120.new 0 1024)
   let p2    = Apps.Fib.Table.get table (U120.new 0 1025)
 
   let eff   = (interaction: Apps.Fib.Interaction Unit) =>
-    interaction init (U120.new 0 1024) (Apps.Fib.Pos.new (U120.new 0 140) (U120.new 0 13)) (U120.new 0 1000)
+    interaction state (U120.new 0 1024) (Apps.Fib.Pos.new (U120.new 0 140) (U120.new 0 13)) (U120.new 0 1000)
 
-  let res = eff Apps.Fib.Skill.fireball
+  let itr = 
+    do Apps.Fib.Interaction {
+      ask Apps.Fib.Npc.fire_merc.horn
+      Apps.Fib.Items.horn
+    }
+
+  let res = eff itr
   let pair = match Apps.Fib.Interaction.Result res {
-      err => Pair.new init []
+      err => Pair.new state []
       new => Pair.new res.state res.events
     }
   let state  = Pair.fst pair
   let events = Pair.snd pair
   let table2 = Apps.Fib.State.get_table state
-  let p1_2   = Apps.Fib.Table.get table2 (U120.new 0 1024)
-  let p2_2   = Apps.Fib.Table.get table2 (U120.new 0 1025)
+  let p0_2   = Apps.Fib.Table.get table2 (U120.new 0 1024)
+  let p1_2   = Apps.Fib.Table.get table2 (U120.new 0 1025)
  
   Apps.Fib.Event.Super_show events
+  // Apps.Fib.Player.hp.get p0_2
   // Apps.Fib.Player.show p1
   // List.concat (Apps.Fib.Player.show p1) (Apps.Fib.Player.show p2)
   // Apps.Fib.Player.show p2
   // Apps.Fib.Player.show p2_2
-  // Apps.Fib.State.parse init
+  // Apps.Fib.State.parse state
   // Apps.Fib.Table.show_players table
   // Apps.Fib.Map.show U120.0 U120.0 (U120.new 0 100) (U120.new 0 100) map
 }

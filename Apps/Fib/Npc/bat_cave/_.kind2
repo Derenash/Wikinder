@@ -1,4 +1,4 @@
-#kdl_name Fib_npc_bcve
+#kdl_name = Fib_npc_bcve
 Apps.Fib.Npc.bat_cave (hp: U120) (spawn_points: List Apps.Fib.Pos) (bat_id: Apps.Fib.Id): Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask entity = Apps.Fib.Interaction.entity.get
