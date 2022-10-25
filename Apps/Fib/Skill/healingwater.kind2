@@ -1,5 +1,3 @@
-// TODO : Root
-// TODO : add Self Heal =/= Ally heal
 #kdl_name = Fib_skl_hwtr
 Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
@@ -17,7 +15,7 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
     ask origin    = Apps.Fib.Interaction.player.get_pos
     ask target    = Apps.Fib.Interaction.target.get
 
-    //Verifies if the enemy is in range
+    // Verifies if the enemy is in range
     let distance  = Apps.Fib.Pos.distance origin target
     let check     = U120.equal range distance
     ask Apps.Fib.Interaction.check check
@@ -25,11 +23,14 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
     // Decides the heal ammount
     let quantity  = if (U120.equal distance (U120.new 0 0)) { self_heal } else { ally_heal }
 
-    // Damages the unit if it is in range
+    // Heals the unit if it is in range
     ask Apps.Fib.Interaction.heal quantity target
 
+    // Roots itself
+    ask Apps.Fib.Interaction.player.add_root_at speed origin
+
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.add_cd cooldown
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
     ask Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }
