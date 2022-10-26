@@ -1,14 +1,30 @@
 #kdl_name = Fib_npc_phfr
 Apps.Fib.Npc.phoenix.fruit : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
-    let fruit_id  = (U120.new 0 27)
-    let feather   = (U120.new 0 28)
-    ask player = Apps.Fib.Interaction.player.get
-    let has_fruit        = Apps.Fib.Player.skills.find player fruit_id
-    let none = Apps.Fib.Interaction.fail
-    let some = (slot: U120) => 
+    let fruit_id    = (U120.new 0 27)
+    let feather     = (U120.new 0 28)
+    ask player      = Apps.Fib.Interaction.player.get
+    let find_fruit  = Apps.Fib.Player.skills.find player fruit_id
+    let none        = Apps.Fib.Interaction.fail
+    let some        = (slot: U120) => 
       let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.replace_at player feather slot
       Apps.Fib.Interaction.player.mut func
-   Maybe.extract has_fruit none some
+    Maybe.extract find_fruit none some
   }
 }
+
+// #kdl_name = Fib_npc_phfr
+// Apps.Fib.Npc.phoenix.fruit : Apps.Fib.Interaction Unit {
+//   do Apps.Fib.Interaction {
+//     let fruit_id   = (U120.new 0 27)
+//     let feather    = (U120.new 0 28)
+//     ask player     = Apps.Fib.Interaction.player.get
+//     let find_fruit = Apps.Fib.Player.skills.find player fruit_id
+//     match Maybe find_fruit {
+//       none => Apps.Fib.Interaction.fail
+//       some =>
+//         let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.replace_at player feather find_fruit.value
+//         Apps.Fib.Interaction.player.mut func
+//     }
+//   }
+// } 

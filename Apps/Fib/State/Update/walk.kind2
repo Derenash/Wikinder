@@ -1,25 +1,16 @@
 #kdl_name = Fib_st_walk
-Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fib.Entity) (id: Apps.Fib.Id) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events
-Apps.Fib.State.Update.walk (Apps.Fib.State.new map table) data entity id frame = 
-
-  let max_move = (U120.new 0 2)
-
-  let dx          = U120.bitwise_and data (U120.new 0 15)
-  let dy          = U120.shift_right data (U120.new 0 4)
-
-  let real_change = (x: U120) => U120.mod x (U120.new 0 8)
-
-  let gtn       = U120.greater_equal max_move (U120.add (real_change dx) (real_change dy))
-
-  let delta_xy  = Apps.Fib.Pos.Delta.get_from_data data
-  let dx        = Pair.fst delta_xy
-  let dy        = Pair.snd delta_xy
-
-  let st        =
-    if gtn {
-      Apps.Fib.State.move id dx dy (Apps.Fib.State.new map table)
-    } else { 
-      Apps.Fib.State.new map table
-    }
-
-  Pair.new st []
+Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fib.Entity) (player_id: Apps.Fib.Id) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
+  let pos        = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x entity) (Apps.Fib.Player.pos.get_y entity)
+  let delta      = Apps.Fib.Pos.Delta.get_from_data data
+  let target     = Apps.Fib.Pos.modify pos delta
+  match Maybe target {
+    none => Pair.new state List.nil
+    some => 
+      let move = Apps.Fib.Skill.move 
+      let res  = move state player_id target.value frame
+        match Apps.Fib.Interaction.Result res {
+        err => Pair.new state List.nil
+        new => Pair.new res.state res.events
+      }
+  }
+}

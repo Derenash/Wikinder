@@ -27,3 +27,9 @@ Apps.Fib.Map.show.x (x: U120) (y: U120) (w: U120) (map: Apps.Fib.Map) : String {
     String.cons (U120.low string) (Apps.Fib.Map.show.x x y (U120.sub w (U120.new 0 1)) map)
   }
 }
+
+4095 segundos 
+0 - 480 iniciais (Players entrando, etc etc)
+480 - 4095
+   + Momento para reiniciar
+

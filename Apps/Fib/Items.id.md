@@ -71,14 +71,16 @@ Game Ids
  1024 - 4096 - Jogadores - Guardam sua posicão - 16 bits pos 10 bits vida 12 bits xp
 
 
-Ns
+Ns - Does not store information
+Never needs parse
   002 -> Lava Cauldron
   022 -> Combiner Water town
   042 -> ??? Unused
   062 -> Windmills
 
 
-Ncs 
+Needs parse
+Ncs - Npcs that does not save their positions
   128 -> Bat_cave 01 - (25, 154) & (25, 155)
   129 -> Bat_cave 02 - (37, 132) & (37, 133)
   130 -> Bat_cave 03 - (50, 136) & (51, 136)
@@ -96,7 +98,7 @@ Ncs
   171 -> Group bush with fireflies at night 04
   172 -> Group bush with fireflies at night 05
 
-
+Needs parse
 Npcs
   256 -> Shop, Fire Town Bottom left
   257 -> Shop, Fire Town Bottom right
@@ -199,6 +201,7 @@ Npcs
   390 -> Shop magics, Air Town 02
   391 -> Shop magics, Air Town 03
 
+Need parse
 Monsters
   512 -> Bat from Batcave 01
   513 -> Bat from Batcave 02
@@ -229,6 +232,8 @@ Monsters
   662 -> Fragile creature air town 08
   663 -> Fragile creature air town 09
   664 -> Fragile creature air town 10
+
+Players 1024 -> 4095
 
 
   Shop Generic function

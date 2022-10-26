@@ -11,49 +11,49 @@ Apps.Fib.State.parse.Triple : Type {
 }
 
 #kdl_name = Fib_st_parse
-Apps.Fib.State.parse (state: Apps.Fib.State) : Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))){
-  let func = Apps.Fib.State.parse.table (U120.new 0 0) (U120.new 0 0) (Apps.Fib.Table.Bases) (Apps.Fib.State.get_table state)
+Apps.Fib.State.parse (state: Apps.Fib.State) (frame: U120): Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))){
+  let func = Apps.Fib.State.parse.table (U120.new 0 0) (U120.new 0 0) (Apps.Fib.Table.Bases) (Apps.Fib.State.get_table state) (frame)
   let parsed = func (Triple.new [] [] [])
   Apps.Fib.State.parse.to_tree parsed
 }
 
-Apps.Fib.State.parse.table (depth: U120) (id: U120) (bases: List Data.BaseTree.Base) (map: Data.BaseTree bases U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
-Apps.Fib.State.parse.table depth id (List.nil r0) (U120.new 0 0) = (x: Apps.Fib.State.parse.Triple) => x
-Apps.Fib.State.parse.table depth id (List.nil r0) entity =
-  Apps.Fib.State.parse.id (U120.log2 id) id entity
-Apps.Fib.State.parse.table depth id (List.cons r0 Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie lft rgt) =
+Apps.Fib.State.parse.table (depth: U120) (id: U120) (bases: List Data.BaseTree.Base) (map: Data.BaseTree bases U120) (frame: U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
+Apps.Fib.State.parse.table depth id (List.nil r0) (U120.new 0 0) frame = (x: Apps.Fib.State.parse.Triple) => x
+Apps.Fib.State.parse.table depth id (List.nil r0) entity frame =
+  Apps.Fib.State.parse.id (U120.log2 id) id entity frame
+Apps.Fib.State.parse.table depth id (List.cons r0 Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie lft rgt) frame =
   (x : Apps.Fib.State.parse.Triple) =>
     let new_depth = (U120.inc depth)
-    let a = (Apps.Fib.State.parse.table new_depth id tail lft)
-    let b = (Apps.Fib.State.parse.table new_depth (U120.bitwise_or id (U120.shift_left (U120.new 0 1) depth)) tail rgt)
+    let a = (Apps.Fib.State.parse.table new_depth id tail lft frame)
+    let b = (Apps.Fib.State.parse.table new_depth (U120.bitwise_or id (U120.shift_left (U120.new 0 1) depth)) tail rgt frame)
     a (b x)
 
-Apps.Fib.State.parse.id (type: U120) (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
+Apps.Fib.State.parse.id (type: U120) (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
 // Npc 
-// 128 - 255
-Apps.Fib.State.parse.id (U120.new 0 7) id entity = (x: Apps.Fib.State.parse.Triple) => 
-  let npc = Apps.Fib.State.parse.id_07 id entity
+// 128 - 255 
+Apps.Fib.State.parse.id (U120.new 0 7) id entity frame = (x: Apps.Fib.State.parse.Triple) => 
+  let npc = Apps.Fib.State.parse.id_07 id entity frame
   Apps.Fib.State.parse.join_npc npc x
 // NPC
 // 256 - 511
-Apps.Fib.State.parse.id (U120.new 0 8) id entity = (x: Apps.Fib.State.parse.Triple) => x
+Apps.Fib.State.parse.id (U120.new 0 8) id entity frame = (x: Apps.Fib.State.parse.Triple) => x
 // MONSTERS
 // 512 - 1023
-Apps.Fib.State.parse.id (U120.new 0 9) id entity = (x: Apps.Fib.State.parse.Triple) =>
-  let monster = Apps.Fib.State.parse.id_09 id entity
+Apps.Fib.State.parse.id (U120.new 0 9) id entity frame = (x: Apps.Fib.State.parse.Triple) =>
+  let monster = Apps.Fib.State.parse.id_09 id entity frame
   Apps.Fib.State.parse.join_monster monster x
 // Players
 // 1024 - 2047
-Apps.Fib.State.parse.id (U120.new 0 10) id entity = (x: Apps.Fib.State.parse.Triple) =>
-  let player = Apps.Fib.Player.parse entity id
+Apps.Fib.State.parse.id (U120.new 0 10) id entity frame = (x: Apps.Fib.State.parse.Triple) =>
+  let player = Apps.Fib.Player.parse id entity frame
   Apps.Fib.State.parse.join_player player x
 // Players
 // 2048 - 4095
-Apps.Fib.State.parse.id (U120.new 0 11) id entity = (x: Apps.Fib.State.parse.Triple) => 
-  let player = Apps.Fib.Player.parse entity id
+Apps.Fib.State.parse.id (U120.new 0 11) id entity frame = (x: Apps.Fib.State.parse.Triple) => 
+  let player = Apps.Fib.Player.parse id entity frame
   Apps.Fib.State.parse.join_player player x
   
-Apps.Fib.State.parse.id n i e = (x: Apps.Fib.State.parse.Triple) => x
+Apps.Fib.State.parse.id n i e f = (x: Apps.Fib.State.parse.Triple) => x
 
 Apps.Fib.State.parse.join_npc (npc: Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_npc npc (Triple.new a b c n m p) = Triple.new (List.cons npc n) m p
@@ -64,12 +64,12 @@ Apps.Fib.State.parse.join_monster monster (Triple.new a b c n m p) = Triple.new 
 Apps.Fib.State.parse.join_player (player: Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_player player (Triple.new a b c n m p) = Triple.new a b c n m (List.cons player p)
 
-Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Attributes
-Apps.Fib.State.parse.id_07 (U120.new 0 128) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity
-Apps.Fib.State.parse.id_07 (U120.new 0 129) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 129) entity
-Apps.Fib.State.parse.id_07 (U120.new 0 130) entity = Apps.Fib.Npc.bat_cave.parse (U120.new 0 130) entity
+Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes
+Apps.Fib.State.parse.id_07 (U120.new 0 128) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity
+Apps.Fib.State.parse.id_07 (U120.new 0 129) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 129) entity
+Apps.Fib.State.parse.id_07 (U120.new 0 130) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 130) entity
 
-Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Attributes
-Apps.Fib.State.parse.id_09 (U120.new 0 512) entity = Apps.Fib.Monster.bat.parse (U120.new 0 512) entity
-Apps.Fib.State.parse.id_09 (U120.new 0 513) entity = Apps.Fib.Monster.bat.parse (U120.new 0 513) entity
-Apps.Fib.State.parse.id_09 (U120.new 0 514) entity = Apps.Fib.Monster.bat.parse (U120.new 0 514) entity
+Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes
+Apps.Fib.State.parse.id_09 (U120.new 0 512) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 512) entity
+Apps.Fib.State.parse.id_09 (U120.new 0 513) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 513) entity
+Apps.Fib.State.parse.id_09 (U120.new 0 514) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 514) entity

@@ -20,7 +20,7 @@ Apps.Fib.Skill.pacify : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.check check
 
     // Silences the target
-    ask Apps.Fib.Interaction.player.add_silence_at silence target 
+    // ask Apps.Fib.Interaction.player.add_silence_at silence target 
 
     // Adds Fatigue to the caster
     ask Apps.Fib.Interaction.player.cast_skill cooldown

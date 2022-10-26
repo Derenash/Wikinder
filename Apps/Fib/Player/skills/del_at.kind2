@@ -1,7 +1,7 @@
 #kdl_name = Fib_plr_skda
 Apps.Fib.Player.skills.del_at (player: Apps.Fib.Player) (slot: U120): Apps.Fib.Player {
   let max_sid  = (U120.new 0 63)
-  let skill_at = U120.shift_left max_sid (U120.add (U120.new 0 72) (U120.mul (U120.new 0 6) slot))
+  let skill_at = U120.shift_left max_sid (U120.add (U120.new 0 72) (U120.mul (U120.new 0 7) slot))
   let skill_neg = U120.bitwise_xor skill_at U120.max_val
   let new_player = U120.bitwise_and player skill_neg
   new_player

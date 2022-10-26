@@ -15,9 +15,9 @@ Apps.Fib.State.player.move (Apps.Fib.State.new map table) ori des =
   let tbl_ent_ori = Apps.Fib.Table.got table (Pair.snd ori_map_id)
 
   if emp_des { 
-      let new_player = (player: Apps.Fib.Player) => Apps.Fib.Player.pos.change player (x => (Sigma.fst des))
-      let new_table  = Apps.Fib.Table.mut (Pair.fst tbl_ent_ori) new_player (Pair.snd ori_map_id)
-      let new_map    = Apps.Fib.Map.del (Pair.fst ori_map_id) ori
-      let new_map    = Apps.Fib.Map.set new_map (Pair.snd ori_map_id) des
-      Apps.Fib.State.new new_map new_table
+    let new_player = (player: Apps.Fib.Player) => Apps.Fib.Player.pos.change player (x => (Sigma.fst des))
+    let new_table  = Apps.Fib.Table.mut (Pair.fst tbl_ent_ori) new_player (Pair.snd ori_map_id)
+    let new_map    = Apps.Fib.Map.del (Pair.fst ori_map_id) ori
+    let new_map    = Apps.Fib.Map.set new_map (Pair.snd ori_map_id) des
+    Apps.Fib.State.new new_map new_table
   } else { Apps.Fib.State.new map table }

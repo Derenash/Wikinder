@@ -1,0 +1,23 @@
+#kdl_name = Fib_skl_move
+Apps.Fib.Skill.move : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    let range    = U120.new 0 1
+    let cooldown = U120.new 0 1
+
+    ask origin   = Apps.Fib.Interaction.player.get_pos
+    ask target   = Apps.Fib.Interaction.target.get
+    let delta    = Apps.Fib.Pos.Delta.get origin target
+
+    // Verifies if the destination is in range
+    ask Apps.Fib.Interaction.skill.check_range range
+
+    // Moves if it is in range
+    ask Apps.Fib.Interaction.move origin delta
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_move cooldown
+    return Unit.new
+  }
+}
+
