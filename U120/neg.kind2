@@ -1,9 +1,10 @@
+//If n is positive, transforms m into a its negative, else, keeps m as it is
 U120.neg (n: U120) (m: U120) : U120 {
-  if (U120.greater_than (U120.sub (U120.new 0 0) n) n) {
+  let is_positive = (U120.greater_than (U120.sub (U120.new 0 0) n) n)
+  if  is_positive {
     U120.sub (U120.new 0 0) m
   }
   else {
     m
   }
 }
-
