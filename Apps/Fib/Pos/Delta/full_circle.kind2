@@ -1,0 +1,24 @@
+#kdl_name = Fib_pos_fcl
+Apps.Fib.Pos.Delta.full_circle (range: U120) : List (Pair U120 U120)
+Apps.Fib.Pos.Delta.full_circle range = 
+  let ring = Apps.Fib.Pos.Delta.ring range
+  let fill = Apps.Fib.Pos.Delta.full_circle_aux (U120.dec range)
+  List.concat ring fill
+
+
+Apps.Fib.Pos.Delta.full_circle_aux (range: U120) : List (Pair U120 U120)
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

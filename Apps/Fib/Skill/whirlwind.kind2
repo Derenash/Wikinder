@@ -1,0 +1,46 @@
+#kdl_name = Fib_skl_wrwd
+// TODO : Finish
+Apps.Fib.Skill.whirlwind : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    // Skill Constants
+    let skill_id = U120.new 0 16
+    let damage   = U120.new 0 30
+    let range    = U120.new 0 6 
+    let area     = U120.new 0 1
+    let speed    = U120.new 0 60
+
+    ask Apps.Fib.Interaction.skill.check_range range
+    ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask target   = Apps.Fib.Interaction.target.get
+
+    // Get the delta of all coordinates within 2 tiles of a point
+    let deltas   = Apps.Fib.Pos.Delta.filled_square area
+
+    // Get the coords within 2 tiles of a point
+    let coords   = Apps.Fib.Pos.range target deltas
+
+    // Adds event for the skill cast
+    ask Apps.Fib.Interaction.skill.event_use skill_id
+
+    // Damages the unities in the area
+    ask Apps.Fib.Interaction.damage.area damage coords
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
+    return Unit.new
+  }
+}
+
+
+// Auxiliar Function to push enemies away in area
+Apps.Fib.Skill.whirlwind_aux (list: List (Pair U120 U120)) (player_count: U120) (pos: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit
+Apps.Fib.Skill.whirlwind_aux List.nil player_count pos = do Apps.Fib.Interaction { return Unit.new }
+Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count List.nil =  do Apps.Fib.Interaction { return Unit.new }
+Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count (List.cons u phead ptail) = do Apps.Fib.Interaction {
+    
+    // Change from repel to pull
+    //let pull = Apps.Fib.Pos.Delta.pull head
+    //ask Apps.Fib.Interaction.move phead pull
+    Apps.Fib.Skill.whirlwind_aux tail player_count ptail
+  }

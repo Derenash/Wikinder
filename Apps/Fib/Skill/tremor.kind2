@@ -10,13 +10,13 @@ Apps.Fib.Skill.tremor : Apps.Fib.Interaction Unit {
     let speed    = U120.new 0 35
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask target   = Apps.Fib.Interaction.target.get
+    ask origin   = Apps.Fib.Interaction.player.get_pos
 
     // Get the delta of all coordinates within 5 tiles of a point
     let deltas   = Apps.Fib.Pos.Delta.around area
 
-    // Get the coords within 2 tiles of a point
-    let around   = Apps.Fib.Pos.range target deltas
+    // Get all coords within 5 tiles of a point in circle shape
+    let around   = Apps.Fib.Pos.range origin deltas
 
     // Adds event for the skill cast
     ask Apps.Fib.Interaction.skill.event_use skill_id

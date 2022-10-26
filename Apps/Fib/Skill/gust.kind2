@@ -1,0 +1,41 @@
+#kdl_name = Fib_skl_gust
+Apps.Fib.Skill.gust : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    // Skill Constants
+    let skill_id = U120.new 0 15
+    let power    = U120.new 0 4
+    let range    = U120.new 0 0 
+    let area     = U120.new 0 3
+    let speed    = U120.new 0 30
+
+    ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask origin   = Apps.Fib.Interaction.player.get_pos
+
+    // Get the delta of all coords around a target
+    let deltas   = Apps.Fib.Pos.Delta.empty_square (U120.new 0 1)
+
+    // Get all the coords around the origin
+    let coords   = Apps.Fib.Pos.range origin deltas
+
+    // Push enemies away
+    ask Apps.Fib.Skill.gust_aux deltas power coords
+
+    // Adds event for the skill cast
+    ask Apps.Fib.Interaction.skill.event_use skill_id
+
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_skill cooldown
+    return Unit.new
+  }
+}
+
+// Auxiliar Function to push enemies away in area
+Apps.Fib.Skill.gust_aux (list: List (Pair U120 U120)) (power: U120) (pos: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit
+Apps.Fib.Skill.gust_aux List.nil power pos = do Apps.Fib.Interaction { return Unit.new }
+Apps.Fib.Skill.gust_aux (List.cons t head tail) power List.nil =  do Apps.Fib.Interaction { return Unit.new }
+Apps.Fib.Skill.gust_aux (List.cons t head tail) power (List.cons u phead ptail) = do Apps.Fib.Interaction {
+    let repel = Apps.Fib.Pos.Delta.repel head power
+    ask Apps.Fib.Interaction.move phead repel
+    Apps.Fib.Skill.gust_aux tail power ptail
+  }

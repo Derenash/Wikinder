@@ -8,6 +8,7 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
     let range     = U120.new 0 7
     let area      = U120.new 0 1
     let speed     = U120.new 0 65
+    let self_root = U120.new 0 3
 
     // Cooldown
     ask cooldown  = Apps.Fib.Interaction.player.cooldown speed
@@ -26,7 +27,7 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.heal quantity target
 
     // Roots itself
-    ask Apps.Fib.Interaction.player.add_root_at speed origin
+    ask Apps.Fib.Interaction.player.add_root_at self_root origin
 
     // Adds Fatigue to the caster
     ask Apps.Fib.Interaction.player.cast_skill cooldown

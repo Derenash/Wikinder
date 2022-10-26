@@ -1,0 +1,15 @@
+// TODO Make the skill
+#kdl_name = Fib_skl_stwl
+Apps.Fib.Skill.stonewall : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+
+    // Skill Constants
+    let skill_id = U120.new 0 12
+    let duration = U120.new 0 10
+    let range    = U120.new 0 4 
+    let area     = U120.new 0 3
+    let speed    = U120.new 0 30
+    
+    return Unit.new
+  }
+}
