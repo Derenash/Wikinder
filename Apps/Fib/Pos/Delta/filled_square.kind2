@@ -1,6 +1,6 @@
 #kdl_name = Fib_pos_dfsq
 Apps.Fib.Pos.Delta.filled_square (range: U120) : List (Pair U120 U120)
-Apps.Fib.Pos.Delta.filled_square (U120.new 0 0) = List.nil
+Apps.Fib.Pos.Delta.filled_square (U120.new 0 0) = List.cons (Pair.new (U120.new 0 0) (U120.new 0 0)) List.nil
 Apps.Fib.Pos.Delta.filled_square range = 
   let r_neg = U120.sub (U120.new 0 0) range
   let top_right    = Pair.new U120 U120 range range
