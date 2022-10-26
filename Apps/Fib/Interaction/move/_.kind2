@@ -1,8 +1,7 @@
 Apps.Fib.Interaction.move (pos: Apps.Fib.Pos) (delta: Pair U120 U120) : Apps.Fib.Interaction Bool {
   do Apps.Fib.Interaction {
     let destination = Apps.Fib.Pos.modify pos delta
-    ask result = Apps.Fib.Interaction.move.maybe pos destination
-    return result
+    Apps.Fib.Interaction.move.maybe pos destination
   }
 }
 
@@ -11,8 +10,7 @@ Apps.Fib.Interaction.move.maybe ori (Maybe.none t    ) = Apps.Fib.Interaction.pu
 Apps.Fib.Interaction.move.maybe ori (Maybe.some t des) =
   do Apps.Fib.Interaction {
     ask des_id      = Apps.Fib.Interaction.entity.get_id_at des
-    ask result      = Apps.Fib.Interaction.move.if des_id ori des
-    return result
+    Apps.Fib.Interaction.move.if des_id ori des
   }
 
 Apps.Fib.Interaction.move.if (id: Apps.Fib.Id) (ori: Apps.Fib.Pos) (des: Apps.Fib.Pos): Apps.Fib.Interaction Bool

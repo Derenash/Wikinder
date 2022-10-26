@@ -1,9 +1,10 @@
 //This interaction fails if the cd is greater than or equal the current frame
 #kdl_name = Fib_itr_fcnc
-Apps.Fib.Interaction.frame.check_not_cd (entity: Apps.Fib.Entity) : Apps.Fib.Interaction Unit {
+Apps.Fib.Interaction.frame.check_not_cd_at (entity: Apps.Fib.Entity) (at: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask frame = Apps.Fib.Interaction.frame.get
-    let is_ready = U120.less_equal entity frame
+    let cd    = Apps.Fib.get_in_u120 entity at (U120.new 0 12)
+    let is_ready = U120.less_equal cd frame
     ask Apps.Fib.Interaction.check (Bool.not is_ready)
     return Unit.new
   }

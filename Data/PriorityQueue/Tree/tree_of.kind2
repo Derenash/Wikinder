@@ -1,0 +1,2 @@
+Data.PriorityQueue.tree_of <a> (queue: (Data.PriorityQueue a)) : (Data.PriorityQueue.Tree a)
+Data.PriorityQueue.tree_of a (Data.PriorityQueue.new t priority tree) = tree

@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Data/PriorityQueue/_.type
+Data.PriorityQueue.match <a: Type> (x: (Data.PriorityQueue a)) -(p: (x: (Data.PriorityQueue a)) Type) (new: (priority: (_: a) U120) (tree: (Data.PriorityQueue.Tree a)) (p (Data.PriorityQueue.new a priority tree))) : (p x)
+Data.PriorityQueue.match a (Data.PriorityQueue.new a_ priority_ tree_) p new = (new priority_ tree_)

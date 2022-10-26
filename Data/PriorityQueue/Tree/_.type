@@ -1,0 +1,4 @@
+type Data.PriorityQueue.Tree <a: Type> {
+    empty
+    node (rank: U120) (element: a) (left: Data.PriorityQueue.Tree a) (right: Data.PriorityQueue.Tree a)
+}

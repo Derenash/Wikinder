@@ -1,0 +1,9 @@
+Data.PriorityQueue.Tree.make <a> (element: a) (lft: (Data.PriorityQueue.Tree a)) (rgt: (Data.PriorityQueue.Tree a)) : (Data.PriorityQueue.Tree a) {
+  let rank_lft = (Data.PriorityQueue.Tree.rank lft)
+  let rank_rgt = (Data.PriorityQueue.Tree.rank rgt)
+  if (U120.greater_equal rank_lft rank_rgt) {
+    Data.PriorityQueue.Tree.node (U120.inc rank_rgt) element lft rgt
+  } else {
+    Data.PriorityQueue.Tree.node (U120.inc rank_lft) element rgt lft
+  }
+}

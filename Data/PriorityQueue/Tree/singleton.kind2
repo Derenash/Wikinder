@@ -1,0 +1,3 @@
+Data.PriorityQueue.Tree.singleton <a: Type> (val: a) : (Data.PriorityQueue.Tree a) {
+  Data.PriorityQueue.Tree.node (U120.new 0 1) val Data.PriorityQueue.Tree.empty Data.PriorityQueue.Tree.empty
+}

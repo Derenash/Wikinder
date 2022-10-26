@@ -1,0 +1,3 @@
+type Data.PriorityQueue <a: Type> {
+  new (priority: a -> U120) (tree: Data.PriorityQueue.Tree a)
+}

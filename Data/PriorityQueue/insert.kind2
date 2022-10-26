@@ -1,0 +1,5 @@
+Data.PriorityQueue.insert <a: Type> (val: a) (queue: (Data.PriorityQueue a)) : (Data.PriorityQueue a)
+Data.PriorityQueue.insert a val (Data.PriorityQueue.new r priority tree) =
+  let singleton = Data.PriorityQueue.Tree.singleton val
+  let merged    = Data.PriorityQueue.Tree.merge priority singleton tree
+  Data.PriorityQueue.new priority merged

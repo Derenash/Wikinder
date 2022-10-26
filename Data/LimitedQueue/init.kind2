@@ -1,0 +1,3 @@
+Data.LimitedQueue.init <t> (size: Nat) (default: t) : Data.LimitedQueue size t
+Data.LimitedQueue.init t Nat.zero        default  = Unit.new
+Data.LimitedQueue.init t (Nat.succ pred) default  = Data.LimitedQueue.List.new pred t default (Data.LimitedQueue.init t pred default)

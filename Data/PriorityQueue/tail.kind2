@@ -1,0 +1,8 @@
+Data.PriorityQueue.tail <a> (queue: (Data.PriorityQueue a)) : (Data.PriorityQueue a)
+Data.PriorityQueue.tail a (Data.PriorityQueue.new t priority tree) =
+  match Data.PriorityQueue.Tree tree {
+      empty => (Data.PriorityQueue.new t priority tree)
+      node  =>
+        let merged = (Data.PriorityQueue.Tree.merge priority tree.left tree.right)
+        Data.PriorityQueue.new priority merged
+  }

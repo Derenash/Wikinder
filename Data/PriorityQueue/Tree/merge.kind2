@@ -1,0 +1,10 @@
+Data.PriorityQueue.Tree.merge <a> (priority: a -> U120) (lft: Data.PriorityQueue.Tree a) (rgt: Data.PriorityQueue.Tree a) : Data.PriorityQueue.Tree a
+Data.PriorityQueue.Tree.merge a priority (Data.PriorityQueue.Tree.empty t0) rgt = rgt
+Data.PriorityQueue.Tree.merge a priority lft (Data.PriorityQueue.Tree.empty t0) = lft
+Data.PriorityQueue.Tree.merge a priority (Data.PriorityQueue.Tree.node t0 rank0 element0 lft0 rgt0) (Data.PriorityQueue.Tree.node t1 rank1 element1 lft1 rgt1) =
+  if (U120.less_equal (priority element0) (priority element1)) {
+    Data.PriorityQueue.Tree.make element0 lft0 (Data.PriorityQueue.Tree.merge priority rgt0 (Data.PriorityQueue.Tree.node rank1 element1 lft1 rgt1))
+  }
+  else {
+    Data.PriorityQueue.Tree.make element1 lft1 (Data.PriorityQueue.Tree.merge priority (Data.PriorityQueue.Tree.node rank0 element0 lft0 rgt0) rgt1)
+  }

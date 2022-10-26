@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Data/PriorityQueue/Tree/_.type
+Data.PriorityQueue.Tree.node <a: Type> (rank: U120) (element: a) (left: (Data.PriorityQueue.Tree a)) (right: (Data.PriorityQueue.Tree a)) : (Data.PriorityQueue.Tree a)

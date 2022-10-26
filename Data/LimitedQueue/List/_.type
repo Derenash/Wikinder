@@ -1,0 +1,3 @@
+type Data.LimitedQueue.List (size: Nat) <t: Type> {
+  new (elem: t) (tail: Data.LimitedQueue size t)
+}

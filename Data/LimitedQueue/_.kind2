@@ -1,0 +1,3 @@
+Data.LimitedQueue (size: Nat) (t: Type) : Type
+Data.LimitedQueue Nat.zero       t = Unit
+Data.LimitedQueue size           t = Data.LimitedQueue.List (Nat.pred size) t

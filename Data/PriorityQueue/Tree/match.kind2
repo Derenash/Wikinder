@@ -1,0 +1,4 @@
+// Automatically derived from /home/derenash/Wikinder/Data/PriorityQueue/Tree/_.type
+Data.PriorityQueue.Tree.match <a: Type> (x: (Data.PriorityQueue.Tree a)) -(p: (x: (Data.PriorityQueue.Tree a)) Type) (empty: (p (Data.PriorityQueue.Tree.empty a))) (node: (rank: U120) (element: a) (left: (Data.PriorityQueue.Tree a)) (right: (Data.PriorityQueue.Tree a)) (p (Data.PriorityQueue.Tree.node a rank element left right))) : (p x)
+Data.PriorityQueue.Tree.match a (Data.PriorityQueue.Tree.empty a_) p empty node = (empty)
+Data.PriorityQueue.Tree.match a (Data.PriorityQueue.Tree.node a_ rank_ element_ left_ right_) p empty node = (node rank_ element_ left_ right_)

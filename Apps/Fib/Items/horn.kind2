@@ -13,7 +13,7 @@ Apps.Fib.Items.horn : Apps.Fib.Interaction Unit {
 Apps.Fib.Interaction.Items.horn.spawn_phoenix (pho: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask entity = Apps.Fib.Interaction.entity.get_from_id pho
-    ask          Apps.Fib.Interaction.frame.check_not_cd entity
+    ask          Apps.Fib.Interaction.frame.check_not_cd_at entity (U120.new 0 0)
     let duration = (U120.new 0 100)
     let func  = (phoenix: Apps.Fib.Entity) => Apps.Fib.mut_in_u120 phoenix U120.0 (U120.new 0 12) (x => U120.add x duration)
     ask Apps.Fib.Interaction.entity.mut_at_id func pho

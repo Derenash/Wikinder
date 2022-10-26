@@ -1,0 +1,3 @@
+Data.PriorityQueue.Tree.is_empty <a> (tree: (Data.PriorityQueue.Tree a)) : Bool
+Data.PriorityQueue.Tree.is_empty a (Data.PriorityQueue.Tree.empty t)                     = Bool.true
+Data.PriorityQueue.Tree.is_empty a (Data.PriorityQueue.Tree.node t rank element lft rgt) = Bool.false

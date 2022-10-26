@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/List/_.type
+Data.LimitedQueue.List.new (size: Nat) <t: Type> (elem: t) (tail: (Data.LimitedQueue size t)) : (Data.LimitedQueue.List size t)

@@ -1,0 +1,10 @@
+Data.PriorityQueue.pop_first <a> (queue: Data.PriorityQueue a) : Pair (Maybe a) (Data.PriorityQueue a)
+Data.PriorityQueue.pop_first a (Data.PriorityQueue.new t priority tree) =
+  match Data.PriorityQueue.Tree tree {
+      empty => Pair.new Maybe.none (Data.PriorityQueue.new priority tree)
+      node => 
+        let head  = Maybe.some tree.element
+        let tail  = Data.PriorityQueue.Tree.merge priority tree.left tree.right
+        let queue = Data.PriorityQueue.new priority tail
+        Pair.new head queue
+  }

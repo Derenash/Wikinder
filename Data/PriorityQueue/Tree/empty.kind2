@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Data/PriorityQueue/Tree/_.type
+Data.PriorityQueue.Tree.empty <a: Type> : (Data.PriorityQueue.Tree a)

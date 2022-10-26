@@ -1,0 +1,2 @@
+Data.PriorityQueue.priority <a> (queue: (Data.PriorityQueue a)) (val: a) : U120
+Data.PriorityQueue.priority  a (Data.PriorityQueue.new t priority queue) val = priority val

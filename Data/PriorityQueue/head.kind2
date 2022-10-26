@@ -1,0 +1,6 @@
+Data.PriorityQueue.head <a> (queue: (Data.PriorityQueue a)) : Maybe a
+Data.PriorityQueue.head a (Data.PriorityQueue.new t priority tree) =
+  match Data.PriorityQueue.Tree tree {
+      empty => Maybe.none
+      node => Maybe.some tree.element
+  }

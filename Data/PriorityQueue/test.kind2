@@ -1,0 +1,15 @@
+Main {
+  let init  = Data.PriorityQueue.new (x => U120.new 0 x) Data.PriorityQueue.Tree.empty
+  let list  = [6, 20, 14, 37, 23, 2, 3, 1024]
+  let fold  = List.fold list
+  let queue = fold init (x => queue => Data.PriorityQueue.insert x queue) 
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  Data.PriorityQueue.head queue
+}
+
+

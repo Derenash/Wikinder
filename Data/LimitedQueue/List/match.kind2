@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/List/_.type
+Data.LimitedQueue.List.match <size: Nat> <t: Type> (x: (Data.LimitedQueue.List size t)) -(p: (x: (Data.LimitedQueue.List size t)) Type) (new: (elem: t) (tail: (Data.LimitedQueue size t)) (p (Data.LimitedQueue.List.new size t elem tail))) : (p x)
+Data.LimitedQueue.List.match size t (Data.LimitedQueue.List.new size_ t_ elem_ tail_) p new = (new elem_ tail_)
