@@ -1,0 +1,20 @@
+#kdl_name = Fib_pos_datr
+//This function assumes that the "attracted" unit is at the origin
+//example: for delta = (3, 2) and strenght 3; the result will be (2, 1), meaning that the attracted unit will move from origin to (2, 1) when the attracter is at (3, 2).
+//y_prio decides which axis has a priority when it would be fair to move to any of them, source: dude trust me
+//Literally the reverse of repel
+
+
+Apps.Fib.Pos.Delta.attract (delta: Pair U120 U120) (strength: U120) (y_prio: Bool) : Pair U120 U120 {
+  let dx     = U120.sub (U120.new 0 0) (Pair.fst delta)
+  let dy     = U120.sub (U120.new 0 0) (Pair.snd delta)
+  let pernil = Pair.new dx dy
+  Apps.Fib.Pos.Delta.repel pernil strength y_prio
+}
+
+// Main {
+//   let m3 = (U120.sub (U120.new 0 0) (U120.new 0 3))
+//   let thr = (U120.new 0 3)
+//   let delta = Pair.new (U120.new 0 2) (U120.new 0 3)
+//   Apps.Fib.Pos.Delta.attract delta (U120.new 0 5) Bool.true
+// }

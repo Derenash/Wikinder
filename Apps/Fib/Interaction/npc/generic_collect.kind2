@@ -1,0 +1,14 @@
+#kdl_name = Fib_itr_gcol
+Apps.Fib.Interaction.npc.generic_collect (item: U120) (cd: U120) : Apps.Fib.Interaction Unit {
+  do Apps.Fib.Interaction {
+    //Checks if target is at cooldown, if it is the interaction fails, if not, it places a new cd and de interaction continues
+    ask Apps.Fib.Interaction.frame.check_and_set_cd_at_target (U120.new 0 0) ((x: U120) => U120.add x cd)
+    //Gets the player and check if he has a free slot in the inventory, if not, the interaction fails
+    ask player = Apps.Fib.Interaction.player.get
+    let has_slot = Apps.Fib.Player.skills.has_slot player
+    ask slot = Apps.Fib.Interaction.check_and_next has_slot
+    let func = (x: Apps.Fib.Player) => Apps.Fib.Player.skills.add_at x item slot
+    ask Apps.Fib.Interaction.player.mut func
+    return Unit.new
+  }
+}

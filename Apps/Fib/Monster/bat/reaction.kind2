@@ -4,7 +4,7 @@ Apps.Fib.Monster.bat.reaction (run_distance: U120) (id: Apps.Fib.Id) : Apps.Fib.
     ask monster_pos  = Apps.Fib.Interaction.monster.get_pos_from_id id
     ask attacker_pos = Apps.Fib.Interaction.player.get_pos
     let delta        = Apps.Fib.Pos.Delta.get attacker_pos monster_pos
-    let new_delta    = Apps.Fib.Pos.Delta.repel delta run_distance
+    let new_delta    = Apps.Fib.Pos.Delta.repel delta run_distance Bool.true
     ask has_moved    = Apps.Fib.Interaction.move monster_pos delta
     Apps.Fib.Interaction.pass
   }
