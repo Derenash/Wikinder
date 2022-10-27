@@ -1,0 +1,6 @@
+Data.LimitedQueue.get_last <a> (size: Nat) (xs: (Data.LimitedQueue size a)) : Maybe a 
+Data.LimitedQueue.get_last Nat.zero Unit.new = Maybe.none
+Data.LimitedQueue.get_last (Nat.succ Nat.zero) (Data.LimitedQueue.List.new Nat.zero val Unit.new) = Maybe.some val
+
+Data.LimitedQueue.get_last (Nat.succ n) (Data.LimitedQueue.List.new size val tail) = 
+  Data.LimitedQueue.get_last n tail

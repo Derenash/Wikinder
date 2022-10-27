@@ -1,0 +1,5 @@
+Data.LimitedQueue.List.head <a> (size: Nat) (xs: Data.LimitedQueue.List size a) : a {
+  match Data.LimitedQueue.List xs {
+    new => xs.elem
+  }
+}
