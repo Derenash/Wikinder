@@ -1,2 +1,2 @@
-// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/List/_.type
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/List/_
 Data.LimitedQueue.List (size: Nat) (t: Type) : Type

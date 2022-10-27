@@ -1,0 +1,6 @@
+#kdl_name = Fib_tbl_sets
+Apps.Fib.Table.sets (map: Apps.Fib.Table) (entity: Apps.Fib.Entity) (ids: List U60) : Apps.Fib.Table
+Apps.Fib.Table.sets map entity (List.nil r)      = map
+Apps.Fib.Table.sets map entity (List.cons r h t ) =
+  let id = U120.new 0 h
+  Apps.Fib.Table.sets (Apps.Fib.Table.set map entity id) entity t

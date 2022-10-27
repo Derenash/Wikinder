@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/Phase/User/_.type
+Apps.Fib.Kindelia.State.Phase.User.match (x: (Apps.Fib.Kindelia.State.Phase.User)) -(p: (x: (Apps.Fib.Kindelia.State.Phase.User)) Type) (new: (wallet: U120) (invested: U120) (p (Apps.Fib.Kindelia.State.Phase.User.new wallet invested))) : (p x)
+Apps.Fib.Kindelia.State.Phase.User.match (Apps.Fib.Kindelia.State.Phase.User.new wallet_ invested_) p new = (new wallet_ invested_)

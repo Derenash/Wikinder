@@ -22,42 +22,46 @@ ID - Name
 16 = Whirlwind
 
 
-Items (26 - 63): 
+Items (26 - 127): 
 
 ID - Name 
 
 --------------------fire--------------------
-26 = Bone Claw (Decayed Dragon Bone Piece)
-27 = Dragonfruit
-28 = Phoenix's feather (Phoenix Down)
-29 = Sipher's horn
-30 = Ignis Stone
-32 = Bat wings
+32 = Bone Claw (Decayed Dragon Bone Piece)
+33 = Dragonfruit
+34 = Phoenix's feather (Phoenix Down)
+35 = Sipher's horn
+36 = Ignis Stone
+37 = Bat wings
+38 - 47 = none
 --------------------water--------------------
-33 = Coconut
-34 = Crab/Fish/Oyster/Squid
-35 = Crab/Fish/Oyster/Squid
-36 = Decorative thing
-37 = ~Cooked Food~
-38 = ~Cooked Food~
-39 = Ancient Manuscript/Puzzle Reward
-40 = Perfect Lemon
-41 = THE Lemonade
-42 = ~Monster Heart~
+48 = Coconut
+49 = Crab/Fish/Oyster/Squid
+50 = Crab/Fish/Oyster/Squid
+51 = Decorative thing
+52 = ~Cooked Food~
+53 = ~Cooked Food~
+54 = Ancient Manuscript/Puzzle Reward
+55 = Perfect Lemon
+56 = THE Lemonade
+57 = ~Monster Heart~
+58 - 63 = none
 --------------------earth--------------------
-43 = Sacred Fruit
-44 = Fireflies
-45 = Hard ore
-46 = Gemstone
-47 = Immortal Golem Piece
-48 = ~Item from Shop~
+64 = Sacred Fruit
+65 = Fireflies
+66 = Hard ore
+67 = Gemstone
+68 = Immortal Golem Piece
+69 = ~Item from Shop~
+70 - 79 = none
 ---------------------air---------------------
-49 = Ostrich egg
-50 = Pine Cone
-51 = ~Windmill Product~
-52 = ~Scroll 1 (Shop)~
-53 = Wind Vane
-54 = Air Rabbit paw (~sadge~)
+80 = Ostrich egg
+81 = Pine Cone
+82 = ~Windmill Product~
+83 = ~Scroll 1 (Shop)~
+84 = Wind Vane
+85 = Air Rabbit paw (~sadge~)
+86 - 95 = none
 
 **Game IDs**
 

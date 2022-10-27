@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/Sorted/_.type
+Data.LimitedQueue.Sorted.match <size: Nat> <t: Type> (x: (Data.LimitedQueue.Sorted size t)) -(p: (x: (Data.LimitedQueue.Sorted size t)) Type) (new: (sort: (_: t) (_: t) Bool) (queue: (Data.LimitedQueue size t)) (p (Data.LimitedQueue.Sorted.new size t sort queue))) : (p x)
+Data.LimitedQueue.Sorted.match size t (Data.LimitedQueue.Sorted.new size_ t_ sort_ queue_) p new = (new sort_ queue_)

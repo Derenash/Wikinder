@@ -1,0 +1,4 @@
+type Apps.Fib.Kindelia.State.Phase {
+  lobby (queue: Data.LimitedQueue.Sorted (U120.to_nat (U120.new 0 10)) Apps.Fib.Kindelia.State.Phase.User)
+  game  (players: User.Sipher.PatriciaTree)
+}

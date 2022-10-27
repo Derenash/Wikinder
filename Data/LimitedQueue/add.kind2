@@ -1,0 +1,4 @@
+Data.LimitedQueue.add <t> (size: Nat) (queue: Data.LimitedQueue size t) (value: t) : Data.LimitedQueue size t
+Data.LimitedQueue.add t Nat.zero        queue                                    value = Unit.new
+Data.LimitedQueue.add t (Nat.succ pred) (Data.LimitedQueue.List.new size r element tail) value =
+  Data.LimitedQueue.List.new pred value (Data.LimitedQueue.add pred tail element)

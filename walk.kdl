@@ -1,0 +1,12 @@
+// Apps.Fib.Kindelia.walk (direction: (U120)) (id: (U120)) : (U120)
+fun (Fib_kdl_walk direction id) {
+  (Fib_kdl_walk direction id) =
+    (| id (<< direction #16))
+}
+
+// U120.new (hi: U60) (lo: U60) : (U120)
+fun (U120_new hi lo) {
+  (U120_new hi lo) =
+    (+ (<< hi #60) (>> (<< lo #60) #60))
+}
+

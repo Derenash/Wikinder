@@ -1,0 +1,4 @@
+Data.LimitedQueue.Sorted.from_list <a> (sort: a -> a -> Bool) (list: List a) : Data.LimitedQueue.Sorted (List.length (List.sort sort list)) a {
+  let sorted = List.sort sort list
+  Data.LimitedQueue.Sorted.new (List.length sorted) a sort (Data.LimitedQueue.from_list sorted)
+}

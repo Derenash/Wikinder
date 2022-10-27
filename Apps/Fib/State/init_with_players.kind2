@@ -269,6 +269,7 @@ Main {
   let state = Apps.Fib.State.init_with_players
   let map   = Apps.Fib.State.get_map state
   let table = Apps.Fib.State.get_table state
-  Apps.Fib.Map.show (U120.new 0 0) (U120.new 0 80) (U120.new 0 30) (U120.new 0 30) map
+  table
+  // Apps.Fib.Map.show (U120.new 0 0) (U120.new 0 80) (U120.new 0 60) (U120.new 0 60) map
   // Apps.Fib.State.parse state
 }

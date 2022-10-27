@@ -1,0 +1,4 @@
+#kdl_name = Fib_kdl_walk
+Apps.Fib.Kindelia.walk (direction: U120) (id: U120) : U120 {
+  U120.bitwise_or id (U120.shift_left direction (U120.new 0 16))
+}

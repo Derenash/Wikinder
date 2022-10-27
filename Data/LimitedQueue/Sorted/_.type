@@ -1,0 +1,4 @@
+// Limited Queue Sorted
+type Data.LimitedQueue.Sorted (size: Nat) <t: Type> {
+  new (sort: t -> t -> Bool) (queue: Data.LimitedQueue size t)
+}

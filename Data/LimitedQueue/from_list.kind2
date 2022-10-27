@@ -1,0 +1,18 @@
+Data.LimitedQueue.from_list <a> (xs: List a) : Data.LimitedQueue (List.length a xs) a
+Data.LimitedQueue.from_list  a  (List.nil r)      = Unit.new
+Data.LimitedQueue.from_list  a  (List.cons r h t) =
+  let size  = List.length t
+  Data.LimitedQueue.List.new size a h (Data.LimitedQueue.from_list t)
+
+// Data.LimitedQueue (size: Nat) (t: Type) : Type
+// Data.LimitedQueue Nat.zero        t = Unit
+// Data.LimitedQueue (Nat.succ pred) t = Data.LimitedQueue.List pred t
+
+// type Data.LimitedQueue.List (size: Nat) <t: Type> {
+//   new (elem: t) (tail: Data.LimitedQueue size t)
+// }
+
+// Data.LimitedQueue.add <t> (size: Nat) (queue: Data.LimitedQueue size t) (value: t) : Data.LimitedQueue size t
+// Data.LimitedQueue.add t Nat.zero        queue                                    value = Unit.new
+// Data.LimitedQueue.add t (Nat.succ pred) (Data.LimitedQueue.List.new size r element tail) value =
+//   Data.LimitedQueue.List.new pred value (Data.LimitedQueue.add pred tail element)

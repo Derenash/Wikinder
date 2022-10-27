@@ -1,0 +1,7 @@
+Apps.Fib.Interaction.npc.generic_combine (combinations: List (Pair (List Apps.Fib.Item) Apps.Fib.Item)) : U120 -> Apps.Fib.Interaction Unit {
+  (data: U120) =>
+    let combination = List.at combinations (U120.to_nat data)
+    let not_found   = Apps.Fib.Interaction.pass
+    let found       = combination => Apps.Fib.Interaction.npc.combine (Pair.fst combination) (Pair.snd combination)
+    Maybe.extract combination not_found found
+}

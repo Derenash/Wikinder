@@ -1,16 +1,16 @@
 #kdl_name = Fib_it_horn
-Apps.Fib.Items.horn : Apps.Fib.Interaction Unit {
+Apps.Fib.Item.horn : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask player   = Apps.Fib.Interaction.player.get
     let mbe_slot = Apps.Fib.Player.skills.find player (U120.new 0 29)
     ask slot     = Apps.Fib.Interaction.check_and_next mbe_slot
     let func = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.del_at player slot
     ask Apps.Fib.Interaction.player.mut func
-    Apps.Fib.Interaction.Items.horn.spawn_phoenix (U120.new 0 128)
+    Apps.Fib.Interaction.Item.horn.spawn_phoenix (U120.new 0 128)
   }
 }
 
-Apps.Fib.Interaction.Items.horn.spawn_phoenix (pho: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
+Apps.Fib.Interaction.Item.horn.spawn_phoenix (pho: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask entity = Apps.Fib.Interaction.entity.get_from_id pho
     ask          Apps.Fib.Interaction.frame.check_not_cd_at entity (U120.new 0 0)

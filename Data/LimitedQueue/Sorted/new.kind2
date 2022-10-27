@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/Sorted/_.type
+Data.LimitedQueue.Sorted.new (size: Nat) <t: Type> (sort: (_: t) (_: t) Bool) (queue: (Data.LimitedQueue size t)) : (Data.LimitedQueue.Sorted size t)

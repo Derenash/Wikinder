@@ -1,0 +1,2 @@
+Data.LimitedQueue.Sorted.queue <a> (size: Nat) (queue: Data.LimitedQueue.Sorted size a) : Data.LimitedQueue size a
+Data.LimitedQueue.Sorted.queue  a   size       (Data.LimitedQueue.Sorted.new s r sort queue) = queue

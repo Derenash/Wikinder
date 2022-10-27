@@ -1,0 +1,68 @@
+Data.LimitedQueue.Sorted.add <a> (size: Nat) (sorted_queue: Data.LimitedQueue.Sorted size a) (value: a) : Pair a (Data.LimitedQueue.Sorted size a )
+Data.LimitedQueue.Sorted.add  a  (Nat.zero) (Data.LimitedQueue.Sorted.new Nat.zero r0 sort queue) value = Pair.new value (Data.LimitedQueue.Sorted.new Nat.zero a sort Unit.new)
+Data.LimitedQueue.Sorted.add  a  (Nat.succ pred) (Data.LimitedQueue.Sorted.new (Nat.succ pred1) r0 sort (Data.LimitedQueue.List.new size r1 element tail)) value =
+  let result = sort value element
+  if result {
+    let recursion = Data.LimitedQueue.Sorted.add pred (Data.LimitedQueue.Sorted.new pred a sort tail) value
+    let queue     = Data.LimitedQueue.List.new pred a element (Data.LimitedQueue.Sorted.queue pred (Pair.snd recursion))
+    let removed   = Pair.fst recursion
+    Pair.new removed (Data.LimitedQueue.Sorted.new (Nat.succ pred) a sort queue)
+  }
+  else {
+    let recursion = Data.LimitedQueue.Sorted.add pred (Data.LimitedQueue.Sorted.new pred a sort tail) element
+    let queue     = Data.LimitedQueue.List.new pred a value (Data.LimitedQueue.Sorted.queue pred (Pair.snd recursion))
+    let removed   = Pair.fst recursion
+    Pair.new removed (Data.LimitedQueue.Sorted.new (Nat.succ pred) a sort queue)
+  }
+
+
+// Data.LimitedQueue.from_list <a> (xs: List a) : Data.LimitedQueue (List.length a xs) a
+// Data.LimitedQueue.from_list  a  (List.nil r)      = Unit.new
+// Data.LimitedQueue.from_list  a  (List.cons r h t) =
+//   let size  = List.length t
+//   Data.LimitedQueue.List.new size a h (Data.LimitedQueue.from_list t)
+
+// Data.LimitedQueue (size: Nat) (t: Type) : Type
+// Data.LimitedQueue Nat.zero        t = Unit
+// Data.LimitedQueue (Nat.succ pred) t = Data.LimitedQueue.List pred t
+
+// type Data.LimitedQueue.List (size: Nat) <t: Type> {
+//   new (elem: t) (tail: Data.LimitedQueue size t)
+// }
+
+// Data.LimitedQueue.add <t> (size: Nat) (queue: Data.LimitedQueue size t) (value: t) : Data.LimitedQueue size t
+// Data.LimitedQueue.add t Nat.zero        queue                                    value = Unit.new
+// Data.LimitedQueue.add t (Nat.succ pred) (Data.LimitedQueue.List.new size r element tail) value =
+//   Data.LimitedQueue.List.new pred value (Data.LimitedQueue.add pred tail element)
+
+
+// Data.LimitedQueue.Sorted.add <a> (size: Nat) (func: a -> a -> Bool) (queue: Data.LimitedQueue size a) (value: a) : Data.LimitedQueue size a
+// Data.LimitedQueue.Sorted.add  a   Nat.zero    func (Data.LimitedQueue.new Nat.zero r sort queue) value = Data.LimitedQueue.new Nat.zero r sort Unit.new
+// Data.LimitedQueue.Sorted.add  a  (Nat.succ pred) func (Data.LimitedQueue.new sort (Data.LimitedQueue.List.new size r element tail)) value = ?
+  // let result = func value element
+  // if result {
+  //   Data.LimitedQueue.List.new pred a element (Data.LimitedQueue.Sorted.add pred func tail value)  
+  // }
+  // else {
+  //   Data.LimitedQueue.add (Nat.succ pred) (Data.LimitedQueue.List.new pred r element tail) value
+  // }
+
+
+// Data.LimitedQueue.from_list <a> (xs: List a) : Data.LimitedQueue (List.length a xs) a
+// Data.LimitedQueue.from_list  a  (List.nil r)      = Unit.new
+// Data.LimitedQueue.from_list  a  (List.cons r h t) =
+//   let size  = List.length t
+//   Data.LimitedQueue.List.new size a h (Data.LimitedQueue.from_list t)
+
+// Data.LimitedQueue (size: Nat) (t: Type) : Type
+// Data.LimitedQueue Nat.zero        t = Unit
+// Data.LimitedQueue (Nat.succ pred) t = Data.LimitedQueue.List pred t
+
+// type Data.LimitedQueue.List (size: Nat) <t: Type> {
+//   new (elem: t) (tail: Data.LimitedQueue size t)
+// }
+
+// Data.LimitedQueue.add <t> (size: Nat) (queue: Data.LimitedQueue size t) (value: t) : Data.LimitedQueue size t
+// Data.LimitedQueue.add t Nat.zero        queue                                    value = Unit.new
+// Data.LimitedQueue.add t (Nat.succ pred) (Data.LimitedQueue.List.new size r element tail) value =
+//   Data.LimitedQueue.List.new pred value (Data.LimitedQueue.add pred tail element)

@@ -1,0 +1,5 @@
+#kdl_name = Fib_kdl_intr
+Apps.Fib.Kindelia.intr (direction: U120) (id: U120) : U120 {
+  let comm   = U120.new 0 1
+  U120.bitwise_or (U120.bitwise_or id (U120.shift_left direction (U120.new 0 16))) (U120.shift_left comm (U120.new 0 12))
+}

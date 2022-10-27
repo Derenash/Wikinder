@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Data/LimitedQueue/Sorted/_.type
+Data.LimitedQueue.Sorted (size: Nat) (t: Type) : Type

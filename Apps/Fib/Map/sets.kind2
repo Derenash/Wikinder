@@ -1,0 +1,9 @@
+#kdl_name = Fib_tbl_sets
+Apps.Fib.Map.sets (map: Apps.Fib.Map) (id: U60) (poss: List (Pair U60 U60)) : Apps.Fib.Map
+Apps.Fib.Map.sets map id (List.nil r)      = map
+Apps.Fib.Map.sets map id (List.cons r h t ) =
+  let x   = Pair.fst h
+  let y   = Pair.snd h
+  let pos = Apps.Fib.Pos.new (U120.new 0 x) (U120.new 0 y)
+  let id1  = U120.new 0 id
+  Apps.Fib.Map.sets (Apps.Fib.Map.set map id1 pos) id t
