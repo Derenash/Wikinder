@@ -15,15 +15,18 @@ Apps.Fib.Skill.quickstep : Apps.Fib.Interaction Unit {
     let delta    = Apps.Fib.Pos.Delta.get origin target
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    
+    // Adds Fatigue to the caster
+    ask Apps.Fib.Interaction.player.cast_move cooldown
 
     // Verifies if the destination is in range
     ask Apps.Fib.Interaction.skill.check_range range
 
     let f = ((x: Pair U120 U120) =>
-        let fst = Pair.map_fst x ((y: U120) => U120.mul y power)
-        let snd = Pair.map_snd fst ((y: U120) => U120.mul y power)
-        snd
-      )
+      let fst = Pair.map_fst x ((y: U120) => U120.mul y power)
+      let snd = Pair.map_snd fst ((y: U120) => U120.mul y power)
+      snd
+    )
 
     // Moves if it is in range
     ask Apps.Fib.Interaction.move origin (f delta)
@@ -31,8 +34,6 @@ Apps.Fib.Skill.quickstep : Apps.Fib.Interaction Unit {
     // Roots itself
     ask Apps.Fib.Interaction.player.add_root_at self_root origin
 
-    // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.cast_move cooldown
     return Unit.new
   }
 }

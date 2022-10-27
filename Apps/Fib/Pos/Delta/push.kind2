@@ -1,11 +1,11 @@
 #kdl_name = Fib_pos_dpsh
 Apps.Fib.Pos.Delta.push (delta: Pair U120 U120) (strength: U120) (y_prio: Bool) : Pair U120 U120 {
   let attract = Apps.Fib.Pos.Delta.attract delta strength y_prio
-    let l_fst = Pair.fst attract
-    let l_snd = Pair.snd attract
+  let l_fst = Pair.fst attract
+  let l_snd = Pair.snd attract
 
-    let c_fst = Pair.fst delta
-    let c_snd = Pair.snd delta
-    let new_delta = Pair.new (U120.add l_fst c_fst) (U120.add l_snd c_snd)
-    new_delta
+  let c_fst = Pair.fst delta
+  let c_snd = Pair.snd delta
+  let new_delta = Pair.new (U120.add l_fst c_fst) (U120.add l_snd c_snd)
+  new_delta
 }

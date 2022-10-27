@@ -19,7 +19,15 @@ Apps.Fib.Skill.gust : Apps.Fib.Interaction Unit {
     let coords   = Apps.Fib.Pos.range origin deltas
 
     // Push enemies away
-    ask Apps.Fib.Skill.gust_aux deltas power coords
+    // ask Apps.Fib.Skill.gust_aux deltas power coords
+    let func = pos => do Apps.Fib.Interaction {
+      let delta = Apps.Fib.Pos.Delta.get origin pos
+      let push  = Apps.Fib.Pos.Delta.push delta power Bool.true
+      ask Apps.Fib.Interaction.move pos push
+      return Unit.new
+    }
+  
+    ask Apps.Fib.Interaction.area.generic func coords
 
     // Adds event for the skill cast
     ask Apps.Fib.Interaction.skill.event_use skill_id
@@ -31,11 +39,13 @@ Apps.Fib.Skill.gust : Apps.Fib.Interaction Unit {
 }
 
 // Auxiliar Function to push enemies away in area
-Apps.Fib.Skill.gust_aux (list: List (Pair U120 U120)) (power: U120) (pos: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit
-Apps.Fib.Skill.gust_aux List.nil power pos = do Apps.Fib.Interaction { return Unit.new }
-Apps.Fib.Skill.gust_aux (List.cons t head tail) power List.nil =  do Apps.Fib.Interaction { return Unit.new }
-Apps.Fib.Skill.gust_aux (List.cons t head tail) power (List.cons u phead ptail) = do Apps.Fib.Interaction {
-    let push = Apps.Fib.Pos.Delta.push head power Bool.true
-    ask Apps.Fib.Interaction.move phead push
-    Apps.Fib.Skill.gust_aux tail power ptail
-  }
+// Apps.Fib.Skill.gust_aux (list: List (Pair U120 U120)) (power: U120) (pos: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit
+// Apps.Fib.Skill.gust_aux List.nil                power pos                       = Apps.Fib.Interaction.pass
+// Apps.Fib.Skill.gust_aux (List.cons t head tail) power List.nil                  = Apps.Fib.Interaction.pass
+// Apps.Fib.Skill.gust_aux (List.cons t head tail) power (List.cons u phead ptail) =
+//   do Apps.Fib.Interaction {
+//     let push = Apps.Fib.Pos.Delta.push head power Bool.true
+//     ask Apps.Fib.Interaction.move phead push
+//     Apps.Fib.Skill.gust_aux tail power ptail
+//   }
+
