@@ -1,4 +1,7 @@
-// TODO: Create parse
-// type = phoenix
-// active = Bool ?
-// active until = 0 if not active, else frame - cd
+Apps.Fib.Npc.phoenix.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes {
+  let duration = U120.sub_saturated entity frame
+  [
+    (Pair.new (Kindelia.Convert.to_kstring "type")     (Kindelia.Convert.to_kstring "phoenix"))
+    (Pair.new (Kindelia.Convert.to_kstring "duration") (Kindelia.Convert.num_to_kstring duration)) 
+  ]
+}
