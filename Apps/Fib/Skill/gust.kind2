@@ -35,7 +35,7 @@ Apps.Fib.Skill.gust_aux (list: List (Pair U120 U120)) (power: U120) (pos: List A
 Apps.Fib.Skill.gust_aux List.nil power pos = do Apps.Fib.Interaction { return Unit.new }
 Apps.Fib.Skill.gust_aux (List.cons t head tail) power List.nil =  do Apps.Fib.Interaction { return Unit.new }
 Apps.Fib.Skill.gust_aux (List.cons t head tail) power (List.cons u phead ptail) = do Apps.Fib.Interaction {
-    let repel = Apps.Fib.Pos.Delta.repel head power Bool.true
-    ask Apps.Fib.Interaction.move phead repel
+    let push = Apps.Fib.Pos.Delta.push head power Bool.true
+    ask Apps.Fib.Interaction.move phead push
     Apps.Fib.Skill.gust_aux tail power ptail
   }

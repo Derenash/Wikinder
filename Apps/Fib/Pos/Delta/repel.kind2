@@ -25,16 +25,24 @@ Apps.Fib.Pos.Delta.repel delta strength y_prio =
   let inc_x = Pair.new (U120.neg (Pair.fst delta) (U120.inc new_x)) (U120.neg (Pair.snd delta) new_y)
   let inc_y = Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) (U120.inc new_y))
 
-  match Cmp cmp {
-    ltn => inc_y
-    gtn => inc_x
-    eql => Bool.if y_prio inc_y inc_x
+  let cond = Bool.and (U120.is_zero x_mod) (U120.is_zero y_mod)
+
+  if cond {
+    Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) new_y)
+  }
+  else {
+    match Cmp cmp {
+      ltn => inc_y
+      gtn => inc_x
+      eql => Bool.if y_prio inc_y inc_x
+  }
   }
 
 // Main {
 //   let m3 = (U120.sub (U120.new 0 0) (U120.new 0 3))
+//   let m2 = (U120.sub (U120.new 0 0) (U120.new 0 2))
 //   let thr = (U120.new 0 3)
-//   let delta = Pair.new m3 m3
+//   let delta = Pair.new m2 m3
 //   Apps.Fib.Pos.Delta.repel delta (U120.new 0 5) Bool.false
 // }
 
