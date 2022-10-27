@@ -1,0 +1,8 @@
+#kdl_name = Fib_itr_nshp
+Apps.Fib.Interaction.npc.shop (items: List (Pair U120 U120)) : (data: U120) -> Apps.Fib.Interaction Unit {
+  (data: U120) =>
+    let purchase  = List.at items (U120.to_nat data)
+    let not_found = Apps.Fib.Interaction.pass
+    let found     = (val: Pair U120 U120) => Apps.Fib.Interaction.npc.buy (Pair.fst val) (Pair.snd val)
+    Maybe.extract purchase not_found found
+}
