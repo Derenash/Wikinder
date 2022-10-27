@@ -1,0 +1,8 @@
+Data.PriorityQueue.get_last <a> (queue: Data.PriorityQueue a) : Maybe a {
+  let tail = Data.PriorityQueue.tail queue
+  let htail = Data.PriorityQueue.head tail
+  match Maybe htail {
+    none => Data.PriorityQueue.head queue
+    some => Data.PriorityQueue.get_last tail
+  }
+}
