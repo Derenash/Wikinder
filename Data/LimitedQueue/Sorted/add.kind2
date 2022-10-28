@@ -16,6 +16,9 @@ Data.LimitedQueue.Sorted.add  a  (Nat.succ pred) (Data.LimitedQueue.Sorted.new (
   }
 
 
+
+
+
 // Data.LimitedQueue.from_list <a> (xs: List a) : Data.LimitedQueue (List.length a xs) a
 // Data.LimitedQueue.from_list  a  (List.nil r)      = Unit.new
 // Data.LimitedQueue.from_list  a  (List.cons r h t) =

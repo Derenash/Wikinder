@@ -1,0 +1,2 @@
+// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/To_start/_.type
+Apps.Fib.Kindelia.To_start.new (pos: (List U120)) (users: User.Sipher.PatriciaTree) (state: Apps.Fib.State) (count: U120) : (Apps.Fib.Kindelia.To_start)

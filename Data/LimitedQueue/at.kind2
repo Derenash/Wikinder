@@ -1,0 +1,4 @@
+Data.LimitedQueue.at <a> (size: Nat) (idx: U120) (queue: Data.LimitedQueue size a) : Maybe a
+Data.LimitedQueue.at  a  Nat.zero idx queue = Maybe.none
+Data.LimitedQueue.at  a  (Nat.succ pred) (U120.new 0 0) (Data.LimitedQueue.List.new size r elem tail) = Maybe.some elem
+Data.LimitedQueue.at  a  (Nat.succ pred) idx (Data.LimitedQueue.List.new size r elem tail) = Data.LimitedQueue.at pred (U120.dec idx) tail

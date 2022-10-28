@@ -1,0 +1,2 @@
+Apps.Fib.Kindelia.State.set_phase (state: Apps.Fib.Kindelia.State) (phase: Apps.Fib.Kindelia.State.Phase) : Apps.Fib.Kindelia.State
+Apps.Fib.Kindelia.State.set_phase (Apps.Fib.Kindelia.State.new p start_blk state) phase = Apps.Fib.Kindelia.State.new phase start_blk state

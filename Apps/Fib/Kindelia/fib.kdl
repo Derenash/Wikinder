@@ -2664,7 +2664,7 @@ fun (Fic_pos_drpl delta strength) {
     (Bool_if (U120_equal _18 _16) {T2 (U120_neg (Pair_fst _8) _25) (U120_neg (Pair_snd _9) _21)} (Bool_if (U120_gtns _19 _17) {T2 (U120_neg (Pair_fst _10) (U120_inc _26)) (U120_neg (Pair_snd _11) _22)} {T2 (U120_neg (Pair_fst _12) _27) (U120_neg (Pair_snd _13) (U120_inc _23))}))
 }
 
-// U120.neg (n: (U120)) (m: (U120)) : (U120)
+// Apps.Fib.U120.get_neg (n: (U120)) (m: (U120)) : (U120)
 fun (U120_neg n m) {
   (U120_neg n m) =
     dup _2 _3 = n;
@@ -2678,7 +2678,7 @@ fun (U120_gtns a b) {
     (U120_tbool (> a b))
 }
 
-// U120.distance (n: (U120)) (m: (U120)) : (U120)
+// Apps.Fib.U120.distance (n: (U120)) (m: (U120)) : (U120)
 fun (U120_distCyc n m) {
   (U120_distCyc n m) =
     dup _8 _9 = m;
@@ -2695,7 +2695,7 @@ fun (U120_distCyc n m) {
     (Bool_if xor (+ (U120_abs _4) (U120_abs _12)) (Bool_if (U120_gtns _5 _13) (- _6 _14) (U120_sub_wLh _15 _7)))
 }
 
-// U120.abs (n: (U120)) : (U120)
+// Apps.Fib.U120.abs (n: (U120)) : (U120)
 fun (U120_abs n) {
   (U120_abs n) =
     dup _0 _1 = n;
@@ -2703,7 +2703,7 @@ fun (U120_abs n) {
     (Bool_if (U120_is_neg _1) (U120_inc (U120_bwcom _2)) _3)
 }
 
-// U120.is_neg (n: (U120)) : (Bool)
+// Apps.Fib.U120.is_neg (n: (U120)) : (Bool)
 fun (U120_is_neg n) {
   (U120_is_neg n) =
     (Bool_not (U120_is0 (& #664613997892457936451903530140172288 n)))

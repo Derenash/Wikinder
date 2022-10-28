@@ -1,4 +1,7 @@
 type Apps.Fib.Event.kek {
+  act_walk  (pos: U120) (id:    U120) 
+  act_skill (pos: U120) (id:    U120) (skill : U120)
+  act_itr   (pos: U120) (id:    U120) 
   death     (pos: U120) (id:    U120)
   damage    (pos: U120) (value: U120)
   heal      (pos: U120) (value: U120)

@@ -2,7 +2,7 @@ Main {
   let user = U120.new 0 1
   let val  = U120.new 0 0
   let last_mint = U120.0
-  let current_block =(U120.new 0 4625000000)
+  let current_blk =(U120.new 0 4625000000)
   //let last_mint = (U120.new 0 8000000000)
   //let last_mint = (U120.new 0 7000000000)
   //let last_mint = (U120.new 0 4125000000)

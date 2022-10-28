@@ -1,0 +1,28 @@
+// Considering that Numbers between 2^119 and 2^220 are negative numbers, get the distance between 2 values
+Apps.Fib.U120.distance (n: U120) (m: U120) : U120 {
+  let nn = (Apps.Fib.U120.is_neg n)
+  let nm = (Apps.Fib.U120.is_neg m)
+  let xor = Bool.xor nn nm 
+
+  if xor {
+    U120.add (Apps.Fib.U120.abs n) (Apps.Fib.U120.abs m)
+  }
+  else {
+
+    if (U120.greater_than n m) {
+      U120.sub n m
+    }
+    else {
+     U120.sub_saturated m n
+    }
+  }
+}
+
+// Main {
+//   let m54164 = (U120.sub (U120.new 0 0) (U120.new 0 54164))
+//   let m3 = (U120.sub (U120.new 0 0) (U120.new 0 3))
+//   let x = Apps.Fib.U120.distance m3 (U120.new 0 3)
+//   x
+
+//   //U120.add x (U120.new 0 7)
+// }

@@ -157,7 +157,7 @@ User.Sipher.Transfer from to wallet value =
       some => 
         // Verifies if the sender really has the money for transacion + mana
         let sender_money = Pair.snd String Nat get_from.value
-        //let avg_transaction_value = Nat.gtn (Nat.add value 
+        //let avg_trx_value = Nat.gtn (Nat.add value 
         if (Nat.gtn value sender_money) {  
           Maybe.none 
         } else {

@@ -1,0 +1,6 @@
+Apps.Fib.Kindelia.State.Phase.init_lobby : Apps.Fib.Kindelia.State.Phase {
+  let size  = (U120.to_nat (U120.new 0 10))
+  let user  = Apps.Fib.Kindelia.State.Phase.User.empty
+  let queue = Data.LimitedQueue.Sorted.new size (a => b => Apps.Fib.Kindelia.State.Phase.User.greater_than a b) (Data.LimitedQueue.init size user)
+  Apps.Fib.Kindelia.State.Phase.lobby queue
+} 

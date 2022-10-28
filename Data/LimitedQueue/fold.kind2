@@ -1,0 +1,3 @@
+Data.LimitedQueue.fold <a> <p> (size: Nat) (queue: Data.LimitedQueue size a) : p -> (a -> p -> p) -> p
+Data.LimitedQueue.fold a p Nat.zero Unit.new = nil => cons => nil
+Data.LimitedQueue.fold a p (Nat.succ pred) (Data.LimitedQueue.List.new size r head tail) = nil => cons => cons head ((Data.LimitedQueue.fold a p size tail) nil cons)

@@ -1,5 +1,13 @@
 type Apps.Fib.Kindelia.Response {
   none
-  state (state: Apps.Fib.Kindelia.State) 
-  next  (data: Pair Apps.Fib.Kindelia.State Apps.Fib.Events)
+  state       (state    : Apps.Fib.Kindelia.State) 
+  acted       (data     : Apps.Fib.Events)
+  joined      (position : U120)
+  started     (block    : U120)
+  reseted
+  wrong_phase       
+  act_fail
+  join_fail   (floor    : U120)
+  start_fail  (to_start : U120)
+  reset_fail  (to_reset :  U120)
 }

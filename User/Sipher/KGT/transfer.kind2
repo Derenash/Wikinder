@@ -42,19 +42,19 @@ User.Sipher.KGT.transfer.sender (Maybe.some t money) from to value state =
 User.Sipher.KGT.transfer.finish
   (has_money         : Bool)
   (sender_money      : U120)
-  (transaction_value : U120)
+  (trx_value : U120)
   (from              : U120)
   (to                : U120)
   (state             : KDL.KGT.State)
 : KDL.KGT.State
-User.Sipher.KGT.transfer.finish Bool.false sender_money transaction_value from to state = state
-User.Sipher.KGT.transfer.finish Bool.true  sender_money transaction_value from to (KDL.KGT.State.new last_mint balances) = 
+User.Sipher.KGT.transfer.finish Bool.false sender_money trx_value from to state = state
+User.Sipher.KGT.transfer.finish Bool.true  sender_money trx_value from to (KDL.KGT.State.new last_mint balances) = 
   // Removes the value from the sender
-  let new_value = U120.sub sender_money transaction_value
+  let new_value = U120.sub sender_money trx_value
   let balances  = User.Sipher.PatriciaTree.set balances from new_value
 
   // Adds the value to the receiver
-  let new_value = (x: U120) => U120.add transaction_value x
+  let new_value = (x: U120) => U120.add trx_value x
   let balances  = User.Sipher.PatriciaTree.mut balances to (U120.new 0 0) new_value
   
   KDL.KGT.State.new last_mint balances

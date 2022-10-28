@@ -1,4 +1,4 @@
 #kdl_name = Fib_plr_skg
 Apps.Fib.Player.skills.get (player: Apps.Fib.Player) (slot: U120) : U120 {
-  Apps.Fib.get_in_u120 player (U120.add (U120.new 0 72) (U120.mul slot (U120.new 0 7))) (U120.new 0 7)
+  Apps.Fib.U120.get player (U120.add (U120.new 0 72) (U120.mul slot (U120.new 0 7))) (U120.new 0 7)
 }

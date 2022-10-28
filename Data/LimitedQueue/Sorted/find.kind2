@@ -1,0 +1,25 @@
+Data.LimitedQueue.Sorted.find <a> (size: Nat) (cond: a -> Bool) (queue: Data.LimitedQueue.Sorted size a) : Maybe U120 {
+  let acc  = Pair.new (U120.new 0 0) Bool.false
+  let func = sort => item => acc =>
+    if (Pair.snd acc) {
+      acc 
+    }
+    else {
+      let cond = cond item 
+      let acc = Pair.map_fst acc (x => U120.inc x)
+      let acc = Pair.map_snd acc (x => Bool.or x cond)
+      acc
+    }
+  let pair = Data.LimitedQueue.Sorted.foldl size acc func queue 
+  if (Pair.snd pair) {Maybe.some (Pair.fst pair)} else {Maybe.none}
+}
+
+
+// Main {
+//   let list  =  [3, 8, 14, 232]
+//   let size  = List.length list 
+//   let sort  = a => b => U60.greater_than a b
+//   let queue = Data.LimitedQueue.Sorted.new size sort (Data.LimitedQueue.from_list list)
+//   let cond  = x => U60.equal 8 x
+//   Data.LimitedQueue.Sorted.find size cond queue 
+// }

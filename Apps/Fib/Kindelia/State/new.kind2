@@ -1,3 +1,2 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/_.type
-#kdl_name = Fib_kdl 
-Apps.Fib.Kindelia.State.new (start_blk: U120) (state: Apps.Fib.State) : (Apps.Fib.Kindelia.State)
+Apps.Fib.Kindelia.State.new (phase: Apps.Fib.Kindelia.State.Phase) (start: U120) (state: Apps.Fib.State) : (Apps.Fib.Kindelia.State)

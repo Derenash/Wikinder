@@ -1,0 +1,3 @@
+Data.LimitedQueue.foldl <a> <b> (size: Nat) (acc: b) (func: a -> b -> b) (queue: Data.LimitedQueue size a) : b
+Data.LimitedQueue.foldl a b Nat.zero        acc func Unit.new = acc
+Data.LimitedQueue.foldl a b (Nat.succ pred) acc func (Data.LimitedQueue.List.new size r head tail) = Data.LimitedQueue.foldl pred (func head acc) func tail

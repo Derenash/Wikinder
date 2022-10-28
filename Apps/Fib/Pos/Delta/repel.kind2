@@ -6,8 +6,8 @@
 Apps.Fib.Pos.Delta.repel (delta: Pair U120 U120) (strength: U120) (y_prio: Bool) : Pair U120 U120 
 Apps.Fib.Pos.Delta.repel delta (U120.new 0 0) y_prio = Pair.new (U120.new 0 0) (U120.new 0 0)
 Apps.Fib.Pos.Delta.repel delta strength y_prio =
-  let dx = U120.distance (U120.new 0 0) (Pair.fst delta)
-  let dy = U120.distance (U120.new 0 0) (Pair.snd delta) 
+  let dx = Apps.Fib.U120.distance (U120.new 0 0) (Pair.fst delta)
+  let dy = Apps.Fib.U120.distance (U120.new 0 0) (Pair.snd delta) 
   
   let dist = (U120.add dx dy)
   
@@ -22,13 +22,13 @@ Apps.Fib.Pos.Delta.repel delta strength y_prio =
 
   let cmp = U120.compare x_mod y_mod
 
-  let inc_x = Pair.new (U120.neg (Pair.fst delta) (U120.inc new_x)) (U120.neg (Pair.snd delta) new_y)
-  let inc_y = Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) (U120.inc new_y))
+  let inc_x = Pair.new (Apps.Fib.U120.get_neg (Pair.fst delta) (U120.inc new_x)) (Apps.Fib.U120.get_neg (Pair.snd delta) new_y)
+  let inc_y = Pair.new (Apps.Fib.U120.get_neg (Pair.fst delta) new_x) (Apps.Fib.U120.get_neg (Pair.snd delta) (U120.inc new_y))
 
   let cond = Bool.and (U120.is_zero x_mod) (U120.is_zero y_mod)
 
   if cond {
-    Pair.new (U120.neg (Pair.fst delta) new_x) (U120.neg (Pair.snd delta) new_y)
+    Pair.new (Apps.Fib.U120.get_neg (Pair.fst delta) new_x) (Apps.Fib.U120.get_neg (Pair.snd delta) new_y)
   }
   else {
     match Cmp cmp {

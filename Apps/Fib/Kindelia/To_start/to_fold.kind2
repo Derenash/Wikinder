@@ -1,0 +1,23 @@
+Apps.Fib.Kindelia.To_start.to_fold : Apps.Fib.Kindelia.State.Phase.User -> Apps.Fib.Kindelia.To_start -> Apps.Fib.Kindelia.To_start {
+  user => acc =>
+    match Apps.Fib.Kindelia.To_start acc {
+      new => let users = acc.users 
+        match Apps.Fib.Kindelia.State.Phase.User user {
+          new =>
+            let subj      = user.wallet
+            let kgt       = user.kgt
+            let state     = acc.state
+            let pos       = Maybe.default (List.head acc.pos) (U120.new 0 0)
+            let id        = U120.add (U120.new 0 1024) acc.count
+            let x         = Apps.Fib.Pos.Value.get_x pos
+            let y         = Apps.Fib.Pos.Value.get_y pos
+            let player    = Apps.Fib.Player.new x y (U120.new 0 250) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0)  (U120.new 0 100)  (U120.new 0 0) []
+            let new_users = User.Sipher.PatriciaTree.set acc.users subj id
+            let new_state = Apps.Fib.State.player.place state player id
+            let new_pos   = List.tail acc.pos
+            let new_count = U120.inc acc.count
+            Apps.Fib.Kindelia.To_start.new new_pos new_users new_state new_count
+        }
+    }
+}
+

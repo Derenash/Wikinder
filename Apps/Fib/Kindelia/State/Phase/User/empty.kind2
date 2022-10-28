@@ -1,0 +1,3 @@
+Apps.Fib.Kindelia.State.Phase.User.empty : Apps.Fib.Kindelia.State.Phase.User {
+  Apps.Fib.Kindelia.State.Phase.User.new (U120.new 0 0) (U120.new 0 0)
+}

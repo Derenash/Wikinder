@@ -1,0 +1,3 @@
+// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/To_start/_.type
+Apps.Fib.Kindelia.To_start.match (x: (Apps.Fib.Kindelia.To_start)) -(p: (x: (Apps.Fib.Kindelia.To_start)) Type) (new: (pos: (List U120)) (users: User.Sipher.PatriciaTree) (state: Apps.Fib.State) (count: U120) (p (Apps.Fib.Kindelia.To_start.new pos users state count))) : (p x)
+Apps.Fib.Kindelia.To_start.match (Apps.Fib.Kindelia.To_start.new pos_ users_ state_ count_) p new = (new pos_ users_ state_ count_)

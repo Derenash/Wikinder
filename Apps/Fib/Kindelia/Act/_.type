@@ -1,4 +1,7 @@
 type Apps.Fib.Kindelia.Act {
-  next (code: U120)
   get
+  join   (subj: U120) (kgt: U120)
+  action (code: U120)
+  reset 
+  start 
 }

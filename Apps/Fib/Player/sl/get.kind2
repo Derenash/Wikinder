@@ -1,4 +1,4 @@
 #kdl_name = Fib_plr_slg
 Apps.Fib.Player.sl.get (player: Apps.Fib.Player) : U120 {
-  Apps.Fib.get_in_u120 player (U120.new 0 45) (U120.new 0 3)
+  Apps.Fib.U120.get player (U120.new 0 45) (U120.new 0 3)
 }

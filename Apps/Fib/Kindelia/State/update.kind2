@@ -1,6 +1,6 @@
 #kdl_name = Fib_kdl_supd
 Apps.Fib.Kindelia.State.update (kdl_state: Apps.Fib.Kindelia.State) (code: U120) (current_blk: U120) : Pair Apps.Fib.Kindelia.State Apps.Fib.Events
-Apps.Fib.Kindelia.State.update (Apps.Fib.Kindelia.State.new start_blk state) code current_blk =
+Apps.Fib.Kindelia.State.update (Apps.Fib.Kindelia.State.new phase start_blk state) code current_blk =
   let pair  = Apps.Fib.State.Update state code (U120.sub_saturated current_blk start_blk)
-  let state = Pair.new (Apps.Fib.Kindelia.State.new start_blk (Pair.fst pair)) (Pair.snd pair)
+  let state = Pair.new (Apps.Fib.Kindelia.State.new phase start_blk (Pair.fst pair)) (Pair.snd pair)
   state

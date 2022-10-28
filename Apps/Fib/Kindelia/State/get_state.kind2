@@ -1,3 +1,3 @@
 #kdl_name = Fib_kdl_sgst
 Apps.Fib.Kindelia.State.get_state (state: Apps.Fib.Kindelia.State) : Apps.Fib.State
-Apps.Fib.Kindelia.State.get_state (Apps.Fib.Kindelia.State.new start_blk state) = state
+Apps.Fib.Kindelia.State.get_state (Apps.Fib.Kindelia.State.new phase start_blk state) = state

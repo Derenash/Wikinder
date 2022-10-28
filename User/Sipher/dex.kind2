@@ -202,19 +202,19 @@ User.Sipher.Transfer.sender (Maybe.some t money) from to value wallet =
 User.Sipher.Transfer.finish
   (has_money: Bool)
   (sender_money: Nat)
-  (transaction_value: Nat)
+  (trx_value: Nat)
   (from: Bits)
   (to: Bits)
   (wallet: User.Sipher.Wallet)
 : User.Sipher.Wallet
-User.Sipher.Transfer.finish Bool.false sender_money transaction_value from to wallet = wallet
-User.Sipher.Transfer.finish Bool.true sender_money transaction_value from to wallet = 
+User.Sipher.Transfer.finish Bool.false sender_money trx_value from to wallet = wallet
+User.Sipher.Transfer.finish Bool.true sender_money trx_value from to wallet = 
   // Removes the value from the sender
-  let new_value = Nat.sub sender_money transaction_value
+  let new_value = Nat.sub sender_money trx_value
   let wallet    = Bits.Map.set Nat wallet from new_value
 
   // Adds the value to the receiver
-  let new_value = (x: Nat) => Nat.add transaction_value x
+  let new_value = (x: Nat) => Nat.add trx_value x
   let wallet    = Bits.Map.mut Nat wallet to Nat.zero new_value
 
   wallet

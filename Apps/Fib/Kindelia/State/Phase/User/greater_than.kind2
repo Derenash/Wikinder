@@ -1,0 +1,3 @@
+Apps.Fib.Kindelia.State.Phase.User.greater_than (a: Apps.Fib.Kindelia.State.Phase.User) (b: Apps.Fib.Kindelia.State.Phase.User) : Bool {
+  U120.greater_than (Apps.Fib.Kindelia.State.Phase.User.kgt a) (Apps.Fib.Kindelia.State.Phase.User.kgt b)
+}
