@@ -1,0 +1,13 @@
+Data.LimitedQueue.List.get_last <a> (size: Nat) (xs: (Data.LimitedQueue.List size a)) : a 
+Data.LimitedQueue.List.get_last Nat.zero (Data.LimitedQueue.List.new Nat.zero v Unit.new) = v
+
+Data.LimitedQueue.List.get_last (Nat.succ n) xs = 
+  match Data.LimitedQueue.List xs {
+    new => Data.LimitedQueue.List.get_last n xs.tail
+  }
+
+
+Main {
+  let list = Data.LimitedQueue.from_list [2 3]
+  Data.LimitedQueue.List.get_last (U60.to_nat 1) list
+}
