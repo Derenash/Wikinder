@@ -269,3 +269,39 @@ Players 1024 -> 4095
     Should return a Function, that receives the interact data and returns the interaction to combine certain items to create the selected item
       (data: U120) -> (interaction: Apps.Fib.Interaction Unit)
     Basically the function should decide which Apps.Fib.Interaction.item.combine function should be used
+
+
+Creating NPC:
+  Create Interaction Function: Apps.Fib.Npc.$$$$._.kind2
+    Use it in Apps.Fib.Interaction.get_npc 
+
+  If necessary, Create Parse Function: Apps.Fib.NPC.$$$$.parse.kind2
+    Use it in the respective range of ids in Apps.Fib.State.parse.kind2
+
+  Create the init function for it: Apps.Fib.Npc.$$$$.init.kind2
+    defines the initial entity for the table
+
+  Place the NPC on the map and on the table in Apps.Fib.State.npcs.kind2
+    use the init function
+
+Creating a monster:
+  Create Reaction Function  : Apps.Fib.Monster.$$$$.reaction.kind2
+  Create Death Function     : Apps.Fib.Monster.$$$$.death.kind2
+  Create the Monster        : Apps.Fib.Monster.$$$$._.kind2
+    This is the combination of reaction and death
+  
+  Create the parse function : Apps.Fib.Monster.$$$$.parse.kind2
+    Should have:
+      Type   - the name of the monster
+      Id     - the # of the monster (there are only 2 snakes in the game, they will have id 0 and id 1)
+      x      - x coordinate
+      y      - y coordinate
+      hp     - health remaining
+      max_hp - maximum hp
+    Use it in the respective range of ids in Apps.Fib.State.parse.kind2
+
+  If necessary place the Monster on the map and on the table in Apps.Fib.State.npcs.kind2
+    Requires an initial entity (the U120 correspondent to that npc when starting a game)
+
+  Create the init function for it: Apps.Fib.Monster.$$$$.init.kind2
+    defines the initial entity for the table
