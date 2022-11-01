@@ -1,4 +1,4 @@
 #kdl_name = Fib_npc_igin
-Apps.Fib.Npc.ignis : U120 {
+Apps.Fib.Npc.ignis.init : U120 {
   U120.new 0 0
 }
