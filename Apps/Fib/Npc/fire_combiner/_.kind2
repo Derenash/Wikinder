@@ -1,3 +1,4 @@
+#kdl_name = Fib_npc_fcom
 Apps.Fib.Npc.fire_combiner (data: U120) : Apps.Fib.Interaction Unit {
 
   // Ingredients

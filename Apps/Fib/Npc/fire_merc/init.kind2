@@ -1,0 +1,4 @@
+#kdl_name = Fib_npc_fsin
+Apps.Fib.Npc.fire_merc.init : U120 {
+  U120.new 0 0
+}

@@ -1,3 +1,4 @@
+#kdl_name = Fib_npc_phpr
 Apps.Fib.Npc.phoenix.parse (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes {
   let duration = U120.sub_saturated entity frame
   [

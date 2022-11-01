@@ -1,0 +1,8 @@
+#kdl_name = Fib_npc_fshp
+Apps.Fib.Npc.fire_merc (data: U120) : Apps.Fib.Interaction Unit {
+  let dragonfruit = Pair.new (U120.new 0 27) (U120.new 0 5)
+  let horn        = Pair.new (U120.new 0 29) (U120.new 0 23)
+  let shop        = Apps.Fib.Interaction.npc.shop [dragonfruit horn]
+  shop data
+}
+

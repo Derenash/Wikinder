@@ -1,3 +1,4 @@
+#kdl_name = Fib_npc_fcin
 Apps.Fib.Npc.fire_combiner.init {
     U120.new 0 0
 }

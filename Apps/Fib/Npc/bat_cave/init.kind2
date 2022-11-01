@@ -1,0 +1,4 @@
+#kdl_name = Fib_npc_bcin
+Apps.Fib.Npc.bat_cave.init : U120 {
+  U120.new 0 0
+}

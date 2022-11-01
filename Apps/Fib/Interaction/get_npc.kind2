@@ -39,3 +39,38 @@ Apps.Fib.Interaction.get_npc (U120.new 0 130) data =
 
 Apps.Fib.Interaction.get_npc (U120.new 0 134) data = 
   Apps.Fib.Npc.phoenix
+
+
+//256 - 511
+
+//Fire region merchants
+
+Apps.Fib.Interaction.get_npc (U120.new 0 256) data = 
+  Apps.Fib.Npc.fire_merc data 
+
+Apps.Fib.Interaction.get_npc (U120.new 0 257) data = 
+  Apps.Fib.Npc.fire_merc data 
+
+Apps.Fib.Interaction.get_npc (U120.new 0 258) data = 
+  Apps.Fib.Npc.fire_merc data 
+
+Apps.Fib.Interaction.get_npc (U120.new 0 259) data = 
+  Apps.Fib.Npc.fire_merc data 
+
+Apps.Fib.Interaction.get_npc (U120.new 0 260) data = 
+  Apps.Fib.Npc.fire_merc data 
+
+
+//Ignis formations
+
+Apps.Fib.Interaction.get_npc (U120.new 0 261) data = 
+  Apps.Fib.Npc.ignis
+
+Apps.Fib.Interaction.get_npc (U120.new 0 262) data = 
+  Apps.Fib.Npc.ignis
+
+Apps.Fib.Interaction.get_npc (U120.new 0 263) data = 
+  Apps.Fib.Npc.ignis
+
+Apps.Fib.Interaction.get_npc (U120.new 0 264) data = 
+  Apps.Fib.Npc.ignis

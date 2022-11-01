@@ -1,3 +1,4 @@
+#kdl_name = Fib_npc_phin
 Apps.Fib.Npc.phoenix.init : U120 {
   U120.new 0 0
 }

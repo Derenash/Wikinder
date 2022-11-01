@@ -1,4 +1,5 @@
 #kdl_name = Fib_itr_nshp
+//First value from the pair is the item, second is the price
 Apps.Fib.Interaction.npc.shop (items: List (Pair U120 U120)) : (data: U120) -> Apps.Fib.Interaction Unit {
   (data: U120) =>
     let purchase  = List.at items (U120.to_nat data)
