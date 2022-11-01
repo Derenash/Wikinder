@@ -26,11 +26,11 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   // Lava Cauldron
   let id_15  = 2
 
-  let entity_batcave   = U120.new 0 4095 //cd eterno
-  let entity_boneclaw  = U120.new 0 20    //cd 20
-  let entity_fenix     = U120.new 0 0    // Duracao ?
-  let entity_shop      = U120.new 0 0    // ???
-  let entity_ignis     = U120.new 0 0    // ?
+  let entity_batcave   = Apps.Fib.Npc.bat_cave.init //U120.new 0 4095 //Parametro(Entidade) inicial que o npc salva na tabela de ids
+  let entity_boneclaw  = Apps.Fib.Npc.dragon_claw.init  
+  let entity_fenix     = Apps.Fib.Npc.phoenix.init    
+  let entity_shop      = Apps.Fib.Npc.fire_merc.init   
+  let entity_ignis     = Apps.Fib.Npc.ignis.init    
   let entity_cauldron  = Apps.Fib.Npc.fire_combiner.init
  
   // Bat cave
