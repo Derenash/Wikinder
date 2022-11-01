@@ -1,1 +1,24 @@
-Apps.Fib.Npc.fire_combiner 
+Apps.Fib.Npc.fire_combiner (data: U120) : Apps.Fib.Interaction Unit {
+
+  // Ingredients
+  let drag    = U120.new 0 32
+  let feather = U120.new 0 34
+  let stone   = U120.new 0 36
+  let bat     = U120.new 0 37
+
+  // Recipe
+  let  fireball     = U120.new 0 1
+  let  flame_ring   = U120.new 0 2
+  let  flamethrower = U120.new 0 3
+  let  flame_arrow  = U120.new 0 4
+  
+  // Combinations
+  let c0 = Pair.new [drag stone bat]     fireball
+  let c1 = Pair.new [bat  stone feather] flame_ring  
+  let c2 = Pair.new [drag stone feather] flamethrower     
+  let c3 = Pair.new [bat  drag  feather] flame_arrow     
+
+  let shop = Apps.Fib.Interaction.npc.generic_combine [c0 c1 c2 c3]
+
+  shop data
+} 

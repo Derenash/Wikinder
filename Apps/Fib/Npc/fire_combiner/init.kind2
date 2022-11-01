@@ -1,0 +1,3 @@
+Apps.Fib.Npc.fire_combiner.init {
+    U120.new 0 0
+}

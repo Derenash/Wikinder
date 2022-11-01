@@ -77,7 +77,7 @@ Game Ids
 
 Ns - Does not store information
 Never needs parse
-  002 -> Lava Cauldron
+  002 -> Lava Cauldron - (20, 137) & (30, 134) & (38, 138) & (28, 144)
   022 -> Combiner Water town
   042 -> ??? Unused
   062 -> Windmills
@@ -89,10 +89,10 @@ Ncs - Npcs that does not save their positions
   129 -> Bat_cave 02 - (37, 132) & (37, 133)
   130 -> Bat_cave 03 - (50, 136) & (51, 136)
 
-  132 -> Bone Claw collection spot 01
-  133 -> Bone Claw collection spot 02
+  132 -> Bone Claw collection spot 01 - (34, 121) & (34, 122) & (34, 123) & (35, 123) & (35, 124)
+  133 -> Bone Claw collection spot 02 - (37, 122) & (37, 123) & (38, 122) & (39, 122) & (40, 121) & (40, 122) & (40, 123)
 
-  134 -> Phoenix
+  134 -> Phoenix - (28, 139) & (28, 140) & (28, 141) & (29, 139) & (29, 141) & (30, 139) & (30, 140) & (30, 141)
 
   148 -> Blessed Lake
 
@@ -104,16 +104,16 @@ Ncs - Npcs that does not save their positions
 
 Needs parse
 Npcs
-  256 -> Shop, Fire Town Bottom left
-  257 -> Shop, Fire Town Bottom right
-  258 -> Shop, Fire Town Middle left
-  259 -> Shop, Fire Town Top    left
-  260 -> Shop, Fire Town Top    right
+  256 -> Shop, Fire Town Bottom left   - (20, 150)
+  257 -> Shop, Fire Town Bottom right  - (36, 154)
+  258 -> Shop, Fire Town Middle left   - (12, 134)
+  259 -> Shop, Fire Town Top    left   - (11, 103)
+  260 -> Shop, Fire Town Top    right  - (44, 107)
   
-  261 -> Ignis Collection spot 01
-  262 -> Ignis Collection spot 02
-  263 -> Ignis Collection spot 03
-  264 -> Ignis Collection spot 04
+  261 -> Ignis Collection spot 01 - (15, 136)
+  262 -> Ignis Collection spot 02 - (17, 139)
+  263 -> Ignis Collection spot 03 - (24, 151)
+  264 -> Ignis Collection spot 04 - (30, 154)
   
   296 -> Collect spot Water town a 01
   297 -> Collect spot Water town a 02
@@ -271,7 +271,7 @@ Players 1024 -> 4095
     Basically the function should decide which Apps.Fib.Interaction.item.combine function should be used
 
 
-Creating NPC:
+  Creating NPC:
   Create Interaction Function: Apps.Fib.Npc.$$$$._.kind2
     Use it in Apps.Fib.Interaction.get_npc 
 

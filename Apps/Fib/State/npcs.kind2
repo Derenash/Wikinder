@@ -3,16 +3,66 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   let table = Apps.Fib.State.get_table state
   let map   = Apps.Fib.State.get_map state
 
-
   // Bat Caves
   let id_0   = 128
   let id_1   = 129
   let id_2   = 130
-  let entity = U120.new 0 4095
-  let map    = Apps.Fib.Map.sets map id_0 [ (Pair.new 25 154) (Pair.new 25 155)] 
-  let map    = Apps.Fib.Map.sets map id_1 [ (Pair.new 37 132) (Pair.new 37 133)] 
-  let map    = Apps.Fib.Map.sets map id_2 [ (Pair.new 50 136) (Pair.new 51 136)] 
-  let table  = Apps.Fib.Table.sets table entity [id_0 id_1 id_2]
+  // Bone Claw
+  let id_3   = 132
+  let id_4   = 133
+  // Fenix
+  let id_5   = 134
+  // Shop Fire
+  let id_6   = 256
+  let id_7   = 257
+  let id_8   = 258
+  let id_9   = 259
+  let id_10  = 260
+  // Ignis Stone
+  let id_11  = 261
+  let id_12  = 262
+  let id_13  = 263
+  let id_14  = 264
+  // Lava Cauldron
+  let id_15  = 2
+
+  let entity_batcave   = U120.new 0 4095 //cd eterno
+  let entity_boneclaw  = U120.new 0 20    //cd 20
+  let entity_fenix     = U120.new 0 0    // Duracao ?
+  let entity_shop      = U120.new 0 0    // ???
+  let entity_ignis     = U120.new 0 0    // ?
+  let entity_cauldron  = Apps.Fib.Npc.fire_combiner.init
+ 
+  // Bat cave
+  let map    = Apps.Fib.Map.sets map id_0  [ (Pair.new 25 154) (Pair.new 25 155)] 
+  let map    = Apps.Fib.Map.sets map id_1  [ (Pair.new 37 132) (Pair.new 37 133)] 
+  let map    = Apps.Fib.Map.sets map id_2  [ (Pair.new 50 136) (Pair.new 51 136)] 
+  // Bone Claw
+  let map    = Apps.Fib.Map.sets map id_3  [ (Pair.new 34 121) (Pair.new 34 122) (Pair.new 34 123) (Pair.new 35 123) (Pair.new 35 124) ]
+  let map    = Apps.Fib.Map.sets map id_4  [ (Pair.new 37 122) (Pair.new 37 123) (Pair.new 38 122) (Pair.new 39 122) (Pair.new 40 121) (Pair.new 40 122) (Pair.new 40 123) ]
+  //Fenix
+  let map    = Apps.Fib.Map.sets map id_5  [ (Pair.new 28 139) (Pair.new 28 140) (Pair.new 28 141) (Pair.new 29 139) (Pair.new 29 141) (Pair.new 30 139) (Pair.new 30 140) (Pair.new 30 141) ]
+  //Shop Fire
+  let map    = Apps.Fib.Map.sets map id_6  [ (Pair.new 20 150) ]
+  let map    = Apps.Fib.Map.sets map id_7  [ (Pair.new 36 154) ]
+  let map    = Apps.Fib.Map.sets map id_8  [ (Pair.new 12 134) ]
+  let map    = Apps.Fib.Map.sets map id_9  [ (Pair.new 11 103) ]
+  let map    = Apps.Fib.Map.sets map id_10 [ (Pair.new 44 107) ]
+  //Ignis Stone
+  let map    = Apps.Fib.Map.sets map id_11 [ (Pair.new 15 136) ]
+  let map    = Apps.Fib.Map.sets map id_12 [ (Pair.new 17 139) ]
+  let map    = Apps.Fib.Map.sets map id_13 [ (Pair.new 24 151) ]
+  let map    = Apps.Fib.Map.sets map id_14 [ (Pair.new 30 154) ]
+  //Lava Cauldron
+  let map    = Apps.Fib.Map.sets map id_15 [ (Pair.new 20 137) (Pair.new 30 134) (Pair.new 38 138) (Pair.new 28 144) (Pair.new 33 151) ]
+
+  let table  = Apps.Fib.Table.sets table entity_batcave [id_0 id_1 id_2]
+  let table  = Apps.Fib.Table.sets table entity_boneclaw [id_3 id_4]
+  let table  = Apps.Fib.Table.sets table entity_fenix [id_5]
+  let table  = Apps.Fib.Table.sets table entity_shop [id_6 id_7 id_8 id_9 id_10 ]
+  let table  = Apps.Fib.Table.sets table entity_ignis [id_11 id_12 id_13 id_14]
+  let table  = Apps.Fib.Table.sets table entity_cauldron [id_15]
+   
   
   let state  = Apps.Fib.State.new map table 
   state
