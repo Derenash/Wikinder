@@ -1,2 +1,0 @@
-// Apps.Fib.Kindelia.State.Phase.set_queue (size: Nat) (phase: Apps.Fib.Kindelia.State.Phase) (queue: Data.LimitedQueue.Sorted size Apps.Fib.Kindelia.State.Phase.User) : Apps.Fib.Kindelia.State.Phase 
-// Apps.Fib.Kindelia.State.Phase.set_queue size (Apps.Fib.Kindelia.State.Phase.lobby.new q) queue = Apps.Fib.Kidnelia.State.Phase.lobby.new q

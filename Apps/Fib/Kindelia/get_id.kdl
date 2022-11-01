@@ -1,0 +1,5 @@
+run {
+  ask state = (Call 'Fic' {Fic_kdl_actg});
+  let id     = (Fic_kdl_geid state $wallet);
+  (Done id)
+}

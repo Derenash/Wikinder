@@ -1,0 +1,4 @@
+// Automatically derived from /home/derenash/Wikinder/Kindelia/IO/_.type
+#kdl_name = LOAD
+#kdl_erase
+Kindelia.IO.do_load <r: Type> <s: Type> (cont: (_: s) (Kindelia.IO r)) : (Kindelia.IO r)

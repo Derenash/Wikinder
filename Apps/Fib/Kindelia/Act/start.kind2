@@ -1,2 +1,3 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Act/_.type
+#kdl_name = Fib_act_strt
 Apps.Fib.Kindelia.Act.start : (Apps.Fib.Kindelia.Act)

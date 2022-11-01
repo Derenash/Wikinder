@@ -1,3 +1,4 @@
+#kdl_name = Fib_kdl_spig
 Apps.Fib.Kindelia.State.Phase.init_game : Apps.Fib.Kindelia.State.Phase {
   let players = User.Sipher.PatriciaTree.empty
   Apps.Fib.Kindelia.State.Phase.game players

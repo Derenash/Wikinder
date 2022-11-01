@@ -14,12 +14,12 @@ Apps.Fib.Interaction.move.maybe ori (Maybe.some t des) =
   }
 
 Apps.Fib.Interaction.move.if (id: Apps.Fib.Id) (ori: Apps.Fib.Pos) (des: Apps.Fib.Pos): Apps.Fib.Interaction Bool
-Apps.Fib.Interaction.move.if id ori des = Apps.Fib.Interaction.pure Bool.false
 Apps.Fib.Interaction.move.if (U120.new 0 0) ori des =
   do Apps.Fib.Interaction {
     let func = (state: Apps.Fib.State) => Apps.Fib.State.player.move state ori des
     ask Apps.Fib.Interaction.state.mut func
-    let event = Apps.Fib.Event.movement ori des
+    let event = Apps.Fib.Event.movement (Sigma.fst ori) (Sigma.fst des)
     ask Apps.Fib.Interaction.event.add event
     return Bool.true
   }
+Apps.Fib.Interaction.move.if id ori des             = Apps.Fib.Interaction.pure Bool.false

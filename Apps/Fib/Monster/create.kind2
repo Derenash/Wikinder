@@ -1,0 +1,4 @@
+Apps.Fib.Monster.create (pos: Apps.Fib.Pos) (hp: U120) (rest: U120) : U120 {
+  let base = U120.bitwise_or (Sigma.fst pos) (U120.shift_left hp (U120.new 0 16))
+  U120.bitwise_or base (U120.shift_left rest (U120.new 0 29))
+}

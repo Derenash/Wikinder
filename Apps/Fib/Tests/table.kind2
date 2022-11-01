@@ -1,0 +1,4 @@
+Main {
+  let table = Apps.Fib.Table.Build
+  Apps.Fib.Table.get table (U120.new 0 1026)
+}

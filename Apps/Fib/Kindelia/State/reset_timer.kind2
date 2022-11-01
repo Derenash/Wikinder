@@ -1,2 +1,3 @@
+#kdl_name = Fib_kdl_srti
 Apps.Fib.Kindelia.State.reset_timer (state: Apps.Fib.Kindelia.State)  : Apps.Fib.Kindelia.State
 Apps.Fib.Kindelia.State.reset_timer (Apps.Fib.Kindelia.State.new phase s state) = Apps.Fib.Kindelia.State.new phase (U120.new 0 0) state

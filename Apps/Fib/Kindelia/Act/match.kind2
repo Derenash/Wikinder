@@ -1,4 +1,5 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Act/_.type
+#kdl_name = Fib_act_mat
 Apps.Fib.Kindelia.Act.match (x: (Apps.Fib.Kindelia.Act)) -(p: (x: (Apps.Fib.Kindelia.Act)) Type) (get: (p (Apps.Fib.Kindelia.Act.get))) (join: (subj: U120) (kgt: U120) (p (Apps.Fib.Kindelia.Act.join subj kgt))) (action: (code: U120) (p (Apps.Fib.Kindelia.Act.action code))) (reset: (p (Apps.Fib.Kindelia.Act.reset))) (start: (p (Apps.Fib.Kindelia.Act.start))) : (p x)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.get) p get join action reset start = (get)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.join subj_ kgt_) p get join action reset start = (join subj_ kgt_)

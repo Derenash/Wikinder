@@ -12,7 +12,7 @@ Apps.Fib.Npc.bat_cave (hp: U120) (spawn_points: List Apps.Fib.Pos) (bat_id: Apps
       none => Apps.Fib.Interaction.fail
       some => do Apps.Fib.Interaction {
         // Creates Bat's Entity
-        let bat  = U120.add (Sigma.fst pos.value) (U120.shift_left hp (U120.new 0 16))
+        let bat  = Apps.Fib.Monster.bat.init pos.value
         let func = (state: Apps.Fib.State) => Apps.Fib.State.create_unit state bat pos.value bat_id
         // Creates the bat in the game state
         Apps.Fib.Interaction.state.mut func

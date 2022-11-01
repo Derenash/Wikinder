@@ -284,6 +284,9 @@ Creating NPC:
   Place the NPC on the map and on the table in Apps.Fib.State.npcs.kind2
     use the init function
 
+
+
+
 Creating a monster:
   Create Reaction Function  : Apps.Fib.Monster.$$$$.reaction.kind2
   Create Death Function     : Apps.Fib.Monster.$$$$.death.kind2

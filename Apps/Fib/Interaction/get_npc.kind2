@@ -57,3 +57,6 @@ Apps.Fib.Interaction.get_npc (U120.new 0 130) data =
   let hp     = U120.new 0 100
   let bat_id = U120.new 0 514
   Apps.Fib.Npc.bat_cave hp spawn_points bat_id
+
+Apps.Fib.Interaction.get_npc (U120.new 0 134) data = 
+  Apps.Fib.Npc.phoenix

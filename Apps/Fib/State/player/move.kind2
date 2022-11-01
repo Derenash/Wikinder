@@ -4,12 +4,12 @@ Apps.Fib.State.player.move (Apps.Fib.State.new map table) ori des =
 
   // Destination Verification
   // Pair Map ID
-  let des_map_id = Apps.Fib.Map.got map des
-  let emp_des    = Apps.Fib.Map.tile_is_empty (Pair.snd des_map_id)
+  let des_map_id  = Apps.Fib.Map.got map des
+  let emp_des     = Apps.Fib.Map.tile_is_empty (Pair.snd des_map_id)
 
   // Player Pos verification
   // Pair Map ID
-  let ori_map_id        = (Apps.Fib.Map.got map ori)
+  let ori_map_id  = Apps.Fib.Map.got map ori
 
   // Pair Table Entity
   let tbl_ent_ori = Apps.Fib.Table.got table (Pair.snd ori_map_id)

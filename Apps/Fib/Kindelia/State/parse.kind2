@@ -1,6 +1,6 @@
 #kdl_name = Fib_kdl_stpr
-Apps.Fib.Kindelia.State.parse (response: Apps.Fib.Kindelia.Response) : Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) 
-Apps.Fib.Kindelia.State.parse (Apps.Fib.Kindelia.Response.state state) =
+Apps.Fib.Kindelia.State.parse (response: Apps.Fib.Kindelia.Response) (tick: U120) : Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) 
+Apps.Fib.Kindelia.State.parse (Apps.Fib.Kindelia.Response.state state) tick =
   let state = Apps.Fib.Kindelia.State.get_state state
-  Apps.Fib.State.parse state
-Apps.Fib.Kindelia.State.parse response = Triple.new Data.BraunTree.leaf Data.BraunTree.leaf Data.BraunTree.leaf
+  Apps.Fib.State.parse state tick
+Apps.Fib.Kindelia.State.parse response tick = Triple.new Data.BraunTree.leaf Data.BraunTree.leaf Data.BraunTree.leaf

@@ -64,12 +64,21 @@ Apps.Fib.State.parse.join_monster monster (Triple.new a b c n m p) = Triple.new 
 Apps.Fib.State.parse.join_player (player: Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_player player (Triple.new a b c n m p) = Triple.new a b c n m (List.cons player p)
 
+// 128 - 255
 Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes
 Apps.Fib.State.parse.id_07 (U120.new 0 128) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity
 Apps.Fib.State.parse.id_07 (U120.new 0 129) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 129) entity
 Apps.Fib.State.parse.id_07 (U120.new 0 130) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 130) entity
 
+Apps.Fib.State.parse.id_07 (U120.new 0 134) entity frame = Apps.Fib.Npc.phoenix.parse  entity frame
+Apps.Fib.State.parse.id_07 id entity frame = List.nil
+
+Apps.Fib.State.parse.id_08 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes
+Apps.Fib.State.parse.id_08 id entity frame = List.nil
+
+// 512 - 1023
 Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.Attributes
 Apps.Fib.State.parse.id_09 (U120.new 0 512) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 512) entity
 Apps.Fib.State.parse.id_09 (U120.new 0 513) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 513) entity
 Apps.Fib.State.parse.id_09 (U120.new 0 514) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 514) entity
+Apps.Fib.State.parse.id_09 id entity frame = List.nil
