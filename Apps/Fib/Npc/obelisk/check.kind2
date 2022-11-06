@@ -1,0 +1,13 @@
+#kdl_name = Fib_npc_obch
+Apps.Fib.Npc.obelisk.check (b: Bool): Apps.Fib.Interaction Bool {
+  match Bool b {
+    true => do Apps.Fib.Interaction {
+      let item = U120.new 0 55
+      ask Apps.Fib.Interaction.skill.add item
+      ask target = Apps.Fib.Interaction.target.get
+      ask Apps.Fib.Interaction.entity.set_at Apps.Fib.Npc.obelisk.init0 target
+      return Bool.true
+    }
+    false => do Apps.Fib.Interaction {return Bool.false}
+  }
+}

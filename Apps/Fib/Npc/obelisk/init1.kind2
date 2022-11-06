@@ -1,0 +1,4 @@
+#kdl_name = Fib_npc_oin1
+Apps.Fib.Npc.obelisk.init1 : U120 {
+  U120.new 0 0
+}

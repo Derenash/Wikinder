@@ -1,0 +1,5 @@
+//XD
+#kdl_name = Fib_u_isone
+Apps.Fib.U120.is_one (n: U120): Bool 
+Apps.Fib.U120.is_one (U120.new 0 1) = Bool.true
+Apps.Fib.U120.is_one n              = Bool.false

@@ -9,7 +9,10 @@ Main {
   let queue = Data.PriorityQueue.tail queue
   let queue = Data.PriorityQueue.tail queue
   let queue = Data.PriorityQueue.tail queue
-  Data.PriorityQueue.head queue
+  let queue = Data.PriorityQueue.tail queue
+  let queue = Data.PriorityQueue.tail queue
+  //Data.PriorityQueue.head queue
+  //Data.PriorityQueue.get_last queue
 }
 
 

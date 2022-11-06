@@ -1,0 +1,6 @@
+#kdl_name = Fib_npc_opar
+Apps.Fib.Npc.obelisk.pair (num: U120): Pair U120 U120
+Apps.Fib.Npc.obelisk.pair (U120.new 0 0) = Pair.new (U120.new 0 0) (U120.new 0 4)
+Apps.Fib.Npc.obelisk.pair (U120.new 0 1) = Pair.new (U120.new 0 2) (U120.new 0 0)
+Apps.Fib.Npc.obelisk.pair (U120.new 0 2) = Pair.new (U120.new 0 4) (U120.new 0 2)
+Apps.Fib.Npc.obelisk.pair num =  Apps.Fib.Npc.obelisk.pair (U120.new 0 0)

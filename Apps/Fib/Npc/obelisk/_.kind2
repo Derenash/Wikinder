@@ -1,0 +1,7 @@
+//Dont ask
+#kdl_name = Fib_npc_oblk
+Apps.Fib.Npc.obelisk (data: U120) : Apps.Fib.Interaction Unit 
+Apps.Fib.Npc.obelisk (U120.new 0 1) = Apps.Fib.Npc.obelisk.itr (U120.new 0 0)
+Apps.Fib.Npc.obelisk (U120.new 0 2) = Apps.Fib.Npc.obelisk.itr (U120.new 0 1)
+Apps.Fib.Npc.obelisk (U120.new 0 3) = Apps.Fib.Npc.obelisk.itr (U120.new 0 2)
+Apps.Fib.Npc.obelisk n = Apps.Fib.Interaction.fail

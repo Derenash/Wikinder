@@ -1,0 +1,5 @@
+#kdl_name = Fib_npc_osvd
+Apps.Fib.Npc.obelisk.solved (entity: Apps.Fib.Entity): Bool {
+  let num = Apps.Fib.U120.get entity (U120.new 0 0) (U120.new 0 6)
+  U120.equal (U120.new 0 42) num
+}

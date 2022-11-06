@@ -1,0 +1,6 @@
+#kdl_name = Fib_u_obsuc
+Apps.Fib.U120.obelisk_succ (n: U120): U120 
+Apps.Fib.U120.obelisk_succ (U120.new 0 0) = (U120.new 0 1)
+Apps.Fib.U120.obelisk_succ (U120.new 0 1) = (U120.new 0 2)
+Apps.Fib.U120.obelisk_succ (U120.new 0 2) = (U120.new 0 0)
+Apps.Fib.U120.obelisk_succ n = n
