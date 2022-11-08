@@ -2,33 +2,24 @@
 //The data argument is simply a way to signal which obelisk (or pair of obelisks if you may) the player is interacting with
 //0 for first and last, 1 for second and first, 2 for last and second, those are defined on the pair function.
 #kdl_name = Fib_npc_oitr
-Apps.Fib.Npc.obelisk.itr (data: U120) : Apps.Fib.Interaction Unit {
+Apps.Fib.Npc.obelisk.itr (obelisk_id: U120) (chest_id: Apps.Fib.Id) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
-    //Checks if the seventh bit is 0, if false, fails the interaction
-    ask obelisk = Apps.Fib.Interaction.entity.get
-    let sev_bit = Apps.Fib.U120.get obelisk (U120.new 0 6) (U120.new 0 1)
-    ask Apps.Fib.Interaction.check (U120.is_zero sev_bit)
+    //Checks if the puzzle is solved, if true, fails the interaction
+    ask state = Apps.Fib.Interaction.entity.get_from_id chest_id
+    let solved = Apps.Fib.Npc.obelisk.solved state
+    ask Apps.Fib.Interaction.check solved
     //Makes a pair of data (that is which obelisk is being interacted with) and its right
-    let pair = Apps.Fib.Npc.obelisk.pair data
+    let pair = Apps.Fib.Npc.obelisk.pair obelisk_id
     let lft  = Pair.fst pair
     let rgt  = Pair.snd pair
     ask target  = Apps.Fib.Interaction.target.get
     //Apply the successor of the current state to both obelisks and sets the new value
-    let rx = Apps.Fib.U120.mut obelisk lft (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
-    let zx = Apps.Fib.U120.mut rx rgt (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
-    ask Apps.Fib.Interaction.entity.set_at zx target
-    //Checks if the puzzle is in the solved state and if true, changes the seventh bit to 1
-    let solved = Apps.Fib.Npc.obelisk.solved zx
-    match Bool solved {
-      true => do Apps.Fib.Interaction {
-        let solved_ob = U120.add zx (U120.new 0 64)
-        ask Apps.Fib.Interaction.entity.set_at solved_ob target
-        return Unit.new
-      }
-      false => do Apps.Fib.Interaction { return Unit.new}
+    let fst = state => Apps.Fib.U120.mut state lft (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
+    let snd = state => Apps.Fib.U120.mut state rgt (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
+    ask Apps.Fib.Interaction.entity.mut_at_id (x => snd (fst x)) chest_id
+    return Unit.new
     }
   }
-}
 
 // Main {
 //   let init = Apps.Fib.Npc.obelisk.init0

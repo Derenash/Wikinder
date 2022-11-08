@@ -25,6 +25,11 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   let id_14  = 264
   // Lava Cauldron
   let id_15  = 2
+  // Obelisk Puzzle - fst id = chest
+  let id_16  = 314
+  let id_17  = 315
+  let id_18  = 316
+  let id_19  = 317
 
   let entity_batcave   = Apps.Fib.Npc.bat_cave.init //U120.new 0 4095 //Parametro(Entidade) inicial que o npc salva na tabela de ids
   let entity_boneclaw  = Apps.Fib.Npc.dragon_claw.init  
@@ -32,6 +37,7 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   let entity_shop      = Apps.Fib.Npc.fire_merc.init   
   let entity_ignis     = Apps.Fib.Npc.ignis.init    
   let entity_cauldron  = Apps.Fib.Npc.fire_combiner.init
+  let entity_obelisk   = Apps.Fib.Npc.obelisk.init0
  
   // Bat cave
   let map    = Apps.Fib.Map.sets map id_0  [ (Pair.new 25 154) (Pair.new 25 155)] 
@@ -55,6 +61,13 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   let map    = Apps.Fib.Map.sets map id_14 [ (Pair.new 30 154) ]
   //Lava Cauldron
   let map    = Apps.Fib.Map.sets map id_15 [ (Pair.new 20 137) (Pair.new 30 134) (Pair.new 38 138) (Pair.new 28 144) (Pair.new 33 151) ]
+  //Obelisk
+  let map    = Apps.Fib.Map.sets map id_16 [ (Pair.new 05 086) ]
+  let map    = Apps.Fib.Map.sets map id_17 [ (Pair.new 07 087) ]
+  let map    = Apps.Fib.Map.sets map id_18 [ (Pair.new 03 087) ]
+  let map    = Apps.Fib.Map.sets map id_19 [ (Pair.new 05 084) ]
+
+
 
   let table  = Apps.Fib.Table.sets table entity_batcave [id_0 id_1 id_2]
   let table  = Apps.Fib.Table.sets table entity_boneclaw [id_3 id_4]
@@ -62,6 +75,7 @@ Apps.Fib.State.npcs : Apps.Fib.State {
   let table  = Apps.Fib.Table.sets table entity_shop [id_6 id_7 id_8 id_9 id_10 ]
   let table  = Apps.Fib.Table.sets table entity_ignis [id_11 id_12 id_13 id_14]
   let table  = Apps.Fib.Table.sets table entity_cauldron [id_15]
+  let table  = Apps.Fib.Table.sets table entity_obelisk [id_16]
    
   
   let state  = Apps.Fib.State.new map table 

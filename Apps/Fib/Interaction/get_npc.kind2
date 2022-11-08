@@ -74,3 +74,16 @@ Apps.Fib.Interaction.get_npc (U120.new 0 263) data =
 
 Apps.Fib.Interaction.get_npc (U120.new 0 264) data = 
   Apps.Fib.Npc.ignis
+
+//Obelisk
+Apps.Fib.Interaction.get_npc (U120.new 0 314) data = 
+  Apps.Fib.Npc.obelisk.chest
+
+Apps.Fib.Interaction.get_npc (U120.new 0 315) data =
+  Apps.Fib.Npc.obelisk.itr (U120.new 0 0) (U120.new 0 314)
+
+Apps.Fib.Interaction.get_npc (U120.new 0 316) data = 
+  Apps.Fib.Npc.obelisk.itr (U120.new 0 1) (U120.new 0 314)
+
+Apps.Fib.Interaction.get_npc (U120.new 0 317) data =
+  Apps.Fib.Npc.obelisk.itr (U120.new 0 2) (U120.new 0 314)

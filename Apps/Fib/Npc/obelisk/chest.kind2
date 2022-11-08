@@ -2,13 +2,14 @@
 Apps.Fib.Npc.obelisk.chest : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
       ask entity = Apps.Fib.Interaction.entity.get
-      let num = Apps.Fib.U120.get entity (U120.new 0 6) (U120.new 0 1)
-      let check = Apps.Fib.U120.is_one num
-      ask Apps.Fib.Interaction.check check
-      let item = U120.new 0 55
-      ask Apps.Fib.Interaction.skill.add item
+      let num    = Apps.Fib.U120.get entity (U120.new 0 0) (U120.new 0 6)
+      let solved = Apps.Fib.Npc.obelisk.solved num
+      ask          Apps.Fib.Interaction.check solved
+      let item   = U120.new 0 55
+      ask add    = Apps.Fib.Interaction.skill.add item
+      ask          Apps.Fib.Interaction.check add
       ask target = Apps.Fib.Interaction.target.get
-      ask Apps.Fib.Interaction.entity.set_at Apps.Fib.Npc.obelisk.init2 target
+      ask          Apps.Fib.Interaction.entity.set_at Apps.Fib.Npc.obelisk.init2 target
       return Unit.new
   }
 }
