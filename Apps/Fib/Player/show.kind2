@@ -1,0 +1,21 @@
+#kdl_name = Fib_plr_show
+Apps.Fib.Player.show (player: Apps.Fib.Player): List (Pair String String) {
+    [
+      (Pair.new ("x"      ) ((U120.show ((Apps.Fib.Player.pos.get_x  player))) ""))
+      (Pair.new ("y"      ) ((U120.show ((Apps.Fib.Player.pos.get_y  player))) ""))
+      (Pair.new ("hp"     ) ((U120.show ((Apps.Fib.Player.hp.get     player))) ""))
+      (Pair.new ("xp_tot" ) ((U120.show ((Apps.Fib.Player.xp.get     player))) ""))
+      (Pair.new ("rt"     ) ((U120.show ((Apps.Fib.Player.rt.get     player))) ""))
+      (Pair.new ("sl"     ) ((U120.show ((Apps.Fib.Player.sl.get     player))) ""))
+      (Pair.new ("gd"     ) ((U120.show ((Apps.Fib.Player.gd.get     player))) ""))
+      (Pair.new ("cd"     ) ((U120.show ((Apps.Fib.Player.cd.get     player))) ""))
+      (Pair.new ("s0"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 0)))) ""))
+      (Pair.new ("s1"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 1)))) ""))
+      (Pair.new ("s2"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 2)))) ""))
+      (Pair.new ("s3"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 3)))) ""))
+      (Pair.new ("s4"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 4)))) ""))
+      (Pair.new ("s5"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 5)))) ""))
+      (Pair.new ("s6"     ) ((U120.show ((Apps.Fib.Player.skills.get player (U120.new 0 6)))) ""))
+    ]
+}
+

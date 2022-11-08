@@ -20,7 +20,6 @@ Apps.Fib.Player.parse (id: Apps.Fib.Id) (player: Apps.Fib.Player) (frame: U120):
       (Pair.new (Kindelia.Convert.to_kstring "s4"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 4)))))
       (Pair.new (Kindelia.Convert.to_kstring "s5"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 5)))))
       (Pair.new (Kindelia.Convert.to_kstring "s6"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 6)))))
-      (Pair.new (Kindelia.Convert.to_kstring "s7"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.skills.get player (U120.new 0 7)))))
       (Pair.new (Kindelia.Convert.to_kstring "fat"    ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.cd.get     player))))
     ]]
 }
