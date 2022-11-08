@@ -1,4 +1,4 @@
 #kdl_name = Fib_plr_slch
 Apps.Fib.Player.sl.change (player: Apps.Fib.Player) (f: U120 -> U120) : Apps.Fib.Player {
-  Apps.Fib.U120.mut player (U120.new 0 45) (U120.new 0 3) f 
+  Apps.Fib.U120.mut player (U120.new 0 44) (U120.new 0 3) f 
 }

@@ -1,3 +1,4 @@
+#kdl_name = Fib_map_inpo
 Apps.Fib.Map.initial_positions: List U120 {
   [(U120.new 0 34838) (U120.new 0 36374) (U120.new 0 36630) (U120.new 0 36886) (U120.new 0 35351) (U120.new 0 36631) (U120.new 0 34584) (U120.new 0 35352) (U120.new 0 34073) (U120.new 0 35609) (U120.new 0 34330) (U120.new 0 35866) (U120.new 0 37146) (U120.new 0 34587) (U120.new 0 35099) (U120.new 0 36891) (U120.new 0 34076) (U120.new 0 34588) (U120.new 0 36380) (U120.new 0 36892) (U120.new 0 34077) (U120.new 0 36637) (U120.new 0 34590) (U120.new 0 35870) (U120.new 0 36639) (U120.new 0 35105) (U120.new 0 34850)]
 }

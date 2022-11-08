@@ -1,4 +1,4 @@
 #kdl_name = Fib_plr_skch
 Apps.Fib.Player.skills.change (player: Apps.Fib.Player) (skill_id: U120) (f: U120 -> U120) : Apps.Fib.Player {
-  Apps.Fib.U120.mut player (U120.add (U120.new 0 72) (U120.mul skill_id (U120.new 0 7))) (U120.new 0 7) f 
+  Apps.Fib.U120.mut player (U120.add (U120.new 0 71) (U120.mul skill_id (U120.new 0 7))) (U120.new 0 7) f 
 }

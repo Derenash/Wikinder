@@ -664,7 +664,7 @@ Apps.Fib.Map.Build.bin_49 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106378936057899) (U120.new 721420288 0)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 4468736 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 43) (U120.new 0 43)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
@@ -725,10 +725,10 @@ Apps.Fib.Map.Build.bin_51 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106378936057899) (U120.new 43 12106379657654315)) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106378936057899) (U120.new 43 12106379658539051)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12106379657654315 0))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 17347641344 0) (U120.new 0 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -790,7 +790,7 @@ Apps.Fib.Map.Build.bin_53 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 176171 12106378936057899) (U120.new 12106379657478187 12106378936233984)) 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 12106379657654315))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 0 43)) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 73186449603866667) (U120.new 0 43)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -839,7 +839,7 @@ Apps.Fib.Map.Build.bin_55 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12103423998558208 2955659096107)) 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 12106379657654315))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 4427776 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 12103423998558208) (U120.new 0 2954937499648)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -870,7 +870,7 @@ Apps.Fib.Map.Build.bin_56 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12103423998558208) (U120.new 12106378936057899 12106379657654315)) 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 12106379657654315))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 0 4435968)) 
+  (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 43) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -945,7 +945,7 @@ Apps.Fib.Map.Build.bin_58 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657478187) (U120.new 12106378936057899 12106379657654315)) 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 12103423998734379))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 12103423998734336 176171) (U120.new 17213599787 12103423998558208)) 
+  (Data.BaseTree.Bin.tie (U120.new 12103423998734336 176171) (U120.new 176171 12103423998558208)) 
   (Data.BaseTree.Bin.tie (U120.new 0 2954937499648) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1005,9 +1005,9 @@ Apps.Fib.Map.Build.bin_60 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657478187) (U120.new 12106378936057899 12106379657654315)) 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 12103423998734379))) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 2955659096107) (U120.new 12106379657654315 37154696925982763))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 12103423998558251) (U120.new 0 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 0 12103423998558341) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1023,9 +1023,9 @@ Apps.Fib.Map.Build.bin_61 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657478187) (U120.new 12106378936057899 12106379657654315)) 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654272 2955659096107) (U120.new 12106379657478187 12103423998734379))) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654272 2955659096107) (U120.new 37445313824292907 37154696925982763))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 721596416 0) (U120.new 0 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 721596416 133) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1036,9 +1036,9 @@ Apps.Fib.Map.Build.bin_61 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657478187) (U120.new 12106378936057856 2955659096107)) 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654272 721596459) (U120.new 721596459 12103423998734379))) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654272 721596459) (U120.new 2231545988 37154696925982763))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 2955659096107 0) (U120.new 0 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 2955659096107 133) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1054,7 +1054,7 @@ Apps.Fib.Map.Build.bin_62 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 176171 12106379657478187) (U120.new 12106378936057856 0)) 
-  (Data.BaseTree.Bin.tie (U120.new 12103424720154624 721596459) (U120.new 0 176171))) 
+  (Data.BaseTree.Bin.tie (U120.new 12103424720154624 721596459) (U120.new 132 176171))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 2955659096107 0) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)))) 
@@ -1118,7 +1118,7 @@ Apps.Fib.Map.Build.bin_64 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654272) (U120.new 12106379657654315 12106379657654315)) 
   (Data.BaseTree.Bin.tie (U120.new 12106378936234027 721596459) (U120.new 0 43))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 43 12106378936057856) (U120.new 12106379657654315 17951621120)) 
+  (Data.BaseTree.Bin.tie (U120.new 43 12106378936057856) (U120.new 12106379657654315 0)) 
   (Data.BaseTree.Bin.tie (U120.new 43 12106379657654315) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1191,7 +1191,7 @@ Apps.Fib.Map.Build.bin_66 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 0 2955659096107)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12106381100319761 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12106381100318720 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12103423998558251 12106379657654315) (U120.new 12106379657654272 2955659096107)) 
   (Data.BaseTree.Bin.tie (U120.new 43 12106379657654315) (U120.new 0 0)))) 
@@ -1208,8 +1208,8 @@ Apps.Fib.Map.Build.bin_67 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 721420288 721596459)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12106378936057856 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 721420288 4328697899)) 
+  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12106378936057856 2))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12103423998558208 12106379657654272) (U120.new 12106379657654315 721596459)) 
   (Data.BaseTree.Bin.tie (U120.new 176128 12106379657654315) (U120.new 0 0)))) 
@@ -1239,7 +1239,7 @@ Apps.Fib.Map.Build.bin_68 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 721596459 12106379657654315)) 
+  (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 721596677 12106379657654315)) 
   (Data.BaseTree.Bin.tie (U120.new 43 0) (U120.new 0 721420288))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 12106379657478144) (U120.new 12106379657478144 721952898)) 
@@ -1253,10 +1253,10 @@ Apps.Fib.Map.Build.bin_68 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 721596459 12106379657654315)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 2) (U120.new 0 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 2954937499648 2955658919936) (U120.new 12106378936057856 0)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 12106379657654315) (U120.new 75247827025920 0)))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 12106379657654315) (U120.new 0 0)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 721420288 0) (U120.new 12106379657654315 12106379657654315)) 
@@ -1271,7 +1271,7 @@ Apps.Fib.Map.Build.bin_69 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657478187 12106379657654315) (U120.new 2955659096107 12103423998558251)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 137438953472 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 2955659096064) (U120.new 0 43)) 
   (Data.BaseTree.Bin.tie (U120.new 0 12103424720154667) (U120.new 0 0)))) 
@@ -1283,8 +1283,8 @@ Apps.Fib.Map.Build.bin_69 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 176171) (U120.new 2955659096107 0)) 
-  (Data.BaseTree.Bin.tie (U120.new 12106378936057856 12103423998558208) (U120.new 12106378936057856 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 176171) (U120.new 2959333306411 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 37726855289110528 12103423998558208) (U120.new 12106378936057856 134))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 12106379657654315) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 12103423998558208 176128) (U120.new 0 12106379657654315)))) 
@@ -1302,7 +1302,7 @@ Apps.Fib.Map.Build.bin_70 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657478144 43) (U120.new 2955659096107 12106379657654315)) 
-  (Data.BaseTree.Bin.tie (U120.new 12106378936058919 0) (U120.new 0 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 12112632408440832 0) (U120.new 0 134))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)) 
   (Data.BaseTree.Bin.tie (U120.new 12103423998558208 0) (U120.new 176171 12106379657654315)))) 
@@ -1315,10 +1315,10 @@ Apps.Fib.Map.Build.bin_70 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 43) (U120.new 721596459 12106379657654315)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 37726855289110528 0) (U120.new 0 134))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0)) 
-  (Data.BaseTree.Bin.tie (U120.new 12103423998558208 1100) (U120.new 721596459 12106379657654315)))) 
+  (Data.BaseTree.Bin.tie (U120.new 1024 0) (U120.new 0 0)) 
+  (Data.BaseTree.Bin.tie (U120.new 12103423998558208 0) (U120.new 721596459 12106379657654315)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654272) (U120.new 12106379657654315 12106379657654315)) 
@@ -1335,7 +1335,7 @@ Apps.Fib.Map.Build.bin_71 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 43) (U120.new 0 2954937675819)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 12103423998558208 2954937499648))) 
   (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie (U120.new 0 12106379657654315) (U120.new 0 2955658919936)) 
+  (Data.BaseTree.Bin.tie (U120.new 1025 12106379657654315) (U120.new 0 2955658919936)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 721596459 12103423998558208)))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
@@ -1364,7 +1364,7 @@ Apps.Fib.Map.Build.bin_72 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 176171) (U120.new 0 721596459)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 2954937499648) (U120.new 74148315398144 0))) 
+  (Data.BaseTree.Bin.tie (U120.new 137438953472 2954937499648) (U120.new 0 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 0 2955658919936)) 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 721596459 0)))) 
@@ -1457,7 +1457,7 @@ Apps.Fib.Map.Build.bin_75 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 12106379657654272 176171)) 
-  (Data.BaseTree.Bin.tie (U120.new 0 43) (U120.new 12106379657478187 18387828736))) 
+  (Data.BaseTree.Bin.tie (U120.new 0 256) (U120.new 12106379657478187 0))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12103423998734336 43) (U120.new 12106379657654315 12106379657478187)) 
   (Data.BaseTree.Bin.tie (U120.new 0 721596459) (U120.new 176128 2955659096107)))) 
@@ -1470,7 +1470,7 @@ Apps.Fib.Map.Build.bin_75 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 12106379657654272 43)) 
-  (Data.BaseTree.Bin.tie (U120.new 43 12106378936057899) (U120.new 12106379657654272 12103423998558208))) 
+  (Data.BaseTree.Bin.tie (U120.new 43 74030873812402219) (U120.new 12106379657654272 12103561437511680))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106378936057856 176171) (U120.new 12106379657654315 12106379657478187)) 
   (Data.BaseTree.Bin.tie (U120.new 12103423998558208 721596459) (U120.new 0 0)))) 
@@ -1519,7 +1519,7 @@ Apps.Fib.Map.Build.bin_77 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Ba
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 12106379657654315 12106379657654315) (U120.new 12106379657654315 12106378936057899)) 
-  (Data.BaseTree.Bin.tie (U120.new 12103423998558336 12106379657654315) (U120.new 12106379657654315 12106379657654315))) 
+  (Data.BaseTree.Bin.tie (U120.new 12103423998558336 12106379657654315) (U120.new 12106379658530859 12106379657654536))) 
   (Data.BaseTree.Bin.tie 
   (Data.BaseTree.Bin.tie (U120.new 0 12106379657654315) (U120.new 12106379657654315 0)) 
   (Data.BaseTree.Bin.tie (U120.new 12106379657478144 721596459) (U120.new 2955659096107 12103423998558251)))) 

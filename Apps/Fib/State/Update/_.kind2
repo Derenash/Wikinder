@@ -1,19 +1,9 @@
 #kdl_name = Fib_st_upd
-Apps.Fib.State.Update (state: Apps.Fib.State) (action: U120) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events
+Apps.Fib.State.Update (state: Apps.Fib.State) (action: U120) (frame: U120): Pair Apps.Fib.State (Data.BraunTree Apps.Fib.Event)
 Apps.Fib.State.Update (Apps.Fib.State.new map tab) action frame = 
   let data    = Apps.Fib.Action.get_data action
   let comm    = Apps.Fib.Action.get_comm action
   let id      = Apps.Fib.Action.get_id action
-  let ent_tab = Apps.Fib.Table.got tab id
-  match Pair ent_tab {
-    new =>
-      let ent = ent_tab.snd
-      if (Bool.and
-           (U120.equal ent  (U120.new 0 0 ))
-           (U120.equal comm (U120.new 0 15))) {
-        (Pair.new (Apps.Fib.State.create_player (Apps.Fib.State.new map tab) id data) List.nil)
-      }
-      else {
-        Apps.Fib.State.Update.command (Apps.Fib.State.new map tab) comm data id ent frame
-      }
-  }
+  let ent     = Apps.Fib.Table.get tab id
+  let pair    = Apps.Fib.State.Update.command (Apps.Fib.State.new map tab) comm data id ent frame
+  Pair.new (Pair.fst pair) (Data.BraunTree.make_array (Pair.snd pair))

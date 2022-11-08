@@ -1,3 +1,20 @@
+#kdl_name = Fib_stt_buil
 Apps.Fib.State.Build : Apps.Fib.State {
   Apps.Fib.State.new Apps.Fib.Map.Build Apps.Fib.Table.Build
+}
+
+Main {
+  let map    = Apps.Fib.Map.Build
+  let table  = Apps.Fib.Table.Build
+  let state  = Apps.Fib.State.new map table
+  let player = x => y => Apps.Fib.Player.new x y (U120.new 0 655) (U120.new 0 1024) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) [(U120.new 0 1)]
+  let p0     = player (U120.new 0 45) (U120.new 0 141)
+  let p0_id  = U120.new 0 1024
+  let p1     = player (U120.new 0 45) (U120.new 0 142)
+  let p1_id  = U120.new 0 1025
+  let state  = Apps.Fib.State.player.place state p0 p0_id
+  let state  = Apps.Fib.State.player.place state p1 p1_id
+  let map    = Apps.Fib.State.get_map state
+  let table  = Apps.Fib.State.get_table state
+  table
 }

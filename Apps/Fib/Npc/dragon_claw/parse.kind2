@@ -1,7 +1,7 @@
 #kdl_name = Fib_npc_dcpr
-Apps.Fib.Npc.dragon_claw.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : Apps.Fib.Attributes {
-  [
+Apps.Fib.Npc.dragon_claw.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List Apps.Fib.Attributes {
+  [[
     (Pair.new (Kindelia.Convert.to_kstring "type")  (Kindelia.Convert.to_kstring "dragon claw"))
     (Pair.new (Kindelia.Convert.to_kstring "id")    (Kindelia.Convert.num_to_kstring (U120.sub id (U120.new 0 128))))
-  ]
+  ]]
 }

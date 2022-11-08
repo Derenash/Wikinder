@@ -1,7 +1,7 @@
 type Apps.Fib.Kindelia.Response {
   none
   state       (state    : Apps.Fib.Kindelia.State) 
-  acted       (data     : Apps.Fib.Events)
+  acted       (data     : (Data.BraunTree Apps.Fib.Event))
   joined      (position : U120)
   started     (block    : U120)
   reseted
@@ -9,6 +9,6 @@ type Apps.Fib.Kindelia.Response {
   act_fail
   join_fail   (floor    : U120)
   start_fail  (to_start : U120)
-  reset_fail  (to_reset :  U120)
+  reset_fail  (to_reset : U120)
   invalid
 }

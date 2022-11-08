@@ -1,0 +1,5 @@
+run {
+  ask subj = (Subj);
+  ask x = (Call 'Fib' {Fib_act_join subj #0});
+  (Done x)
+}
