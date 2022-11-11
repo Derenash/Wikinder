@@ -1,0 +1,14 @@
+#kdl_state = Init
+#kdl_name = Test_ctt
+Contract (action: Unit): Kindelia.IO U120
+Contract Unit.new = 
+  (Kindelia.IO.do_take state =>
+    let state = U120.inc state
+    (Kindelia.IO.do_save state _ =>
+      (Kindelia.IO.done state) 
+    )
+  )
+
+Init : U120 {
+  U120.new 0 0
+}
