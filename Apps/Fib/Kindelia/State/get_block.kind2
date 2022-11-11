@@ -1,0 +1,3 @@
+#kdl_name = Fib_kdl_sgbk
+Apps.Fib.Kindelia.State.get_block (state: Apps.Fib.Kindelia.State) : U120
+Apps.Fib.Kindelia.State.get_block (Apps.Fib.Kindelia.State.new phase start_blk state) = start_blk

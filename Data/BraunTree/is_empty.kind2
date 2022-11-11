@@ -1,3 +1,4 @@
+#kdl_name = BrTree_isemp
 Data.BraunTree.is_empty <t> (tree: Data.BraunTree t) : Bool
 Data.BraunTree.is_empty  t  (Data.BraunTree.leaf) = Bool.true
 Data.BraunTree.is_empty  t  tree                  = Bool.false

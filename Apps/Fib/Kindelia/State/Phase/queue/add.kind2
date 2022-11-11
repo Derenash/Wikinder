@@ -1,0 +1,10 @@
+#kdl_name = Fib_kdl_spqa
+Apps.Fib.Kindelia.State.Phase.queue.add (list: List Apps.Fib.Kindelia.State.Phase.User) (val: Apps.Fib.Kindelia.State.Phase.User) : List Apps.Fib.Kindelia.State.Phase.User
+Apps.Fib.Kindelia.State.Phase.queue.add List.nil val              = List.nil
+Apps.Fib.Kindelia.State.Phase.queue.add (List.cons head tail) val = 
+  if (Apps.Fib.Kindelia.State.Phase.User.greater_than val head) {
+    List.cons val (Apps.Fib.Kindelia.State.Phase.queue.add tail head)
+  }
+  else {
+    List.cons head (Apps.Fib.Kindelia.State.Phase.queue.add tail val)
+  }

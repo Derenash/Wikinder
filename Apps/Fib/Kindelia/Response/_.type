@@ -2,12 +2,14 @@ type Apps.Fib.Kindelia.Response {
   none
   state       (state    : Apps.Fib.Kindelia.State) 
   acted       (data     : (Data.BraunTree Apps.Fib.Event))
-  joined      (position : U120)
+  queued      (position : U120)
+  joined      (id       : U120)
   started     (block    : U120)
   reseted
   wrong_phase       
   act_fail
-  join_fail   (floor    : U120)
+  queue_fail  (floor    : U120)
+  join_fail   
   start_fail  (to_start : U120)
   reset_fail  (to_reset : U120)
   invalid

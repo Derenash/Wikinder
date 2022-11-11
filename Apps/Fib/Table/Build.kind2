@@ -251,15 +251,7 @@ Apps.Fib.Table.Build.gbin_07 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree
 
 #kdl_name = Fib_tab_p00
 Apps.Fib.Table.Build.bin_00 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2] U120 {
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  Apps.Fib.Table.Build.bin.empty_2 
-  (Data.BaseTree.Bin.tie (U120.new 2048 549798776109) (U120.new 0 0))) 
-  Apps.Fib.Table.Build.bin.empty_4) 
-  Apps.Fib.Table.Build.bin.empty_8) 
-  Apps.Fib.Table.Build.bin.empty_16) 
+  Apps.Fib.Table.Build.bin.empty_32 
 }
 
 #kdl_name = Fib_tab_p01
@@ -579,15 +571,7 @@ Apps.Fib.Table.Build.bin_63 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.
 
 #kdl_name = Fib_tab_p64
 Apps.Fib.Table.Build.bin_64 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2] U120 {
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  (Data.BaseTree.Bin.tie 
-  Apps.Fib.Table.Build.bin.empty_2 
-  (Data.BaseTree.Bin.tie (U120.new 2048 549798776365) (U120.new 0 0))) 
-  Apps.Fib.Table.Build.bin.empty_4) 
-  Apps.Fib.Table.Build.bin.empty_8) 
-  Apps.Fib.Table.Build.bin.empty_16) 
+  Apps.Fib.Table.Build.bin.empty_32 
 }
 
 #kdl_name = Fib_tab_p65

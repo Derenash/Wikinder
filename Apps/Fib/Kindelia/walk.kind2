@@ -2,7 +2,3 @@
 Apps.Fib.Kindelia.walk (direction: U120) (id: U120) : U120 {
   U120.bitwise_or (U120.add (U120.new 0 1024) id) (U120.shift_left direction (U120.new 0 16))
 }
-
-Main {
-  Apps.Fib.Kindelia.walk (U120.new 0 2) (U120.new 0 2)
-}

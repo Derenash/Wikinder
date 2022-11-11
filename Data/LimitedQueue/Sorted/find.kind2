@@ -15,11 +15,13 @@ Data.LimitedQueue.Sorted.find <a> (size: Nat) (cond: a -> Bool) (queue: Data.Lim
 }
 
 
-// Main {
-//   let list  =  [3, 8, 14, 232]
-//   let size  = List.length list 
-//   let sort  = a => b => U60.greater_than a b
-//   let queue = Data.LimitedQueue.Sorted.new size sort (Data.LimitedQueue.from_list list)
-//   let cond  = x => U60.equal 8 x
-//   Data.LimitedQueue.Sorted.find size cond queue 
-// }
+Main {
+  let list  =  [3, 2, 14, 232]
+  let size  = List.length list 
+  let sort  = a => b => U60.greater_than a b
+  let queue = Data.LimitedQueue.Sorted.new size sort (Data.LimitedQueue.from_list list)
+  let queue = Pair.snd (Data.LimitedQueue.Sorted.add size queue 8)
+  let queue = Pair.snd (Data.LimitedQueue.Sorted.add size queue 5)
+  let cond  = x => U60.equal 8 x
+  Data.LimitedQueue.Sorted.find size cond queue 
+}

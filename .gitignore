@@ -1,3 +1,15 @@
 *.check.hvm
 tmp/
 .DS_Store
+fib_map.py
+fib_table.py
+map.txt
+tab.txt
+.vscode
+.gitignore
+Build_map.kind2
+Build_table.kind2
+Gpt.kind2
+skill.kdl
+interact.kdl
+walk.kdl

@@ -1,0 +1,3 @@
+#kdl_name = Fib_kdl_spuk
+Apps.Fib.Kindelia.State.Phase.User.wallet (user: Apps.Fib.Kindelia.State.Phase.User) : U120
+Apps.Fib.Kindelia.State.Phase.User.wallet (Apps.Fib.Kindelia.State.Phase.User.new wallet kgt) = wallet
