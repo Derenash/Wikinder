@@ -1,3 +1,7 @@
+// Leaves lobby phase and starts the game
+// Places all players in the queue at the map
+// Can only be used when game is at the lobby mode
+
 run {
   ask x = (Call 'Fib' {Fib_act_strt});
   (Done x)

@@ -1,3 +1,5 @@
+// Return the table but as a BraunTree, with only the relevant data
+
 run {
   ask tick = (Tick);
   ask x    = (Call 'Fib' {Fib_act_get});

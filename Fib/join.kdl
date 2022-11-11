@@ -1,5 +1,9 @@
+// Joins the game
+// If game is in the lobby phase, joins a queue to enter the game
+// If game is in the game phase, joins the game and places a character in the map
 
 run {
+  // Wallet and Kgt invested
   ask x = (Call 'Fib' {Fib_act_join #31 #30});
   (Done x)
 }

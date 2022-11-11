@@ -1,7 +1,16 @@
+// Moves Character
+// Id on map = player_num + 1024
+// Directions:
+//  0 = up
+//  1 = left
+//  2 = down
+//  3 = right
+
+// Can only be used if the game is on game phase
 
 
 run {
-  // Direction, id
+  // Direction, player_num
   let code = (Fib_kdl_walk #2 #0);
   ask x = (Call 'Fib' {Fib_act_act code});
   (Done x)

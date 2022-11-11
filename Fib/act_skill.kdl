@@ -1,3 +1,8 @@
+// Uses a skill from a character's skill slot at a point
+// receives origin and destination, so it sends the delta to the contract
+// Id on map = player_num + 1024
+
+// Can only be used if the game is on game phase
 
 run {
   // x0, y0, x1, y1, player_num, skill_slot
