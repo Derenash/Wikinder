@@ -4,6 +4,6 @@
 
 run {
   // Wallet and Kgt invested
-  ask x = (Call 'Fib' {Fib_act_join #31 #30});
+  ask x = (Call 'Fib' {Fib_act_join #36 #30});
   (Done x)
 }

@@ -4,5 +4,6 @@ Apps.Fib.Kindelia.skill (x0: U120) (y0: U120) (x1: U120) (y1: U120) (id: U120) (
   let origin = Apps.Fib.Pos.new x0 y0
   let target = Apps.Fib.Pos.new x1 y1
   let data   = Apps.Fib.Pos.to_data origin target
+  let id     = U120.add (U120.new 0 1024) id 
   U120.bitwise_or (U120.bitwise_or id (U120.shift_left data (U120.new 0 16))) (U120.shift_left comm (U120.new 0 12))
 }
