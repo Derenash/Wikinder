@@ -1,0 +1,5 @@
+
+run {
+  ask x = (Call 'Fib' {Fib_act_join #31 #30});
+  (Done x)
+}

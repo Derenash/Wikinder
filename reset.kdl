@@ -1,0 +1,5 @@
+
+run {
+  ask x = (Call 'Fib' {Fib_act_rst});
+  (Done x)
+}

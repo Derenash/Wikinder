@@ -1,0 +1,6 @@
+run {
+  ask tick = (Tick);
+  ask x    = (Call 'Fib' {Fib_act_get});
+  let r    = (Fib_kdl_sttp x tick);
+  (Done r)
+}

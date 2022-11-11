@@ -1,0 +1,8 @@
+
+
+run {
+  // Direction, id
+  let code = (Fib_kdl_walk #2 #0);
+  ask x = (Call 'Fib' {Fib_act_act code});
+  (Done x)
+}
