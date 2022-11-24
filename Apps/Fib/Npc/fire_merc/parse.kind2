@@ -1,6 +1,6 @@
 #kdl_name = Fib_npc_fmpr
 //Adicionar items
-Apps.Fib.Npc.ignis.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List Apps.Fib.Attributes {
+Apps.Fib.Npc.fire_merc.parse (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) : List Apps.Fib.Attributes {
   [[
     (Pair.new (Kindelia.Convert.to_kstring "type")  (Kindelia.Convert.to_kstring "fire merchant"))
     (Pair.new (Kindelia.Convert.to_kstring "id")    (Kindelia.Convert.num_to_kstring (U120.sub id (U120.new 0 128))))
