@@ -1,0 +1,9 @@
+// Apps.Fib.Kindelia.State.match (x: (Apps.Fib.Kindelia.State)) -(p: (x: (Apps.Fib.Kindelia.State)) Type) (new: (phase: (Apps.Fib.Kindelia.State.Phase)) (start: (U120)) (state: (Apps.Fib.State)) (p (Apps.Fib.Kindelia.State.new phase start state))) : (p x)
+fun (Fib_kdl_smat x new) {
+  (Fib_kdl_smat {Fib_kdl_snew phase_ start_ state_} new) =
+    (!(!(!new phase_) start_) state_)
+}
+
+// Apps.Fib.Kindelia.State.new (phase: (Apps.Fib.Kindelia.State.Phase)) (start: (U120)) (state: (Apps.Fib.State)) : (Apps.Fib.Kindelia.State)
+ctr {Fib_kdl_snew phase start state}
+

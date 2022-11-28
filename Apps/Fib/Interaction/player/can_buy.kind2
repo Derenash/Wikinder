@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_plcb
 Apps.Fib.Interaction.player.can_buy (price: U120) : Apps.Fib.Interaction Bool {
   do Apps.Fib.Interaction {
     ask player  = Apps.Fib.Interaction.player.get

@@ -1,8 +1,8 @@
 // TODO: receive frame and propagate it to Npc and Monster Parses
 #kdl_name = Fib_st_prss
 Apps.Fib.State.parse.to_tree (parsed: Apps.Fib.State.parse.Triple) : Triple (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) (Data.BraunTree (Data.BraunTree (Pair U120 U120))) {
-  let f = (list: List (Pair U120 U120)) => Data.BraunTree.make_array list
-  let f = (list: List (List (Pair U120 U120))) => Data.BraunTree.make_array (List.map list f) 
+  let f = (l: List (Pair U120 U120)) => Data.BraunTree.make_array l
+  let f = (l: List (List (Pair U120 U120))) => Data.BraunTree.make_array (List.map l f) 
   Triple.map parsed f
 }
 
@@ -17,6 +17,7 @@ Apps.Fib.State.parse (state: Apps.Fib.State) (frame: U120): Triple (Data.BraunTr
   Apps.Fib.State.parse.to_tree parsed
 }
 
+#kdl_name = Fib_st_parst
 Apps.Fib.State.parse.table (depth: U120) (id: U120) (bases: List Data.BaseTree.Base) (map: Data.BaseTree bases U120) (frame: U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.table depth id (List.nil r0) (U120.new 0 0) frame = (x: Apps.Fib.State.parse.Triple) => x
 Apps.Fib.State.parse.table depth id (List.nil r0) entity frame =
@@ -28,6 +29,7 @@ Apps.Fib.State.parse.table depth id (List.cons r0 Data.BaseTree.Base.2 tail) (Da
     let b = (Apps.Fib.State.parse.table new_depth (U120.bitwise_or id (U120.shift_left (U120.new 0 1) depth)) tail rgt frame)
     a (b x)
 
+#kdl_name = Fib_st_parsi
 Apps.Fib.State.parse.id (type: U120) (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : Apps.Fib.State.parse.Triple -> Apps.Fib.State.parse.Triple
 // Npc 
 // 128 - 255 
@@ -55,16 +57,20 @@ Apps.Fib.State.parse.id (U120.new 0 11) id entity frame = (x: Apps.Fib.State.par
   
 Apps.Fib.State.parse.id n i e f = (x: Apps.Fib.State.parse.Triple) => x
 
+#kdl_name = Fib_st_parsn
 Apps.Fib.State.parse.join_npc (npcs: List Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_npc npc (Triple.new a b c n m p) = Triple.new (List.concat n npc) m p
 
+#kdl_name = Fib_st_parsm
 Apps.Fib.State.parse.join_monster (monsters: List Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_monster monster (Triple.new a b c n m p) = Triple.new a b c n (List.concat monster m) p
 
+#kdl_name = Fib_st_parsp
 Apps.Fib.State.parse.join_player (players: List Apps.Fib.Attributes) (b: Apps.Fib.State.parse.Triple) : Apps.Fib.State.parse.Triple
 Apps.Fib.State.parse.join_player player (Triple.new a b c n m p) = Triple.new a b c n m (List.concat p player)
 
 // 128 - 255
+#kdl_name = Fib_st_pid07
 Apps.Fib.State.parse.id_07 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : List Apps.Fib.Attributes
 Apps.Fib.State.parse.id_07 (U120.new 0 128) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 128) entity
 Apps.Fib.State.parse.id_07 (U120.new 0 129) entity frame = Apps.Fib.Npc.bat_cave.parse (U120.new 0 129) entity
@@ -73,10 +79,12 @@ Apps.Fib.State.parse.id_07 (U120.new 0 130) entity frame = Apps.Fib.Npc.bat_cave
 Apps.Fib.State.parse.id_07 (U120.new 0 134) entity frame = Apps.Fib.Npc.phoenix.parse  entity frame
 Apps.Fib.State.parse.id_07 id entity frame = List.nil
 
+#kdl_name = Fib_st_pid08
 Apps.Fib.State.parse.id_08 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : List Apps.Fib.Attributes
 Apps.Fib.State.parse.id_08 id entity frame = List.nil
 
 // 512 - 1023
+#kdl_name = Fib_st_pid09
 Apps.Fib.State.parse.id_09 (id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) : List Apps.Fib.Attributes
 Apps.Fib.State.parse.id_09 (U120.new 0 512) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 512) entity
 Apps.Fib.State.parse.id_09 (U120.new 0 513) entity frame = Apps.Fib.Monster.bat.parse (U120.new 0 513) entity

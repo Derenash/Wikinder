@@ -4,6 +4,7 @@ Apps.Fib.Player.skills.has_slot (player: Apps.Fib.Player) : Maybe U120 {
 }
 
 
+#kdl_name = Fib_plr_sksg
 Apps.Fib.Player.skills.has_slot.go (play: Apps.Fib.Player) (slot: U120) : Maybe U120
 Apps.Fib.Player.skills.has_slot.go play (U120.new 0 7) = Maybe.none
 Apps.Fib.Player.skills.has_slot.go play slot           =

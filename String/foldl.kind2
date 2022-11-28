@@ -1,3 +1,4 @@
-String.foldl #String_fldl <a> (nil: a) (cons: Char -> a -> a) (xs: String) : a
+#kdl_name = String.fldl
+String.foldl <a> (nil: a) (cons: Char -> a -> a) (xs: String) : a
 String.foldl a nil cons  String.nil        = nil
 String.foldl a nil cons (String.cons x xs) = String.foldl (cons x nil) cons xs

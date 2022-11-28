@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_pasa
 Apps.Fib.Interaction.player.add_slow_at (amount: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask frame   = Apps.Fib.Interaction.frame.get
@@ -9,6 +10,7 @@ Apps.Fib.Interaction.player.add_slow_at (amount: U120) (pos: Apps.Fib.Pos) : App
   }
 }
 
+#kdl_name = Fib_itr_pasi
 Apps.Fib.Interaction.player.add_slow_at.if (b: Bool) (frame: U120) (real_cd: U120) (amount: U120) : Apps.Fib.Interaction Unit 
 Apps.Fib.Interaction.player.add_slow_at.if Bool.true frame real_cd amount = 
   // Slow Percentage

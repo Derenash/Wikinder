@@ -22,10 +22,10 @@ Apps.Fib.Action.wasd_code.pos command ori =
   let p_ori = (Pair.new x y)
 
   // Creates the delta
-  let pair = String.foldl p_ori (x => (f (aux x))) command
+  let xy = String.foldl p_ori (x => (f (aux x))) command
 
-  let x    = Pair.fst pair
-  let y    = Pair.snd pair
+  let x    = Pair.fst xy
+  let y    = Pair.snd xy
 
   Apps.Fib.Pos.new x y
 
@@ -72,13 +72,13 @@ Apps.Fib.Action.wasd_code.aux command = Pair.new (U120.new 0 0) (U120.new 0 0)
 
 
 #kdl_name = Fib_ac_wasdc
-Apps.Fib.Action.wasd_code.coords (pair: Pair U120 U120) (delta: Pair U120 U120): Pair U120 U120 {
+Apps.Fib.Action.wasd_code.coords (coord: Pair U120 U120) (delta: Pair U120 U120): Pair U120 U120 {
   let dfst = Pair.fst delta
-  let pfst = Pair.fst pair
+  let pfst = Pair.fst coord
   let rfst = U120.add dfst pfst
   
   let dsnd = Pair.snd delta
-  let psnd = Pair.snd pair
+  let psnd = Pair.snd coord
   let rsnd = U120.add dsnd psnd
   
   Pair.new rfst rsnd

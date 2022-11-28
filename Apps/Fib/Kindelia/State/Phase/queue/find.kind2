@@ -1,10 +1,10 @@
 #kdl_name = Fib_kdl_spqf
-Apps.Fib.Kindelia.State.Phase.queue.find (list: List Apps.Fib.Kindelia.State.Phase.User) (wallet: U120) : Maybe U120 {
-  Apps.Fib.Kindelia.State.Phase.queue.find.go (U120.new 0 0) list wallet  
+Apps.Fib.Kindelia.State.Phase.queue.find (users: List Apps.Fib.Kindelia.State.Phase.User) (wallet: U120) : Maybe U120 {
+  Apps.Fib.Kindelia.State.Phase.queue.find.go (U120.new 0 0) users wallet  
 } 
 
 #kdl_name = Fib_kdl_spqg
-Apps.Fib.Kindelia.State.Phase.queue.find.go (count: U120) (list: List Apps.Fib.Kindelia.State.Phase.User) (search: U120) : Maybe U120 
+Apps.Fib.Kindelia.State.Phase.queue.find.go (count: U120) (users: List Apps.Fib.Kindelia.State.Phase.User) (search: U120) : Maybe U120 
 Apps.Fib.Kindelia.State.Phase.queue.find.go count List.nil search = Maybe.none
 Apps.Fib.Kindelia.State.Phase.queue.find.go count (List.cons (Apps.Fib.Kindelia.State.Phase.User.new wallet kgt) tail) search = 
   if (U120.equal wallet search) {

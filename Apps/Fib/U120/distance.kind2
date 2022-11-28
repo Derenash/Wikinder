@@ -1,4 +1,6 @@
 // Considering that Numbers between 2^119 and 2^220 are negative numbers, get the distance between 2 values
+
+#kdl_name = Fib_u_dist
 Apps.Fib.U120.distance (n: U120) (m: U120) : U120 {
   let nn = (Apps.Fib.U120.is_neg n)
   let nm = (Apps.Fib.U120.is_neg m)

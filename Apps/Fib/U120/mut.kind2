@@ -1,5 +1,5 @@
 // Modify a part of a U120
-#kdl_name = Fib_m_u120
+#kdl_name = Fib_u_mut
 Apps.Fib.U120.mut (chunk: U120) (pos: U120) (size: U120) (f: U120 -> U120) : U120 {
   let mask  = (U120.sub (U120.shift_left (U120.new 0 1) size) (U120.new 0 1))
   let num   = U120.bitwise_and (U120.shift_right chunk pos) mask

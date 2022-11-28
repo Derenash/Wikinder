@@ -1,0 +1,4 @@
+#kdl_name = KIONorm
+Kindelia.IO.norm <s: Type> (val: s) : Kindelia.IO s {
+  Kindelia.IO.do_norm s s val (x => Kindelia.IO.done s x)
+}

@@ -1,3 +1,4 @@
+#kdl_name = Fib_mon_bat
 Apps.Fib.Monster.bat (id: Apps.Fib.Id) : U120 -> Pair (Apps.Fib.Interaction Unit) (Apps.Fib.Interaction Unit) {
   (damage: U120) =>
     let run_distance = U120.new 0 4
@@ -8,6 +9,7 @@ Apps.Fib.Monster.bat (id: Apps.Fib.Id) : U120 -> Pair (Apps.Fib.Interaction Unit
       (Apps.Fib.Monster.bat.death cave damage))
 }
 
+#kdl_name = Fib_mon_batg
 Apps.Fib.Monster.bat.get_cave (id: Apps.Fib.Id): Apps.Fib.Id 
 Apps.Fib.Monster.bat.get_cave (U120.new 0 512) = (U120.new 0 128) 
 Apps.Fib.Monster.bat.get_cave (U120.new 0 513) = (U120.new 0 129) 

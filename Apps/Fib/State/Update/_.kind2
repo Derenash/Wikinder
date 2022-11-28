@@ -5,5 +5,5 @@ Apps.Fib.State.Update (Apps.Fib.State.new map tab) action frame =
   let comm    = Apps.Fib.Action.get_comm action
   let id      = Apps.Fib.Action.get_id action
   let ent     = Apps.Fib.Table.get tab id
-  let pair    = Apps.Fib.State.Update.command (Apps.Fib.State.new map tab) comm data id ent frame
-  Pair.new (Pair.fst pair) (Data.BraunTree.make_array (Pair.snd pair))
+  let p       = Apps.Fib.State.Update.command (Apps.Fib.State.new map tab) comm data id ent frame
+  Pair.new (Pair.fst p) (Data.BraunTree.make_array (Pair.snd p))

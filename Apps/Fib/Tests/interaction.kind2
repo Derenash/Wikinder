@@ -27,12 +27,12 @@ Main {
     }
 
   let res = eff itr
-  let pair = match Apps.Fib.Interaction.Result res {
+  let p   = match Apps.Fib.Interaction.Result res {
       err => Pair.new state []
       new => Pair.new res.state res.events
     }
-  let state  = Pair.fst pair
-  let events = Pair.snd pair
+  let state  = Pair.fst p
+  let events = Pair.snd p
   let table2 = Apps.Fib.State.get_table state
   let p0_2   = Apps.Fib.Table.get table2 (U120.new 0 1024)
   let p1_2   = Apps.Fib.Table.get table2 (U120.new 0 1025)

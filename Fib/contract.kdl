@@ -5,13 +5,13 @@ fun (Fib action) {
     dup _6 _7 = _4;
     (Fib_kdl_smat _5 @state.phase @~ @~ (KIOBind (KIOTick) @block let phs = state.phase;
     (Fib_kdl_spma phs @~ let result = {Fib_res_wrph};
-    (KIOBind (KIOSave _6) @~ {DONE result}) @~ let pair = (Fib_kdl_supd _7 code block);
-    dup _2 _3 = pair;
-    let events = (Pair_snd _2);
+    (KIOBind (Fib_save _6) @~ (Fib_done result)) @~ let p = (Fib_kdl_supd _7 code block);
+    dup _2 _3 = p;
+    let state = (Pair_fst _2);
+    let events = (Pair_snd _3);
     dup _0 _1 = events;
-    let state = (Pair_fst _3);
     let result = (Bool_if (BrTree_isemp _0) {Fib_res_noac} {Fib_res_acte _1});
-    (KIOBind (KIOSave state) @~ {DONE result})))))
+    (KIOBind (Fib_save state) @~ (Fib_done result))))))
   (Fib {Fib_act_get}) =
     (KIOBind (KIOTake) @state dup _0 _1 = state;
     let result = {Fib_res_stat _0};
@@ -40,16 +40,16 @@ fun (Fib action) {
     let state = data.state;
     let state = {Fib_kdl_snew phase timer state};
     let result = {Fib_res_star _1};
-    (KIOBind (KIOSave state) @~ {DONE result})) (KIOBind (KIOSave _6) @~ let result = {Fib_res_nost (U120_sub_sat to_start duration)};
-    {DONE result})) @~ (KIOBind (KIOSave _7) @~ {DONE {Fib_res_wrph}})))))
+    (KIOBind (Fib_save state) @~ (Fib_done result))) (KIOBind (Fib_save _6) @~ let result = {Fib_res_nost (U120_sub_sat to_start duration)};
+    (Fib_done result))) @~ (KIOBind (Fib_save _7) @~ {DONE {Fib_res_wrph}})))))
   (Fib {Fib_act_rst}) =
     (KIOBind (KIOTake) @state dup _0 _1 = state;
     (KIOBind (KIOTick) @~ (Fib_kdl_smat _0 @state.phase @~ @~ let phase = state.phase;
-    (Fib_kdl_spma phase @~ (KIOBind (KIOSave _1) @~ {DONE {Fib_res_wrph}}) @~ let phase = (Fib_kdl_spil);
+    (Fib_kdl_spma phase @~ (KIOBind (Fib_save _1) @~ {DONE {Fib_res_wrph}}) @~ let phase = (Fib_kdl_spil);
     let state = (Fib_stt_buil);
     let s_blk = #0;
     let state = {Fib_kdl_snew phase s_blk state};
-    (KIOBind (KIOSave state) @~ {DONE {Fib_res_rese}})))))
+    (KIOBind (Fib_save state) @~ {DONE {Fib_res_rese}})))))
 } with {
     {Fib_kdl_snew (Fib_kdl_spil) #0 (Fib_stt_buil)}
 }

@@ -1,8 +1,10 @@
+#kdl_name = Fib_plr_gele
 Apps.Fib.Player.xp.get_level (player: Apps.Fib.Player) : U120 {
   let exp = Apps.Fib.Player.xp.get player
   Apps.Fib.Player.xp.get_level.go U120.1 exp
 }
 
+#kdl_name = Fib_plr_gelg
 Apps.Fib.Player.xp.get_level.go (level: U120) (xp: U120) : U120 {
   let tot = Apps.Fib.Player.xp.total level
   if (U120.less_than xp tot) {

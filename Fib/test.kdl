@@ -473,7 +473,7 @@ fun (Fib_plr_dflt x y) {
     let sl = #0;
     let gd = #50;
     let cd = #0;
-    let skills = {List_cons #1 {List_nil}};
+    let skills = {List_cons #11 {List_nil}};
     (Fib_plr_new x y hp xp rt sl gd cd skills)
 }
 
@@ -5706,3 +5706,72 @@ fun (Fib_ac_gcomm action) {
 // Apps.Fib.Kindelia.Response.act_fail : (Apps.Fib.Kindelia.Response)
 ctr {Fib_res_noac}
 
+// Apps.Fib.Kindelia (action: (Apps.Fib.Kindelia.Act)) : (Kindelia.IO (Apps.Fib.Kindelia.Response))
+fun (Fib action) {
+  (Fib {Fib_act_act code}) =
+    (KIOBind (KIOTake) @state dup _4 _5 = state;
+    dup _6 _7 = _4;
+    (Fib_kdl_smat _5 @state.phase @~ @~ (KIOBind (KIOTick) @block let phs = state.phase;
+    (Fib_kdl_spma phs @~ let result = {Fib_res_wrph};
+    (KIOBind (Fib_save _6) @~ (Fib_done result)) @~ let p = (Fib_kdl_supd _7 code block);
+    dup _2 _3 = p;
+    let state = (Pair_fst _2);
+    let events = (Pair_snd _3);
+    dup _0 _1 = events;
+    let result = (Bool_if (BrTree_isemp _0) {Fib_res_noac} {Fib_res_acte _1});
+    (KIOBind (Fib_save state) @~ (Fib_done result))))))
+  (Fib {Fib_act_get}) =
+    (KIOBind (KIOTake) @state dup _0 _1 = state;
+    let result = {Fib_res_stat _0};
+    (KIOBind (KIOSave _1) @~ {DONE result}))
+  (Fib {Fib_act_join subj kgt}) =
+    dup _0 _1 = subj;
+    (KIOBind (KIOTake) @s (KIOBind (KIOTick) @~ (Fib_kdl_smat s @s.phase @s.start dup _4 _5 = s.start;
+    @s.state dup _2 _3 = s.state;
+    let phs = s.phase;
+    (Fib_kdl_spma phs @phs.queue (Fib_kdl_jlob _0 kgt _4 _2 phs.queue) @phs.players (Fib_kdl_jgam _1 _5 phs.players _3)))))
+  (Fib {Fib_act_strt}) =
+    (KIOBind (KIOTake) @state dup _2 _3 = state;
+    dup _4 _5 = _2;
+    dup _6 _7 = _3;
+    (KIOBind (KIOTick) @tick dup _0 _1 = tick;
+    (Fib_kdl_smat _4 @state.phase @state.start @~ let phase = state.phase;
+    (Fib_kdl_spma phase @phase.queue let to_start = #300;
+    let duration = (U120_sub_sat _0 state.start);
+    let can_start = {Bool_true};
+    (Bool_if can_start let starts = (Fib_map_inpo);
+    let acc = {Fib_kdl_tsne starts {PEmpty} (Fib_kdl_sgst _5) #0};
+    let fold = (List_fold phase.queue);
+    let data = (!(!fold acc) (Fib_kdl_tstf));
+    (Fib_kdl_tsma data @~ @data.users @data.state @~ let phase = {Fib_kdl_spga data.users};
+    let timer = #0;
+    let state = data.state;
+    let state = {Fib_kdl_snew phase timer state};
+    let result = {Fib_res_star _1};
+    (KIOBind (Fib_save state) @~ (Fib_done result))) (KIOBind (Fib_save _6) @~ let result = {Fib_res_nost (U120_sub_sat to_start duration)};
+    (Fib_done result))) @~ (KIOBind (Fib_save _7) @~ {DONE {Fib_res_wrph}})))))
+  (Fib {Fib_act_rst}) =
+    (KIOBind (KIOTake) @state dup _0 _1 = state;
+    (KIOBind (KIOTick) @~ (Fib_kdl_smat _0 @state.phase @~ @~ let phase = state.phase;
+    (Fib_kdl_spma phase @~ (KIOBind (Fib_save _1) @~ {DONE {Fib_res_wrph}}) @~ let phase = (Fib_kdl_spil);
+    let state = (Fib_stt_buil);
+    let s_blk = #0;
+    let state = {Fib_kdl_snew phase s_blk state};
+    (KIOBind (Fib_save state) @~ {DONE {Fib_res_rese}})))))
+} with {
+    {Fib_kdl_snew (Fib_kdl_spil) #0 (Fib_stt_buil)}
+}
+
+
+run {
+  ask         (Call 'Fib' {Fib_act_join #x0585999c9A7dF6F99e54fD177aAF6 #30});
+  ask         (Call 'Fib' {Fib_act_strt});
+  let code  = (Fib_kdl_skll #45 #142 #45 #142 #0 #0);
+  // let code3 = (Fib_kdl_skll #45 #142 #46 #140 #0 #0);
+  ask state =    (Call 'Fib' {Fib_act_act code});
+  // let code2 = (Fib_kdl_walk #2 #0);
+  // ask         (Call 'Fib' {Fib_act_act code3});
+  // ask         (Call 'Fib' {Fib_act_act code2});
+  // ask state = (Call 'Fib' {Fib_act_get});
+  (Done state)
+}

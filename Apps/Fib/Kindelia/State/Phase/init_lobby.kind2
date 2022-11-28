@@ -1,6 +1,6 @@
 #kdl_name = Fib_kdl_spil
 Apps.Fib.Kindelia.State.Phase.init_lobby : Apps.Fib.Kindelia.State.Phase {
   let u     = Apps.Fib.Kindelia.State.Phase.User.empty
-  let list  = [u u u u u u u u u u]
-  Apps.Fib.Kindelia.State.Phase.lobby list
+  let l     = [u u u u u u u u u u]
+  Apps.Fib.Kindelia.State.Phase.lobby l
 } 

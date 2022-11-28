@@ -6,11 +6,11 @@ Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fi
   match Maybe target {
     none => Pair.new state List.nil
     some => 
-      let move = HVM.log (Pair.new (Sigma.fst pos) (Sigma.fst target.value)) Apps.Fib.Skill.move
+      let move = Apps.Fib.Skill.move
       let res  = move state player_id target.value frame
         match Apps.Fib.Interaction.Result res {
-        err => Pair.new state List.nil
-        new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk (Sigma.fst target.value) player_id) res.events)
+          err => Pair.new state List.nil
+          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk (Sigma.fst target.value) player_id) res.events)
       }
   }
 }

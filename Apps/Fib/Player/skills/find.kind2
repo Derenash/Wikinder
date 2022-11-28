@@ -4,6 +4,7 @@ Apps.Fib.Player.skills.find (player: Apps.Fib.Player) (skill_id: U120) : Maybe U
   Apps.Fib.Player.skills.find.go player skill_id (U120.new 0 0)
 }
 
+#kdl_name = Fib_plr_skfg
 Apps.Fib.Player.skills.find.go (player: Apps.Fib.Player) (skill_id: U120) (counter: U120): Maybe U120 
 Apps.Fib.Player.skills.find.go player skill_id (U120.new 0 7) = Maybe.none
 Apps.Fib.Player.skills.find.go player skill_id counter = 

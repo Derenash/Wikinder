@@ -1,7 +1,9 @@
+#kdl_name = Kdl_cv_sstr
 Kindelia.Convert.to_kstring (string: String) : U120 {
   Kindelia.Convert.to_kstring.aux string (U120.new 0 0)
 }
 
+#kdl_name = Kdl_cv_sstra
 Kindelia.Convert.to_kstring.aux (string: String) (kdl_str: U120): U120
 Kindelia.Convert.to_kstring.aux (String.nil)      kdl_str = kdl_str
 Kindelia.Convert.to_kstring.aux (String.cons h t) kdl_str = 

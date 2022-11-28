@@ -1,9 +1,9 @@
 #kdl_name = Fib_itr_egia
 Apps.Fib.Interaction.entity.get_id_at (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Apps.Fib.Player {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
-    let pair = Apps.Fib.Map.got_from_state state pos
-    match Pair pair {
+    let p = Apps.Fib.Map.got_from_state state pos
+    match Pair p {
       new =>
-        Apps.Fib.Interaction.Result.new pair.snd pair.fst player target frame List.nil
+        Apps.Fib.Interaction.Result.new p.snd p.fst player target frame List.nil
     }
   }

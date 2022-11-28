@@ -5,11 +5,11 @@ Apps.Fib.Kindelia.State.join (List.cons head tail) (Apps.Fib.State.new map table
   let player = User.Sipher.PatriciaTree.get players subj
   match Maybe player {
     none =>
-      let pair = Apps.Fib.Map.got map head
-      match Pair pair {
+      let p = Apps.Fib.Map.got map head
+      match Pair p {
         new =>
-          let map  = pair.fst
-          let tile = pair.snd
+          let map  = p.fst
+          let tile = p.snd
           if (U120.is_zero tile) {
             let id      = Apps.Fib.Kindelia.State.join.id (U120.new 0 1024) table
             let map     = Apps.Fib.Map.set map id head

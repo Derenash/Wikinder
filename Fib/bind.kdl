@@ -1,0 +1,36 @@
+// Kindelia.IO.bind -(a: Type) -(b: Type) (io: (Kindelia.IO a)) (next: (_: a) (Kindelia.IO b)) : (Kindelia.IO b)
+fun (KIOBind io next) {
+  (KIOBind {DONE io.val} next) =
+    (!next io.val)
+  (KIOBind {TAKE io.cont} next) =
+    {TAKE @x (KIOBind (!io.cont x) next)}
+  (KIOBind {SAVE io.val io.cont} next) =
+    {SAVE io.val @x (KIOBind (!io.cont x) next)}
+  (KIOBind {CALL io.name io.argm io.cont} next) =
+    {CALL io.name io.argm @x (KIOBind (!io.cont x) next)}
+  (KIOBind {SUBJ io.cont} next) =
+    {SUBJ @x (KIOBind (!io.cont x) next)}
+  (KIOBind {NORM io.val io.cont} next) =
+    {NORM io.val @x (KIOBind (!io.cont x) next)}
+  (KIOBind {FROM io.cont} next) =
+    {FROM @x (KIOBind (!io.cont x) next)}
+  (KIOBind {TICK io.cont} next) =
+    {TICK @x (KIOBind (!io.cont x) next)}
+  (KIOBind {GIDX io.name io.cont} next) =
+    {GIDX io.name @x (KIOBind (!io.cont x) next)}
+  (KIOBind {STH0 io.idx io.cont} next) =
+    {STH0 io.idx @x (KIOBind (!io.cont x) next)}
+  (KIOBind {STH1 io.idx io.cont} next) =
+    {STH1 io.idx @x (KIOBind (!io.cont x) next)}
+  (KIOBind {TIME io.cont} next) =
+    {TIME @x (KIOBind (!io.cont x) next)}
+  (KIOBind {META io.cont} next) =
+    {META @x (KIOBind (!io.cont x) next)}
+  (KIOBind {HAX0 io.cont} next) =
+    {HAX0 @x (KIOBind (!io.cont x) next)}
+  (KIOBind {HAX1 io.cont} next) =
+    {HAX1 @x (KIOBind (!io.cont x) next)}
+  (KIOBind {HAX1 io.cont} next) =
+    {HAX1 @x (KIOBind (!io.cont x) next)}
+}
+

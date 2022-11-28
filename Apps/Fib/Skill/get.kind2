@@ -7,7 +7,7 @@
 // 13 - 16 : Air Skills
 #kdl_name = Fib_st_appsk
 Apps.Fib.Skill.get (skill : U120) : Apps.Fib.Interaction Unit
-Apps.Fib.Skill.get (U120.new 0 0)  = Apps.Fib.Interaction.pass
+Apps.Fib.Skill.get (U120.new 0 0)  = Apps.Fib.Interaction.fail
 Apps.Fib.Skill.get (U120.new 0 1)  = Apps.Fib.Skill.fireball 
 Apps.Fib.Skill.get (U120.new 0 2)  = Apps.Fib.Skill.flamethrower 
 Apps.Fib.Skill.get (U120.new 0 3)  = Apps.Fib.Skill.flamering
@@ -24,3 +24,4 @@ Apps.Fib.Skill.get (U120.new 0 13) = Apps.Fib.Skill.zephyr
 Apps.Fib.Skill.get (U120.new 0 14) = Apps.Fib.Skill.quickstep
 Apps.Fib.Skill.get (U120.new 0 15) = Apps.Fib.Skill.gust
 Apps.Fib.Skill.get (U120.new 0 16) = Apps.Fib.Skill.whirlwind
+Apps.Fib.Skill.get skill           = Apps.Fib.Interaction.fail

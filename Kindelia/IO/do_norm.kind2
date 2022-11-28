@@ -1,0 +1,3 @@
+#kdl_name = NORM
+#kdl_erase
+Kindelia.IO.do_norm <c: Type> <t: Type> (argm: t) (cont: (_: t) (Kindelia.IO c)) : (Kindelia.IO c)

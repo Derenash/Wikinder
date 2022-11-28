@@ -1,4 +1,5 @@
 //If n is positive, transforms m into a its negative, else, keeps m as it is
+#kdl_name = Fib_u_getneg
 Apps.Fib.U120.get_neg (n: U120) (m: U120) : U120 {
   let is_positive = (U120.greater_than (U120.sub (U120.new 0 0) n) n)
   if  is_positive {

@@ -1,3 +1,4 @@
+#kdl_name = Fib_plr_xpto
 Apps.Fib.Player.xp.total (level: U120) : U120 
 Apps.Fib.Player.xp.total (U120.new 0 1)   =	(U120.new 0 0)
 Apps.Fib.Player.xp.total (U120.new 0 2)   =	(U120.new 0 65)

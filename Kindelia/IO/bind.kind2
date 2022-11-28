@@ -16,6 +16,10 @@ Kindelia.IO.bind a b (Kindelia.IO.do_call io.a io.r io.t io.name io.argm io.cont
 Kindelia.IO.bind a b (Kindelia.IO.do_subj io.a io.cont) next =
   Kindelia.IO.do_subj b (x => Kindelia.IO.bind a b (io.cont x) next)
 
+Kindelia.IO.bind a b (Kindelia.IO.do_norm io.a io.s io.val io.cont) next =
+  Kindelia.IO.do_norm b io.s io.val (x => Kindelia.IO.bind a b (io.cont x) next)
+
+
 Kindelia.IO.bind a b (Kindelia.IO.do_from io.a io.cont) next =
   Kindelia.IO.do_from b (x => Kindelia.IO.bind a b (io.cont x) next)
 
@@ -39,6 +43,9 @@ Kindelia.IO.bind a b (Kindelia.IO.do_meta io.a io.cont) next =
 
 Kindelia.IO.bind a b (Kindelia.IO.do_hax0 io.a io.cont) next =
   Kindelia.IO.do_hax0 b (x => Kindelia.IO.bind a b (io.cont x) next)
+
+Kindelia.IO.bind a b (Kindelia.IO.do_hax1 io.a io.cont) next =
+  Kindelia.IO.do_hax1 b (x => Kindelia.IO.bind a b (io.cont x) next)
 
 Kindelia.IO.bind a b (Kindelia.IO.do_hax1 io.a io.cont) next =
   Kindelia.IO.do_hax1 b (x => Kindelia.IO.bind a b (io.cont x) next)

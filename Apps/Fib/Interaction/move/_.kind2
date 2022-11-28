@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_mov
 Apps.Fib.Interaction.move (pos: Apps.Fib.Pos) (delta: Pair U120 U120) : Apps.Fib.Interaction Bool {
   do Apps.Fib.Interaction {
     let destination = Apps.Fib.Pos.modify pos delta
@@ -5,6 +6,7 @@ Apps.Fib.Interaction.move (pos: Apps.Fib.Pos) (delta: Pair U120 U120) : Apps.Fib
   }
 }
 
+#kdl_name = Fib_itr_movm
 Apps.Fib.Interaction.move.maybe (ori: Apps.Fib.Pos) (des: Maybe Apps.Fib.Pos) : Apps.Fib.Interaction Bool
 Apps.Fib.Interaction.move.maybe ori (Maybe.none t    ) = Apps.Fib.Interaction.pure Bool.false
 Apps.Fib.Interaction.move.maybe ori (Maybe.some t des) =
@@ -13,6 +15,7 @@ Apps.Fib.Interaction.move.maybe ori (Maybe.some t des) =
     Apps.Fib.Interaction.move.if des_id ori des
   }
 
+#kdl_name = Fib_itr_movi
 Apps.Fib.Interaction.move.if (id: Apps.Fib.Id) (ori: Apps.Fib.Pos) (des: Apps.Fib.Pos): Apps.Fib.Interaction Bool
 Apps.Fib.Interaction.move.if (U120.new 0 0) ori des =
   do Apps.Fib.Interaction {

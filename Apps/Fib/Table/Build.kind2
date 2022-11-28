@@ -25,6 +25,7 @@ Apps.Fib.Table.Build.bin.empty_32 : Data.BaseTree [Data.BaseTree.Base.2 Data.Bas
   ) 
 }
 
+#kdl_name = Fib_tab_pe16
 Apps.Fib.Table.Build.bin.empty_16 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2] U120 {
   (Data.BaseTree.Bin.tie 
     Apps.Fib.Table.Build.bin.empty_8 
@@ -32,6 +33,7 @@ Apps.Fib.Table.Build.bin.empty_16 : Data.BaseTree [Data.BaseTree.Base.2 Data.Bas
   )
 }
 
+#kdl_name = Fib_tab_pe08
 Apps.Fib.Table.Build.bin.empty_8 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Base.2 Data.BaseTree.Base.2] U120 {
   (Data.BaseTree.Bin.tie 
     Apps.Fib.Table.Build.bin.empty_4 
@@ -39,12 +41,14 @@ Apps.Fib.Table.Build.bin.empty_8 : Data.BaseTree [Data.BaseTree.Base.2 Data.Base
   ) 
 }
 
+#kdl_name = Fib_tab_pe04
 Apps.Fib.Table.Build.bin.empty_4 : Data.BaseTree [Data.BaseTree.Base.2 Data.BaseTree.Base.2] U120 {
   (Data.BaseTree.Bin.tie 
     Apps.Fib.Table.Build.bin.empty_2 
     Apps.Fib.Table.Build.bin.empty_2) 
 }
 
+#kdl_name = Fib_tab_pe02
 Apps.Fib.Table.Build.bin.empty_2 : Data.BaseTree [Data.BaseTree.Base.2] U120 { 
   (Data.BaseTree.Bin.tie (U120.new 0 0) (U120.new 0 0))
 }

@@ -5,7 +5,7 @@
 //  x  Trigger death effects when killed
 //     Delete Character from the map and table
 
-
+#kdl_name = Fib_itr_dmg
 Apps.Fib.Interaction.damage (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
   do Apps.Fib.Interaction {
     let func      = (player: Apps.Fib.Player) => Apps.Fib.Player.damage player value
@@ -22,6 +22,7 @@ Apps.Fib.Interaction.damage (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interac
   }
 }
 
+#kdl_name = Fib_itr_dmgi
 Apps.Fib.Interaction.damage.if (real_dmg: U120) (health: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit
 Apps.Fib.Interaction.damage.if (U120.new 0 0) health pos = do Apps.Fib.Interaction {return Unit.new}
 Apps.Fib.Interaction.damage.if real_dmg       health pos = 
@@ -35,6 +36,7 @@ Apps.Fib.Interaction.damage.if real_dmg       health pos =
     return Unit.new 
   }
 
+#kdl_name = Fib_itr_dmgr
 Apps.Fib.Interaction.damage.result (died: Bool) (react: Apps.Fib.Interaction Unit) (death: Apps.Fib.Interaction Unit) (id: Apps.Fib.Id) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit
 Apps.Fib.Interaction.damage.result Bool.false react death id pos = react
 Apps.Fib.Interaction.damage.result Bool.true  react death id pos =

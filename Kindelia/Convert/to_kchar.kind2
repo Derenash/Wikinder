@@ -1,3 +1,4 @@
+#kdl_name = Kdl_cv_cchar
 Kindelia.Convert.to_kchar (char: Char) : Maybe U120 {
   if (Char.is_decimal char) {
     Maybe.some (U120.new 0 (- char 47))
