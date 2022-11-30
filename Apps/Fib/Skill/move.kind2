@@ -5,7 +5,10 @@ Apps.Fib.Skill.move : Apps.Fib.Interaction Unit {
     let range    = U120.new 0 1
     let cooldown = U120.new 0 1
 
-    ask origin   = Apps.Fib.Interaction.player.get_pos
+    ask player   = Apps.Fib.Interaction.player.get
+    let exists   = Bool.not (U120.is_zero player)
+    ask            Apps.Fib.Interaction.check exists
+    let origin   = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x player) (Apps.Fib.Player.pos.get_y player)
     ask target   = Apps.Fib.Interaction.target.get
     let delta    = Apps.Fib.Pos.Delta.get origin target
 

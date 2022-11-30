@@ -10,7 +10,7 @@ Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fi
       let res  = move state player_id target.value frame
         match Apps.Fib.Interaction.Result res {
           err => Pair.new state List.nil
-          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk (Sigma.fst target.value) player_id) res.events)
+          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk ( target.value) player_id) res.events)
       }
   }
 }

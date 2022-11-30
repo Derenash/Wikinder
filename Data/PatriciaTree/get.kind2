@@ -3,6 +3,8 @@ Data.PatriciaTree.get a (Data.PatriciaTree.leaf t j x) key =
   Data.PatriciaTree.getAux0 a (U60.equal j key) x
 Data.PatriciaTree.get a (Data.PatriciaTree.branch t p m t0 t1) key = 
   Data.PatriciaTree.getAux1 a (Data.PatriciaTree.matchprefix key p m) key m t0 t1
+Data.PatriciaTree.get a (Data.PatriciaTree.empty) key = 
+  Maybe.none
 
 Data.PatriciaTree.getAux0 <a: Type> (b: Bool) (val: a):  Maybe a
 Data.PatriciaTree.getAux0 a Bool.true  val = Maybe.some val

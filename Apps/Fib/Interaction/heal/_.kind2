@@ -20,7 +20,7 @@ Apps.Fib.Interaction.heal.apply_event (real_heal: U120) (health: U120) (pos: App
 Apps.Fib.Interaction.heal.apply_event (U120.new 0 0)  health pos = do Apps.Fib.Interaction {return Unit.new}
 Apps.Fib.Interaction.heal.apply_event real_heal       health pos = 
   do Apps.Fib.Interaction {
-    let event   = Apps.Fib.Event.heal (Sigma.fst pos) real_heal
+    let event   = Apps.Fib.Event.heal pos real_heal
     ask           Apps.Fib.Interaction.event.add event
     return Unit.new 
   }

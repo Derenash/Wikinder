@@ -1,11 +1,13 @@
 #kdl_name = Fib_itr_dmga
 Apps.Fib.Interaction.damage.area (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
-  let func = 
-    (prev_dmg: U120) =>
-    (pos: Apps.Fib.Pos) => 
-      do Apps.Fib.Interaction {
-        ask dmg = Apps.Fib.Interaction.damage value pos
-        return (U120.add prev_dmg dmg)
-      }
-  Apps.Fib.Interaction.area U120 (func) (U120.new 0 0) coords
+  Apps.Fib.Interaction.damage.area.aux (U120.new 0 0) value coords
 }
+
+#kdl_name = Fib_itr_dmaa
+Apps.Fib.Interaction.damage.area.aux (acc: U120) (value: U120) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction U120
+Apps.Fib.Interaction.damage.area.aux acc value (List.nil r)      = Apps.Fib.Interaction.pure acc 
+Apps.Fib.Interaction.damage.area.aux acc value (List.cons r h t) =
+  do Apps.Fib.Interaction {
+    ask dmg = Apps.Fib.Interaction.damage value h
+    Apps.Fib.Interaction.damage.area.aux (U120.add acc dmg) value t
+  }

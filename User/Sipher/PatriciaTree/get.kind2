@@ -4,6 +4,8 @@ User.Sipher.PatriciaTree.get (User.Sipher.PatriciaTree.leaf k v) key =
   User.Sipher.PatriciaTree.getAux0 (U120.equal k key) v
 User.Sipher.PatriciaTree.get (User.Sipher.PatriciaTree.branch  p m t0 t1) key = 
   User.Sipher.PatriciaTree.getAux1 (User.Sipher.PatriciaTree.matchprefix key p m) key m t0 t1
+User.Sipher.PatriciaTree.get (User.Sipher.PatriciaTree.empty) key = 
+  Maybe.none
 
 #kdl_name = PGetAux
 User.Sipher.PatriciaTree.getAux0 (b: Bool) (val: U120):  Maybe U120

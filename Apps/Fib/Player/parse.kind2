@@ -3,8 +3,8 @@ Apps.Fib.Player.parse (id: Apps.Fib.Id) (player: Apps.Fib.Player) (frame: U120):
   let player_num = (U120.sub_saturated id (U120.new 0 1024))
   let cd         = U120.sub_saturated (Apps.Fib.Player.cd.get player) frame
     [[
-      (Pair.new (Kindelia.Convert.to_kstring "type"   ) (Kindelia.Convert.to_kstring     (("player"))))
       (Pair.new (Kindelia.Convert.to_kstring "num"    ) (Kindelia.Convert.num_to_kstring ((player_num))))
+      (Pair.new (Kindelia.Convert.to_kstring "type"   ) (Kindelia.Convert.to_kstring     (("player"))))
       (Pair.new (Kindelia.Convert.to_kstring "x"      ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_x  player))))
       (Pair.new (Kindelia.Convert.to_kstring "y"      ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.pos.get_y  player))))
       (Pair.new (Kindelia.Convert.to_kstring "hp"     ) (Kindelia.Convert.num_to_kstring ((Apps.Fib.Player.hp.get     player))))

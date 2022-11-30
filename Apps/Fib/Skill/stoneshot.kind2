@@ -16,14 +16,12 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
     ask target   = Apps.Fib.Interaction.target.get
 
     // Damages for more in the center and less on the corners
-    let func = (
-      (target: Apps.Fib.Pos) => (pos: Apps.Fib.Pos) =>
+    let func = 
+      pos =>
         do Apps.Fib.Interaction {
-        ask Apps.Fib.Interaction.damage main_dmg target
-        ask Apps.Fib.Interaction.damage coll_dmg pos
-        return Unit.new
+          ask Apps.Fib.Interaction.damage coll_dmg pos
+          return Unit.new
         }
-      )
 
     // Get the delta of all coordinates within 2 tiles of a point
     let delta = Apps.Fib.Pos.Delta.filled_square range
@@ -31,7 +29,8 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
     // Get the coords for a filled square 
     let area  = Apps.Fib.Pos.range target delta
 
-    ask Apps.Fib.Interaction.area.generic (func target) area
+    ask Apps.Fib.Interaction.damage main_dmg target
+    ask Apps.Fib.Interaction.area.generic func area
 
     // Adds Fatigue to the caster
     ask Apps.Fib.Interaction.player.cast_skill cooldown

@@ -1,5 +1,5 @@
 #kdl_name = Fib_get_user
-Apps.Fib.Kindelia.State.get_user (wallet: U120) (state: Apps.Fib.Kindelia.State) : Maybe U120
-Apps.Fib.Kindelia.State.get_user wallet (Apps.Fib.Kindelia.State.new (Apps.Fib.Kindelia.State.Phase.game players) start state) = 
+Apps.Fib.Kindelia.State.get_user (response: Apps.Fib.Kindelia.Response) (wallet: U120) : Maybe U120
+Apps.Fib.Kindelia.State.get_user (Apps.Fib.Kindelia.Response.state (Apps.Fib.Kindelia.State.new (Apps.Fib.Kindelia.State.Phase.game players) start state)) wallet  = 
   User.Sipher.PatriciaTree.get players wallet
-Apps.Fib.Kindelia.State.get_user wallet state = Maybe.none
+Apps.Fib.Kindelia.State.get_user response wallet  = Maybe.none

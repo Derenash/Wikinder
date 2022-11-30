@@ -13,7 +13,7 @@ Apps.Fib.State.Update.interact (state: Apps.Fib.State) (data: U120) (player_id: 
       let res = int state player_id target.value frame
       match Apps.Fib.Interaction.Result res {
         err => Pair.new state List.nil
-        new => Pair.new res.state (List.cons (Apps.Fib.Event.act_itr (Sigma.fst target.value) player_id) res.events)
+        new => Pair.new res.state (List.cons (Apps.Fib.Event.act_itr ( target.value) player_id) res.events)
       }
       // Apps.Fib.Interaction state object player 
   }

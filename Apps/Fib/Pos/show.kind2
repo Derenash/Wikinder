@@ -1,6 +1,6 @@
 #kdl_name = Fib_pos_show
 Apps.Fib.Pos.show (pos: Apps.Fib.Pos) : String {
-  let pos  = Sigma.fst pos
+  let pos  =  pos
   let func = (func: U120 -> U120) =>
     let coord = func pos
     if (U120.greater_equal coord (U120.new 1 0)) {

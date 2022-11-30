@@ -1,14 +1,144 @@
-fun (U27IiE7ORtsJ x0 x1 x2 x3) {
-  (U27IiE7ORtsJ wallet {Fib_kdl_spga players} ~ ~) =
+fun (sRSXP6SEKRjp x0 x1 x2 x3) {
+  (sRSXP6SEKRjp wallet {Fib_kdl_spga players} ~ ~) =
     (PGet players wallet)
-  (U27IiE7ORtsJ ~ ~ ~ ~) =
+  (sRSXP6SEKRjp ~ ~ ~ ~) =
     {Maybe_none}
 }
 
-// Apps.Fib.Kindelia.State.get_user (wallet: (U120)) (state: (Apps.Fib.Kindelia.State)) : (Maybe (U120))
-fun (Fib_get_user wallet state) {
-  (Fib_get_user wallet {Fib_kdl_snew .0 start state}) =
-    (U27IiE7ORtsJ wallet .0 start state)
+fun (U27IiE7ORtsJ x0 x1) {
+  (U27IiE7ORtsJ wallet {Fib_kdl_snew .0 start state}) =
+    (sRSXP6SEKRjp wallet .0 start state)
+  (U27IiE7ORtsJ ~ ~) =
+    {Maybe_none}
+}
+
+// Apps.Fib.Kindelia.State.get_user (wallet: (U120)) (response: (Apps.Fib.Kindelia.Response)) : (Maybe (U120))
+fun (Fib_get_user wallet response) {
+  (Fib_get_user wallet {Fib_res_stat .0}) =
+    (U27IiE7ORtsJ wallet .0)
   (Fib_get_user ~ ~) =
     {Maybe_none}
 }
+
+// Apps.Fib.Kindelia.Response.state (state: (Apps.Fib.Kindelia.State)) : (Apps.Fib.Kindelia.Response)
+ctr {Fib_res_stat state}
+
+// Apps.Fib.Kindelia.State.new (phase: (Apps.Fib.Kindelia.State.Phase)) (start: (U120)) (state: (Apps.Fib.State)) : (Apps.Fib.Kindelia.State)
+ctr {Fib_kdl_snew phase start state}
+
+// User.Sipher.PatriciaTree.get (map: (User.Sipher.PatriciaTree)) (key: (U120)) : (Maybe (U120))
+fun (PGet map key) {
+  (PGet {PLeaf k v} key) =
+    (PGetAux (U120_equal k key) v)
+  (PGet {PBranch p m t0 t1} key) =
+    dup _2 _3 = m;
+    dup _0 _1 = key;
+    (PGetAux1 (PMatPref _0 p _2) _1 _3 t0 t1)
+}
+
+// User.Sipher.PatriciaTree.getAux0 (b: (Bool)) (val: (U120)) : (Maybe (U120))
+fun (PGetAux b val) {
+  (PGetAux {Bool_true} val) =
+    {Maybe_some val}
+  (PGetAux {Bool_false} ~) =
+    {Maybe_none}
+}
+
+// User.Sipher.PatriciaTree.getAux1 (b: (Bool)) (key: (U120)) (m: (U120)) (t0: (User.Sipher.PatriciaTree)) (t1: (User.Sipher.PatriciaTree)) : (Maybe (U120))
+fun (PGetAux1 b key m t0 t1) {
+  (PGetAux1 {Bool_false} ~ ~ ~ ~) =
+    {Maybe_none}
+  (PGetAux1 {Bool_true} k m t0 t1) =
+    dup _0 _1 = k;
+    (PGetAux2 (PZeroBit _0 m) _1 t0 t1)
+}
+
+// User.Sipher.PatriciaTree.getAux2 (b: (Bool)) (key: (U120)) (t0: (User.Sipher.PatriciaTree)) (t1: (User.Sipher.PatriciaTree)) : (Maybe (U120))
+fun (PGetAux2 b key t0 t1) {
+  (PGetAux2 {Bool_true} k t0 ~) =
+    (PGet t0 k)
+  (PGetAux2 {Bool_false} k ~ t1) =
+    (PGet t1 k)
+}
+
+// U120.equal (a: (U120)) (b: (U120)) : (Bool)
+fun (U120_equal a b) {
+  (U120_equal a b) =
+    (U120_tbool (== a b))
+}
+
+// U120.to_bool (n: (U120)) : (Bool)
+fun (U120_tbool n) {
+  (U120_tbool #0) =
+    {Bool_false}
+  (U120_tbool ~) =
+    {Bool_true}
+}
+
+// U120.new (hi: U60) (lo: U60) : (U120)
+fun (U120_new hi lo) {
+  (U120_new hi lo) =
+    (+ (<< hi #60) (>> (<< lo #60) #60))
+}
+
+// Bool.true : (Bool)
+ctr {Bool_true}
+
+// Bool.false : (Bool)
+ctr {Bool_false}
+
+// User.Sipher.PatriciaTree.zerobit (x: (U120)) (y: (U120)) : (Bool)
+fun (PZeroBit x y) {
+  (PZeroBit x y) =
+    (U120_equal (& x y) #0)
+}
+
+// Maybe.none -(t: Type) : (Maybe t)
+ctr {Maybe_none}
+
+// User.Sipher.PatriciaTree.matchprefix (k: (U120)) (p: (U120)) (m: (U120)) : (Bool)
+fun (PMatPref k p m) {
+  (PMatPref k p m) =
+    (U120_equal (PMask k m) p)
+}
+
+// User.Sipher.PatriciaTree.mask (k: (U120)) (m: (U120)) : (U120)
+fun (PMask k m) {
+  (PMask k m) =
+    (& k (- m #1))
+}
+
+// U60.greater_than (a: U60) (b: U60) : (Bool)
+fun (U60_gtn a b) {
+  (U60_gtn a b) =
+    (U60_tbool (> a b))
+}
+
+// U60.to_bool (n: U60) : (Bool)
+fun (U60_tbool n) {
+  (U60_tbool #0) =
+    {Bool_false}
+  (U60_tbool ~) =
+    {Bool_true}
+}
+
+// Bool.if -(a: Type) (b: (Bool)) (t: a) (f: a) : a
+fun (Bool_if b t f) {
+  (Bool_if {Bool_true} t ~) =
+    t
+  (Bool_if {Bool_false} ~ f) =
+    f
+}
+
+// User.Sipher.PatriciaTree.branch (prefix: (U120)) (branchingbit: (U120)) (left: (User.Sipher.PatriciaTree)) (right: (User.Sipher.PatriciaTree)) : (User.Sipher.PatriciaTree)
+ctr {PBranch prefix branchingbit left right}
+
+// Maybe.some -(t: Type) (value: t) : (Maybe t)
+ctr {Maybe_some value}
+
+// User.Sipher.PatriciaTree.leaf (key: (U120)) (value: (U120)) : (User.Sipher.PatriciaTree)
+ctr {PLeaf key value}
+
+// Apps.Fib.Kindelia.State.Phase.game (players: (User.Sipher.PatriciaTree)) : (Apps.Fib.Kindelia.State.Phase)
+ctr {Fib_kdl_spga players}
+

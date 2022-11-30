@@ -4,7 +4,7 @@ Apps.Fib.Interaction.damage.death (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Uni
     ask id = Apps.Fib.Interaction.entity.get_id_at pos
     ask Apps.Fib.Interaction.entity.del_at_id id
     ask Apps.Fib.Interaction.map.del pos
-    let event = Apps.Fib.Event.death (Sigma.fst pos) id
+    let event = Apps.Fib.Event.death pos id
     Apps.Fib.Interaction.event.add event
   }
 }

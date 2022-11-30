@@ -4,7 +4,7 @@ Apps.Fib.Pos.Delta.test (x_axis: U60) (y_axis: U60) : String {
 
 
 Apps.Fib.Pos.kekw (pos: Apps.Fib.Pos) : Pair U60 U60 {
-  let j = U120.low (Sigma.fst pos)
+  let j = U120.low pos
   let x = (% j 256)
   let y = (>> j 8)
   Pair.new x y

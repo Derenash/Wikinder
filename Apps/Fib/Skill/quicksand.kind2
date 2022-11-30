@@ -23,13 +23,8 @@ Apps.Fib.Skill.quicksand : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.skill.event_use skill_id
 
     // Roots the units in the area
-    let func = (
-      (pos: Apps.Fib.Pos) => 
-      do Apps.Fib.Interaction { 
-        ask Apps.Fib.Interaction.player.add_root_at root pos
-        return Unit.new
-      }
-    )
+    let func = 
+      (pos: Apps.Fib.Pos) => Apps.Fib.Interaction.player.add_root_at root pos
 
     ask Apps.Fib.Interaction.area.generic func area
 

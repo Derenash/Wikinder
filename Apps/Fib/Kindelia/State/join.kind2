@@ -1,7 +1,12 @@
 #kdl_name = Fib_kdl_sjoi
-Apps.Fib.Kindelia.State.join (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120): Maybe (Pair Apps.Fib.State Apps.Fib.Id)
-Apps.Fib.Kindelia.State.join List.nil game players subj = Maybe.none
-Apps.Fib.Kindelia.State.join (List.cons head tail) (Apps.Fib.State.new map table) players subj = 
+Apps.Fib.Kindelia.State.join (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120) : Maybe (Pair Apps.Fib.State Apps.Fib.Id)
+Apps.Fib.Kindelia.State.join pos (Apps.Fib.State.new map table) players subj = 
+  let id = Apps.Fib.Kindelia.State.join.id (U120.new 0 0) table
+  Apps.Fib.Kindelia.State.join.aux id pos (Apps.Fib.State.new map table) players subj
+
+Apps.Fib.Kindelia.State.join.aux (id: Apps.Fib.Id) (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120): Maybe (Pair Apps.Fib.State Apps.Fib.Id)
+Apps.Fib.Kindelia.State.join.aux id List.nil game players subj = Maybe.none
+Apps.Fib.Kindelia.State.join.aux id (List.cons head tail) (Apps.Fib.State.new map table) players subj = 
   let player = User.Sipher.PatriciaTree.get players subj
   match Maybe player {
     none =>
@@ -11,11 +16,11 @@ Apps.Fib.Kindelia.State.join (List.cons head tail) (Apps.Fib.State.new map table
           let map  = p.fst
           let tile = p.snd
           if (U120.is_zero tile) {
-            let id      = Apps.Fib.Kindelia.State.join.id (U120.new 0 1024) table
-            let map     = Apps.Fib.Map.set map id head
-            let player  = Apps.Fib.Player.default (Apps.Fib.Pos.get_x head) (Apps.Fib.Pos.get_y head)
-            let table   = Apps.Fib.Table.set table player id
-            let state   = Apps.Fib.State.new map table
+            let map_id    = U120.add (U120.new 0 1024) id
+            let map       = Apps.Fib.Map.set map (map_id) head
+            let player    = Apps.Fib.Player.default (Apps.Fib.Pos.get_x head) (Apps.Fib.Pos.get_y head)
+            let table     = Apps.Fib.Table.set table player map_id
+            let state     = Apps.Fib.State.new map table
             Maybe.some (Pair.new state id)
           }
           else {
@@ -27,6 +32,6 @@ Apps.Fib.Kindelia.State.join (List.cons head tail) (Apps.Fib.State.new map table
 
 #kdl_name = Fib_kdl_sjid
 Apps.Fib.Kindelia.State.join.id (id: Apps.Fib.Id) (table: Apps.Fib.Table) : Apps.Fib.Id {
-  let entity = Apps.Fib.Table.get table id 
-  if U120.is_zero entity { id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) table }
+  let entity = Apps.Fib.Table.get table (U120.add (U120.new 0 1024) id) 
+  if (U120.is_zero entity) { id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) table }
 }

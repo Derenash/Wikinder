@@ -1862,7 +1862,7 @@ fun (Fic_pos_getx pos) {
     (& (Sigma_fst pos) #255)
 }
 
-// Sigma.fst -(a: Type) -(b: (_: a) Type) (s: (Sigma a b)) : a
+//  -(a: Type) -(b: (_: a) Type) (s: (Sigma a b)) : a
 fun (Sigma_fst s) {
   (Sigma_fst {Sigma_new x ~}) =
     x

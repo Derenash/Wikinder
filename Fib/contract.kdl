@@ -1,17 +1,15 @@
 // Apps.Fib.Kindelia (action: (Apps.Fib.Kindelia.Act)) : (Kindelia.IO (Apps.Fib.Kindelia.Response))
 fun (Fib action) {
   (Fib {Fib_act_act code}) =
-    (KIOBind (KIOTake) @state dup _4 _5 = state;
-    dup _6 _7 = _4;
-    (Fib_kdl_smat _5 @state.phase @~ @~ (KIOBind (KIOTick) @block let phs = state.phase;
+    (KIOBind (KIOTake) @state dup _2 _3 = state;
+    dup _4 _5 = _2;
+    (Fib_kdl_smat _3 @state.phase @~ @~ (KIOBind (KIOTick) @block let phs = state.phase;
     (Fib_kdl_spma phs @~ let result = {Fib_res_wrph};
-    (KIOBind (Fib_save _6) @~ (Fib_done result)) @~ let p = (Fib_kdl_supd _7 code block);
-    dup _2 _3 = p;
-    let state = (Pair_fst _2);
-    let events = (Pair_snd _3);
-    dup _0 _1 = events;
-    let result = (Bool_if (BrTree_isemp _0) {Fib_res_noac} {Fib_res_acte _1});
-    (KIOBind (Fib_save state) @~ (Fib_done result))))))
+    (KIOBind (Fib_save _4) @~ (Fib_done result)) @~ let p = (Fib_kdl_supd _5 code block);
+    (Pair_match p @p.fst @p.snd dup _0 _1 = p.snd;
+    (KIOBind (Fib_save p.fst) @~ (Bool_if (BrTree_isemp _0) let result = {Fib_res_noac};
+    (Fib_done result) let result = {Fib_res_acte _1};
+    (Fib_done result))))))))
   (Fib {Fib_act_get}) =
     (KIOBind (KIOTake) @state dup _0 _1 = state;
     let result = {Fib_res_stat _0};

@@ -27,8 +27,8 @@ Apps.Fib.Interaction.damage.if (real_dmg: U120) (health: U120) (pos: Apps.Fib.Po
 Apps.Fib.Interaction.damage.if (U120.new 0 0) health pos = do Apps.Fib.Interaction {return Unit.new}
 Apps.Fib.Interaction.damage.if real_dmg       health pos = 
   do Apps.Fib.Interaction {
-    let event   = Apps.Fib.Event.damage (Sigma.fst pos) real_dmg
-    ask           Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage (Sigma.fst pos) real_dmg)
+    let event   = Apps.Fib.Event.damage pos real_dmg
+    ask           Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage pos real_dmg)
     ask id      = Apps.Fib.Interaction.entity.get_id_at pos
     let results = (Apps.Fib.Interaction.get_reaction id) real_dmg
     ask Apps.Fib.Interaction.damage.result (U120.is_zero health) (Pair.fst results) (Pair.snd results) id pos

@@ -12,7 +12,11 @@ Apps.Fib.Interaction.move.maybe ori (Maybe.none t    ) = Apps.Fib.Interaction.pu
 Apps.Fib.Interaction.move.maybe ori (Maybe.some t des) =
   do Apps.Fib.Interaction {
     ask des_id      = Apps.Fib.Interaction.entity.get_id_at des
-    Apps.Fib.Interaction.move.if des_id ori des
+    ask ori_id      = Apps.Fib.Interaction.entity.get_id_at ori
+    if (U120.greater_equal ori_id (U120.new 0 512))
+      {Apps.Fib.Interaction.move.if des_id ori des}
+    else 
+      {Apps.Fib.Interaction.pure Bool.false}
   }
 
 #kdl_name = Fib_itr_movi
@@ -21,7 +25,7 @@ Apps.Fib.Interaction.move.if (U120.new 0 0) ori des =
   do Apps.Fib.Interaction {
     let func = (state: Apps.Fib.State) => Apps.Fib.State.player.move state ori des
     ask Apps.Fib.Interaction.state.mut func
-    let event = Apps.Fib.Event.movement (Sigma.fst ori) (Sigma.fst des)
+    let event = Apps.Fib.Event.movement ( ori) ( des)
     ask Apps.Fib.Interaction.event.add event
     return Bool.true
   }
