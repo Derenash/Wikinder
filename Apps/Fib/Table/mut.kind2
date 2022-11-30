@@ -1,4 +1,15 @@
 #kdl_name = Fib_tbl_mut
 Apps.Fib.Table.mut (table: Apps.Fib.Table) (func: Apps.Fib.Entity -> Apps.Fib.Entity) (id: Apps.Fib.Id) : Apps.Fib.Table {
-  Data.BaseTree.mut Apps.Fib.Entity Apps.Fib.Table.Bases table (Apps.Fib.Table.Key.from_id id) func
+  Apps.Fib.Table.mut.aux Apps.Fib.Table.Bases table (U120.mod id 2u120) (U120.shift_right id 1u120) func
 }
+
+#kdl_name = Fib_tbl_muta
+Apps.Fib.Table.mut.aux (bases : List Data.BaseTree.Base) (map : Data.BaseTree bases U120) (step: U120) (key: U120) (func : U120 -> U120) : Data.BaseTree bases U120
+  // Last Branch
+Apps.Fib.Table.mut.aux (List.nil) end step key func =
+  func end
+  // Base 2 Branch
+Apps.Fib.Table.mut.aux (List.cons Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie v2 b0 b1) 0u120 key func =
+  Data.BaseTree.Bin.tie (Apps.Fib.Table.mut.aux tail b0 (U120.mod key 2u120) (U120.shift_right key 1u120) func) b1
+Apps.Fib.Table.mut.aux (List.cons Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie v2 b0 b1) 1u120 key func =
+  Data.BaseTree.Bin.tie b0 (Apps.Fib.Table.mut.aux tail b1 (U120.mod key 2u120) (U120.shift_right key 1u120) func)

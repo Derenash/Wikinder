@@ -13,3 +13,38 @@ Apps.Fib.Map.get.chunk (map: Apps.Fib.Map) (pos: Apps.Fib.Pos) : Pair U120 U120 
   let idx   = Pair.snd keys
   Pair.new chunk idx
 }
+
+
+// #kdl_name = Fib_map_get
+// Apps.Fib.Map.get (map: Apps.Fib.Map) (pos: Apps.Fib.Pos) : Apps.Fib.Id {
+//   let keys = Apps.Fib.Map.get.chunk map pos
+//   match Pair keys {
+//     new => Apps.Fib.Map.get_tile keys.fst keys.snd
+//   }
+// }
+
+// #kdl_name = Fib_map_getc
+// Apps.Fib.Map.get.chunk (map: Apps.Fib.Map) (pos: Apps.Fib.Pos) : Pair U120 U120 {
+//   let key   = U120.div pos 10u120
+//   let chunk = Apps.Fib.Map.get.aux Apps.Fib.Map.Bases (U120.mod key 5u120) (U120.div key 5u120) map
+//   let idx   = U120.mod pos 10u120
+//   Pair.new chunk idx
+// }
+
+// Apps.Fib.Map.get.aux (bases: List Data.BaseTree.Base) (step: U120) (key: U120) (map: Data.BaseTree bases U120) : U120
+// Apps.Fib.Map.get.aux (List.nil t) step key val = val
+// Apps.Fib.Map.get.aux (List.cons r0 Data.BaseTree.Base.5 bs) 0u120 key (Data.BaseTree.Qui.tie r1 b0 b1 b2 b3 b4) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b0
+// Apps.Fib.Map.get.aux (List.cons r0 Data.BaseTree.Base.5 bs) 1u120 key (Data.BaseTree.Qui.tie r1 b0 b1 b2 b3 b4) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b1
+// Apps.Fib.Map.get.aux (List.cons r0 Data.BaseTree.Base.5 bs) 2u120 key (Data.BaseTree.Qui.tie r1 b0 b1 b2 b3 b4) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b2
+// Apps.Fib.Map.get.aux (List.cons r0 Data.BaseTree.Base.5 bs) 3u120 key (Data.BaseTree.Qui.tie r1 b0 b1 b2 b3 b4) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b3
+// Apps.Fib.Map.get.aux (List.cons r0 Data.BaseTree.Base.5 bs) 4u120 key (Data.BaseTree.Qui.tie r1 b0 b1 b2 b3 b4) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b4
+// Apps.Fib.Map.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 0u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b0
+// Apps.Fib.Map.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 1u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+//   Apps.Fib.Map.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b1
+

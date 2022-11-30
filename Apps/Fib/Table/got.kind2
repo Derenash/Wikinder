@@ -1,5 +1,30 @@
 #kdl_name = Fib_tbl_got
 Apps.Fib.Table.got (map: Apps.Fib.Table) (id: Apps.Fib.Id) : Pair Apps.Fib.Table Apps.Fib.Entity {
-  Data.BaseTree.got Apps.Fib.Entity Apps.Fib.Table.Bases (Apps.Fib.Table.Key.from_id id) map
+  Apps.Fib.Table.got.aux Apps.Fib.Table.Bases (U120.mod id 2u120) (U120.shift_right id 1u120) map
 }
 
+#kdl_name = Fib_tbl_gota
+Apps.Fib.Table.got.aux (bases: List Data.BaseTree.Base) (step: U120) (key: U120) (map: Data.BaseTree bases U120): Pair (Data.BaseTree bases U120) U120
+Apps.Fib.Table.got.aux (List.nil t) step key val = Pair.new val val
+Apps.Fib.Table.got.aux (List.cons b.t Data.BaseTree.Base.2 bs) 0u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+  match Pair res = Apps.Fib.Table.got.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b0 {
+    new => Pair.new (Data.BaseTree.Bin.tie m.t res.fst b1) res.snd
+  }
+Apps.Fib.Table.got.aux (List.cons b.t Data.BaseTree.Base.2 bs) 1u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+  match Pair res = Apps.Fib.Table.got.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b1 {
+    new => Pair.new (Data.BaseTree.Bin.tie m.t b0 res.fst) res.snd
+  }
+
+// Main {
+//   let map = Apps.Fib.Table.Build
+//   let p   = Apps.Fib.Table.got map 1000u120
+//   match Pair p {
+//     new => p.snd
+//   }
+// }
+
+// Main {
+//   let map = Apps.Fib.Table.Build
+//   let p   = Apps.Fib.Table.get map 1000u120
+//   p
+// }

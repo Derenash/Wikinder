@@ -1,4 +1,15 @@
 #kdl_name = Fib_tbl_set
 Apps.Fib.Table.set (map: Apps.Fib.Table) (entity: Apps.Fib.Entity) (id: Apps.Fib.Id) : Apps.Fib.Table {
-  Data.BaseTree.set Apps.Fib.Entity Apps.Fib.Table.Bases (Apps.Fib.Table.Key.from_id id) map entity
+  Apps.Fib.Table.set.aux Apps.Fib.Table.Bases map (U120.mod id 2u120) (U120.shift_right id 1u120) entity
 }
+
+#kdl_name = Fib_tbl_seta
+Apps.Fib.Table.set.aux (bases : List Data.BaseTree.Base) (map : Data.BaseTree bases U120) (step: U120) (key: U120) (val : U120) : Data.BaseTree bases U120
+  // Last Branch
+Apps.Fib.Table.set.aux (List.nil) end step key val =
+  val
+  // Base 2 Branch
+Apps.Fib.Table.set.aux (List.cons Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie v2 b0 b1) 0u120 key val =
+  Data.BaseTree.Bin.tie (Apps.Fib.Table.set.aux tail b0 (U120.mod key 2u120) (U120.shift_right key 1u120) val) b1
+Apps.Fib.Table.set.aux (List.cons Data.BaseTree.Base.2 tail) (Data.BaseTree.Bin.tie v2 b0 b1) 1u120 key val =
+  Data.BaseTree.Bin.tie b0 (Apps.Fib.Table.set.aux tail b1 (U120.mod key 2u120) (U120.shift_right key 1u120) val)
