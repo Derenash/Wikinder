@@ -13,7 +13,7 @@ Apps.Fib.Kindelia.skill (a: Apps.Fib.Pos) (b: Apps.Fib.Pos) (id: U120) (skill: U
 }
 
 
-Main : _ {
+Main {
   // Initial State
   let state  = Apps.Fib.State.Build
   // let player = (x: U120) => (y: U120) => Apps.Fib.Player.new x y (U120.new 0 1024) (U120.new 0 100) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) [(U120.new 0 1)]
@@ -38,10 +38,10 @@ Main : _ {
   // let t_shw0 = Apps.Fib.Table.show_players (Apps.Fib.State.get_table state)
   // Action code for Player 0 casting Fireball on Player 1
   // (U120.new 0 0) stands for the first skill in a character
-  // let code_0 = Apps.Fib.Kindelia.walk (U120.new 0 3) (U120.new 0 0)
+  let code_2    = Apps.Fib.Kindelia.walk (U120.new 0 3) (U120.new 0 0)
   // let code_1 = Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 1)
   // let code_0 = Apps.Fib.Interact.skill p0_id (U120.new 0 0) (U120.new 0 3) (U120.new 0 13)
-  let code_2 = Apps.Fib.Kindelia.skill p0_pos p0_pos (U120.new 0 1024) (U120.new 0 0)
+  // let code_2 = Apps.Fib.Kindelia.skill p0_pos p0_pos (U120.new 0 1024) (U120.new 0 0)
   // let code_2 = (U120.new 0 10560512)
   // let code_0 = Apps.Fib.Interact.pos.skill p0_id (U120.new 0 0) (Apps.Fib.Pos.get_x p0_pos) (Apps.Fib.Pos.get_y p0_pos) (Apps.Fib.Pos.get_x p1_pos) (Apps.Fib.Pos.get_y p1_pos)
   
@@ -61,7 +61,9 @@ Main : _ {
   // let entity = Apps.Fib.Table.get table (U120.new 0 1024)
   // let id = Apps.Fib.Map.get map p0_pos
   // Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 2)
-  Pair.snd updatr
+  // Pair.snd updatr
+  let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1024u120
+  Apps.Fib.Player.show p
   // events
   // id
   // Apps.Fib.Player.show entity

@@ -1,11 +1,14 @@
 #kdl_name = Fib_kdl_sjoi
-Apps.Fib.Kindelia.State.join (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120) : Maybe (Pair Apps.Fib.State Apps.Fib.Id)
+Apps.Fib.Kindelia.State.join (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120) : Pair Apps.Fib.State (Maybe Apps.Fib.Id)
 Apps.Fib.Kindelia.State.join pos (Apps.Fib.State.new map table) players subj = 
   let id = Apps.Fib.Kindelia.State.join.id (U120.new 0 0) table
-  Apps.Fib.Kindelia.State.join.aux id pos (Apps.Fib.State.new map table) players subj
+  match Pair id {
+    new =>
+      Apps.Fib.Kindelia.State.join.aux id.snd pos (Apps.Fib.State.new map id.fst) players subj
+  }
 
-Apps.Fib.Kindelia.State.join.aux (id: Apps.Fib.Id) (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120): Maybe (Pair Apps.Fib.State Apps.Fib.Id)
-Apps.Fib.Kindelia.State.join.aux id List.nil game players subj = Maybe.none
+Apps.Fib.Kindelia.State.join.aux (id: Apps.Fib.Id) (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120): Pair Apps.Fib.State (Maybe Apps.Fib.Id)
+Apps.Fib.Kindelia.State.join.aux id List.nil game players subj = Pair.new game Maybe.none
 Apps.Fib.Kindelia.State.join.aux id (List.cons head tail) (Apps.Fib.State.new map table) players subj = 
   let player = User.Sipher.PatriciaTree.get players subj
   match Maybe player {
@@ -21,17 +24,20 @@ Apps.Fib.Kindelia.State.join.aux id (List.cons head tail) (Apps.Fib.State.new ma
             let player    = Apps.Fib.Player.default (Apps.Fib.Pos.get_x head) (Apps.Fib.Pos.get_y head)
             let table     = Apps.Fib.Table.set table player map_id
             let state     = Apps.Fib.State.new map table
-            Maybe.some (Pair.new state id)
+            Pair.new state (Maybe.some id)
           }
           else {
             Apps.Fib.Kindelia.State.join tail (Apps.Fib.State.new map table) players subj
           }
       }
-    some => Maybe.none
+    some => Pair.new (Apps.Fib.State.new map table) Maybe.none
   }
 
 #kdl_name = Fib_kdl_sjid
-Apps.Fib.Kindelia.State.join.id (id: Apps.Fib.Id) (table: Apps.Fib.Table) : Apps.Fib.Id {
-  let entity = Apps.Fib.Table.get table (U120.add (U120.new 0 1024) id) 
-  if (U120.is_zero entity) { id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) table }
+Apps.Fib.Kindelia.State.join.id (id: Apps.Fib.Id) (table: Apps.Fib.Table) : Pair Apps.Fib.Table Apps.Fib.Id {
+  let entity = Apps.Fib.Table.got table (U120.add (U120.new 0 1024) id) 
+  match Pair entity {
+    new =>
+      if (U120.is_zero entity.snd) { entity } else { Apps.Fib.Kindelia.State.join.id (U120.inc entity.snd) entity.fst }
+  }
 }

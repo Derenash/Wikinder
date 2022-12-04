@@ -1,9 +1,15 @@
 #kdl_name = Fib_itr_egid
 Apps.Fib.Interaction.entity.get_id : Apps.Fib.Interaction Apps.Fib.Id {
-  do Apps.Fib.Interaction {
-    ask map = Apps.Fib.Interaction.map.get
-    ask pos = Apps.Fib.Interaction.target.get
-    let id  = Apps.Fib.Map.get map pos
-    return id
-  }
+  (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
+    Apps.Fib.Interaction.entity.get_id.aux state player target frame
 }
+
+
+#kdl_name = Fib_itr_ega1
+Apps.Fib.Interaction.entity.get_id.aux (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
+Apps.Fib.Interaction.entity.get_id.aux (Apps.Fib.State.new map table) player target frame = 
+  let id = Apps.Fib.Map.got map target
+  match Pair id {
+    new =>
+      Apps.Fib.Interaction.Result.new id.snd (Apps.Fib.State.new id.fst table) player target frame List.nil
+  }

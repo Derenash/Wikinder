@@ -1,12 +1,14 @@
 #kdl_name = Fib_tbl_get
 Apps.Fib.Table.get  (map: Apps.Fib.Table) (id: Apps.Fib.Id) : Apps.Fib.Entity {
-  Apps.Fib.Table.get.aux Apps.Fib.Table.Bases (U60.mod (U120.low id) 2) (U60.shift_right (U120.low id) 1) map
+  HVM.log id (Apps.Fib.Table.get.aux Apps.Fib.Table.Bases (U120.mod id 2u120) (U120.shift_right id 1u120) map)
 }
 
 #kdl_name = Fib_tbl_geta
-Apps.Fib.Table.get.aux (bases: List Data.BaseTree.Base) (step: U60) (key: U60) (map: Data.BaseTree bases U120): U120
+Apps.Fib.Table.get.aux (bases: List Data.BaseTree.Base) (step: U120) (key: U120) (map: Data.BaseTree bases U120): U120
 Apps.Fib.Table.get.aux (List.nil t) step key val = val
-Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 0 key (Data.BaseTree.Bin.tie m.t b0 b1) =
-  Apps.Fib.Table.get.aux bs (U60.mod key 2) (U60.shift_right key 1) b0
-Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 1 key (Data.BaseTree.Bin.tie m.t b0 b1) =
-  Apps.Fib.Table.get.aux bs (U60.mod key 2) (U60.shift_right key 1) b1
+Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 0u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+  Apps.Fib.Table.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b0
+Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 1u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
+  Apps.Fib.Table.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b1
+
+  // [2617372 mana | 13417 size]

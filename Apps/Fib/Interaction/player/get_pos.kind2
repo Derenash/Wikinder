@@ -1,10 +1,16 @@
 #kdl_name = Fib_itr_pgxy
 Apps.Fib.Interaction.player.get_pos : Apps.Fib.Interaction Apps.Fib.Pos {
-  do Apps.Fib.Interaction {
-    ask id     = Apps.Fib.Interaction.player.get_id
-    ask table  = Apps.Fib.Interaction.table.get
-    let player = Apps.Fib.Table.get table id
-    let pos    = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x player) (Apps.Fib.Player.pos.get_y player)
-    return pos
-  }
+  (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
+  Apps.Fib.Interaction.player.get_pos.aux state player target frame
 }
+
+
+#kdl_name = Fib_itr_pgpa
+Apps.Fib.Interaction.player.get_pos.aux (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
+Apps.Fib.Interaction.player.get_pos.aux (Apps.Fib.State.new map table) player target frame = 
+  let entity = Apps.Fib.Table.got table player
+  match Pair entity {
+    new =>
+      let pos = Apps.Fib.Player.pos.get entity.snd
+      Apps.Fib.Interaction.Result.new pos (Apps.Fib.State.new map entity.fst) player target frame List.nil
+  }
