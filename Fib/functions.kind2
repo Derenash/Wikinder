@@ -9,15 +9,17 @@ Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.action code) = do Kindelia.IO {
       let phs = state.phase
       match Apps.Fib.Kindelia.State.Phase phs {
         game => do Kindelia.IO {
-          let p      = Apps.Fib.Kindelia.State.update (Apps.Fib.Kindelia.State.new state.phase state.start state.state) code block
+          let p = Apps.Fib.State.Update state.state code (U120.sub_saturated block state.start)
           match Pair p {
             new => do Kindelia.IO {
-              ask Apps.Fib.Kindelia.save p.fst
+              let state  = Apps.Fib.Kindelia.State.new phs block p.fst
+              let id     = Apps.Fib.Action.get_id code
+              ask Apps.Fib.Kindelia.save state
                 if (Data.BraunTree.is_empty p.snd) {
-                  let result = Apps.Fib.Kindelia.Response.act_fail
+                  let result = Apps.Fib.Kindelia.Response.act_fail id
                   Apps.Fib.Kindelia.done result }
                 else {
-                  let result = Apps.Fib.Kindelia.Response.acted p.snd
+                  let result = Apps.Fib.Kindelia.Response.acted id p.snd
                   Apps.Fib.Kindelia.done result }
             }
                
@@ -75,8 +77,7 @@ Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.start) = do Kindelia.IO {
             match Apps.Fib.Kindelia.To_start data {
               new => do Kindelia.IO {
                 let phs    = Apps.Fib.Kindelia.State.Phase.game data.users
-                let timer  = U120.new 0 0
-                let state  = Apps.Fib.Kindelia.State.new phs timer data.state
+                let state  = Apps.Fib.Kindelia.State.new phs tick data.state
                 let result = Apps.Fib.Kindelia.Response.started tick
                 ask          Apps.Fib.Kindelia.save state
                 Apps.Fib.Kindelia.done result
@@ -125,7 +126,7 @@ Apps.Fib.Kindelia.join_game (subj: U120) (start: U120) (players: User.Sipher.Pat
       match Maybe p.snd {
         none =>
           do Kindelia.IO {
-            let result = Apps.Fib.Kindelia.Response.join_fail
+            let result = Apps.Fib.Kindelia.Response.join_fail subj
             let state  = Apps.Fib.Kindelia.State.new (Apps.Fib.Kindelia.State.Phase.game players) start p.fst
             ask          Apps.Fib.Kindelia.save state
             Apps.Fib.Kindelia.done result
@@ -134,7 +135,7 @@ Apps.Fib.Kindelia.join_game (subj: U120) (start: U120) (players: User.Sipher.Pat
           do Kindelia.IO {
             let players = User.Sipher.PatriciaTree.set players subj p.snd.value
             let state   = Apps.Fib.Kindelia.State.new (Apps.Fib.Kindelia.State.Phase.game players) start p.fst
-            let result  = Apps.Fib.Kindelia.Response.joined p.snd.value
+            let result  = Apps.Fib.Kindelia.Response.joined subj p.snd.value
             ask           Apps.Fib.Kindelia.save state
             Apps.Fib.Kindelia.done result
           }
@@ -154,14 +155,14 @@ Apps.Fib.Kindelia.join_lobby (subj: U120) (kgt: U120) (start: U120) (state: Apps
       let state   = Apps.Fib.Kindelia.State.new phase start state
       match Maybe find {
         some => do Kindelia.IO {
-          let result = Apps.Fib.Kindelia.Response.queued find.value        
+          let result = Apps.Fib.Kindelia.Response.queued subj     
           ask          Apps.Fib.Kindelia.save state
           Apps.Fib.Kindelia.done result
         }
         none => do Kindelia.IO {
           let floor  = List.last queue
           let value  = Maybe.extract floor (U120.new 0 0) (x => Apps.Fib.Kindelia.State.Phase.User.kgt x)
-          let result = Apps.Fib.Kindelia.Response.queue_fail value
+          let result = Apps.Fib.Kindelia.Response.queue_fail subj
           ask          Apps.Fib.Kindelia.save state
           Apps.Fib.Kindelia.done result
         }
@@ -170,7 +171,7 @@ Apps.Fib.Kindelia.join_lobby (subj: U120) (kgt: U120) (start: U120) (state: Apps
     some =>  do Kindelia.IO {
       let phase   = Apps.Fib.Kindelia.State.Phase.lobby queue
       let state   = Apps.Fib.Kindelia.State.new phase start state
-      let result  = Apps.Fib.Kindelia.Response.queue_fail (U120.new 0 0)
+      let result  = Apps.Fib.Kindelia.Response.queue_fail subj
       ask           Apps.Fib.Kindelia.save state
       Apps.Fib.Kindelia.done result
     }

@@ -8,5 +8,8 @@ Apps.Fib.State.Update (Apps.Fib.State.new map tab) action frame =
   match Pair ent {
     new =>
       let p       = Apps.Fib.State.Update.command (Apps.Fib.State.new map ent.fst) comm data id ent.snd frame
-      Pair.new (Pair.fst p) (Data.BraunTree.make_array (Pair.snd p))
+      match Pair p {
+        new =>
+          Pair.new p.fst (Data.BraunTree.make_array p.snd)
+      }
   }

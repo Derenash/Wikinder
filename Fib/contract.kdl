@@ -1,14 +1,21 @@
 // Apps.Fib.Kindelia (action: (Apps.Fib.Kindelia.Act)) : (Kindelia.IO (Apps.Fib.Kindelia.Response))
 fun (Fib action) {
   (Fib {Fib_act_act code}) =
-    (KIOBind (KIOTake) @state dup _2 _3 = state;
-    dup _4 _5 = _2;
-    (Fib_kdl_smat _3 @state.phase @~ @~ (KIOBind (KIOTick) @block let phs = state.phase;
-    (Fib_kdl_spma phs @~ let result = {Fib_res_wrph};
-    (KIOBind (Fib_save _4) @~ (Fib_done result)) @~ let p = (Fib_kdl_supd _5 code block);
-    (Pair_match p @p.fst @p.snd dup _0 _1 = p.snd;
-    (KIOBind (Fib_save p.fst) @~ (Bool_if (BrTree_isemp _0) let result = {Fib_res_noac};
-    (Fib_done result) let result = {Fib_res_acte _1};
+    dup _0 _1 = code;
+    (KIOBind (KIOTake) @state (Fib_kdl_smat state @state.phase dup _14 _15 = state.phase;
+    @state.start dup _12 _13 = state.start;
+    @state.state dup _10 _11 = state.state;
+    (KIOBind (KIOTick) @block dup _8 _9 = block;
+    let phs = _14;
+    dup _6 _7 = phs;
+    (Fib_kdl_spma _6 @~ let result = {Fib_res_wrph};
+    (KIOBind (Fib_save {Fib_kdl_snew _15 _12 _10}) @~ (Fib_done result)) @~ let p = (Fib_st_upd _11 _0 (U120_sub_sat _8 _13));
+    (Pair_match p @p.fst @p.snd dup _4 _5 = p.snd;
+    let state = {Fib_kdl_snew _7 _9 p.fst};
+    let id = (Fib_ac_gid _1);
+    dup _2 _3 = id;
+    (KIOBind (Fib_save state) @~ (Bool_if (BrTree_isemp _4) let result = {Fib_res_noac _2};
+    (Fib_done result) let result = {Fib_res_acte _3 _5};
     (Fib_done result))))))))
   (Fib {Fib_act_get}) =
     (KIOBind (KIOTake) @state dup _0 _1 = state;
@@ -21,25 +28,26 @@ fun (Fib action) {
     let phs = s.phase;
     (Fib_kdl_spma phs @phs.queue (Fib_kdl_jlob _0 kgt _4 _2 phs.queue) @phs.players (Fib_kdl_jgam _1 _5 phs.players _3)))))
   (Fib {Fib_act_strt}) =
-    (KIOBind (KIOTake) @state dup _2 _3 = state;
+    (KIOBind (KIOTake) @state (KIOBind (KIOTick) @tick dup _10 _11 = tick;
+    dup _12 _13 = _10;
+    (Fib_kdl_smat state @state.phase @state.start dup _6 _7 = state.start;
+    dup _8 _9 = _6;
+    @state.state dup _2 _3 = state.state;
     dup _4 _5 = _2;
-    dup _6 _7 = _3;
-    (KIOBind (KIOTick) @tick dup _0 _1 = tick;
-    (Fib_kdl_smat _4 @state.phase @state.start @~ let phase = state.phase;
-    (Fib_kdl_spma phase @phase.queue let to_start = #300;
-    let duration = (U120_sub_sat _0 state.start);
+    let phs = state.phase;
+    (Fib_kdl_spma phs @phs.queue dup _0 _1 = phs.queue;
+    let to_start = #300;
+    let duration = (U120_sub_sat _11 _7);
     let can_start = {Bool_true};
     (Bool_if can_start let starts = (Fib_map_inpo);
-    let acc = {Fib_kdl_tsne starts {PEmpty} (Fib_kdl_sgst _5) #0};
-    let fold = (List_fold phase.queue);
+    let acc = {Fib_kdl_tsne starts {PEmpty} _3 #0};
+    let fold = (List_fold _0);
     let data = (!(!fold acc) (Fib_kdl_tstf));
-    (Fib_kdl_tsma data @~ @data.users @data.state @~ let phase = {Fib_kdl_spga data.users};
-    let timer = #0;
-    let state = data.state;
-    let state = {Fib_kdl_snew phase timer state};
-    let result = {Fib_res_star _1};
-    (KIOBind (Fib_save state) @~ (Fib_done result))) (KIOBind (Fib_save _6) @~ let result = {Fib_res_nost (U120_sub_sat to_start duration)};
-    (Fib_done result))) @~ (KIOBind (Fib_save _7) @~ {DONE {Fib_res_wrph}})))))
+    (Fib_kdl_tsma data @~ @data.users @data.state @~ let phs = {Fib_kdl_spga data.users};
+    let state = {Fib_kdl_snew phs _12 data.state};
+    let result = {Fib_res_star _13};
+    (KIOBind (Fib_save state) @~ (Fib_done result))) (KIOBind (Fib_save {Fib_kdl_snew {Fib_kdl_splo _1} _8 _4}) @~ let result = {Fib_res_nost (U120_sub_sat to_start duration)};
+    (Fib_done result))) @phs.players (KIOBind (Fib_save {Fib_kdl_snew {Fib_kdl_spga phs.players} _9 _5}) @~ {DONE {Fib_res_wrph}})))))
   (Fib {Fib_act_rst}) =
     (KIOBind (KIOTake) @state dup _0 _1 = state;
     (KIOBind (KIOTick) @~ (Fib_kdl_smat _0 @state.phase @~ @~ let phase = state.phase;

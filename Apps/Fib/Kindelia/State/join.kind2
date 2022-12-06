@@ -38,6 +38,6 @@ Apps.Fib.Kindelia.State.join.id (id: Apps.Fib.Id) (table: Apps.Fib.Table) : Pair
   let entity = Apps.Fib.Table.got table (U120.add (U120.new 0 1024) id) 
   match Pair entity {
     new =>
-      if (U120.is_zero entity.snd) { entity } else { Apps.Fib.Kindelia.State.join.id (U120.inc entity.snd) entity.fst }
+      if (U120.is_zero entity.snd) { Pair.new entity.fst id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) entity.fst }
   }
 }

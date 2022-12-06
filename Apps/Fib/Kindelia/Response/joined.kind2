@@ -1,3 +1,3 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Response/_.type
 #kdl_name = Fib_res_join
-Apps.Fib.Kindelia.Response.joined (id: U120) : (Apps.Fib.Kindelia.Response)
+Apps.Fib.Kindelia.Response.joined (wallet: U120) (id: U120) : (Apps.Fib.Kindelia.Response)

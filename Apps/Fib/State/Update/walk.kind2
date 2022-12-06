@@ -1,5 +1,5 @@
 #kdl_name = Fib_st_walk
-Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fib.Entity) (player_id: Apps.Fib.Id) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
+Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (player_id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
   let pos        = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x entity) (Apps.Fib.Player.pos.get_y entity)
   let delta      = Apps.Fib.State.Update.walk.direction data
   let target     = Apps.Fib.Pos.modify pos delta
@@ -15,6 +15,7 @@ Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (entity: Apps.Fi
   }
 }
 
+#kdl_name = Fib_st_walkd
 Apps.Fib.State.Update.walk.direction (data: U120) : Pair U120 U120 
 Apps.Fib.State.Update.walk.direction (U120.new 0 0) = Pair.new (U120.new 0 0) (U120.sub (U120.new 0 0) (U120.new 0 1))
 Apps.Fib.State.Update.walk.direction (U120.new 0 1) = Pair.new (U120.sub (U120.new 0 0) (U120.new 0 1)) (U120.new 0 0)
