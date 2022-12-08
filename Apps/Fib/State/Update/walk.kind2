@@ -1,6 +1,6 @@
 #kdl_name = Fib_st_walk
 Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (player_id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
-  let pos        = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x entity) (Apps.Fib.Player.pos.get_y entity)
+  let pos        = Apps.Fib.Player.pos.get entity
   let delta      = Apps.Fib.State.Update.walk.direction data
   let target     = Apps.Fib.Pos.modify pos delta
   match Maybe target {

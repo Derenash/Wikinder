@@ -1,6 +1,6 @@
 #kdl_name = Fib_tbl_get
 Apps.Fib.Table.get  (map: Apps.Fib.Table) (id: Apps.Fib.Id) : Apps.Fib.Entity {
-  HVM.log id (Apps.Fib.Table.get.aux Apps.Fib.Table.Bases (U120.mod id 2u120) (U120.shift_right id 1u120) map)
+  Apps.Fib.Table.get.aux Apps.Fib.Table.Bases (U120.mod id 2u120) (U120.shift_right id 1u120) map
 }
 
 #kdl_name = Fib_tbl_geta
@@ -10,5 +10,3 @@ Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 0u120 key (Data.B
   Apps.Fib.Table.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b0
 Apps.Fib.Table.get.aux (List.cons b.t Data.BaseTree.Base.2 bs) 1u120 key (Data.BaseTree.Bin.tie m.t b0 b1) =
   Apps.Fib.Table.get.aux bs (U120.mod key 2u120) (U120.shift_right key 1u120) b1
-
-  // [2617372 mana | 13417 size]

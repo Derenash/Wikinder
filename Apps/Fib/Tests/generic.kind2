@@ -46,8 +46,10 @@ Main {
   // let code_0 = Apps.Fib.Interact.pos.skill p0_id (U120.new 0 0) (Apps.Fib.Pos.get_x p0_pos) (Apps.Fib.Pos.get_y p0_pos) (Apps.Fib.Pos.get_x p1_pos) (Apps.Fib.Pos.get_y p1_pos)
   
   // let update = Apps.Fib.State.Update state code_0 (U120.new 0 1024)
-  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1025)
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1000)
   // let state  = Pair.fst update
+  // let state  = Pair.fst updatr
+  // let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1035)
   let state  = Pair.fst updatr
   // let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1020)
   // let events = [(Pair.snd update) (Pair.snd updatr)]
@@ -63,7 +65,8 @@ Main {
   // Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 2)
   // Pair.snd updatr
   let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1024u120
-  Apps.Fib.Player.show p
+  // Apps.Fib.Player.show p
+  Apps.Fib.Player.sl.get p
   // events
   // id
   // Apps.Fib.Player.show entity

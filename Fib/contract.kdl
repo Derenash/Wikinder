@@ -3,17 +3,17 @@ fun (Fib action) {
   (Fib {Fib_act_act code}) =
     dup _0 _1 = code;
     (KIOBind (KIOTake) @state (Fib_kdl_smat state @state.phase dup _14 _15 = state.phase;
-    @state.start dup _12 _13 = state.start;
-    @state.state dup _10 _11 = state.state;
-    (KIOBind (KIOTick) @block dup _8 _9 = block;
-    let phs = _14;
+    @state.start dup _10 _11 = state.start;
+    dup _12 _13 = _10;
+    @state.state dup _8 _9 = state.state;
+    (KIOBind (KIOTick) @block let phs = _14;
     dup _6 _7 = phs;
     (Fib_kdl_spma _6 @~ let result = {Fib_res_wrph};
-    (KIOBind (Fib_save {Fib_kdl_snew _15 _12 _10}) @~ (Fib_done result)) @~ let p = (Fib_st_upd _11 _0 (U120_sub_sat _8 _13));
+    (KIOBind (Fib_save {Fib_kdl_snew _15 _11 _8}) @~ (Fib_done result)) @~ let p = (Fib_st_upd _9 _0 (U120_sub_sat block _12));
     (Pair_match p @p.fst @p.snd dup _4 _5 = p.snd;
-    let state = {Fib_kdl_snew _7 _9 p.fst};
-    let id = (Fib_ac_gid _1);
-    dup _2 _3 = id;
+    let state = {Fib_kdl_snew _7 _13 p.fst};
+    let player_num = (- (Fib_ac_gid _1) #1024);
+    dup _2 _3 = player_num;
     (KIOBind (Fib_save state) @~ (Bool_if (BrTree_isemp _4) let result = {Fib_res_noac _2};
     (Fib_done result) let result = {Fib_res_acte _3 _5};
     (Fib_done result))))))))

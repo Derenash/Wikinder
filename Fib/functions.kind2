@@ -5,21 +5,21 @@ Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.action code) = do Kindelia.IO {
   ask state = Kindelia.IO.take
   match Apps.Fib.Kindelia.State state {
     new => do Kindelia.IO {
-      ask block = Kindelia.IO.tick
-      let phs = state.phase
+      ask current_blk = Kindelia.IO.tick
+      let phs         = state.phase
       match Apps.Fib.Kindelia.State.Phase phs {
         game => do Kindelia.IO {
-          let p = Apps.Fib.State.Update state.state code (U120.sub_saturated block state.start)
+          let p = Apps.Fib.State.Update state.state code (U120.sub_saturated current_blk state.start)
           match Pair p {
             new => do Kindelia.IO {
-              let state  = Apps.Fib.Kindelia.State.new phs block p.fst
-              let id     = Apps.Fib.Action.get_id code
+              let state       = Apps.Fib.Kindelia.State.new phs state.start p.fst
+              let player_num  = (U120.sub (Apps.Fib.Action.get_id code) (U120.new 0 1024))
               ask Apps.Fib.Kindelia.save state
                 if (Data.BraunTree.is_empty p.snd) {
-                  let result = Apps.Fib.Kindelia.Response.act_fail id
+                  let result  = Apps.Fib.Kindelia.Response.act_fail player_num
                   Apps.Fib.Kindelia.done result }
                 else {
-                  let result = Apps.Fib.Kindelia.Response.acted id p.snd
+                  let result  = Apps.Fib.Kindelia.Response.acted player_num p.snd
                   Apps.Fib.Kindelia.done result }
             }
                
