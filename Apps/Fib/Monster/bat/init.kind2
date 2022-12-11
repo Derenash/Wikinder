@@ -1,6 +1,6 @@
+#kdl_name = Fib_mon_init
 Apps.Fib.Monster.bat.init (pos: Apps.Fib.Pos): U120 {
   let hp   = U120.new 0 100
   let rest = U120.new 0 0
-  Apps.Fib.Monster.create pos hp rest
-  
+  Apps.Fib.Monster.create pos hp rest 
 }

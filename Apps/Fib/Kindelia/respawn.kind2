@@ -1,0 +1,4 @@
+#kdl_name = Fib_kdl_rsp
+Apps.Fib.Kindelia.respawn (id: U120) : U120 {
+  (U120.add (U120.new 0 37888) id) 
+}

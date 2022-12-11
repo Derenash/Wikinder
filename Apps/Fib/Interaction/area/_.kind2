@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_area
 Apps.Fib.Interaction.area <a> (int: a -> Apps.Fib.Pos -> Apps.Fib.Interaction a) (value: a) (coords: List Apps.Fib.Pos) : Apps.Fib.Interaction a  
 Apps.Fib.Interaction.area a int value (List.nil  r)          = do Apps.Fib.Interaction { return value }
 Apps.Fib.Interaction.area a int value (List.cons r pos tail) = 

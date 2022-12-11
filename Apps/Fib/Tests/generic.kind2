@@ -1,56 +1,57 @@
-#kdl_name = Fib_kdl_walk
-Apps.Fib.Kindelia.walk (direction: U120) (id: U120) : U120 {
-  U120.bitwise_or (U120.add (U120.new 0 1024) id) (U120.shift_left direction (U120.new 0 16))
-}
-
-#kdl_name = Fib_kdl_skll
-Apps.Fib.Kindelia.skill (a: Apps.Fib.Pos) (b: Apps.Fib.Pos) (id: U120) (skill: U120) : U120 {
-  let comm   = U120.add skill (U120.new 0 2)
-  let origin = a
-  let target = b
-  let data   = Apps.Fib.Pos.to_data origin target
-  U120.bitwise_or (U120.bitwise_or id (U120.shift_left data (U120.new 0 16))) (U120.shift_left comm (U120.new 0 12))
-}
 
 
 Main {
   // Initial State
   let state  = Apps.Fib.State.Build
-  // let player = (x: U120) => (y: U120) => Apps.Fib.Player.new x y (U120.new 0 1024) (U120.new 0 100) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) [(U120.new 0 1)]
-  let p0     = Apps.Fib.Player.default (U120.new 0 22) (U120.new 0 136)
-  let p0_pos = Apps.Fib.Pos.new (U120.new 0 22) (U120.new 0 136)
+  let p0     = Apps.Fib.Player.default (U120.new 0 24) (U120.new 0 110)
+  let p0_pos = Apps.Fib.Pos.new (U120.new 0 24) (U120.new 0 110)
   let p0_id  = (U120.new 0 1024)
-  // let p1     = player (U120.new 0 142) (U120.new 0 14)
-  // let p1_pos = Apps.Fib.Pos.new (U120.new 0 142) (U120.new 0 14)
-  // let p1_id  = (U120.new 0 1025)
-  // // Id for player 0
-
-  // // Id for player 1
+  let p1     = Apps.Fib.Player.default (U120.new 0 24) (U120.new 0 112)
+  let p1_pos = Apps.Fib.Pos.new (U120.new 0 24) (U120.new 0 112)
+  let p1_id  = (U120.new 0 1025)
   
-  // // Pos for player 0 
-  
-  // // Pos for player 1
-  // // Places player 0 on the state
-  let state  = Apps.Fib.State.player.place state p0 p0_id
-  // // Places player 1 on the state
-  // let state  = Apps.Fib.State.player.place state p1 p1_id
+  // Pos for player 1
+  // Places player 0 on the state
+  // let state  = Apps.Fib.State.player.place state p0 p0_id
+  // Places player 1 on the state
+  let state  = Apps.Fib.State.player.place state p1 p1_id
   // Shows All players in the Table
   // let t_shw0 = Apps.Fib.Table.show_players (Apps.Fib.State.get_table state)
   // Action code for Player 0 casting Fireball on Player 1
   // (U120.new 0 0) stands for the first skill in a character
-  let code_2    = Apps.Fib.Kindelia.walk (U120.new 0 3) (U120.new 0 0)
+  // let code_2    = Apps.Fib.Kindelia.walk (U120.new 0 3) (U120.new 0 0)
+  let respawn   = Apps.Fib.Kindelia.respawn 0u120
   // let code_1 = Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 1)
   // let code_0 = Apps.Fib.Interact.skill p0_id (U120.new 0 0) (U120.new 0 3) (U120.new 0 13)
-  // let code_2 = Apps.Fib.Kindelia.skill p0_pos p0_pos (U120.new 0 1024) (U120.new 0 0)
+  let code_2 = Apps.Fib.Kindelia.skill (U120.new 0 24) (U120.new 0 112) (U120.new 0 24) (U120.new 0 110) (U120.new 0 1) (U120.new 0 0)
+  let code_3 = Apps.Fib.Kindelia.skill (U120.new 0 24) (U120.new 0 110) (U120.new 0 24) (U120.new 0 112) (U120.new 0 1) (U120.new 0 0)
   // let code_2 = (U120.new 0 10560512)
   // let code_0 = Apps.Fib.Interact.pos.skill p0_id (U120.new 0 0) (Apps.Fib.Pos.get_x p0_pos) (Apps.Fib.Pos.get_y p0_pos) (Apps.Fib.Pos.get_x p1_pos) (Apps.Fib.Pos.get_y p1_pos)
   
   // let update = Apps.Fib.State.Update state code_0 (U120.new 0 1024)
   let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1000)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1010)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1020)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1030)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1040)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1050)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1060)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1070)
+  let state  = Pair.fst updatr
+  let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1080)
+  let state  = Pair.fst updatr
+  // let updatr = Apps.Fib.State.Update state respawn (U120.new 0 1040)
+  // let state  = Pair.fst updatr
   // let state  = Pair.fst update
   // let state  = Pair.fst updatr
   // let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1035)
-  let state  = Pair.fst updatr
   // let updatr = Apps.Fib.State.Update state code_2 (U120.new 0 1020)
   // let events = [(Pair.snd update) (Pair.snd updatr)]
   // let table  = Apps.Fib.State.get_table state
@@ -64,12 +65,13 @@ Main {
   // let id = Apps.Fib.Map.get map p0_pos
   // Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 2)
   // Pair.snd updatr
-  let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1024u120
-  // Apps.Fib.Player.show p
-  Apps.Fib.Player.sl.get p
+  let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1025u120
+  Apps.Fib.Player.show p
+  // Apps.Fib.Player.hp.get p
+  // Pair.snd updatr
   // events
   // id
-  // Apps.Fib.Player.show entity
+  // Apps.Fib.Player.show p
   // 1026 pos = (57 : 117)
   // parsed
   // ?

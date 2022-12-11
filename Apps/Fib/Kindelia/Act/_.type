@@ -4,4 +4,5 @@ type Apps.Fib.Kindelia.Act {
   action (code: U120)
   reset 
   start 
+  respawn
 }

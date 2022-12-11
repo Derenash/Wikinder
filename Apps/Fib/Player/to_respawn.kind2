@@ -1,0 +1,9 @@
+Apps.Fib.Player.to_respawn (player: Apps.Fib.Player) (frame: U120) : Maybe U120 {
+  let cd = Apps.Fib.Player.cd.get player
+  if (U120.greater_equal frame cd) {
+    Maybe.none
+  }
+  else {
+    Maybe.some (U120.sub_saturated cd frame)
+  }
+}

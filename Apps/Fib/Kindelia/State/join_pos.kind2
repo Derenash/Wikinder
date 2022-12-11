@@ -1,0 +1,14 @@
+#kdl_name = Fib_kdl_sjip
+Apps.Fib.Kindelia.State.join_pos (map: Apps.Fib.Map) (pos: List Apps.Fib.Pos) : Pair Apps.Fib.Map (Maybe Apps.Fib.Pos)
+Apps.Fib.Kindelia.State.join_pos map List.nil = Pair.new map Maybe.none
+Apps.Fib.Kindelia.State.join_pos map (List.cons head tail) = 
+  let p = Apps.Fib.Map.got map head
+  match Pair p {
+    new =>
+      if U120.is_zero p.snd {
+        Pair.new p.fst (Maybe.some head)
+      }
+      else {
+        Apps.Fib.Kindelia.State.join_pos p.fst tail
+      }
+  }

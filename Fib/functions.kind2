@@ -200,6 +200,7 @@ Funs : U120 {
   let skill = Apps.Fib.Kindelia.skill (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0) (U120.new 0 0)
   let parse = Apps.Fib.Kindelia.State.parse Apps.Fib.Kindelia.Response.none (U120.new 0 0)
   let walk  = Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 0)
+  let resp  = Apps.Fib.Kindelia.respawn (U120.new 0 0)
   let start = Apps.Fib.Kindelia.State.Build
   let itr   = Apps.Fib.Kindelia.interact (U120.new 0 0) (U120.new 0 0)
   let user  = Apps.Fib.Kindelia.State.get_user Apps.Fib.Kindelia.Response.none (U120.new 0 0)

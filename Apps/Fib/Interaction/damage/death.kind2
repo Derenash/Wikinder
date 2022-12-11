@@ -1,10 +1,27 @@
+// TODO: Test and fix potential problem of player killing itself to not lose gold
 #kdl_name = Fib_itr_ddth
 Apps.Fib.Interaction.damage.death (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask id = Apps.Fib.Interaction.entity.get_id_at pos
-    ask Apps.Fib.Interaction.entity.del_at_id id
-    ask Apps.Fib.Interaction.map.del pos
-    let event = Apps.Fib.Event.death pos id
-    Apps.Fib.Interaction.event.add event
+    if (U120.greater_equal id (U120.new 0 1024) ) {
+      do Apps.Fib.Interaction {
+        ask frame  = Apps.Fib.Interaction.frame.get
+        ask target = Apps.Fib.Interaction.entity.get_from_id id
+        let gold   = Apps.Fib.Player.gd.get target
+        ask Apps.Fib.Interaction.player.add_gold (U120.shift_right gold (U120.new 0 1))
+        ask Apps.Fib.Interaction.entity.mut_at_id (x => Apps.Fib.Player.death x frame) id
+        ask Apps.Fib.Interaction.map.del pos
+        let event = Apps.Fib.Event.death pos id
+        Apps.Fib.Interaction.event.add event
+      }
+    }
+    else {
+      do Apps.Fib.Interaction {
+        ask Apps.Fib.Interaction.entity.del_at_id id
+        ask Apps.Fib.Interaction.map.del pos
+        let event = Apps.Fib.Event.death pos id
+        Apps.Fib.Interaction.event.add event
+      }
+    }
   }
 }

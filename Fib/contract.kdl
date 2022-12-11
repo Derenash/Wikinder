@@ -6,10 +6,10 @@ fun (Fib action) {
     @state.start dup _10 _11 = state.start;
     dup _12 _13 = _10;
     @state.state dup _8 _9 = state.state;
-    (KIOBind (KIOTick) @block let phs = _14;
+    (KIOBind (KIOTick) @current_blk let phs = _14;
     dup _6 _7 = phs;
     (Fib_kdl_spma _6 @~ let result = {Fib_res_wrph};
-    (KIOBind (Fib_save {Fib_kdl_snew _15 _11 _8}) @~ (Fib_done result)) @~ let p = (Fib_st_upd _9 _0 (U120_sub_sat block _12));
+    (KIOBind (Fib_save {Fib_kdl_snew _15 _11 _8}) @~ (Fib_done result)) @~ let p = (Fib_st_upd _9 _0 (U120_sub_sat current_blk _12));
     (Pair_match p @p.fst @p.snd dup _4 _5 = p.snd;
     let state = {Fib_kdl_snew _7 _13 p.fst};
     let player_num = (- (Fib_ac_gid _1) #1024);

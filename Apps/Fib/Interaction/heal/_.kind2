@@ -2,7 +2,7 @@
 //  x  Increase HP
 //  x  Return difference between old hp and new hp
 
-
+#kdl_name = Fib_itr_heal
 Apps.Fib.Interaction.heal (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction U120 {
   do Apps.Fib.Interaction {
     let func      = (player: Apps.Fib.Player) => Apps.Fib.Player.heal player value
@@ -16,6 +16,7 @@ Apps.Fib.Interaction.heal (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interacti
   }
 }
 
+#kdl_name = Fib_itr_heae
 Apps.Fib.Interaction.heal.apply_event (real_heal: U120) (health: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Unit
 Apps.Fib.Interaction.heal.apply_event (U120.new 0 0)  health pos = do Apps.Fib.Interaction {return Unit.new}
 Apps.Fib.Interaction.heal.apply_event real_heal       health pos = 

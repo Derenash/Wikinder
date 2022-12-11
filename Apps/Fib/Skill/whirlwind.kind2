@@ -34,13 +34,13 @@ Apps.Fib.Skill.whirlwind : Apps.Fib.Interaction Unit {
 
 
 // Auxiliar Function to push enemies away in area
+#kdl_name = Fib_skl_whwa
 Apps.Fib.Skill.whirlwind_aux (Deltas: List (Pair U120 U120)) (player_count: U120) (pos: List Apps.Fib.Pos) : Apps.Fib.Interaction Unit
-Apps.Fib.Skill.whirlwind_aux List.nil player_count pos = do Apps.Fib.Interaction { return Unit.new }
-Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count List.nil =  do Apps.Fib.Interaction { return Unit.new }
-Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count (List.cons u phead ptail) = do Apps.Fib.Interaction {
-    
+Apps.Fib.Skill.whirlwind_aux List.nil player_count pos = Apps.Fib.Interaction.pass
+Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count List.nil =  Apps.Fib.Interaction.pass
+Apps.Fib.Skill.whirlwind_aux (List.cons t head tail) player_count (List.cons u phead ptail) =
     // Change from repel to pull
     //let pull = Apps.Fib.Pos.Delta.pull head
     //ask Apps.Fib.Interaction.move phead pull
     Apps.Fib.Skill.whirlwind_aux tail player_count ptail
-  }
+

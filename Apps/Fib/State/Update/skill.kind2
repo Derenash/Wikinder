@@ -1,18 +1,22 @@
 #kdl_name = Fib_st_updsk
-Apps.Fib.State.Update.skill (state: Apps.Fib.State) (data: U120) (player_id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120) (slot: U120) : Pair Apps.Fib.State Apps.Fib.Events {
-  let skill  = Apps.Fib.Player.skills.get entity slot
-  let pos    = Apps.Fib.Player.pos.get entity
-  let delta  = Apps.Fib.Pos.Delta.get_from_data data
-  let target = Apps.Fib.Pos.modify pos delta
-  match Maybe target {
-    none => Pair.new state List.nil
-    some => 
-      let skill = Apps.Fib.Skill.get skill
-      let res   = skill state player_id target.value frame
-      match Apps.Fib.Interaction.Result res {
-        err => Pair.new state List.nil
-        new => Pair.new res.state (List.cons (Apps.Fib.Event.act_skill ( target.value) player_id slot) res.events)
-      }
+Apps.Fib.State.Update.skill (state: Apps.Fib.State) (data: U120) (id: Apps.Fib.Id) (player: Apps.Fib.Entity) (frame: U120) (slot: U120) : Pair Apps.Fib.State Apps.Fib.Events {
+  if (Apps.Fib.Player.is_dead player)
+    {Pair.new state List.nil}
+  else {
+    let skill  = Apps.Fib.Player.skills.get player slot
+    let pos    = Apps.Fib.Player.pos.get player
+    let delta  = Apps.Fib.Pos.Delta.get_from_data data
+    let target = Apps.Fib.Pos.modify pos delta
+    match Maybe target {
+      none => Pair.new state List.nil
+      some => 
+        let skill = Apps.Fib.Skill.get skill
+        let res   = skill state id target.value frame
+        match Apps.Fib.Interaction.Result res {
+          err => Pair.new state List.nil
+          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_skill ( target.value) id slot) res.events)
+        }
+    }
   }
 }
 

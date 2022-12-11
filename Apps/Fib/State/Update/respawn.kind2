@@ -1,0 +1,34 @@
+#kdl_name = Fib_st_updrs
+Apps.Fib.State.Update.respawn (state: Apps.Fib.State) (data: U120) (player_id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events
+Apps.Fib.State.Update.respawn (Apps.Fib.State.new map table) data id player frame = 
+  if (Apps.Fib.Player.is_dead player) {
+    let rsp = Apps.Fib.Player.to_respawn player frame 
+    match Maybe rsp {
+      none =>
+        let p = Apps.Fib.Kindelia.State.join_pos map (Apps.Fib.Map.initial_positions)
+        match Pair p {
+          new =>
+            let map    = p.fst
+            match Maybe p.snd {
+              none =>
+                Pair.new (Apps.Fib.State.new map table) List.nil
+              some =>
+                let pos    = p.snd.value
+                let player = Apps.Fib.Player.respawn player pos
+                let map    = Apps.Fib.Map.set map id pos
+                let table  = Apps.Fib.Table.set table player id
+                let state  = Apps.Fib.State.new map table
+                HVM.log pos (Pair.new state [(Apps.Fib.Event.act_rsp pos id)])
+            }
+        } 
+      some =>
+        // rsp.value = time to respawn
+        Pair.new (Apps.Fib.State.new map table) List.nil
+    }
+  }
+  else {
+    Pair.new (Apps.Fib.State.new map table) List.nil
+  }
+
+
+  

@@ -1,17 +1,21 @@
 #kdl_name = Fib_st_walk
-Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (player_id: Apps.Fib.Id) (entity: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
-  let pos        = Apps.Fib.Player.pos.get entity
-  let delta      = Apps.Fib.State.Update.walk.direction data
-  let target     = Apps.Fib.Pos.modify pos delta
-  match Maybe target {
-    none => Pair.new state List.nil
-    some => 
-      let move = Apps.Fib.Skill.move
-      let res  = move state player_id target.value frame
-        match Apps.Fib.Interaction.Result res {
-          err => Pair.new state List.nil
-          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk ( target.value) player_id) res.events)
-      }
+Apps.Fib.State.Update.walk (state: Apps.Fib.State) (data: U120) (id: Apps.Fib.Id) (player: Apps.Fib.Entity) (frame: U120): Pair Apps.Fib.State Apps.Fib.Events {
+  if (Apps.Fib.Player.is_dead player)
+    {Pair.new state List.nil}
+  else {
+    let pos        = Apps.Fib.Player.pos.get player
+    let delta      = Apps.Fib.State.Update.walk.direction data
+    let target     = Apps.Fib.Pos.modify pos delta
+    match Maybe target {
+      none => Pair.new state List.nil
+      some => 
+        let move = Apps.Fib.Skill.move
+        let res  = move state id target.value frame
+          match Apps.Fib.Interaction.Result res {
+            err => Pair.new state List.nil
+            new => Pair.new res.state (List.cons (Apps.Fib.Event.act_walk ( target.value) id) res.events)
+        }
+    }
   }
 }
 

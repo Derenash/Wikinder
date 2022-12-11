@@ -9,4 +9,5 @@ Apps.Fib.State.Update.command state (U120.new 0 5 ) data id ent frame = Apps.Fib
 Apps.Fib.State.Update.command state (U120.new 0 6 ) data id ent frame = Apps.Fib.State.Update.skill    state data id ent frame (U120.new 0 4)
 Apps.Fib.State.Update.command state (U120.new 0 7 ) data id ent frame = Apps.Fib.State.Update.skill    state data id ent frame (U120.new 0 5)
 Apps.Fib.State.Update.command state (U120.new 0 8 ) data id ent frame = Apps.Fib.State.Update.skill    state data id ent frame (U120.new 0 6)
+Apps.Fib.State.Update.command state (U120.new 0 9 ) data id ent frame = Apps.Fib.State.Update.respawn  state data id ent frame
 Apps.Fib.State.Update.command state command         data id ent frame = Pair.new state List.nil

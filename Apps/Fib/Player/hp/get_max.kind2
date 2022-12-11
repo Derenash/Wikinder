@@ -5,6 +5,7 @@ Apps.Fib.Player.hp.get_max (player: Apps.Fib.Player) : U120 {
   Apps.Fib.Player.hp.get_max.aux level
 }
 
+#kdl_name = Fib_plr_hpga
 Apps.Fib.Player.hp.get_max.aux (level: U120) : U120 
 Apps.Fib.Player.hp.get_max.aux (U120.new 0 1 ) = (U120.new 0 250)
 Apps.Fib.Player.hp.get_max.aux (U120.new 0 2 ) = (U120.new 0 280)

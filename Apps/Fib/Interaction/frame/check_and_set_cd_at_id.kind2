@@ -1,3 +1,4 @@
+#kdl_name = Fib_itr_csci
 Apps.Fib.Interaction.frame.check_and_set_cd_at_id (id: Apps.Fib.Id) (cd_bit: U120) (new_cd: U120 -> U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     ask frame    = Apps.Fib.Interaction.frame.get

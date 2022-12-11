@@ -1,3 +1,4 @@
+#kdl_name = Fib_id_ispla
 Apps.Fib.Id.is_player (id: Apps.Fib.Id) : Bool {
   Bool.and (U120.greater_equal id (U120.new 0 1024)) (U120.less_than id (U120.new 0 4096))
 }
