@@ -1,3 +1,4 @@
+#kdl_name = Fib_plr_rsp
 Apps.Fib.Player.respawn (player: Apps.Fib.Player) (pos: Apps.Fib.Pos) : Apps.Fib.Player {
   let player = Apps.Fib.Player.pos.change player (x => pos)
   let hp     = Apps.Fib.Player.hp.get_max player

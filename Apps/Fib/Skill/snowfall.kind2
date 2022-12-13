@@ -11,6 +11,8 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     let slow     = U120.new 0 20
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+    
     ask target   = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
@@ -36,7 +38,6 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.skill.event_use skill_id
 
     //Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.cast_skill cooldown
     return Unit.new
   }
 }

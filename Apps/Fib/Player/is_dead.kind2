@@ -1,3 +1,4 @@
+#kdl_name = Fib_plr_isd
 Apps.Fib.Player.is_dead (player: Apps.Fib.Player) : Bool {
   let hp = Apps.Fib.Player.hp.get player
   U120.is_zero hp

@@ -1,11 +1,11 @@
 #kdl_state = Apps.Fib.Kindelia.State.Build
 #kdl_name = Fib
 Apps.Fib.Kindelia (action: Apps.Fib.Kindelia.Act) : Kindelia.IO Apps.Fib.Kindelia.Response 
-Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.action code current_blk) = do Kindelia.IO {
+Apps.Fib.Kindelia (Apps.Fib.Kindelia.Act.action code) = do Kindelia.IO {
   ask state = Kindelia.IO.take
   match Apps.Fib.Kindelia.State state {
     new => do Kindelia.IO {
-      // ask current_blk = Kindelia.IO.tick
+      ask current_blk = Kindelia.IO.tick
       let phs         = state.phase
       match Apps.Fib.Kindelia.State.Phase phs {
         game => do Kindelia.IO {

@@ -64,9 +64,9 @@ Main {
   // let entity = Apps.Fib.Table.get table (U120.new 0 1024)
   // let id = Apps.Fib.Map.get map p0_pos
   // Apps.Fib.Kindelia.walk (U120.new 0 0) (U120.new 0 2)
-  // Pair.snd updatr
-  let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1025u120
-  Apps.Fib.Player.show p
+  Pair.snd updatr
+  // let p = Apps.Fib.Table.get (Apps.Fib.State.get_table state) 1025u120
+  // Apps.Fib.Player.show p
   // Apps.Fib.Player.hp.get p
   // Pair.snd updatr
   // events

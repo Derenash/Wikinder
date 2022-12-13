@@ -11,7 +11,8 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
 
     // Verifies if the enemy is in range
     ask Apps.Fib.Interaction.skill.check_range range
-    ask cooldown  = Apps.Fib.Interaction.player.cooldown speed
+    ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask            Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask target   = Apps.Fib.Interaction.target.get
 
@@ -33,7 +34,6 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.area.generic func area
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.cast_skill cooldown
     ask Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }

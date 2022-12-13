@@ -1,9 +1,9 @@
 // Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Act/_.type
 #kdl_name = Fib_act_mat
-Apps.Fib.Kindelia.Act.match (x: (Apps.Fib.Kindelia.Act)) -(p: (x: (Apps.Fib.Kindelia.Act)) Type) (get: (p (Apps.Fib.Kindelia.Act.get))) (join: (subj: U120) (kgt: U120) (p (Apps.Fib.Kindelia.Act.join subj kgt))) (action: (code: U120) (frame: U120) (p (Apps.Fib.Kindelia.Act.action code frame))) (reset: (p (Apps.Fib.Kindelia.Act.reset))) (start: (p (Apps.Fib.Kindelia.Act.start))) (respawn: (p (Apps.Fib.Kindelia.Act.respawn))) : (p x)
+Apps.Fib.Kindelia.Act.match (x: (Apps.Fib.Kindelia.Act)) -(p: (x: (Apps.Fib.Kindelia.Act)) Type) (get: (p (Apps.Fib.Kindelia.Act.get))) (join: (subj: U120) (kgt: U120) (p (Apps.Fib.Kindelia.Act.join subj kgt))) (action: (code: U120) (p (Apps.Fib.Kindelia.Act.action code))) (reset: (p (Apps.Fib.Kindelia.Act.reset))) (start: (p (Apps.Fib.Kindelia.Act.start))) (respawn: (p (Apps.Fib.Kindelia.Act.respawn))) : (p x)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.get) p get join action reset start respawn = (get)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.join subj_ kgt_) p get join action reset start respawn = (join subj_ kgt_)
-Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.action code_ frame_) p get join action reset start respawn = (action code_ frame_)
+Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.action code_) p get join action reset start respawn = (action code_)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.reset) p get join action reset start respawn = (reset)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.start) p get join action reset start respawn = (start)
 Apps.Fib.Kindelia.Act.match (Apps.Fib.Kindelia.Act.respawn) p get join action reset start respawn = (respawn)

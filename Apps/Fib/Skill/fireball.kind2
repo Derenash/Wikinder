@@ -9,8 +9,9 @@ Apps.Fib.Skill.fireball : Apps.Fib.Interaction Unit {
     let area     = U120.new 0 2
     let speed    = U120.new 0 35
 
-    ask Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+    ask Apps.Fib.Interaction.skill.check_range range
     ask target   = Apps.Fib.Interaction.target.get
 
     // Get the delta of all coordinates within 2 tiles of a point
@@ -29,7 +30,6 @@ Apps.Fib.Skill.fireball : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.damage.area damage coords
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.cast_skill cooldown
     return Unit.new
   }
 }

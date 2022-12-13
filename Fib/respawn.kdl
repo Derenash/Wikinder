@@ -1,0 +1,5 @@
+// Apps.Fib.Kindelia.respawn (id: (U120)) : (U120)
+fun (Fib_kdl_rsp id) {
+  (Fib_kdl_rsp id) =
+    (+ #37888 id)
+}

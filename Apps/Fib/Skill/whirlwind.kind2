@@ -12,6 +12,7 @@ Apps.Fib.Skill.whirlwind : Apps.Fib.Interaction Unit {
 
     ask Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
+    ask            Apps.Fib.Interaction.player.cast_skill cooldown
     ask target   = Apps.Fib.Interaction.target.get
 
     // Get the delta of all coordinates within 2 tiles of a point
@@ -27,7 +28,6 @@ Apps.Fib.Skill.whirlwind : Apps.Fib.Interaction Unit {
     ask Apps.Fib.Interaction.damage.area damage coords
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.player.cast_skill cooldown
     return Unit.new
   }
 }
