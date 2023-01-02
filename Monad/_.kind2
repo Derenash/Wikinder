@@ -1,1 +1,11 @@
-Monad (f: Type -> Type) : Type
+// Monad.new
+//   (f    : Type -> Type)
+//   (pure : (a: Type) (x: a) (f a))
+//   (bind : (a: Type) (b: Type) (x: (f a)) (y: a -> (f b)) (f b))
+// : Monad f
+#kdl_name = Monad
+#derive[match]
+record Monad (f: Type -> Type) {
+  pure : ~(a: Type) -> (x: a) -> (f a)
+  bind : ~(a: Type) -> ~(b: Type) -> (x: (f a)) -> (y: a -> (f b)) -> (f b)
+}

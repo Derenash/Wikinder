@@ -1,3 +1,0 @@
-// Automatically derived from String/_.type
-#kdl_name = String_cons
-String.cons  (head: U60) (tail: String) : (String)

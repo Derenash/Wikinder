@@ -1,3 +1,0 @@
-// Automatically derived from Bool/_.type
-#kdl_name = Bool_false
-Bool.false : (Bool)

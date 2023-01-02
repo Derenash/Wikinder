@@ -1,3 +1,0 @@
-// Automatically derived from List/_.type
-#kdl_name = List_nil
-List.nil  <t: Type> : (List t)

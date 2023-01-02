@@ -1,3 +1,0 @@
-// Automatically derived from Maybe/_.type
-#kdl_name = Maybe_none
-Maybe.none  <t: Type> : (Maybe t)

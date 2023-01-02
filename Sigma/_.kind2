@@ -1,1 +1,6 @@
-Sigma (a: Type) (b: a -> Type) : Type
+#kdl_name = Sigma
+#derive[match]
+record Sigma (a: Type) (f: a -> Type) {
+  fst : a
+  snd : f fst
+}
