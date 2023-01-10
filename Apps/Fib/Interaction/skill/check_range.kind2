@@ -6,7 +6,7 @@ Apps.Fib.Interaction.skill.check_range (range: U120) : Apps.Fib.Interaction Unit
 
     let distance = Apps.Fib.Pos.distance origin target
     let check    = U120.greater_equal range distance
-    ask Apps.Fib.Interaction.check check
+    Apps.Fib.Interaction.check check
     return Unit.new
   }
 }

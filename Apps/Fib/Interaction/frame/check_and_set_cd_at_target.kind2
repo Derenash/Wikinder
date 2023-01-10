@@ -6,7 +6,7 @@ Apps.Fib.Interaction.frame.check_and_set_cd_at_target (cd_bit: U120) (new_cd: U1
     ask entity   = Apps.Fib.Interaction.entity.get_from_id id
     let cd       = Apps.Fib.U120.get entity cd_bit (U120.new 0 12)
     let is_ready = U120.greater_equal frame cd
-    ask Apps.Fib.Interaction.check is_ready
+    Apps.Fib.Interaction.check is_ready
     let new_cd   = new_cd frame
     let func     = (entity: Apps.Fib.Entity) => Apps.Fib.U120.mut entity cd_bit (U120.new 0 12) (x => new_cd) 
     Apps.Fib.Interaction.entity.mut_at_id func id

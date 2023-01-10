@@ -9,7 +9,5 @@ Apps.Fib.Interaction.entity.get_from_id (id: Apps.Fib.Id) : Apps.Fib.Interaction
 Apps.Fib.Interaction.entity.get_from_id.aux (id: Apps.Fib.Id) (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
 Apps.Fib.Interaction.entity.get_from_id.aux id (Apps.Fib.State.new map table) player target frame = 
   let entity = Apps.Fib.Table.got table id
-  match Pair entity {
-    new =>
-      Apps.Fib.Interaction.Result.new entity.snd (Apps.Fib.State.new map entity.fst) player target frame List.nil
-  }
+  open Pair entity 
+  Apps.Fib.Interaction.Result.new entity.snd (Apps.Fib.State.new map entity.fst) player target frame List.nil

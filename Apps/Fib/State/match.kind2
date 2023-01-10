@@ -1,4 +1,0 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/State/_.type
-#kdl_name = Fib_st_mtch
-Apps.Fib.State.match (x: (Apps.Fib.State)) -(p: (x: (Apps.Fib.State)) Type) (new: (map: Apps.Fib.Map) (table: Apps.Fib.Table) (p (Apps.Fib.State.new map table))) : (p x)
-Apps.Fib.State.match (Apps.Fib.State.new map_ table_) p new = (new map_ table_)

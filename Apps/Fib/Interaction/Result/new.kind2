@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikind/Apps/Fib/Interaction/Result/_.type
-#kdl_name = Fib_itr_rnew
-Apps.Fib.Interaction.Result.new <a: Type> (val: a) (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) (events: Apps.Fib.Events) : (Apps.Fib.Interaction.Result a)

@@ -6,8 +6,8 @@ Apps.Fib.Interaction.skill.add (skill: U120) : Apps.Fib.Interaction Bool {
     let none   = do Apps.Fib.Interaction { return Bool.false}
     let some   = (x: U120) => do Apps.Fib.Interaction { 
       let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.skills.add_at player skill x
-      ask Apps.Fib.Interaction.player.mut func
-      ask Apps.Fib.Interaction.item.event_add skill x
+      Apps.Fib.Interaction.player.mut func
+      Apps.Fib.Interaction.item.event_add skill x
       return Bool.true
     } 
     Maybe.extract result none some

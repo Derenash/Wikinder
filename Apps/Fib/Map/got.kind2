@@ -1,12 +1,8 @@
 #kdl_name = Fib_map_got
 Apps.Fib.Map.got (map: Apps.Fib.Map) (pos: Apps.Fib.Pos): Pair Apps.Fib.Map Apps.Fib.Id {
   let keys = Apps.Fib.Map.Key.from_pos pos
-  match Pair keys {
-    new =>
-      let p = Data.BaseTree.got U120 Apps.Fib.Map.Bases (keys.fst) map
-      match Pair p {
-        new => 
-          Pair.new p.fst (Apps.Fib.Map.get_tile p.snd keys.snd)
-      }
-  }
+  open Pair keys 
+  let p = Data.BaseTree.got U120 Apps.Fib.Map.Bases (keys.fst) map
+  open Pair p 
+  Pair.new p.fst (Apps.Fib.Map.get_tile p.snd keys.snd)
 }

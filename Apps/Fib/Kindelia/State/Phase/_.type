@@ -1,4 +1,0 @@
-type Apps.Fib.Kindelia.State.Phase {
-  lobby (queue  : List Apps.Fib.Kindelia.State.Phase.User)
-  game  (players: User.Sipher.PatriciaTree)
-}

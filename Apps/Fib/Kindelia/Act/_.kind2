@@ -1,2 +1,15 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Act/_.type
-Apps.Fib.Kindelia.Act : Type
+#derive[match]
+type Apps.Fib.Kindelia.Act {
+  #kdl_name = Fib_act_get
+  get
+  #kdl_name = Fib_act_join
+  join   (subj: U120) (kgt: U120)
+  #kdl_name = Fib_act_act
+  action (code: U120)
+  #kdl_name = Fib_act_rst
+  reset
+  #kdl_name = Fib_act_strt
+  start
+  #kdl_name = Fib_act_rsp
+  respawn
+}

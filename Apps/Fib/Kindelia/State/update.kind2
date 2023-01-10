@@ -2,7 +2,5 @@
 Apps.Fib.Kindelia.State.update (kdl_state: Apps.Fib.Kindelia.State) (code: U120) (current_blk: U120) : Pair Apps.Fib.Kindelia.State (Data.BraunTree Apps.Fib.Event)
 Apps.Fib.Kindelia.State.update (Apps.Fib.Kindelia.State.new phase start_blk state) code current_blk =
   let p     = Apps.Fib.State.Update state code (U120.sub_saturated current_blk start_blk)
-  match Pair p {
-    new => 
-      Pair.new (Apps.Fib.Kindelia.State.new phase start_blk p.fst) p.snd
-  }
+  open Pair p 
+  Pair.new (Apps.Fib.Kindelia.State.new phase start_blk p.fst) p.snd

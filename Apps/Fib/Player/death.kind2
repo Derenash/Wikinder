@@ -2,9 +2,9 @@
 Apps.Fib.Player.death (player: Apps.Fib.Player) (frame: U120) : Apps.Fib.Player {
   let rsp_timer = U120.new 0 30
   let rsp_frame = U120.add rsp_timer frame 
-  let player    = HVM.log frame (Apps.Fib.Player.cd.change player (x => U120.add rsp_frame x))
+  let player    = HVM.log rsp_timer (Apps.Fib.Player.cd.change player (x => U120.add rsp_frame x))
   // To never lose total gold, in case the division isn't even, the player gets the remainder of it
-  let f         = gold => (U120.add (U120.shift_right gold (U120.new 0 1)) (U120.mod gold (U120.new 0 2)))
+  let f         = (gold: U120) => (U120.add (U120.shift_right gold (U120.new 0 1)) (U120.mod gold (U120.new 0 2)))
   let player    = Apps.Fib.Player.gd.change player f
   player
 }

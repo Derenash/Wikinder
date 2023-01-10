@@ -10,7 +10,7 @@ Apps.Fib.Skill.tremor : Apps.Fib.Interaction Unit {
     let speed    = U120.new 0 35
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
     ask origin   = Apps.Fib.Interaction.player.get_pos
 
     // Get the delta of all coordinates within 5 tiles of a point
@@ -20,10 +20,10 @@ Apps.Fib.Skill.tremor : Apps.Fib.Interaction Unit {
     let around   = Apps.Fib.Pos.range origin deltas
 
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     // Damages the unities in the area
-    ask Apps.Fib.Interaction.damage.area damage around
+    Apps.Fib.Interaction.damage.area damage around
 
     // Adds Fatigue to the caster
     return Unit.new

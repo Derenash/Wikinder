@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
-#kdl_name = Fib_evt_itr
-Apps.Fib.Event.act_itr (pos: U120) (id: U120) : (Apps.Fib.Event)

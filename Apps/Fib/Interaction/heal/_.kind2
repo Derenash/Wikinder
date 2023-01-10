@@ -7,11 +7,11 @@ Apps.Fib.Interaction.heal (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interacti
   do Apps.Fib.Interaction {
     let func      = (player: Apps.Fib.Player) => Apps.Fib.Player.heal player value
     ask before    = Apps.Fib.Interaction.entity.get_at pos
-    ask             Apps.Fib.Interaction.entity.mut_at func pos
+                    Apps.Fib.Interaction.entity.mut_at func pos
     ask after     = Apps.Fib.Interaction.entity.get_at pos
     let real_heal = Apps.Fib.Player.hp.difference after before
     let health    = Apps.Fib.Player.hp.get after
-    ask            Apps.Fib.Interaction.heal.apply_event real_heal health pos 
+                    Apps.Fib.Interaction.heal.apply_event real_heal health pos 
     return real_heal
   }
 }
@@ -22,6 +22,6 @@ Apps.Fib.Interaction.heal.apply_event (U120.new 0 0)  health pos = do Apps.Fib.I
 Apps.Fib.Interaction.heal.apply_event real_heal       health pos = 
   do Apps.Fib.Interaction {
     let event   = Apps.Fib.Event.heal pos real_heal
-    ask           Apps.Fib.Interaction.event.add event
+                  Apps.Fib.Interaction.event.add event
     return Unit.new 
   }

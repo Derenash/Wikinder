@@ -11,12 +11,12 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     let slow     = U120.new 0 20
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
     
     ask target   = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
 
     // Get the delta of all coordinates "3x3 no Edges" besides Center
     let deltas = Apps.Fib.Pos.Delta.cross area
@@ -27,15 +27,15 @@ Apps.Fib.Skill.snowfall : Apps.Fib.Interaction Unit {
     let func = (
       (pos: Apps.Fib.Pos) =>
         do Apps.Fib.Interaction {
-        ask Apps.Fib.Interaction.damage damage pos
-        ask Apps.Fib.Interaction.player.add_slow_at slow pos
+        Apps.Fib.Interaction.damage damage pos
+        Apps.Fib.Interaction.player.add_slow_at slow pos
         return Unit.new
         }
       )
-    ask Apps.Fib.Interaction.area.generic func area
+    Apps.Fib.Interaction.area.generic func area
 
     // Registers which skill has been used
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     //Adds Fatigue to the caster
     return Unit.new

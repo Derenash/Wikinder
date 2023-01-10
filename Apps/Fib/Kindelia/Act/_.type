@@ -1,8 +1,0 @@
-type Apps.Fib.Kindelia.Act {
-  get
-  join   (subj: U120) (kgt: U120)
-  action (code: U120)
-  reset 
-  start 
-  respawn
-}

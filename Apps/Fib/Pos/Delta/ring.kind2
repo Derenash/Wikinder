@@ -45,10 +45,9 @@ Apps.Fib.Delta.ring.aux_diagonal quantity top_r bot_r bot_l top_l =
   // "Pair Map"
   let f = 
     ((a: U120 -> U120) => (b: U120 -> U120) => (x: Pair U120 U120) => 
-    match Pair x {
-      new => Pair.new (a x.fst) (b x.snd)
-    }
-    )
+    open Pair x 
+    Pair.new (a x.fst) (b x.snd)
+    ) :: ((U120 -> U120) -> (U120 -> U120) -> ((Pair U120 U120) -> (Pair U120 U120)))
   // Plus One
   let po = (x: U120) => U120.add (U120.new 0 1) x
   // Minus one

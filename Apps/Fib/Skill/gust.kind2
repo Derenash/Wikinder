@@ -10,7 +10,7 @@ Apps.Fib.Skill.gust : Apps.Fib.Interaction Unit {
     let speed    = U120.new 0 30
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
     
     ask origin   = Apps.Fib.Interaction.player.get_pos
 
@@ -22,17 +22,17 @@ Apps.Fib.Skill.gust : Apps.Fib.Interaction Unit {
 
     // Push enemies away
     // ask Apps.Fib.Skill.gust_aux deltas power coords
-    let func = pos => do Apps.Fib.Interaction {
+    let func = (pos: U120) => do Apps.Fib.Interaction {
       let delta = Apps.Fib.Pos.Delta.get origin pos
       let push  = Apps.Fib.Pos.Delta.push delta power Bool.true
-      ask Apps.Fib.Interaction.move pos push
+      Apps.Fib.Interaction.move pos push
       return Unit.new
     }
   
-    ask Apps.Fib.Interaction.area.generic func coords
+    Apps.Fib.Interaction.area.generic func coords
 
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     // Adds Fatigue to the caster
     return Unit.new

@@ -1,2 +1,6 @@
-// Automatically derived from /Users/leonardoeyer/Wikinder/Apps/Fib/State/_.type
-Apps.Fib.State : Type
+#kdl_name = Fib_st_new
+#derive[match]
+record Apps.Fib.State {
+  map: Apps.Fib.Map 
+  table: Apps.Fib.Table
+}

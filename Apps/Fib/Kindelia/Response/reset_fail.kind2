@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Response/_.type
-#kdl_name = Fib_res_nore
-Apps.Fib.Kindelia.Response.reset_fail (to_reset: U120) : (Apps.Fib.Kindelia.Response)

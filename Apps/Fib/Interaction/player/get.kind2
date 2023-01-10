@@ -8,7 +8,5 @@ Apps.Fib.Interaction.player.get : Apps.Fib.Interaction Apps.Fib.Player {
 Apps.Fib.Interaction.player.get.aux (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
 Apps.Fib.Interaction.player.get.aux (Apps.Fib.State.new map table) player target frame = 
   let p = Apps.Fib.Table.got table player
-  match Pair p {
-    new => 
-      Apps.Fib.Interaction.Result.new p.snd (Apps.Fib.State.new map p.fst) player target frame List.nil
-  }
+  open Pair p 
+  Apps.Fib.Interaction.Result.new p.snd (Apps.Fib.State.new map p.fst) player target frame List.nil

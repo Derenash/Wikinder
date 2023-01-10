@@ -1,29 +1,26 @@
 #kdl_name = Fib_kdl_tstf
 Apps.Fib.Kindelia.To_start.to_fold : Apps.Fib.Kindelia.State.Phase.User -> Apps.Fib.Kindelia.To_start -> Apps.Fib.Kindelia.To_start {
   user => acc =>
-    match Apps.Fib.Kindelia.To_start acc {
-      new => let users = acc.users 
-        match Apps.Fib.Kindelia.State.Phase.User user {
-          new =>
-            let subj      = user.wallet
-            let state     = acc.state
-            let kgt       = user.kgt
-            if (U120.is_zero subj) {
-              Apps.Fib.Kindelia.To_start.new (List.tail acc.pos) users state acc.count
-            }
-            else {
-              let pos       = Maybe.default (List.head acc.pos) (U120.new 0 0)
-              let player_id = acc.count
-              let entity_id = (U120.add player_id (U120.new 0 1024))
-              let x         = Apps.Fib.Pos.Value.get_x pos
-              let y         = Apps.Fib.Pos.Value.get_y pos
-              let player    = Apps.Fib.Player.default x y 
-              let new_users = User.Sipher.PatriciaTree.set acc.users subj player_id
-              let new_state = Apps.Fib.State.player.place state player entity_id
-              let new_pos   = List.tail acc.pos
-              let new_count = U120.inc acc.count
-              Apps.Fib.Kindelia.To_start.new new_pos new_users new_state new_count
-            }
-        }
+    open Apps.Fib.Kindelia.To_start acc 
+    let users = acc.users 
+    open Apps.Fib.Kindelia.State.Phase.User user 
+    let subj      = user.wallet
+    let state     = acc.state
+    let kgt       = user.kgt
+    if (U120.is_zero subj) {
+      Apps.Fib.Kindelia.To_start.new (List.tail acc.pos) users state acc.count
+    }
+    else {
+      let pos       = Maybe.default (List.head acc.pos) (U120.new 0 0)
+      let player_id = acc.count
+      let entity_id = (U120.add player_id (U120.new 0 1024))
+      let x         = Apps.Fib.Pos.Value.get_x pos
+      let y         = Apps.Fib.Pos.Value.get_y pos
+      let player    = Apps.Fib.Player.default x y 
+      let new_users = User.Sipher.PatriciaTree.set acc.users subj player_id
+      let new_state = Apps.Fib.State.player.place state player entity_id
+      let new_pos   = List.tail acc.pos
+      let new_count = U120.inc acc.count
+      Apps.Fib.Kindelia.To_start.new new_pos new_users new_state new_count
     }
 }

@@ -2,18 +2,14 @@
 Apps.Fib.Kindelia.State.join (pos: List Apps.Fib.Pos) (game: Apps.Fib.State) (players: User.Sipher.PatriciaTree) (subj: U120) : Pair Apps.Fib.State (Maybe Apps.Fib.Id)
 Apps.Fib.Kindelia.State.join pos (Apps.Fib.State.new map table) players subj = 
   let pos = Apps.Fib.Kindelia.State.join_pos map pos
-  match Pair pos {
-    new =>
-      let pos = pos.snd
-      match Maybe pos {
-        none => Pair.new (Apps.Fib.State.new pos.fst table) Maybe.none
-        some =>
-          let id  = Apps.Fib.Kindelia.State.join.id (U120.new 0 0) table
-          match Pair id {
-            new =>
-              Apps.Fib.Kindelia.State.join.aux id.snd pos.value (Apps.Fib.State.new pos.fst id.fst) players subj
-          }
-      }
+  open Pair pos 
+  let pos = pos.snd
+  match Maybe pos {
+    none => Pair.new (Apps.Fib.State.new pos.fst table) Maybe.none
+    some =>
+      let id  = Apps.Fib.Kindelia.State.join.id (U120.new 0 0) table
+      open Pair id
+      Apps.Fib.Kindelia.State.join.aux id.snd pos.value (Apps.Fib.State.new pos.fst id.fst) players subj
   }
 
 
@@ -37,8 +33,6 @@ Apps.Fib.Kindelia.State.join.aux id pos (Apps.Fib.State.new map table) players s
 #kdl_name = Fib_kdl_sjid
 Apps.Fib.Kindelia.State.join.id (id: Apps.Fib.Id) (table: Apps.Fib.Table) : Pair Apps.Fib.Table Apps.Fib.Id {
   let entity = Apps.Fib.Table.got table (U120.add (U120.new 0 1024) id) 
-  match Pair entity {
-    new =>
-      if (U120.is_zero entity.snd) { Pair.new entity.fst id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) entity.fst }
-  }
+  open Pair entity 
+  if (U120.is_zero entity.snd) { Pair.new entity.fst id } else { Apps.Fib.Kindelia.State.join.id (U120.inc id) entity.fst }
 }

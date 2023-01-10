@@ -1,8 +1,6 @@
 #kdl_name = Fib_itr_tblm
 Apps.Fib.Interaction.table.mut (func: Apps.Fib.Table -> Apps.Fib.Table) : Apps.Fib.Interaction Unit {
   (state: Apps.Fib.State) => (player: Apps.Fib.Id) => (target: Apps.Fib.Pos) => (frame: U120) => 
-    match Apps.Fib.State state {
-      new =>
-        Apps.Fib.Interaction.Result.new Unit.new (Apps.Fib.State.new state.map (func state.table)) player target frame List.nil
-    }
+    open Apps.Fib.State state 
+    Apps.Fib.Interaction.Result.new Unit.new (Apps.Fib.State.new state.map (func state.table)) player target frame List.nil
 }

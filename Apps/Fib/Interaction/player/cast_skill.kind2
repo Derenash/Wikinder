@@ -15,7 +15,7 @@ Apps.Fib.Interaction.player.cast_skill (cooldown: U120) : Apps.Fib.Interaction U
       let player    = Apps.Fib.Player.sl.set player new_silence
       let player    = Apps.Fib.Player.rt.set player new_root
       player
-    ask Apps.Fib.Interaction.check can_cast
+    Apps.Fib.Interaction.check can_cast
     Apps.Fib.Interaction.player.mut func
   }
 }

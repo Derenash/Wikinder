@@ -2,7 +2,9 @@
 Apps.Fib.State.create_player (state: Apps.Fib.State) (id: Apps.Fib.Id) (data: U120) : Apps.Fib.State
 Apps.Fib.State.create_player (Apps.Fib.State.new map tab) id data = 
   let s_pos  = Apps.Fib.State.create_player.city (U120.mod data (U120.new 0 4))
-  let new_player = match Pair s_pos { new => Apps.Fib.Player.default s_pos.fst s_pos.snd }
+  let new_player = 
+    open Pair s_pos  
+    Apps.Fib.Player.default s_pos.fst s_pos.snd
   Apps.Fib.State.player.place (Apps.Fib.State.new map tab) new_player id
 
 #kdl_name = Fib_st_crtpc

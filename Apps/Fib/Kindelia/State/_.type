@@ -1,3 +1,0 @@
-type Apps.Fib.Kindelia.State {
-  new (phase: Apps.Fib.Kindelia.State.Phase) (start: U120) (state: Apps.Fib.State)
-}

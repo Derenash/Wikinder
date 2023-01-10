@@ -3,7 +3,7 @@ Apps.Fib.Interaction.player.set (new_player: Apps.Fib.Player) : Apps.Fib.Interac
   do Apps.Fib.Interaction {
     ask player_id = Apps.Fib.Interaction.player.get_id
     let func = (table: Apps.Fib.Table) => Apps.Fib.Table.set table new_player player_id
-    ask Apps.Fib.Interaction.table.mut func
+    Apps.Fib.Interaction.table.mut func
     return Unit.new
   }
 }

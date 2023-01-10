@@ -9,8 +9,7 @@ Apps.Fib.Interaction.player.get_pos : Apps.Fib.Interaction Apps.Fib.Pos {
 Apps.Fib.Interaction.player.get_pos.aux (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
 Apps.Fib.Interaction.player.get_pos.aux (Apps.Fib.State.new map table) player target frame = 
   let entity = Apps.Fib.Table.got table player
-  match Pair entity {
-    new =>
-      let pos = Apps.Fib.Player.pos.get entity.snd
-      Apps.Fib.Interaction.Result.new pos (Apps.Fib.State.new map entity.fst) player target frame List.nil
-  }
+  open Pair entity 
+  let pos = Apps.Fib.Player.pos.get entity.snd
+  Apps.Fib.Interaction.Result.new pos (Apps.Fib.State.new map entity.fst) player target frame List.nil
+  

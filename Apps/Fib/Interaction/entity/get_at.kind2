@@ -9,11 +9,7 @@ Apps.Fib.Interaction.entity.get_at (pos: Apps.Fib.Pos ) : Apps.Fib.Interaction A
 Apps.Fib.Interaction.entity.get_at.aux (pos: Apps.Fib.Pos) (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) : Apps.Fib.Interaction.Result Apps.Fib.Player
 Apps.Fib.Interaction.entity.get_at.aux pos (Apps.Fib.State.new map table) player target frame = 
   let id = Apps.Fib.Map.got map pos
-  match Pair id {
-    new =>
-      let entity = Apps.Fib.Table.got table id.snd
-      match Pair entity {
-        new =>
-          Apps.Fib.Interaction.Result.new entity.snd (Apps.Fib.State.new id.fst entity.fst) player target frame List.nil
-      }
-  }
+  open Pair id
+  let entity = Apps.Fib.Table.got table id.snd
+  open Pair entity
+  Apps.Fib.Interaction.Result.new entity.snd (Apps.Fib.State.new id.fst entity.fst) player target frame List.nil

@@ -10,17 +10,17 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
     let speed     = U120.new 0 50
 
     // Verifies if the enemy is in range
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask target   = Apps.Fib.Interaction.target.get
 
     // Damages for more in the center and less on the corners
     let func = 
-      pos =>
+      (pos: U120) =>
         do Apps.Fib.Interaction {
-          ask Apps.Fib.Interaction.damage coll_dmg pos
+          Apps.Fib.Interaction.damage coll_dmg pos
           return Unit.new
         }
 
@@ -30,11 +30,11 @@ Apps.Fib.Skill.stoneshot : Apps.Fib.Interaction Unit {
     // Get the coords for a filled square 
     let area  = Apps.Fib.Pos.range target delta
 
-    ask Apps.Fib.Interaction.damage main_dmg target
-    ask Apps.Fib.Interaction.area.generic func area
+    Apps.Fib.Interaction.damage main_dmg target
+    Apps.Fib.Interaction.area.generic func area
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }
 }

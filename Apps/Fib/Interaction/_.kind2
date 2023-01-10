@@ -1,3 +1,4 @@
+#derive[match]
 Apps.Fib.Interaction <a> : Type {
   (state: Apps.Fib.State) -> (player: Apps.Fib.Id) -> (target: Apps.Fib.Pos) -> (frame: U120) -> (Apps.Fib.Interaction.Result a)
 }

@@ -2,15 +2,13 @@
 Apps.Fib.State.create_unit (state: Apps.Fib.State) (init: Apps.Fib.Entity) (pos: Apps.Fib.Pos) (id: Apps.Fib.Id) : Apps.Fib.State
 Apps.Fib.State.create_unit (Apps.Fib.State.new map table) init pos id =
   let tile = Apps.Fib.Map.got map pos
-  match Pair tile {
-    new =>
-      if (U120.is_zero tile.snd) {
-        let map   = Apps.Fib.Map.set tile.fst id pos
-        let func  = (x: U120) => if (U120.is_zero x) { init } else { x }
-        let table = Apps.Fib.Table.mut table func id
-        Apps.Fib.State.new map table
-      } 
-      else {
-        Apps.Fib.State.new map table
-      }
+  open Pair tile 
+  if (U120.is_zero tile.snd) {
+    let map   = Apps.Fib.Map.set tile.fst id pos
+    let func  = (x: U120) => if (U120.is_zero x) { init } else { x }
+    let table = Apps.Fib.Table.mut table func id
+    Apps.Fib.State.new map table
+  } 
+  else {
+    Apps.Fib.State.new map table
   }

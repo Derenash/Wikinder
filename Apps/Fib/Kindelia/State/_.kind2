@@ -1,2 +1,7 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/_.type
-Apps.Fib.Kindelia.State : Type
+#derive[match]
+#kdl_name = Fib_kdl_snew
+record Apps.Fib.Kindelia.State {
+  phase: Apps.Fib.Kindelia.State.Phase
+  start: U120
+  state: Apps.Fib.State
+}

@@ -6,21 +6,19 @@ Apps.Fib.State.Update.respawn (Apps.Fib.State.new map table) data id player fram
     match Maybe rsp {
       none =>
         let p = Apps.Fib.Kindelia.State.join_pos map (Apps.Fib.Map.initial_positions)
-        match Pair p {
-          new =>
-            let map    = p.fst
-            match Maybe p.snd {
-              none =>
-                Pair.new (Apps.Fib.State.new map table) List.nil
-              some =>
-                let pos    = p.snd.value
-                let player = Apps.Fib.Player.respawn player pos
-                let map    = Apps.Fib.Map.set map id pos
-                let table  = Apps.Fib.Table.set table player id
-                let state  = Apps.Fib.State.new map table
-                HVM.log pos (Pair.new state [(Apps.Fib.Event.act_rsp pos id)])
+        open Pair p
+        let map    = p.fst
+        match Maybe p.snd {
+          none =>
+            Pair.new (Apps.Fib.State.new map table) List.nil
+          some =>
+            let pos    = p.snd.value
+            let player = Apps.Fib.Player.respawn player pos
+            let map    = Apps.Fib.Map.set map id pos
+            let table  = Apps.Fib.Table.set table player id
+            let state  = Apps.Fib.State.new map table
+            HVM.log pos (Pair.new state [(Apps.Fib.Event.act_rsp pos id)])
             }
-        } 
       some =>
         // rsp.value = time to respawn
         Pair.new (Apps.Fib.State.new map table) List.nil

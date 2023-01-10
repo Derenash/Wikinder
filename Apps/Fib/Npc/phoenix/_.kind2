@@ -4,7 +4,7 @@ Apps.Fib.Npc.phoenix : Apps.Fib.Interaction Unit {
     ask frame     = Apps.Fib.Interaction.frame.get
     ask duration  = Apps.Fib.Interaction.entity.get
     let is_active = U120.greater_equal duration frame
-    ask             Apps.Fib.Interaction.check is_active
+                    Apps.Fib.Interaction.check is_active
     Apps.Fib.Npc.phoenix.fruit
   }
 }

@@ -1,2 +1,35 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
-Apps.Fib.Event : Type
+#derive[match]
+type Apps.Fib.Event {
+  #kdl_name = Fib_evt_rsp
+  act_rsp   (pos: U120) (id   : U120)
+  #kdl_name = Fib_evt_walk
+  act_walk  (pos: U120) (id   : U120) 
+  #kdl_name = Fib_evt_skil
+  act_skill (pos: U120) (id   : U120) (skill : U120)
+  #kdl_name = Fib_evt_itr
+  act_itr   (pos: U120) (id   : U120) 
+  #kdl_name = Fib_evt_dth
+  death     (pos: U120) (id   : U120)
+  #kdl_name = Fib_evt_dmg
+  damage    (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_heal
+  heal      (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_move
+  movement  (ori: U120) (des  : U120)
+  #kdl_name = Fib_evt_skll
+  skill     (ori: U120) (skill: U120) (target: U120)
+  #kdl_name = Fib_evt_xpad
+  exp_add   (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_rtad
+  rt_add    (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_slad
+  sl_add    (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_gadd
+  gold_add  (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_gsub
+  gold_sub  (pos: U120) (value: U120)
+  #kdl_name = Fib_evt_itad
+  item_add  (pos: U120) (item : U120) (slot  : U120)
+  #kdl_name = Fib_evt_itdl
+  item_del  (pos: U120) (item : U120) (slot  : U120)
+}

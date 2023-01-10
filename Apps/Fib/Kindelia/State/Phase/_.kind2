@@ -1,2 +1,7 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/Phase/_.type
-Apps.Fib.Kindelia.State.Phase : Type
+#derive[match]
+type Apps.Fib.Kindelia.State.Phase {
+  #kdl_name = Fib_kdl_splo
+  lobby (queue  : List Apps.Fib.Kindelia.State.Phase.User)
+  #kdl_name = Fib_kdl_spga
+  game  (players: User.Sipher.PatriciaTree)
+}

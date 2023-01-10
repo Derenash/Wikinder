@@ -5,20 +5,20 @@ Apps.Fib.Skill.move : Apps.Fib.Interaction Unit {
     let range    = U120.new 0 1
     let cooldown = U120.new 0 1
 
-    ask            Apps.Fib.Interaction.player.cast_move cooldown
+                   Apps.Fib.Interaction.player.cast_move cooldown
 
     ask player   = Apps.Fib.Interaction.player.get
     let exists   = Bool.not (U120.is_zero player)
-    ask            Apps.Fib.Interaction.check exists
+                   Apps.Fib.Interaction.check exists
     let origin   = Apps.Fib.Pos.new (Apps.Fib.Player.pos.get_x player) (Apps.Fib.Player.pos.get_y player)
     ask target   = Apps.Fib.Interaction.target.get
     let delta    = Apps.Fib.Pos.Delta.get origin target
 
     // Verifies if the destination is in range
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
 
     // Moves if it is in range
-    ask Apps.Fib.Interaction.move origin delta
+    Apps.Fib.Interaction.move origin delta
 
     // Adds Fatigue to the caster
     return Unit.new

@@ -10,19 +10,19 @@ Apps.Fib.Skill.frostshard : Apps.Fib.Interaction Unit {
 
     // Cooldown
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask origin   = Apps.Fib.Interaction.player.get_pos
     ask target   = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
 
     // Damages the unit if it is in range
-    ask Apps.Fib.Interaction.damage damage target
+    Apps.Fib.Interaction.damage damage target
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     return Unit.new
   }

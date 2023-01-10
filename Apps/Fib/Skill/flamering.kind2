@@ -8,7 +8,7 @@ Apps.Fib.Skill.flamering : Apps.Fib.Interaction Unit {
     let speed    = U120.new 0 50
 
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
     ask target   = Apps.Fib.Interaction.target.get
     ask origin   = Apps.Fib.Interaction.player.get_pos
     ask check    = Apps.Fib.Interaction.skill.check_range range
@@ -19,10 +19,10 @@ Apps.Fib.Skill.flamering : Apps.Fib.Interaction Unit {
     let ring     = Apps.Fib.Pos.range target deltas
 
     // Damages the units in the area
-    ask Apps.Fib.Interaction.damage.area damage ring
+    Apps.Fib.Interaction.damage.area damage ring
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }
 }

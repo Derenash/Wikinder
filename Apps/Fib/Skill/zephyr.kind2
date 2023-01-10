@@ -9,16 +9,16 @@ Apps.Fib.Skill.zephyr : Apps.Fib.Interaction Unit {
     let area     = U120.new 0 1
     let speed    = U120.new 0 80
 
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
     ask target   = Apps.Fib.Interaction.target.get
 
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     // Damages the unities in the area
-    ask Apps.Fib.Interaction.damage damage target
+    Apps.Fib.Interaction.damage damage target
 
     // Adds Fatigue to the caster
     return Unit.new

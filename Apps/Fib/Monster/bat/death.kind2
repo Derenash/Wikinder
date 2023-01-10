@@ -8,7 +8,7 @@
 Apps.Fib.Monster.bat.death (cave_id: Apps.Fib.Id) (damage: U120) : Apps.Fib.Interaction Unit {
   do Apps.Fib.Interaction {
     // Sets the Cave Cooldown to 0
-    ask Apps.Fib.Interaction.entity.mut_at_id ((x : U120) => (U120.new 0 0)) cave_id
+    Apps.Fib.Interaction.entity.mut_at_id ((x : U120) => (U120.new 0 0)) cave_id
     // Adds bat_wings to player
     // TODO: Add Generic Death Function that reward batwings, and experience
     return Unit.new

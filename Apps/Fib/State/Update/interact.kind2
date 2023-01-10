@@ -12,14 +12,12 @@ Apps.Fib.State.Update.interact (Apps.Fib.State.new map table) data id player fra
       none => Pair.new (Apps.Fib.State.new map table) List.nil
       some => 
         let npc    = Apps.Fib.Map.got map target.value
-        match Pair npc {
-          new =>
-            let int    = Apps.Fib.Interaction.get_npc npc.snd data
-            let res    = int (Apps.Fib.State.new npc.fst table) id target.value frame
-            match Apps.Fib.Interaction.Result res {
-              err => Pair.new (Apps.Fib.State.new map table) List.nil
-              new => Pair.new res.state (List.cons (Apps.Fib.Event.act_itr ( target.value) id) res.events)
-            }
-        }
+        open Pair npc 
+        let int    = Apps.Fib.Interaction.get_npc npc.snd data
+        let res    = int (Apps.Fib.State.new npc.fst table) id target.value frame
+        match Apps.Fib.Interaction.Result res {
+          err => Pair.new (Apps.Fib.State.new map table) List.nil
+          new => Pair.new res.state (List.cons (Apps.Fib.Event.act_itr ( target.value) id) res.events)
+      }
     }
   }

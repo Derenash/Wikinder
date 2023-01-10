@@ -9,9 +9,9 @@ Apps.Fib.Skill.quicksand : Apps.Fib.Interaction Unit {
     let area     = U120.new 0 5
     let speed    = U120.new 0 20
 
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask target   = Apps.Fib.Interaction.target.get
 
@@ -22,13 +22,13 @@ Apps.Fib.Skill.quicksand : Apps.Fib.Interaction Unit {
     let area   = Apps.Fib.Pos.range target deltas
 
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     // Roots the units in the area
     let func = 
       (pos: Apps.Fib.Pos) => Apps.Fib.Interaction.player.add_root_at root pos
 
-    ask Apps.Fib.Interaction.area.generic func area
+    Apps.Fib.Interaction.area.generic func area
 
     // Adds Fatigue to the caster
     return Unit.new

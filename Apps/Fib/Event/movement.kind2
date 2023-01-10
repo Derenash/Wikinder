@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
-#kdl_name = Fib_evt_move
-Apps.Fib.Event.movement (ori: U120) (des: U120) : (Apps.Fib.Event)

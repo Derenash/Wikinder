@@ -8,17 +8,17 @@ Apps.Fib.Interaction.damage.death (pos: Apps.Fib.Pos) : Apps.Fib.Interaction Uni
         ask frame  = Apps.Fib.Interaction.frame.get
         ask target = Apps.Fib.Interaction.entity.get_from_id id
         let gold   = Apps.Fib.Player.gd.get target
-        ask Apps.Fib.Interaction.player.add_gold (U120.shift_right gold (U120.new 0 1))
-        ask Apps.Fib.Interaction.entity.mut_at_id (x => Apps.Fib.Player.death x frame) id
-        ask Apps.Fib.Interaction.map.del pos
+        Apps.Fib.Interaction.player.add_gold (U120.shift_right gold (U120.new 0 1))
+        Apps.Fib.Interaction.entity.mut_at_id (x => Apps.Fib.Player.death x frame) id
+        Apps.Fib.Interaction.map.del pos
         let event = Apps.Fib.Event.death pos id
         Apps.Fib.Interaction.event.add event
       }
     }
     else {
       do Apps.Fib.Interaction {
-        ask Apps.Fib.Interaction.entity.del_at_id id
-        ask Apps.Fib.Interaction.map.del pos
+        Apps.Fib.Interaction.entity.del_at_id id
+        Apps.Fib.Interaction.map.del pos
         let event = Apps.Fib.Event.death pos id
         Apps.Fib.Interaction.event.add event
       }

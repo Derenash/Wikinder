@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
-#kdl_name = Fib_evt_gsub
-Apps.Fib.Event.gold_sub (pos: U120) (value: U120) : (Apps.Fib.Event)

@@ -1,9 +1,8 @@
 #kdl_name = Fib_map_get
 Apps.Fib.Map.get (map: Apps.Fib.Map) (pos: Apps.Fib.Pos) : Apps.Fib.Id {
   let keys = Apps.Fib.Map.get.chunk map pos
-  match Pair keys {
-    new => Apps.Fib.Map.get_tile keys.fst keys.snd
-  }
+  open Pair keys
+  Apps.Fib.Map.get_tile keys.fst keys.snd
 }
 
 #kdl_name = Fib_map_getc

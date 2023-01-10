@@ -4,7 +4,7 @@ Apps.Fib.Interaction.player.sub_gd (amount: U120) : Apps.Fib.Interaction Unit {
     ask player = Apps.Fib.Interaction.player.get
     let gd = Apps.Fib.Player.gd.get player
     let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.gd.sub player amount
-    ask Apps.Fib.Interaction.player.mut func
+    Apps.Fib.Interaction.player.mut func
     return Unit.new
   }
 }

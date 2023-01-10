@@ -1,5 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/State/Phase/_.type
-#kdl_name = Fib_kdl_spma
-Apps.Fib.Kindelia.State.Phase.match (x: (Apps.Fib.Kindelia.State.Phase)) -(p: (x: (Apps.Fib.Kindelia.State.Phase)) Type) (lobby: (queue: (List Apps.Fib.Kindelia.State.Phase.User)) (p (Apps.Fib.Kindelia.State.Phase.lobby queue))) (game: (players: User.Sipher.PatriciaTree) (p (Apps.Fib.Kindelia.State.Phase.game players))) : (p x)
-Apps.Fib.Kindelia.State.Phase.match (Apps.Fib.Kindelia.State.Phase.lobby queue_) p lobby game = (lobby queue_)
-Apps.Fib.Kindelia.State.Phase.match (Apps.Fib.Kindelia.State.Phase.game players_) p lobby game = (game players_)

@@ -12,26 +12,26 @@ Apps.Fib.Skill.healingwater : Apps.Fib.Interaction Unit {
 
     // Cooldown
     ask cooldown  = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask origin    = Apps.Fib.Interaction.player.get_pos
     ask target    = Apps.Fib.Interaction.target.get
 
     // Verifies if the enemy is in range
-    ask Apps.Fib.Interaction.skill.check_range range
+    Apps.Fib.Interaction.skill.check_range range
 
     // Decides the heal ammount
     let distance  = Apps.Fib.Pos.distance origin target
     let quantity  = if (U120.equal distance (U120.new 0 0)) { self_heal } else { ally_heal }
 
     // Heals the unit if it is in range
-    ask Apps.Fib.Interaction.heal quantity target
+    Apps.Fib.Interaction.heal quantity target
 
     // Roots itself
-    ask Apps.Fib.Interaction.player.add_root_at self_root origin
+    Apps.Fib.Interaction.player.add_root_at self_root origin
 
     // Adds Fatigue to the caster
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
     return Unit.new
   }
 }

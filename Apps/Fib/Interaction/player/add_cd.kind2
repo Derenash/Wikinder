@@ -4,7 +4,7 @@ Apps.Fib.Interaction.player.add_cd (cd: U120) : Apps.Fib.Interaction Unit {
     ask frame = Apps.Fib.Interaction.frame.get
     let cd    = U120.add frame cd
     let func  = (player: Apps.Fib.Player) => Apps.Fib.Player.cd.set player cd
-    ask Apps.Fib.Interaction.player.mut func
+    Apps.Fib.Interaction.player.mut func
     return Unit.new
   }
 }

@@ -1,2 +1,5 @@
-// Automatically derived from /home/derenash/Wikind/Apps/Fib/Interaction/Result/_.type
-Apps.Fib.Interaction.Result (a: Type) : Type
+#derive[match]
+type Apps.Fib.Interaction.Result <a> {
+  new (val: a) (state: Apps.Fib.State) (player: Apps.Fib.Id) (target: Apps.Fib.Pos) (frame: U120) (events: Apps.Fib.Events)
+  err
+}

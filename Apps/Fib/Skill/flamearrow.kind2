@@ -10,7 +10,7 @@ Apps.Fib.Skill.flamearrow : Apps.Fib.Interaction Unit {
 
     // Cooldown
     ask cooldown = Apps.Fib.Interaction.player.cooldown speed
-    ask            Apps.Fib.Interaction.player.cast_skill cooldown
+                   Apps.Fib.Interaction.player.cast_skill cooldown
 
     ask origin   = Apps.Fib.Interaction.player.get_pos
     ask target   = Apps.Fib.Interaction.target.get
@@ -18,13 +18,13 @@ Apps.Fib.Skill.flamearrow : Apps.Fib.Interaction Unit {
     // Verifies if the enemy is in range
     let distance = Apps.Fib.Pos.distance origin target
     let check    = U120.equal range distance
-    ask Apps.Fib.Interaction.check check
+    Apps.Fib.Interaction.check check
 
     // Adds event for the skill cast
-    ask Apps.Fib.Interaction.skill.event_use skill_id
+    Apps.Fib.Interaction.skill.event_use skill_id
 
     // Damages the unit if it is in range
-    ask Apps.Fib.Interaction.damage damage target
+    Apps.Fib.Interaction.damage damage target
 
     // Adds Fatigue to the caster
 

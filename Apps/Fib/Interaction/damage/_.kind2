@@ -11,13 +11,13 @@ Apps.Fib.Interaction.damage (value: U120) (pos: Apps.Fib.Pos) : Apps.Fib.Interac
     let func      = (player: Apps.Fib.Player) => Apps.Fib.Player.damage player value
     ask id        = Apps.Fib.Interaction.entity.get_id_at pos
     ask before    = Apps.Fib.Interaction.entity.get_from_id id
-    ask             Apps.Fib.Interaction.entity.mut_at_id func id
+                    Apps.Fib.Interaction.entity.mut_at_id func id
     ask after     = Apps.Fib.Interaction.entity.get_from_id id
     let real_dmg  = Apps.Fib.Player.hp.difference before after
     let is_player = Apps.Fib.Id.is_player id
     let health    = Apps.Fib.Player.hp.get after
     let interact  = Bool.if is_player (Apps.Fib.Interaction.damage.if real_dmg health pos) (Apps.Fib.Interaction.pure Unit.new)
-    ask             interact
+                    interact
     return real_dmg
   }
 }
@@ -28,10 +28,10 @@ Apps.Fib.Interaction.damage.if (U120.new 0 0) health pos = do Apps.Fib.Interacti
 Apps.Fib.Interaction.damage.if real_dmg       health pos = 
   do Apps.Fib.Interaction {
     let event   = Apps.Fib.Event.damage pos real_dmg
-    ask           Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage pos real_dmg)
+                  Apps.Fib.Interaction.event.add (Apps.Fib.Event.damage pos real_dmg)
     ask id      = Apps.Fib.Interaction.entity.get_id_at pos
     let results = (Apps.Fib.Interaction.get_reaction id) real_dmg
-    ask Apps.Fib.Interaction.damage.result (U120.is_zero health) (Pair.fst results) (Pair.snd results) id pos
+    Apps.Fib.Interaction.damage.result (U120.is_zero health) (Pair.fst results) (Pair.snd results) id pos
 //  ask Apps.Fib.Interaction.delete (U120.greater_equal id (U120.new 0 1024)) pos
     return Unit.new 
   }
@@ -41,7 +41,7 @@ Apps.Fib.Interaction.damage.result (died: Bool) (react: Apps.Fib.Interaction Uni
 Apps.Fib.Interaction.damage.result Bool.false react death id pos = react
 Apps.Fib.Interaction.damage.result Bool.true  react death id pos =
   do Apps.Fib.Interaction {
-    ask death
+    death
     Apps.Fib.Interaction.damage.death pos 
     // ask Apps.Fib.Interaction.delete (U120.greater_equal id (U120.new 0 1024)) pos
   }

@@ -1,2 +1,8 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/To_start/_.type
-Apps.Fib.Kindelia.To_start : Type
+#kdl_name = Fib_kdl_tsne
+#derive[match]
+record Apps.Fib.Kindelia.To_start {
+  pos: List U120
+  users: User.Sipher.PatriciaTree
+  state: Apps.Fib.State
+  count: U120
+}

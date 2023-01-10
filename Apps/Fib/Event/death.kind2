@@ -1,3 +1,0 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Event/_.type
-#kdl_name = Fib_evt_dth
-Apps.Fib.Event.death (pos: U120) (id: U120) : (Apps.Fib.Event)

@@ -5,9 +5,9 @@ Apps.Fib.Interaction.npc.buy (item: U120) (price: U120): Apps.Fib.Interaction Un
     let slot    = Apps.Fib.Player.skills.has_slot player
     ask can_buy = Apps.Fib.Interaction.player.can_buy price
     ask slot    = Apps.Fib.Interaction.check_and_next slot
-    ask           Apps.Fib.Interaction.check can_buy 
+                  Apps.Fib.Interaction.check can_buy 
     let func    = (x: Apps.Fib.Player) => Apps.Fib.Player.gd.sub x price
-    ask Apps.Fib.Interaction.skill.add item
+    Apps.Fib.Interaction.skill.add item
     Apps.Fib.Interaction.player.mut func
    }
 }

@@ -7,22 +7,23 @@ Apps.Fib.Npc.obelisk.itr (obelisk_id: U120) (chest_id: Apps.Fib.Id) : Apps.Fib.I
     //Checks if the puzzle is solved, if true, fails the interaction
     ask state = Apps.Fib.Interaction.entity.get_from_id chest_id
     let solved = Apps.Fib.Npc.obelisk.solved state
-    ask Apps.Fib.Interaction.check solved
+    Apps.Fib.Interaction.check solved
     //Makes a pair of data (that is which obelisk is being interacted with) and its right
     let obls = Apps.Fib.Npc.obelisk.pair obelisk_id
     let lft  = Pair.fst obls
     let rgt  = Pair.snd obls
     ask target  = Apps.Fib.Interaction.target.get
     //Apply the successor of the current state to both obelisks and sets the new value
-    let fst = state => Apps.Fib.U120.mut state lft (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
-    let snd = state => Apps.Fib.U120.mut state rgt (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
-    ask Apps.Fib.Interaction.entity.mut_at_id (x => snd (fst x)) chest_id
+    let fst = (state: U120) => Apps.Fib.U120.mut state lft (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
+    let snd = (state: U120) => Apps.Fib.U120.mut state rgt (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
+    Apps.Fib.Interaction.entity.mut_at_id (x => snd (fst x)) chest_id
     return Unit.new
     }
   }
 
+
 // Main {
-//   let init = Apps.Fib.Npc.obelisk.init0
-//   let a = Apps.Fib.U120.mut (U120.inc init) (U120.new 0 0) (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
-//   a
+  // let init = Apps.Fib.Npc.obelisk.init0
+  // let a = Apps.Fib.U120.mut (U120.inc init) (U120.new 0 0) (U120.new 0 2) (x => Apps.Fib.U120.obelisk_succ x)
+  // a
 // }

@@ -1,2 +1,30 @@
-// Automatically derived from /home/derenash/Wikinder/Apps/Fib/Kindelia/Response/_.type
-Apps.Fib.Kindelia.Response : Type
+type Apps.Fib.Kindelia.Response {
+  #kdl_name = Fib_res_no
+  none
+  #kdl_name = Fib_res_stat
+  state       (state    : Apps.Fib.Kindelia.State) 
+  #kdl_name = Fib_res_acte
+  acted       (id       : U120) (data: (Data.BraunTree Apps.Fib.Event))
+  #kdl_name = Fib_res_qued
+  queued      (wallet   : U120) 
+  #kdl_name = Fib_res_join
+  joined      (wallet   : U120) (id  : U120)
+  #kdl_name = Fib_res_star
+  started     (block    : U120)
+  #kdl_name = Fib_res_rese
+  reseted
+  #kdl_name = Fib_res_wrph
+  wrong_phase  
+  #kdl_name = Fib_res_noac     
+  act_fail    (id       : U120)
+  #kdl_name = Fib_res_noqu
+  queue_fail  (wallet   : U120)
+  #kdl_name = Fib_res_nojo
+  join_fail   (wallet   : U120)
+  #kdl_name = Fib_res_nost
+  start_fail  (to_start : U120)
+  #kdl_name = Fib_res_nore
+  reset_fail  (to_reset : U120)
+  #kdl_name = Fib_res_inva
+  invalid
+}
